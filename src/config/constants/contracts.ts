@@ -1,10 +1,10 @@
 export default {
   cake: {
-    56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7',
+    56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
     97: '',
   },
   masterChef: {
-    56: '0x9fa7229389512f9C4866ADBBB276D5c560Bd9ed3',
+    56: '0x9fa7229389512f9C4866ADBBB276D5c560Bd9ed3', // TODO a remplacer par le vrai MASTERCHEF + MODIFIER ABI
     97: '',
   },
   wbnb: {

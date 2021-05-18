@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://exchange.goosedefi.com/',
+        href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.goosedefi.com/#/pool',
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR
       },
     ],
   },
@@ -50,13 +50,25 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
+        label: 'PancakeSwap (MINT)',
+        href: 'https://pancakeswap.info/token/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+      },
+      {
+        label: 'PancakeSwap (SUGAR)',
+        href: 'https://pancakeswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6', // TODO a remplacer par le vrai SUGAR
       },
       // {
       //   label: 'CoinGecko',
       //   href: 'https://www.coingecko.com/en/coins/goose-finance',
       // },
+      {
+        label: 'Dex Guru (MINT)',
+        href: 'https://dex.guru/token/0xcaece7b6a662b0fcabdb7d760778fff992365f66-bsc',
+      },
+      {
+        label: 'Dex Guru (SUGAR)',
+        href: 'https://dex.guru/token/0xcaece7b6a662b0fcabdb7d760778fff992365f66-bsc', // TODO a remplacer par le vrai SUGAR
+      },
       // {
       //   label: 'CoinMarketCap',
       //   href: 'https://coinmarketcap.com/currencies/goose-finance/',
@@ -73,15 +85,15 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/goosedefi/',
+        href: 'https://github.com/goosedefi/', // TODO a remplacer par le vrai SUGAR
       },
       {
         label: 'Docs',
-        href: 'https://goosedefi.gitbook.io/goose-finance/',
+        href: 'https://goosedefi.gitbook.io/goose-finance/', // TODO a remplacer par le vrai SUGAR
       },
       {
         label: 'Blog',
-        href: 'https://goosefinance.medium.com/',
+        href: 'https://goosefinance.medium.com/', // TODO a remplacer par le vrai SUGAR
       },
     ],
   },
@@ -103,7 +115,7 @@ const config: MenuEntry[] = [
   {
     label: 'Audit by TechRate',
     icon: 'AuditIcon',
-    href: 'https://certik.org/projects/goose-finance',
+    href: 'https://certik.org/projects/goose-finance', // TODO a remplacer par le vrai SUGAR
   },
 ]
 

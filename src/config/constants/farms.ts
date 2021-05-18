@@ -8,12 +8,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SUGAR-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x6f482742fA3Ae79183ca3c919Ea2Ddb3E681473e',
+      56: '0x6f482742fA3Ae79183ca3c919Ea2Ddb3E681473e', // TODO a remplacer par le vrai SUGAR
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7',
+      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -24,12 +24,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SUGAR-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x439c282B5992c939c47D3aa0F5509E145ECD550b',
+      56: '0x439c282B5992c939c47D3aa0F5509E145ECD550b', // TODO a remplacer par le vrai SUGAR
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7',
+      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -183,12 +183,12 @@ const farms: FarmConfig[] = [
   //   pid: 12,
   //   risk: 5,
   //   isTokenOnly: true,
-  //   lpSymbol: 'EGG',
+  //   lpSymbol: 'SUGAR',
   //   lpAddresses: {
   //     97: '',
-  //     56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // EGG-BUSD LP
+  //     56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // SUGAR-BUSD LP
   //   },
-  //   tokenSymbol: 'EGG',
+  //   tokenSymbol: 'SUGAR',
   //   tokenAddresses: {
   //     97: '',
   //     56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
@@ -203,7 +203,7 @@ const farms: FarmConfig[] = [
   //   lpSymbol: 'BUSD',
   //   lpAddresses: {
   //     97: '',
-  //     56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // EGG-BUSD LP (BUSD-BUSD will ignore)
+  //     56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // SUGAR-BUSD LP (BUSD-BUSD will ignore)
   //   },
   //   tokenSymbol: 'BUSD',
   //   tokenAddresses: {

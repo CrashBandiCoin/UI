@@ -16,7 +16,7 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/egg/2a.png');
+  background-image: url('/images/SUGAR/2a.png');
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -45,7 +45,7 @@ const FarmedStakingCard = () => {
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
   const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
-  const eggPrice = usePriceCakeBusd().toNumber()
+  const SUGARPrice = usePriceCakeBusd().toNumber()
   const allEarnings = useAllEarnings()
   const earningsSum = allEarnings.reduce((accum, earning) => {
     return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
@@ -79,11 +79,11 @@ const FarmedStakingCard = () => {
           params: {
             type: 'ERC20',
             options: {
-              address: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
-              symbol: 'BLZD',
+              address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+              symbol: 'MINT',
               decimals: '18',
               image:
-                'https://blizzard.moneyhttps://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/farms/blzd.png',
+                '',
             },
           },
         })
@@ -106,11 +106,11 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/egg/mint.png" alt="cake logo" width={64} height={64} />
+        <CardImage src="/images/SUGAR/mint.png" alt="mint logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(547, 'Mint in Wallet')}</Label>
           <CakeWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
+          <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
         </Block>
 
         <Button onClick={addWatchBlzdToken} mb="sm">
@@ -127,16 +127,16 @@ const FarmedStakingCard = () => {
 
 
       <CardBody>
-        <CardImage src="/images/egg/2.png" alt="cake logo" width={64} height={64} />
+        <CardImage src="/images/SUGAR/2.png" alt="cake logo" width={64} height={64} />
         <Block>
-          <Label>{TranslateString(544, 'EGG to Harvest')}</Label>
+          <Label>{TranslateString(544, 'SUGAR to Harvest')}</Label>
           <CakeHarvestBalance earningsSum={earningsSum}/>
-          <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
+          <Label>~${(SUGARPrice * earningsSum).toFixed(2)}</Label>
         </Block>
         <Block>
-          <Label>{TranslateString(546, 'EGG in Wallet')}</Label>
+          <Label>{TranslateString(546, 'SUGAR in Wallet')}</Label>
           <CakeWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
+          <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
         </Block>
         <Actions>
           {account ? (
@@ -147,7 +147,7 @@ const FarmedStakingCard = () => {
               fullWidth
             >
               {pendingTx
-                ? TranslateString(548, 'Collecting EGG')
+                ? TranslateString(548, 'Collecting SUGAR')
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
