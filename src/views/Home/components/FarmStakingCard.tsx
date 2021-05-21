@@ -79,7 +79,7 @@ const FarmedStakingCard = () => {
           params: {
             type: 'ERC20',
             options: {
-              address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+              address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO remplacer par la bonne addresse
               symbol: 'MINT',
               decimals: '18',
               image:
@@ -106,27 +106,6 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/SUGAR/mint.png" alt="mint logo" width={64} height={64} />
-        <Block>
-          <Label>{TranslateString(547, 'Mint in Wallet')}</Label>
-          <CakeWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
-        </Block>
-
-        <Button onClick={addWatchBlzdToken} mb="sm">
-            +{' '}
-            <img
-              style={{ marginLeft: 8 }}
-              width={16}
-              src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png"
-              alt="metamask logo"
-            />
-            </Button>
-      </CardBody>
-
-
-
-      <CardBody>
         <CardImage src="/images/SUGAR/2.png" alt="cake logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(544, 'SUGAR to Harvest')}</Label>
@@ -138,6 +117,15 @@ const FarmedStakingCard = () => {
           <CakeWalletBalance cakeBalance={cakeBalance} />
           <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
         </Block>
+        <Button onClick={addWatchBlzdToken} mb="sm">
+          +{' '}
+          <img
+              style={{ marginLeft: 8 }}
+              width={16}
+              src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png"
+              alt="metamask logo"
+          />
+        </Button>
         <Actions>
           {account ? (
             <Button
