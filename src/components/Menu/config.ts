@@ -119,7 +119,7 @@ const config: MenuEntry[] = [
   {
     label: 'Audit by TechRate',
     icon: 'AuditIcon',
-    href: 'https://certik.org/projects/goose-finance', // TODO a remplacer par le vrai SUGAR
+    href: 'https://github.com/Tea-Swap/contract/blob/master/audits/techRate/Sugar_MasterTea.pdf',
   },
 ]
 
