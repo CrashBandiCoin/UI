@@ -13,7 +13,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -29,7 +29,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x3b385c54105D3327717d760Abf5ce3Ff64bD9bF7', // TODO a remplacer par le vrai SUGAR
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -46,7 +46,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'BNB',
     tokenAddresses: {
       97: '',
-      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,

@@ -79,8 +79,8 @@ const FarmedStakingCard = () => {
           params: {
             type: 'ERC20',
             options: {
-              address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO remplacer par la bonne addresse
-              symbol: 'MINT',
+              address: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO remplacer par la bonne addresse
+              symbol: 'SUGAR',
               decimals: '18',
               image:
                 '',
