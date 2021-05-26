@@ -8,7 +8,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SUGAR-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x6f482742fA3Ae79183ca3c919Ea2Ddb3E681473e', // TODO a remplacer par le vrai SUGAR
+      56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988', // TODO a remplacer par le vrai SUGAR
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
@@ -24,7 +24,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SUGAR-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x439c282B5992c939c47D3aa0F5509E145ECD550b', // TODO a remplacer par le vrai SUGAR
+      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2', // TODO a remplacer par le vrai SUGAR
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
