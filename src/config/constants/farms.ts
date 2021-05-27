@@ -19,7 +19,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
   {
-    pid: 1,
+    pid:1,
     risk: 5,
     lpSymbol: 'SUGAR-BUSD LP',
     lpAddresses: {
@@ -47,6 +47,23 @@ const farms: FarmConfig[] = [
     tokenAddresses: {
       97: '',
       56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 3,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'SUGAR',
+    lpAddresses: {
+      97: '',
+      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2', // SUGAR-BUSD LP
+    },
+    tokenSymbol: 'SUGAR',
+    tokenAddresses: {
+      97: '',
+      56: '0x41aa9f842af935cc71252c0de4bff13f821546b8',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,

@@ -116,6 +116,11 @@ const config: MenuEntry[] = [
   //   icon: 'AuditIcon',
   //   href: 'https://certik.org/projects/goose-finance',
   // },
+  // {
+  //   label: 'Roadmap',
+  //   icon: 'RoadmapIcon',
+  //   href: '/roadmap',
+  // },
   {
     label: 'Audit by TechRate',
     icon: 'AuditIcon',
