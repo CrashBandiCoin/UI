@@ -119,6 +119,90 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+  {
+    pid: 7,
+    risk: 2,
+    lpSymbol: 'BNB-CAKE LP',
+    lpAddresses: {
+      97: '',
+      56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
+    },
+    tokenSymbol: 'BNB',
+    tokenAddresses: {
+      97: '',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.trueCake,
+  },
+  // {
+  //   pid: 8,
+  //   risk: 5,
+  //   // isTokenOnly: true,
+  //   lpSymbol: 'BTCB-BUSD',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0xb8875e207ee8096a929d543c9981c9586992eacb', // BTCB-BUSD LP
+  //   },
+  //   tokenSymbol: 'BTCB',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.BUSD,
+  //   quoteTokenAdresses: contracts.busd,
+  // },
+  // {
+  //   pid: 9,
+  //   risk: 5,
+  //   // isTokenOnly: true,
+  //   lpSymbol: 'ETH-BUSD',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0x7213a321F1855CF1779f42c0CD85d3D95291D34C', // ETH-BUSD LP
+  //   },
+  //   tokenSymbol: 'ETH',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.BUSD,
+  //   quoteTokenAdresses: contracts.busd,
+  // },
+  {
+    pid: 10,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'BTCB',
+    lpAddresses: {
+      97: '',
+      56: '0xb8875e207ee8096a929d543c9981c9586992eacb', // BTCB-BUSD LP
+    },
+    tokenSymbol: 'BTCB',
+    tokenAddresses: {
+      97: '',
+      56: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 11,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'ETH',
+    lpAddresses: {
+      97: '',
+      56: '0x7213a321F1855CF1779f42c0CD85d3D95291D34C', // ETH-BUSD LP
+    },
+    tokenSymbol: 'ETH',
+    tokenAddresses: {
+      97: '',
+      56: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
   // {
   //   pid: 3,
   //   risk: 1,
