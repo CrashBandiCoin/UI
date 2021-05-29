@@ -10,9 +10,15 @@ declare module 'styled-components' {
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Kanit', sans-serif;
+    
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
+    // background-image: url('/images/TeaSwap_Background_v1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
 
     img {
       height: auto;

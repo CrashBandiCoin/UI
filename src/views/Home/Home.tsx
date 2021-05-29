@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
+import {Heading, Text, BaseLayout, Link} from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'
@@ -9,6 +9,9 @@ import CakeStats from './components/CakeStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
 import Soundcloud from './components/Soundcloud'
+import DappRadar from './img/dappradar.png'
+import SocialCard from "./components/SocialCard";
+
 
 const Hero = styled.div`
   align-items: center;
@@ -72,6 +75,8 @@ const Home: React.FC = () => {
           <CakeStats />
           <TotalValueLockedCard />
         </Cards>
+        <SocialCard/>
+
       </div>
     </Page>
   )

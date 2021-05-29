@@ -4,7 +4,7 @@ import { Heading, Card, CardBody, Button } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import useI18n from 'hooks/useI18n'
-import { useAllHarvest } from 'hooks/useHarvest'
+import {useAllHarvest} from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
 import CakeHarvestBalance from './CakeHarvestBalance'
@@ -53,6 +53,7 @@ const FarmedStakingCard = () => {
   const balancesWithValue = farmsWithBalance.filter((balanceType) => balanceType.balance.toNumber() > 0)
 
   const { onReward } = useAllHarvest(balancesWithValue.map((farmWithBalance) => farmWithBalance.pid))
+  // const { onRewardCompound } = useAllCompound(balancesWithValue.map((farmWithBalance) => farmWithBalance.pid))
 
   const harvestAllFarms = useCallback(async () => {
     setPendingTx(true)
@@ -64,7 +65,6 @@ const FarmedStakingCard = () => {
       setPendingTx(false)
     }
   }, [onReward])
-
 
 
   const addWatchBlzdToken = useCallback(async () => {
@@ -142,6 +142,7 @@ const FarmedStakingCard = () => {
             <UnlockButton fullWidth />
           )}
         </Actions>
+
       </CardBody>
     </StyledFarmStakingCard>
   )

@@ -1933,7 +1933,7 @@
 
 "@pancakeswap-libs/uikit@Tea-Swap/teaswap-uikit":
   version "0.10.2"
-  resolved "https://codeload.github.com/Tea-Swap/teaswap-uikit/tar.gz/dd43706744b22b97c8da4c17b19f4a36d4f51c34"
+  resolved "https://codeload.github.com/Tea-Swap/teaswap-uikit/tar.gz/8781b0d98477e028435d38b875e82feb5933b779"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
@@ -6320,9 +6320,9 @@ ejs@^3.1.5:
     jake "^10.6.1"
 
 electron-to-chromium@^1.3.47, electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.723:
-  version "1.3.741"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.741.tgz#dc1024b19b31e27fb2c8c0a1f120cb05fc6ca695"
-  integrity sha512-4i3T0cwnHo1O4Mnp9JniEco8bZiXoqbm3PhW5hv7uu8YLg35iajYrRnNyKFaN8/8SSTskU2hYqVTeYVPceSpUA==
+  version "1.3.742"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.742.tgz#7223215acbbd3a5284962ebcb6df85d88b95f200"
+  integrity sha512-ihL14knI9FikJmH2XUIDdZFWJxvr14rPSdOhJ7PpS27xbz8qmaRwCwyg/bmFwjWKmWK9QyamiCZVCvXm5CH//Q==
 
 elliptic@6.5.2:
   version "6.5.2"

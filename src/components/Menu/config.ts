@@ -70,6 +70,10 @@ const config: MenuEntry[] = [
         label: 'Dex Guru (SUGAR)',
         href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc', // TODO a remplacer par le vrai SUGAR
       },
+      {
+        label: 'DappRadar (SUGAR)',
+        href: 'https://dappradar.com/binance-smart-chain/defi/teaswap', // TODO a remplacer par le vrai SUGAR
+      },
       // {
       //   label: 'CoinMarketCap',
       //   href: 'https://coinmarketcap.com/currencies/goose-finance/',

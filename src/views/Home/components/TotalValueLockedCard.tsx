@@ -6,6 +6,7 @@ import { useGetStats } from 'hooks/api'
 import { useTotalValue } from '../../../state/hooks'
 import CardValue from './CardValue'
 
+
 const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
   display: flex;
@@ -32,7 +33,9 @@ const TotalValueLockedCard = () => {
           <Text color="textSubtle">{TranslateString(999, 'Across all Farms and Pools')}</Text>
         </>
       </CardBody>
+
     </StyledTotalValueLockedCard>
+
   )
 }
 
