@@ -25,7 +25,8 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid}) => {
 
     // compound to SUGAR pool
     const {onReward} = useHarvest(pid)
-    const {onStake} = useStake(pid)
+    const {onStake} = useStake(3)
+
 
 
     const rawEarningsBalance = getBalanceNumber(earnings)
@@ -35,6 +36,27 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid}) => {
         <Flex mb='8px' justifyContent='space-between' alignItems='center'>
             <Heading color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
             <BalanceAndCompound>
+                {pid !== 3 ?
+                    <Button
+                        disabled={rawEarningsBalance === 0 || pendingTx}
+                        size='sm'
+                        variant='secondary'
+                        marginBottom='15px'
+                        onClick={async () => {
+                            setPendingTx(true)
+                            await Promise.all([
+                                onStake(rawEarningsBalance.toString()),
+                                onReward(),
+
+                            ]);
+                            setPendingTx(false)
+                        }
+                        }
+                    >
+                        {TranslateString(999, 'Pack it')}
+                    </Button>
+                    : null}
+
                 {pid === 3 ?
                     <Button
                         disabled={rawEarningsBalance === 0 || pendingTx}
@@ -44,7 +66,6 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid}) => {
                         onClick={async () => {
                             setPendingTx(true)
                             await onStake(rawEarningsBalance.toString())
-                            // await onReward()
                             setPendingTx(false)
                         }
                         }
