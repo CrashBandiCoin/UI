@@ -11,15 +11,28 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange',
-        href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+        label: 'Liquidity MINT',
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR
       },
       {
-        label: 'Liquidity',
+        label: 'Liquidity SUGAR',
         href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
       },
     ],
   },
+
+  {
+    label: 'Buy MINT',
+    icon: 'TradeIcon',
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+  },
+
+  {
+    label: 'Buy SUGAR',
+    icon: 'TradeIcon',
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+  },
+
   {
     label: 'Farms',
     icon: 'FarmIcon',
@@ -71,7 +84,11 @@ const config: MenuEntry[] = [
         href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc', // TODO a remplacer par le vrai SUGAR
       },
       {
-        label: 'DappRadar (SUGAR)',
+        label: 'Dex Tools (SUGAR)',
+        href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/0x21cb4ed35c47b56478cc7c22a24127b8e9bc01c2', // TODO a remplacer par le vrai SUGAR
+      },
+      {
+        label: 'DappRadar',
         href: 'https://dappradar.com/binance-smart-chain/defi/teaswap', // TODO a remplacer par le vrai SUGAR
       },
       // {
