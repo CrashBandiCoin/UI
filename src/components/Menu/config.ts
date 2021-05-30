@@ -7,15 +7,15 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Trade',
+    label: 'Liquidity',
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Liquidity MINT',
+        label: 'Add MINT liquidity',
         href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR
       },
       {
-        label: 'Liquidity SUGAR',
+        label: 'Add SUGAR liquidity',
         href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
       },
     ],
