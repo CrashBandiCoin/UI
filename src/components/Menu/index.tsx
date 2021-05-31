@@ -14,6 +14,7 @@ const Menu = (props) => {
   const cakePriceUsd = usePriceCakeBusd()
   const mintPriceUsd = usePriceMintBusd()
 
+
   return (
     <UikitMenu
       account={account}
@@ -24,8 +25,8 @@ const Menu = (props) => {
       currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
+      // mintPriceUsd={mintPriceUsd}
       cakePriceUsd={cakePriceUsd.toNumber()}
-      mintPriceUsd={mintPriceUsd.toNumber()}
       links={config}
       // priceLink="https://www.coingecko.com/en/coins/goose-finance"
       {...props}
