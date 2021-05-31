@@ -13,7 +13,7 @@ export type DataResponse = {
   poolMatch3: number
   poolMatch2: number
 
-  // TODO: Fill in the error type
+
   error: any
 }
 

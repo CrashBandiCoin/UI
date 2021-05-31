@@ -3,17 +3,17 @@ import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
   {
-    pid: 0,
+    pid: 0, // TODO fixe the correct APR
     risk: 5,
     lpSymbol: 'SUGAR-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988', // TODO a remplacer par le vrai SUGAR
+      56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988',
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
     },
     quoteTokenSymbol: QuoteToken.CAKE,
     quoteTokenAdresses: contracts.cake,
@@ -24,12 +24,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'SUGAR-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2', // TODO a remplacer par le vrai SUGAR
+      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2',
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
       97: '',
-      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -120,7 +120,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 7,
+    pid: 7, // TODO fixe the correct APR
     risk: 2,
     lpSymbol: 'BNB-CAKE LP',
     lpAddresses: {
@@ -203,22 +203,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
-  {
-    pid: 12,
-    risk: 2,
-    lpSymbol: 'MINT-BUSD',
-    lpAddresses: {
-      97: '',
-      56: '0x7032518955f8E27677a14Adc465075357CE13c16', // MINT-BUSD LP
-    },
-    tokenSymbol: 'MINT',
-    tokenAddresses: {
-      97: '',
-      56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
-    },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
-  },
+  // {
+  //   pid: 12,
+  //   risk: 2,
+  //   lpSymbol: 'MINT-BUSD',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0x7032518955f8E27677a14Adc465075357CE13c16', // MINT-BUSD LP
+  //   },
+  //   tokenSymbol: 'MINT',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.BUSD,
+  //   quoteTokenAdresses: contracts.busd,
+  // },
   // {
   //   pid: 3,
   //   risk: 1,

@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Add MINT liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
       },
       {
         label: 'Add SUGAR liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
       },
     ],
   },
@@ -30,7 +30,7 @@ const config: MenuEntry[] = [
   {
     label: 'Buy SUGAR',
     icon: 'SugarIcon',
-    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
   },
 
   {
@@ -69,11 +69,11 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Chart (SUGAR)',
-        href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc', // TODO a remplacer par le vrai SUGAR
+        href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc',
       },
       // {
       //   label: 'Charts on Dex Tools (SUGAR)',
-      //   href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/0x21cb4ed35c47b56478cc7c22a24127b8e9bc01c2', // TODO a remplacer par le vrai SUGAR
+      //   href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/0x21cb4ed35c47b56478cc7c22a24127b8e9bc01c2',
       // },
     ],
   },
@@ -83,7 +83,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'DappRadar',
-        href: 'https://dappradar.com/binance-smart-chain/defi/teaswap', // TODO a remplacer par le vrai SUGAR
+        href: 'https://dappradar.com/binance-smart-chain/defi/teaswap',
       },
     ],
   },
@@ -93,11 +93,11 @@ const config: MenuEntry[] = [
     items: [
       // {
       //   label: 'Docs',
-      //   href: 'https://goosedefi.gitbook.io/goose-finance/', // TODO a remplacer par le vrai SUGAR
+      //   href: 'https://goosedefi.gitbook.io/goose-finance/',
       // },
       {
         label: 'Website',
-        href: 'https://tea-swap.finance/', // TODO a remplacer par le vrai SUGAR
+        href: 'https://tea-swap.finance/',
       },
     ],
   },

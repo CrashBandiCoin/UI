@@ -62,7 +62,7 @@ const NftGlobalNotification = () => {
         ],
       )
 
-      // TODO: Figure out why these values are coming back as an array
+
       const [totalSupplyDistributed]: [BigNumber] = totalSupplyDistributedArr
       const [currentDistributedSupply]: [BigNumber] = currentDistributedSupplyArr
       const [canClaim]: [boolean] = canClaimArr

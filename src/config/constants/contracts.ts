@@ -1,18 +1,18 @@
 export default {
   cake: {
-    56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
+    56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
     97: '',
   },
   mint: {
-    56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
+    56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
     97: '',
   },
   trueCake: {
-    56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
+    56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
     97: '',
   },
   masterChef: {
-    56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F', // TODO a remplacer par le vrai MASTERCHEF + MODIFIER ABI
+    56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F',
     97: '',
   },
   wbnb: {
