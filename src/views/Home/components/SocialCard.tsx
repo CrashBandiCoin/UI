@@ -11,6 +11,7 @@ import CardValue from './CardValue'
 import { useFarms } from '../../../state/hooks'
 import DappRadar from "../img/dappradar.png";
 import DexGuru from "../img/dexguru.png";
+import TechRate from "../img/techrate.jpg";
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -50,6 +51,7 @@ const SocialCard = () => {
                   alt=""
               />
           </a>
+
       </CardBody>
     </StyledTwitterCard>
   )
