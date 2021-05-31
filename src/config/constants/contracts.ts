@@ -3,6 +3,10 @@ export default {
     56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
     97: '',
   },
+  mint: {
+    56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
+    97: '',
+  },
   trueCake: {
     56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', // TODO a remplacer par le vrai SUGAR + MODIFIER ABI
     97: '',

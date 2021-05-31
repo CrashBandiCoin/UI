@@ -9,9 +9,9 @@ import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
 import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
-import { usePriceCakeBusd } from '../../../state/hooks'
+import {usePriceCakeBusd, usePriceMintBusd} from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import { getCakeAddress } from '../../../utils/addressHelpers'
+import {getCakeAddress, getMintAddress} from '../../../utils/addressHelpers'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
@@ -45,7 +45,9 @@ const FarmedStakingCard = () => {
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
   const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
+  const mintBalance = getBalanceNumber(useTokenBalance(getMintAddress()))
   const SUGARPrice = usePriceCakeBusd().toNumber()
+  const MINTPrice = usePriceMintBusd().toNumber()
   const allEarnings = useAllEarnings()
   const earningsSum = allEarnings.reduce((accum, earning) => {
     return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
@@ -83,7 +85,37 @@ const FarmedStakingCard = () => {
               symbol: 'SUGAR',
               decimals: '18',
               image:
-                '',
+                  '',
+            },
+          },
+        })
+
+        if (wasAdded) {
+          console.log('Token was added')
+        }
+      } catch (error) {
+        // TODO: find a way to handle when the user rejects transaction or it fails
+      }
+    }
+  }, [])
+
+  const addWatchMintToken = useCallback(async () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const provider = window.ethereum
+    if (provider) {
+      try {
+        // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+        const wasAdded = await provider.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66', // TODO remplacer par la bonne addresse
+              symbol: 'MINT',
+              decimals: '18',
+              image:
+                  '',
             },
           },
         })
@@ -98,10 +130,29 @@ const FarmedStakingCard = () => {
   }, [])
 
 
-
-
   return (
     <StyledFarmStakingCard>
+      <CardBody>
+        <Heading size="xl" mb="24px">
+          {TranslateString(542, 'Farms & Staking')}
+        </Heading>
+        <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64} />
+        <Block>
+          <Label>{TranslateString(547, 'MINT in Wallet')}</Label>
+          <CakeWalletBalance cakeBalance={mintBalance} />
+          <Label>~${(MINTPrice * mintBalance).toFixed(2)}</Label>
+        </Block>
+        <Button onClick={addWatchMintToken} mb="sm">
+          +{' '}
+          <img
+              style={{ marginLeft: 8 }}
+              width={16}
+              src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png"
+              alt="metamask logo"
+          />
+        </Button>
+      </CardBody>
+
       <CardBody>
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}

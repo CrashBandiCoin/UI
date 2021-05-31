@@ -8,7 +8,7 @@ const config: MenuEntry[] = [
   },
   {
     label: 'Liquidity',
-    icon: 'TradeIcon',
+    icon: 'LiquidityIcon',
     items: [
       {
         label: 'Add MINT liquidity',
@@ -23,13 +23,13 @@ const config: MenuEntry[] = [
 
   {
     label: 'Buy MINT',
-    icon: 'TradeIcon',
+    icon: 'MintIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
   },
 
   {
     label: 'Buy SUGAR',
-    icon: 'TradeIcon',
+    icon: 'SugarIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
   },
 
@@ -60,45 +60,31 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
-    label: 'Info',
-    icon: 'InfoIcon',
+    label: 'Graph',
+    icon: 'GraphIcon',
     items: [
       {
-        label: 'PancakeSwap (MINT)',
-        href: 'https://pancakeswap.info/token/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
-      },
-      {
-        label: 'PancakeSwap (SUGAR)',
-        href: 'https://pancakeswap.info/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8', // TODO a remplacer par le vrai SUGAR
-      },
-      // {
-      //   label: 'CoinGecko',
-      //   href: 'https://www.coingecko.com/en/coins/goose-finance',
-      // },
-      {
-        label: 'Dex Guru (MINT)',
+        label: 'Chart (MINT)',
         href: 'https://dex.guru/token/0xcaece7b6a662b0fcabdb7d760778fff992365f66-bsc',
       },
       {
-        label: 'Dex Guru (SUGAR)',
+        label: 'Chart (SUGAR)',
         href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc', // TODO a remplacer par le vrai SUGAR
       },
-      {
-        label: 'Dex Tools (SUGAR)',
-        href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/0x21cb4ed35c47b56478cc7c22a24127b8e9bc01c2', // TODO a remplacer par le vrai SUGAR
-      },
+      // {
+      //   label: 'Charts on Dex Tools (SUGAR)',
+      //   href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/0x21cb4ed35c47b56478cc7c22a24127b8e9bc01c2', // TODO a remplacer par le vrai SUGAR
+      // },
+    ],
+  },
+  {
+    label: 'Listing',
+    icon: 'ListingsIcon',
+    items: [
       {
         label: 'DappRadar',
         href: 'https://dappradar.com/binance-smart-chain/defi/teaswap', // TODO a remplacer par le vrai SUGAR
       },
-      // {
-      //   label: 'CoinMarketCap',
-      //   href: 'https://coinmarketcap.com/currencies/goose-finance/',
-      // },
-      // {
-      //   label: 'AstroTools',
-      //   href: 'https://app.astrotools.io/pancake-pair-explorer/0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
-      // },
     ],
   },
   {
