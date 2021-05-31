@@ -91,18 +91,10 @@ const config: MenuEntry[] = [
     label: 'More',
     icon: 'MoreIcon',
     items: [
-      {
-        label: 'Github',
-        href: 'https://github.com/Tea-Swap', // TODO a remplacer par le vrai SUGAR
-      },
       // {
       //   label: 'Docs',
       //   href: 'https://goosedefi.gitbook.io/goose-finance/', // TODO a remplacer par le vrai SUGAR
       // },
-      {
-        label: 'Blog',
-        href: 'https://teaswap-finance.medium.com/', // TODO a remplacer par le vrai SUGAR
-      },
       {
         label: 'Website',
         href: 'https://tea-swap.finance/', // TODO a remplacer par le vrai SUGAR

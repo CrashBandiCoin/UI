@@ -203,22 +203,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
-  // {
-  //   pid: 12,
-  //   risk: 5,
-  //   lpSymbol: 'MINT-BUSD',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x7032518955f8E27677a14Adc465075357CE13c16', // MINT-BUSD LP
-  //   },
-  //   tokenSymbol: 'MINT',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
-  //   },
-  //   quoteTokenSymbol: QuoteToken.BUSD,
-  //   quoteTokenAdresses: contracts.mint,
-  // },
+  {
+    pid: 12,
+    risk: 2,
+    lpSymbol: 'MINT-BUSD',
+    lpAddresses: {
+      97: '',
+      56: '0x7032518955f8E27677a14Adc465075357CE13c16', // MINT-BUSD LP
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
   // {
   //   pid: 3,
   //   risk: 1,

@@ -75,7 +75,13 @@ const Home: React.FC = () => {
           <CakeStats />
           <TotalValueLockedCard />
         </Cards>
-        <SocialCard/>
+        <Cards>
+          <Soundcloud/>
+          <SocialCard/>
+        </Cards>
+
+
+
 
       </div>
     </Page>
