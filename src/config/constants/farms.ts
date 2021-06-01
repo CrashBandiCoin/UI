@@ -127,13 +127,13 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
     },
-    tokenSymbol: 'BNB',
+    tokenSymbol: 'CAKE',
     tokenAddresses: {
       97: '',
       56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.trueCake,
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
   // {
   //   pid: 8,
