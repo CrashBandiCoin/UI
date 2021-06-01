@@ -3,7 +3,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { allLanguages } from 'config/localisation/languageCodes'
 import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
-import {usePriceCakeBusd} from 'state/hooks'
+import {usePriceCakeBusd, usePriceMintBusd} from 'state/hooks'
 import { Menu as UikitMenu } from '@pancakeswap-libs/uikit'
 import config from './config'
 
@@ -12,7 +12,7 @@ const Menu = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = usePriceCakeBusd()
-  // const mintPriceUsd = usePriceMintBusd() //TODO fix the correct price of MINT
+  const mintPriceUsd = usePriceMintBusd()
 
 
   return (
@@ -25,7 +25,7 @@ const Menu = (props) => {
       currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      // mintPriceUsd={mintPriceUsd} //TODO fix the correct price of MINT
+      mintPriceUsd={mintPriceUsd}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
       // priceLink="https://www.coingecko.com/en/coins/goose-finance"
