@@ -85,6 +85,10 @@ const config: MenuEntry[] = [
         label: 'DappRadar',
         href: 'https://dappradar.com/binance-smart-chain/defi/teaswap',
       },
+      {
+        label: 'IcoHolder',
+        href: 'https://icoholder.com/fr/teaswap-1001257',
+      },
     ],
   },
   {

@@ -11,7 +11,7 @@ import CardValue from './CardValue'
 import { useFarms } from '../../../state/hooks'
 import DappRadar from "../img/dappradar.png";
 import DexGuru from "../img/dexguru.png";
-import TechRate from "../img/techrate.jpg";
+import IcoHolder from "../img/icoholder.png"
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -48,6 +48,14 @@ const SocialCard = () => {
                   src={DexGuru}
                   loading="lazy"
                   width='90px'
+                  alt=""
+              />
+          </a>
+          <a href="https://icoholder.com/fr/teaswap-1001257">
+              <img
+                  src={IcoHolder}
+                  loading="lazy"
+                  width='200px'
                   alt=""
               />
           </a>
