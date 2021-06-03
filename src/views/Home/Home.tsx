@@ -69,7 +69,7 @@ const Home: React.FC = () => {
         <Text>{TranslateString(578, 'The first Social Farming Project on BSC.')}</Text>
       </Hero>
       <div>
-        <SocialCard/>
+
         <br/>
         <Cards>
           <FarmStakingCard />
@@ -77,7 +77,11 @@ const Home: React.FC = () => {
           <CakeStats />
           <TotalValueLockedCard />
         </Cards>
-        <Soundcloud/>
+        <Cards>
+          <Soundcloud/>
+          <SocialCard/>
+        </Cards>
+
       </div>
     </Page>
   )

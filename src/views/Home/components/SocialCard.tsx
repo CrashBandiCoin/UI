@@ -64,19 +64,10 @@ const SocialCard = () => {
                         <img
                             src={DexGuru}
                             loading="lazy"
-                            width='200px'
+                            width='150px'
                             alt=""
                         />
                     </a>
-                    <a href="https://icoholder.com/fr/teaswap-1001257">
-                        <img
-                            src={IcoHolder}
-                            loading="lazy"
-                            width='220px'
-                            alt=""
-                        />
-                    </a>
-
                 </div>
             </CardBody>
         </StyledTwitterCard>
