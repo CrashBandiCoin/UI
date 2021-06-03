@@ -21,7 +21,7 @@ const Soundcloud = () => {
         </Heading>
         <>
             <ReactPlayer
-                url="https://soundcloud.com/chicofficial/chic-le-freak" height='100px' width='410px'
+                url="https://soundcloud.com/chicofficial/chic-le-freak" height='150px' width='900px'
             />
         </>
       </CardBody>

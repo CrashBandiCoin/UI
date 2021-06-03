@@ -89,6 +89,10 @@ const config: MenuEntry[] = [
         label: 'IcoHolder',
         href: 'https://icoholder.com/fr/teaswap-1001257',
       },
+      {
+        label: 'Coinhut',
+        href: 'https://coinhunt.cc/coin/2006554088',
+      },
     ],
   },
   {
