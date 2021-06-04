@@ -11,8 +11,9 @@ import CardValue from './CardValue'
 import {useFarms} from '../../../state/hooks'
 import DappRadar from "../img/dappradar.png";
 import DexGuru from "../img/dexguru.png";
+import CoinHut from "../img/coinhut.png";
+import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
-import Coinhut from "../img/coinhut.png";
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -47,24 +48,43 @@ const SocialCard = () => {
                         <img
                             src={DappRadar}
                             loading="lazy"
-                            width='200px'
+                            width='100px'
                             alt=""
                         />
                     </a>
 
                     <a href="https://coinhunt.cc/coin/2006554088">
                         <img
-                            src={Coinhut}
+                            src={CoinHut}
                             loading="lazy"
                             width='100px'
                             alt=""
                         />
                     </a>
+
+                    <a href="https://coinsniper.net/coin/1473">
+                        <img
+                            src={CoinSniper}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+
+                    <a href="https://icoholder.com/fr/teaswap-1001257">
+                        <img
+                            src={IcoHolder}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+
                     <a href="https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc">
                         <img
                             src={DexGuru}
                             loading="lazy"
-                            width='150px'
+                            width='100px'
                             alt=""
                         />
                     </a>

@@ -93,6 +93,10 @@ const config: MenuEntry[] = [
         label: 'Coinhut',
         href: 'https://coinhunt.cc/coin/2006554088',
       },
+      {
+        label: 'Coinsniper',
+        href: 'https://coinsniper.net/coin/1473',
+      },
     ],
   },
   {
