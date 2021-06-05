@@ -20,6 +20,11 @@ const config: MenuEntry[] = [
       },
     ],
   },
+  {
+    label: 'LP swap',
+    icon: 'TradeIcon',
+    href: '/zap',
+  },
 
   {
     label: 'Buy MINT',
@@ -43,11 +48,7 @@ const config: MenuEntry[] = [
     icon: 'PoolIcon',
     href: '/pools',
   },
-  {
-    label: 'Zap',
-    icon: 'TradeIcon',
-    href: '/zap',
-  },
+
 
   // {
   //   label: 'Pools',
