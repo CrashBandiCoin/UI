@@ -43,6 +43,11 @@ const config: MenuEntry[] = [
     icon: 'PoolIcon',
     href: '/pools',
   },
+  {
+    label: 'Zap',
+    icon: 'TradeIcon',
+    href: '/zap',
+  },
 
   // {
   //   label: 'Pools',
