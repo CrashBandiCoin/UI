@@ -23,7 +23,7 @@ const Zap: React.FC = () => {
             <Hero>
             <div>
                 {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
-                <iframe width="366" height="560" src="https://lp-swap.io/embed?from=single-wallet-&to=lpPcsV2-beefy-0xb26642B6690E4c4c9A6dAd6115ac149c700C7dfE&mode=light&referral="/>
+                <iframe width="366" height="560" src="https://lp-swap.io/embed?from=single-wallet-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&to=lpPcsV2-wallet-0x8e4848DC6535742824d19dA9F19901D01d9f6988&mode=light&referral="/>
             </div>
             </Hero>
         </Page>
