@@ -16,18 +16,18 @@ const Hero = styled.div`
   text-align: center;
 `
 
-const Zap: React.FC = () => {
+const Lpswap: React.FC = () => {
     const TranslateString = useI18n()
     return (
         <Page>
             <Hero>
             <div>
                 {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
-                <iframe width="366" height="560" src="https://lp-swap.io/embed?from=single-wallet-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&to=lpPcsV2-wallet-0x8e4848DC6535742824d19dA9F19901D01d9f6988&mode=light&referral="/>
+                <iframe width="366" height="560" src="https://lp-swap.io/embed?from=single-wallet-0xe9e7cea3dedca5984780bafc599bd69add087d56&to=lpPcsV2-wallet-0x8e4848DC6535742824d19dA9F19901D01d9f6988&mode=light&referral=" />
             </div>
             </Hero>
         </Page>
     )
 }
 
-export default Zap
+export default Lpswap
