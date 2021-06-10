@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
+import {
+  getMasterChefAddress,
+  getCakeAddress,
+  getLotteryAddress,
+  getLotteryTicketAddress,
+  getMintAddress, getMasterChefMintAddress
+} from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifo from 'config/abi/ifo.json'
@@ -12,8 +18,11 @@ import pancakeRabbits from 'config/abi/pancakeRabbits.json'
 import lottery from 'config/abi/lottery.json'
 import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
+import masterMint from 'config/abi/masterMint.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
+import mint from 'config/abi/mint.json'
+import mint2 from 'config/abi/mint2.json'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -44,6 +53,16 @@ export const useCake = () => {
   return useERC20(getCakeAddress())
 }
 
+export const useMint = () => {
+  const mintAbi = (mint as unknown) as AbiItem
+  return useContract(mintAbi, getMintAddress())
+}
+
+export const useMint2 = () => {
+  const mintAbi = (mint2 as unknown) as AbiItem
+  return useContract(mintAbi, getMintAddress())
+}
+
 export const useRabbitMintingFarm = (address: string) => {
   const rabbitMintingFarmAbi = (rabbitmintingfarm as unknown) as AbiItem
   return useContract(rabbitMintingFarmAbi, address)
@@ -67,6 +86,11 @@ export const useLotteryTicket = () => {
 export const useMasterchef = () => {
   const abi = (masterChef as unknown) as AbiItem
   return useContract(abi, getMasterChefAddress())
+}
+
+export const useMastermint = () => {
+  const abi = (masterMint as unknown) as AbiItem
+  return useContract(abi, getMasterChefMintAddress())
 }
 
 export const useSousChef = (id) => {

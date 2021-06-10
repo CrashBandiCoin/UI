@@ -7,12 +7,20 @@ export default {
     56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
     97: '',
   },
+  mint2: {
+    56: '0x374b640083Ce8F9252E51698AEC3169629410d6B',
+    97: '',
+  },
   trueCake: {
     56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
     97: '',
   },
   masterChef: {
     56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F',
+    97: '',
+  },
+  masterMint: {
+    56: '0xb0fECDD4bE1fdD3e3Cb4e60A6Bfd2c03f00E8257',
     97: '',
   },
   wbnb: {
