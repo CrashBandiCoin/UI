@@ -34,7 +34,7 @@ const CakeStats = () => {
 
   let MintPerBlock = 0;
   if(farms && farms[0] && farms[0].MintPerBlock){
-    MintPerBlock = new BigNumber(farms[0].MintRPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+    MintPerBlock = new BigNumber(farms[0].MintPerBlock).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
