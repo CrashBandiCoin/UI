@@ -31,11 +31,11 @@ const config: MenuEntry[] = [
     icon: 'MintIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
   },
-  {
-    label: 'MINT to MINT v2',
-    icon: 'TradeIcon',
-    href: '/Mintv2',
-  },
+  // {
+  //   label: 'MINT to MINT v2',
+  //   icon: 'TradeIcon',
+  //   href: '/Mintv2',
+  // },
   {
     label: 'Buy SUGAR',
     icon: 'SugarIcon',
