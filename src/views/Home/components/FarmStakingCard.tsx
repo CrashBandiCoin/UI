@@ -82,7 +82,7 @@ const FarmedStakingCard = () => {
                         type: 'ERC20',
                         options: {
                             address: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
-                            symbol: 'SUGAR',
+                            symbol: 'MINT',
                             decimals: '18',
                             image:
                                 '',
@@ -111,7 +111,7 @@ const FarmedStakingCard = () => {
                     params: {
                         type: 'ERC20',
                         options: {
-                            address: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+                            address: '0x8c412E207565fABE1e11Efdacc06c95a522ddd25',
                             symbol: 'MINT',
                             decimals: '18',
                             image:
@@ -138,33 +138,12 @@ const FarmedStakingCard = () => {
                 </Heading>
                 <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>{TranslateString(547, 'MINT in Wallet')}</Label>
-                    <CakeWalletBalance cakeBalance={mintBalance}/>
-
-                </Block>
-                <Button onClick={addWatchMintToken} mb="sm">
-                    +{' '}
-                    <img
-                        style={{marginLeft: 8}}
-                        width={16}
-                        src="https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png"
-                        alt="metamask logo"
-                    />
-                </Button>
-            </CardBody>
-
-            <CardBody>
-                <Heading size="xl" mb="24px">
-                    {TranslateString(542, 'Farms & Staking')}
-                </Heading>
-                <CardImage src="/images/SUGAR/2.png" alt="cake logo" width={64} height={64}/>
-                <Block>
-                    <Label>{TranslateString(544, 'SUGAR to Harvest')}</Label>
+                    <Label>{TranslateString(544, 'MINT to Harvest')}</Label>
                     <CakeHarvestBalance earningsSum={earningsSum}/>
                     <Label>~${(SUGARPrice * earningsSum).toFixed(2)}</Label>
                 </Block>
                 <Block>
-                    <Label>{TranslateString(546, 'SUGAR in Wallet')}</Label>
+                    <Label>{TranslateString(546, 'MINT in Wallet')}</Label>
                     <CakeWalletBalance cakeBalance={cakeBalance}/>
                     <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
                 </Block>
@@ -186,7 +165,7 @@ const FarmedStakingCard = () => {
                             fullWidth
                         >
                             {pendingTx
-                                ? TranslateString(548, 'Collecting SUGAR')
+                                ? TranslateString(548, 'Collecting MINT')
                                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
                         </Button>
                     ) : (

@@ -56,12 +56,12 @@ const App: React.FC = () => {
             <Route path="/pools">
               <Farms tokenMode/>
             </Route>
-              <Route path="/lpswap">
-                  <Lpswap/>
-              </Route>
-              <Route path="/migration">
-                  <Migration/>
-              </Route>
+            {/* <Route path="/lpswap"> */}
+                {/* <Lpswap/> */}
+            {/* </Route> */}
+            {/* <Route path="/migration"> */}
+                {/* <Migration/> */}
+            {/* </Route> */}
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
             {/* </Route> */}
