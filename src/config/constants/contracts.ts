@@ -4,7 +4,7 @@ export default {
     97: '',
   },
   mint: {
-    56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+    56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
     97: '',
   },
   mint2: {
