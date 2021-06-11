@@ -86,7 +86,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 5,
+    pid: 10,
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'WBNB',
