@@ -29,7 +29,7 @@ const config: MenuEntry[] = [
   {
     label: 'Buy MINT',
     icon: 'MintIcon',
-    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
   },
   // {
   //   label: 'Migration Mint v2',
