@@ -58,7 +58,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'MINT',
     lpAddresses: {
       97: '',
-      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f', // MINT
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // MINT
     },
     tokenSymbol: 'MINT',
     tokenAddresses: {
