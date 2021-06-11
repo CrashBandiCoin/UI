@@ -90,7 +90,7 @@ export const usePriceMintBusd = (): BigNumber => { // TODO use to display MINT p
   // const bnbPriceUSD = usePriceBnbBusd()
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  const pid = 12; // MINT-BUSD LP
+  const pid = 1; // MINT-BUSD LP
   // const bnbPriceUSD = usePriceBnbBusd()
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
