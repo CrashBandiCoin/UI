@@ -5,15 +5,15 @@ const farms: FarmConfig[] = [
   {
     pid: 0, // TODO fixe the correct APR
     risk: 5,
-    lpSymbol: 'SUGAR-BNB LP',
+    lpSymbol: 'MINT-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988',
+      56: '0x9c0185c475ba0f9e575a7d7bf138762c08c4a3cb',
     },
-    tokenSymbol: 'SUGAR',
+    tokenSymbol: 'MINT',
     tokenAddresses: {
       97: '',
-      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+      56: '0x8c412E207565fABE1e11Efdacc06c95a522ddd25',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -21,15 +21,15 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     risk: 5,
-    lpSymbol: 'SUGAR-BUSD LP',
+    lpSymbol: 'MINT-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2',
+      56: '0x9a4c23d218130f44f0e8216a08e1173b1db76645',
     },
-    tokenSymbol: 'SUGAR',
+    tokenSymbol: 'MINT',
     tokenAddresses: {
       97: '',
-      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+      56: '0x8c412E207565fABE1e11Efdacc06c95a522ddd25',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -55,15 +55,15 @@ const farms: FarmConfig[] = [
     pid: 3,
     risk: 5,
     isTokenOnly: true,
-    lpSymbol: 'SUGAR',
+    lpSymbol: 'MINT',
     lpAddresses: {
       97: '',
-      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2', // SUGAR-BUSD LP
+      56: '0x9a4c23d218130f44f0e8216a08e1173b1db76645', // SUGAR-BUSD LP
     },
-    tokenSymbol: 'SUGAR',
+    tokenSymbol: 'MINT',
     tokenAddresses: {
       97: '',
-      56: '0x41aa9f842af935cc71252c0de4bff13f821546b8',
+      56: '0x8c412E207565fABE1e11Efdacc06c95a522ddd25',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
