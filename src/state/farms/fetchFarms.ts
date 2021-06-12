@@ -1,8 +1,9 @@
 import BigNumber from 'bignumber.js'
 import erc20 from 'config/abi/erc20.json'
 import masterchefABI from 'config/abi/masterchef.json'
+import mastermintABI from 'config/abi/mastermint.json'
 import multicall from 'utils/multicall'
-import { getMasterChefAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getMasterMintAddress } from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/farms'
 import { QuoteToken } from '../../config/constants/types'
 
@@ -29,7 +30,7 @@ const fetchFarms = async () => {
         {
           address: farmConfig.isTokenOnly ? farmConfig.tokenAddresses[CHAIN_ID] : lpAdress,
           name: 'balanceOf',
-          params: [getMasterChefAddress()],
+          params: [ farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? getMasterMintAddress() : getMasterChefAddress()],
         },
         // Total supply of LP tokens
         {
@@ -91,21 +92,24 @@ const fetchFarms = async () => {
         }
       }
 
-      const [info, totalAllocPoint, MintPerBlock] = await multicall(masterchefABI, [
-        {
-          address: getMasterChefAddress(),
-          name: 'poolInfo',
-          params: [farmConfig.pid],
-        },
-        {
-          address: getMasterChefAddress(),
-          name: 'totalAllocPoint',
-        },
-        {
-          address: getMasterChefAddress(),
-          name: 'MintPerBlock',
-        },
-      ])
+      const [info, totalAllocPoint, SUGARPerBlock, MintPerBlock] = await multicall(
+        farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? mastermintABI : masterchefABI ,
+        [
+          {
+            address: farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? getMasterMintAddress() : getMasterChefAddress(),
+            name: 'poolInfo',
+            params: [farmConfig.pid],
+          },
+          {
+            address: farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? getMasterMintAddress() : getMasterChefAddress(),
+            name: 'totalAllocPoint',
+          },
+          {
+            address: farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? getMasterMintAddress() : getMasterChefAddress(),
+            name: farmConfig.id === 1 || farmConfig.id === 3 || farmConfig.id === 6 || farmConfig.id === 15 ? 'MintPerBlock' : 'sugarPerBlock',
+          },
+        ]
+      )
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
@@ -120,6 +124,7 @@ const fetchFarms = async () => {
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
         MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
+        SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
       }
     }),
   )

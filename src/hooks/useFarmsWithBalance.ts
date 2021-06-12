@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import multicall from 'utils/multicall'
-import { getMasterChefAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getMasterMintAddress } from 'utils/addressHelpers'
 import masterChefABI from 'config/abi/masterchef.json'
+import masterMintABI from 'config/abi/mastermint.json'
 import { farmsConfig } from 'config/constants'
 import { FarmConfig } from 'config/constants/types'
 import useRefresh from './useRefresh'
@@ -19,13 +20,26 @@ const useFarmsWithBalance = () => {
 
   useEffect(() => {
     const fetchBalances = async () => {
-      const calls = farmsConfig.map((farm) => ({
-        address: getMasterChefAddress(),
-        name: 'pendingMint',
-        params: [farm.pid, account],
-      }))
+      const farms1 = farmsConfig.filter((farm) => farm.id === 1 || farm.id === 3 || farm.id === 6 || farm.id === 15)
+      const farms2 = farmsConfig.filter((farm) => farm.id !== 1 && farm.id !== 3 && farm.id !== 6 && farm.id !== 15)
+      const calls1 = farms1.map((farm) => {
+        return {
+          address:getMasterMintAddress(),
+          name: 'pendingMint',
+          params: [farm.pid, account]
+        }
+      })
+      const calls2 = farms2.map((farm) => {
+        return {
+          address:getMasterChefAddress(),
+          name: 'pendingSugar',
+          params: [farm.pid, account]
+        }
+      })
 
-      const rawResults = await multicall(masterChefABI, calls)
+      const rawResults1 = await multicall(masterMintABI, calls1)
+      const rawResults2 = await multicall(masterChefABI, calls2)
+      const rawResults = [...rawResults1, ...rawResults2]
       const results = farmsConfig.map((farm, index) => ({ ...farm, balance: new BigNumber(rawResults[index]) }))
 
       setFarmsWithBalances(results)

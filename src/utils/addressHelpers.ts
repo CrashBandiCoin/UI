@@ -11,6 +11,9 @@ export const getMintAddress = () => {
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]
 }
+export const getMasterMintAddress = () => {
+  return addresses.masterMint[chainId]
+}
 export const getMulticallAddress = () => {
   return addresses.mulltiCall[chainId]
 }

@@ -1,10 +1,10 @@
-export default {
+const contracts = {
   cake: {
-    56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
     97: '',
   },
   mint: {
-    56: '0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+    56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
     97: '',
   },
   trueCake: {
@@ -12,6 +12,10 @@ export default {
     97: '',
   },
   masterChef: {
+    56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F',
+    97: '',
+  },
+  masterMint: {
     56: '0xC74ff270b0d9f495e03078e1bF5b3A7aaa35D18A',
     97: '',
   },
@@ -34,5 +38,7 @@ export default {
   busd: {
     56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
     97: '',
-  },
+  }
 }
+
+export default contracts
