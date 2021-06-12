@@ -119,6 +119,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+  {
+    pid: 11,
+    risk: 5,
+    lpSymbol: 'MINT-SUGAR LP',
+    lpAddresses: {
+      97: '',
+      56: '0x45cE45a7d69084c1E3E7Ff29B634Bcb872f62d88',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
   // {
   //   pid: 7, // TODO fixe the correct APR
   //   risk: 2,
