@@ -14,8 +14,8 @@ const useAllEarnings = () => {
 
   useEffect(() => {
     const fetchAllBalances = async () => {
-      const farms1 = farmsConfig.filter((farm) => farm.id === 1 || farm.id === 3 || farm.id === 6 || farm.id === 15)
-      const farms2 = farmsConfig.filter((farm) => farm.id !== 1 && farm.id !== 3 && farm.id !== 6 && farm.id !== 15)
+      const farms1 = farmsConfig.filter((farm) => farm.id === 1 || farm.id === 3 || farm.id === 4 || farm.id === 6 || farm.id === 7 || farm.id === 8 || farm.id === 9)
+      const farms2 = farmsConfig.filter((farm) => farm.id !== 1 && farm.id !== 3 && farm.id !== 4 && farm.id !== 6 && farm.id !== 7 && farm.id !== 8 && farm.id !== 9)
       const calls1 = farms1.map((farm) => {
         return {
           address:getMasterMintAddress(),

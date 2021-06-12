@@ -20,22 +20,22 @@ const config: MenuEntry[] = [
       },
     ],
   },
-  {
-    label: 'LP swap',
-    icon: 'TradeIcon',
-    href: '/lpswap',
-  },
+  // {
+  //   label: 'LP swap',
+  //   icon: 'TradeIcon',
+  //   href: '/lpswap',
+  // },
 
   {
     label: 'Buy MINT',
     icon: 'MintIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
   },
-  {
-    label: 'Migration Mint v2',
-    icon: 'TradeIcon',
-    href: '/migration',
-  },
+  // {
+  //   label: 'Migration Mint v2',
+  //   icon: 'TradeIcon',
+  //   href: '/migration',
+  // },
 
 
   {
