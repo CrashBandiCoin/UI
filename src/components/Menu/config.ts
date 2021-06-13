@@ -54,6 +54,16 @@ const config: MenuEntry[] = [
     icon: 'PoolIcon',
     href: '/pools',
   },
+  {
+    label: 'Farms SUGAR',
+    icon: 'FarmIcon',
+    href: 'https://teaswap-app-sugar.netlify.app/farms',
+  },
+  {
+    label: 'Pools SUGAR',
+    icon: 'PoolIcon',
+    href: 'https://teaswap-app-sugar.netlify.app/pools',
+  },
 
 
   // {
