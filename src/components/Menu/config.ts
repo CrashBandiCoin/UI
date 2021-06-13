@@ -29,7 +29,7 @@ const config: MenuEntry[] = [
   {
     label: 'Buy MINT',
     icon: 'MintIcon',
-    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
   },
   // {
   //   label: 'MINT to MINT v2',
@@ -86,7 +86,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Chart (MINT)',
-        href: 'https://dex.guru/token/0xcaece7b6a662b0fcabdb7d760778fff992365f66-bsc',
+        href: 'https://dex.guru/token/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f-bsc',
       },
       {
         label: 'Chart (SUGAR)',
