@@ -52,6 +52,17 @@ const config: MenuEntry[] = [
     icon: 'PoolIcon',
     href: '/pools',
   },
+  {
+    label: 'Farms MINT',
+    icon: 'FarmIcon',
+    href: 'https://tea-swap-app.finance/farms',
+  },
+  {
+    label: 'Pools MINT',
+    icon: 'PoolIcon',
+    href: 'https://tea-swap-app.finance/pools',
+  },
+
 
 
   // {
