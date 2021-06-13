@@ -12,7 +12,7 @@ const Menu = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = usePriceCakeBusd()
-  const mintPriceUsd = usePriceMintBusd()
+  // const mintPriceUsd = usePriceMintBusd()
 
 
   return (
@@ -25,7 +25,7 @@ const Menu = (props) => {
       currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      mintPriceUsd={mintPriceUsd}
+      // mintPriceUsd={mintPriceUsd}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
       // priceLink="https://www.coingecko.com/en/coins/goose-finance"
