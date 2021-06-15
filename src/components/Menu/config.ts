@@ -57,12 +57,12 @@ const config: MenuEntry[] = [
   {
     label: 'MINT Farms',
     icon: 'FarmIcon',
-    href: 'https://tea-swap-app.finance/farms',
+    href: 'https://app.tea-swap.finance/farms',
   },
   {
     label: 'MINT pools',
     icon: 'PoolIcon',
-    href: 'https://tea-swap-app.finance/pools',
+    href: 'https://app.tea-swap.finance/pools',
   },
 
   // {

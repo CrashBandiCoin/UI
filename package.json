@@ -67,6 +67,7 @@
     "@pancakeswap-libs/eslint-config-pancake": "1.0.0",
     "@types/jest": "^26.0.19",
     "eslint": "^7.16.0",
+    "netlify-cli": "^3.37.31",
     "prettier": "^2.1.2",
     "source-map-explorer": "^2.5.1"
   }
