@@ -57,12 +57,12 @@ const config: MenuEntry[] = [
   {
     label: 'SUGAR Farms',
     icon: 'FarmIcon',
-    href: 'https://teaswap-app-sugar.netlify.app/farms',
+    href: 'https://app-sugar.tea-swap.finance/farms',
   },
   {
     label: 'SUGAR pools',
     icon: 'PoolIcon',
-    href: 'https://teaswap-app-sugar.netlify.app/pools',
+    href: 'https://app-sugar.tea-swap.finance/pools',
   },
 
   // {
