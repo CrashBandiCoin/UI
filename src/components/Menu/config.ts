@@ -12,7 +12,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Add MINT liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x2deb28ec61e7b6b4bba5f8398398330227cd293f',
       },
       {
         label: 'Add SUGAR liquidity',
@@ -32,10 +32,12 @@ const config: MenuEntry[] = [
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
   },
   // {
-  //   label: 'MINT to MINT v2',
+  //   label: 'Migration Mint v2',
   //   icon: 'TradeIcon',
-  //   href: '/Mintv2',
+  //   href: '/migration',
   // },
+
+
   {
     label: 'Buy SUGAR',
     icon: 'SugarIcon',
@@ -43,27 +45,25 @@ const config: MenuEntry[] = [
   },
 
   {
-    label: 'Farms',
+    label: 'SUGAR Farms',
     icon: 'FarmIcon',
     href: '/farms',
   },
   {
-    label: 'Pools',
+    label: 'SUGAR Pools',
     icon: 'PoolIcon',
     href: '/pools',
   },
   {
-    label: 'Farms MINT',
+    label: 'MINT Farms',
     icon: 'FarmIcon',
     href: 'https://tea-swap-app.finance/farms',
   },
   {
-    label: 'Pools MINT',
+    label: 'MINT pools',
     icon: 'PoolIcon',
     href: 'https://tea-swap-app.finance/pools',
   },
-
-
 
   // {
   //   label: 'Pools',
