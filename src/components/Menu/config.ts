@@ -45,26 +45,25 @@ const config: MenuEntry[] = [
   },
 
   {
-    label: 'Farms',
+    label: 'MINT Farms',
     icon: 'FarmIcon',
     href: '/farms',
   },
   {
-    label: 'Pools',
+    label: 'MINT Pools',
     icon: 'PoolIcon',
     href: '/pools',
   },
   {
-    label: 'Farms SUGAR',
+    label: 'SUGAR Farms',
     icon: 'FarmIcon',
     href: 'https://teaswap-app-sugar.netlify.app/farms',
   },
   {
-    label: 'Pools SUGAR',
+    label: 'SUGAR pools',
     icon: 'PoolIcon',
     href: 'https://teaswap-app-sugar.netlify.app/pools',
   },
-
 
   // {
   //   label: 'Pools',
@@ -87,7 +86,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Chart (MINT)',
-        href: 'https://dex.guru/token/0xcaece7b6a662b0fcabdb7d760778fff992365f66-bsc',
+        href: 'https://dex.guru/token/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f-bsc',
       },
       {
         label: 'Chart (SUGAR)',
