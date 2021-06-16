@@ -15,6 +15,7 @@ import {getCakeAddress, getMintAddress} from '../../../utils/addressHelpers'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 
+
 const StyledFarmStakingCard = styled(Card)`
   background-image: url('/images/SUGAR/2a.png');
   background-repeat: no-repeat;
@@ -138,11 +139,6 @@ const FarmedStakingCard = () => {
                 </Heading>
                 <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>{TranslateString(545, 'MINT to Harvest')}</Label>
-                    <CakeHarvestBalance earningsSum={earningsSum}/>
-                    <Label>~${(MINTPrice * earningsSum).toFixed(2)}</Label>
-                </Block>
-                <Block>
                     <Label>{TranslateString(547, 'MINT in Wallet')}</Label>
                     <CakeWalletBalance cakeBalance={mintBalance}/>
                     <Label>~${(MINTPrice * mintBalance).toFixed(2)}</Label>
@@ -156,22 +152,6 @@ const FarmedStakingCard = () => {
                         alt="metamask logo"
                     />
                 </Button>
-                <Actions>
-                    {account ? (
-                        <Button
-                            id="harvest-all"
-                            disabled={balancesWithValue.length <= 0 || pendingTx}
-                            onClick={harvestAllFarms}
-                            fullWidth
-                        >
-                            {pendingTx
-                                ? TranslateString(548, 'Collecting MINT')
-                                : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
-                        </Button>
-                    ) : (
-                        <UnlockButton fullWidth/>
-                    )}
-                </Actions>
             </CardBody>
 
             <CardBody>
