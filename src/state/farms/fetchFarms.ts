@@ -1,8 +1,9 @@
 import BigNumber from 'bignumber.js'
 import erc20 from 'config/abi/erc20.json'
 import masterchefABI from 'config/abi/masterchef.json'
+import mastermintABI from 'config/abi/mastermint.json'
 import multicall from 'utils/multicall'
-import { getMasterChefAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getMasterMintAddress } from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/farms'
 import { QuoteToken } from '../../config/constants/types'
 
@@ -29,7 +30,7 @@ const fetchFarms = async () => {
         {
           address: farmConfig.isTokenOnly ? farmConfig.tokenAddresses[CHAIN_ID] : lpAdress,
           name: 'balanceOf',
-          params: [getMasterChefAddress()],
+          params: [ farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress()],
         },
         // Total supply of LP tokens
         {
@@ -91,24 +92,37 @@ const fetchFarms = async () => {
         }
       }
 
-      const [info, totalAllocPoint, MintPerBlock] = await multicall(masterchefABI, [
-        {
-          address: getMasterChefAddress(),
-          name: 'poolInfo',
-          params: [farmConfig.pid],
-        },
-        {
-          address: getMasterChefAddress(),
-          name: 'totalAllocPoint',
-        },
-        {
-          address: getMasterChefAddress(),
-          name: 'MintPerBlock',
-        },
-      ])
+      const [info, totalAllocPoint, perblock] = await multicall(
+        farmConfig.type === 'Mint' ? mastermintABI : masterchefABI ,
+        [
+          {
+            address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
+            name: 'poolInfo',
+            params: [farmConfig.pid],
+          },
+          {
+            address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
+            name: 'totalAllocPoint',
+          },
+          {
+            address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
+            name: farmConfig.type === 'Mint' ? 'MintPerBlock' : 'sugarPerBlock',
+          },
+        ]
+      )
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
+      let MintPerBlock = null
+      let SUGARPerBlock = null
+      if (farmConfig.type === 'Mint') {
+        MintPerBlock = perblock
+      } else if (farmConfig.type === 'Sugar') {
+        SUGARPerBlock = perblock
+      } else {
+        MintPerBlock = perblock
+        SUGARPerBlock = perblock
+      }
 
       return {
         ...farmConfig,
@@ -120,6 +134,7 @@ const fetchFarms = async () => {
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
         MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
+        SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
       }
     }),
   )

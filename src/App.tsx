@@ -8,7 +8,6 @@ import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
-import MINTv2 from "./views/Mintv2";
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -18,7 +17,6 @@ const Lottery = lazy(() => import('./views/Lottery'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Lpswap = lazy(() => import('./views/Lpswap'))
 const Migration = lazy(() => import('./views/Migration'))
-const MintV2 = lazy(() => import('./views/Mintv2'))
 // const Pools = lazy(() => import('./views/Pools'))
 // const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
@@ -50,11 +48,17 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/farms">
-              <Farms />
+            <Route path="/farms/mint">
+              <Farms sugar={false}/>
             </Route>
-            <Route path="/pools">
-              <Farms tokenMode/>
+            <Route path="/pools/mint">
+              <Farms sugar={false} tokenMode/>
+            </Route>
+            <Route path="/farms/sugar">
+              <Farms sugar/>
+            </Route>
+            <Route path="/pools/sugar">
+              <Farms sugar tokenMode />
             </Route>
             {/* <Route path="/lpswap"> */}
                 {/* <Lpswap/> */}
@@ -65,15 +69,12 @@ const App: React.FC = () => {
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
             {/* </Route> */}
-             <Route path="/lottery">
+            <Route path="/lottery">
               <Lottery />
-             </Route>
-              <Route path="/roadmap">
-                  <Roadmap />
-              </Route>
-              <Route path="/Mintv2">
-                  <MintV2 />
-              </Route>
+            </Route>
+            <Route path="/roadmap">
+              <Roadmap />
+            </Route>
             {/* <Route path="/ifo"> */}
             {/*  <Ifos /> */}
             {/* </Route> */}

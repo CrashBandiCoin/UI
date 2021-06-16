@@ -9,7 +9,8 @@ export interface Farm extends FarmConfig {
   poolWeight?: number
   depositFeeBP?: number
   MintPerBlock?: number
-    userData?: {
+  SUGARPerBlock?: number
+  userData?: {
     allowance: BigNumber
     tokenBalance: BigNumber
     stakedBalance: BigNumber

@@ -12,7 +12,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Add MINT liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x2deb28ec61e7b6b4bba5f8398398330227cd293f',
+        href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
       },
       {
         label: 'Add SUGAR liquidity',
@@ -20,22 +20,22 @@ const config: MenuEntry[] = [
       },
     ],
   },
-  // {
-  //   label: 'LP swap',
-  //   icon: 'TradeIcon',
-  //   href: '/lpswap',
-  // },
+  {
+    label: 'LP swap',
+    icon: 'TradeIcon',
+    href: '/lpswap',
+  },
 
   {
     label: 'Buy MINT',
     icon: 'MintIcon',
-    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
   },
-  // {
-  //   label: 'Migration Mint v2',
-  //   icon: 'TradeIcon',
-  //   href: '/migration',
-  // },
+  {
+    label: 'Migration Mint v2',
+    icon: 'TradeIcon',
+    href: '/migration',
+  },
 
 
   {
@@ -45,26 +45,26 @@ const config: MenuEntry[] = [
   },
 
   {
-    label: 'Farms',
+    label: 'Farms Mint',
     icon: 'FarmIcon',
-    href: '/farms',
+    href: '/farms/mint',
   },
   {
-    label: 'Pools',
+    label: 'Pools Mint',
     icon: 'PoolIcon',
-    href: '/pools',
-  },
-  {
-    label: 'Farms SUGAR',
-    icon: 'FarmIcon',
-    href: 'https://teaswap-app-sugar.netlify.app/farms',
-  },
-  {
-    label: 'Pools SUGAR',
-    icon: 'PoolIcon',
-    href: 'https://teaswap-app-sugar.netlify.app/pools',
+    href: '/pools/mint',
   },
 
+  {
+    label: 'Farms Sugar',
+    icon: 'FarmIcon',
+    href: '/farms/sugar',
+  },
+  {
+    label: 'Pools Sugar',
+    icon: 'PoolIcon',
+    href: '/pools/sugar',
+  },
 
   // {
   //   label: 'Pools',

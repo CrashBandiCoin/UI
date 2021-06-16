@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
-import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
+import { useFarms, usePriceMintBusd } from '../../../state/hooks'
 
-const StyledCakeStats = styled(Card)`
+const StyledMintStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
 `
@@ -22,26 +22,26 @@ const Row = styled.div`
   margin-bottom: 8px;
 `
 
-const CakeStats = () => {
+const MintStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
-  const burnedBalance = useBurnedBalance(getCakeAddress())
+  const burnedBalance = useBurnedBalance(getMintAddress())
   const farms = useFarms();
-  const SUGARPrice = usePriceCakeBusd();
+  const MintPrice = usePriceMintBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
-  const cakeSupply = getBalanceNumber(circSupply);
-  const marketCap = SUGARPrice.times(circSupply);
+  const mintSupply = getBalanceNumber(circSupply);
+  const marketCap = MintPrice.times(circSupply);
 
-  let SUGARPerBlock = 0;
-  if(farms && farms[0] && farms[0].SUGARPerBlock){
-    SUGARPerBlock = new BigNumber(farms[0].SUGARPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  let MintPerBlock = 0;
+  if(farms && farms[1] && farms[1].MintPerBlock){
+    MintPerBlock = new BigNumber(farms[1].MintPerBlock).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
-    <StyledCakeStats>
+    <StyledMintStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'SUGAR Stats')}
+          {TranslateString(535, 'Mint Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
@@ -57,15 +57,15 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
+          {mintSupply && <CardValue fontSize="14px" value={mintSupply} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New SUGAR/block')}</Text>
-          <Text bold fontSize="14px">{SUGARPerBlock}</Text>
+          <Text fontSize="14px">{TranslateString(541, 'New Mint/block')}</Text>
+          <Text bold fontSize="14px">{MintPerBlock}</Text>
         </Row>
       </CardBody>
-    </StyledCakeStats>
+    </StyledMintStats>
   )
 }
 
-export default CakeStats
+export default MintStats

@@ -75,7 +75,7 @@
     {
       "data": {
         "stringId": 304,
-        "text": "Total MINT burned since launch"
+        "text": "Total SUGAR burned since launch"
       }
     },
     {
@@ -123,13 +123,13 @@
     {
       "data": {
         "stringId": 320,
-        "text": "Stake LP tokens to earn MINT"
+        "text": "Stake LP tokens to earn SUGAR"
       }
     },
     {
       "data": {
         "stringId": 322,
-        "text": "Stake MINT, get SYRUP."
+        "text": "Stake SUGAR, get SYRUP."
       }
     },
     {
@@ -153,7 +153,7 @@
     {
       "data": {
         "stringId": 334,
-        "text": "Every time you stake and unstake MINT tokens, the contract will automatically harvest MINT rewards for you!"
+        "text": "Every time you stake and unstake SUGAR tokens, the contract will automatically harvest SUGAR rewards for you!"
       }
     },
     {
@@ -219,7 +219,7 @@
     {
       "data": {
         "stringId": 358,
-        "text": "MINT price"
+        "text": "SUGAR price"
       }
     },
     {
@@ -243,7 +243,7 @@
     {
       "data": {
         "stringId": 380,
-        "text": "1 MINT = 1 SYRUP"
+        "text": "1 SUGAR = 1 SYRUP"
       }
     },
     {
@@ -291,7 +291,7 @@
     {
       "data": {
         "stringId": 400,
-        "text": "SYRUP holders proportionally split 25% of MINT block emissions each day (10 MINT per block), Rewards are distributed each block."
+        "text": "SYRUP holders proportionally split 25% of SUGAR block emissions each day (10 SUGAR per block), Rewards are distributed each block."
       }
     },
     {
@@ -351,13 +351,13 @@
     {
       "data": {
         "stringId": 424,
-        "text": "%num% MINT"
+        "text": "%num% SUGAR"
       }
     },
     {
       "data": {
         "stringId": 426,
-        "text": "Spend MINT to buy tickets, contributing to the lottery pot. Ticket purchases end approx. 30 minutes before lottery. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
+        "text": "Spend SUGAR to buy tickets, contributing to the lottery pot. Ticket purchases end approx. 30 minutes before lottery. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
       }
     },
     {
@@ -435,19 +435,19 @@
     {
       "data": {
         "stringId": 454,
-        "text": "%num% MINT Available"
+        "text": "%num% SUGAR Available"
       }
     },
     {
       "data": {
         "stringId": 456,
-        "text": "Your amount must be a multiple of 10 MINT"
+        "text": "Your amount must be a multiple of 10 SUGAR"
       }
     },
     {
       "data": {
         "stringId": 458,
-        "text": "1 Ticket = 10 MINT"
+        "text": "1 Ticket = 10 SUGAR"
       }
     },
     {
@@ -495,7 +495,7 @@
     {
       "data": {
         "stringId": 478,
-        "text": "Ticket purchases are final. Your MINT cannot be returned to you after buying tickets."
+        "text": "Ticket purchases are final. Your SUGAR cannot be returned to you after buying tickets."
       }
     },
     {
@@ -507,7 +507,7 @@
     {
       "data": {
         "stringId": 482,
-        "text": "MINT prizes to be claimed"
+        "text": "SUGAR prizes to be claimed"
       }
     },
     {
@@ -543,13 +543,13 @@
     {
       "data": {
         "stringId": 494,
-        "text": "Approve MINT"
+        "text": "Approve SUGAR"
       }
     },
     {
       "data": {
         "stringId": 496,
-        "text": "SYRUP holders proportionally split 40% of MINT block emissions each day (10 MINT per block), Rewards are distributed each block."
+        "text": "SYRUP holders proportionally split 40% of SUGAR block emissions each day (10 SUGAR per block), Rewards are distributed each block."
       }
     },
     {
@@ -567,19 +567,19 @@
     {
       "data": {
         "stringId": 504,
-        "text": "You\u2019ll pay for the new tokens using MINT-BNB LP tokens, which means you need to stake equal amounts of MINT and BNB in a liquidity pool to take part."
+        "text": "You\u2019ll pay for the new tokens using SUGAR-BNB LP tokens, which means you need to stake equal amounts of SUGAR and BNB in a liquidity pool to take part."
       }
     },
     {
       "data": {
         "stringId": 506,
-        "text": "Get MINT-BNB LP >"
+        "text": "Get SUGAR-BNB LP >"
       }
     },
     {
       "data": {
         "stringId": 508,
-        "text": "The project gets the BNB, Goose Finance burns the MINT."
+        "text": "The project gets the BNB, Goose Finance burns the SUGAR."
       }
     },
     {
@@ -645,7 +645,7 @@
     {
       "data": {
         "stringId": 534,
-        "text": "MINT Stats"
+        "text": "SUGAR Stats"
       }
     },
     {
@@ -663,7 +663,13 @@
     {
       "data": {
         "stringId": 540,
-        "text": "New MINT\/block"
+        "text": "New SUGAR\/block"
+      }
+    },
+    {
+      "data": {
+        "stringId": 541,
+        "text": "New Mint\/block"
       }
     },
     {
@@ -675,13 +681,13 @@
     {
       "data": {
         "stringId": 544,
-        "text": "MINT to Harvest"
+        "text": "SUGAR to Harvest"
       }
     },
     {
       "data": {
         "stringId": 546,
-        "text": "MINT in Wallet"
+        "text": "SUGAR in Wallet"
       }
     },
     {
@@ -693,7 +699,7 @@
     {
       "data": {
         "stringId": 548,
-        "text": "Collecting MINT"
+        "text": "Collecting SUGAR"
       }
     },
     {
@@ -705,7 +711,7 @@
     {
       "data": {
         "stringId": 552,
-        "text": "MINT to Collect"
+        "text": "SUGAR to Collect"
       }
     },
     {
@@ -765,13 +771,13 @@
     {
       "data": {
         "stringId": 578,
-        "text": "The first Social Farming Project on BSC."
+        "text": "The first Social Social Farming Project on BSC."
       }
     },
     {
       "data": {
         "stringId": 580,
-        "text": "Stake MINT to earn new tokens."
+        "text": "Stake Sugar to earn new tokens."
       }
     },
     {
@@ -789,7 +795,7 @@
     {
       "data": {
         "stringId": 586,
-        "text": "MINT to burn (USD)"
+        "text": "SUGAR to burn (USD)"
       }
     },
     {
@@ -801,7 +807,7 @@
     {
       "data": {
         "stringId": 590,
-        "text": "\u2b50\ufe0f Every time you stake and unstake LP tokens, the contract will automatically harvest MINT rewards for you!"
+        "text": "\u2b50\ufe0f Every time you stake and unstake LP tokens, the contract will automatically harvest SUGAR rewards for you!"
       }
     },
     {
@@ -819,13 +825,13 @@
     {
       "data": {
         "stringId": 596,
-        "text": "Buy MINT and BNB tokens"
+        "text": "Buy SUGAR and BNB tokens"
       }
     },
     {
       "data": {
         "stringId": 598,
-        "text": "Get MINT-BNB LP tokens by adding MINT and BNB liquidity"
+        "text": "Get SUGAR-BNB LP tokens by adding SUGAR and BNB liquidity"
       }
     },
     {
@@ -837,7 +843,7 @@
     {
       "data": {
         "stringId": 602,
-        "text": "While the sale is live, commit your MINT-LP tokens to buy the IFO tokens"
+        "text": "While the sale is live, commit your SUGAR-LP tokens to buy the IFO tokens"
       }
     },
     {
@@ -873,7 +879,7 @@
     {
       "data": {
         "stringId": 614,
-        "text": "Trade in for MINT, or keep for your collection!"
+        "text": "Trade in for SUGAR, or keep for your collection!"
       }
     },
     {
@@ -915,7 +921,7 @@
     {
       "data": {
         "stringId": 628,
-        "text": "When you trade in this NFT to receive MINT, you will lose access to it forever!"
+        "text": "When you trade in this NFT to receive SUGAR, you will lose access to it forever!"
       }
     },
     {
@@ -945,7 +951,7 @@
     {
       "data": {
         "stringId": 638,
-        "text": "Winners can trade in their NFTs for a MINT value until the expiry date written below. If you don't trade in your NFT by then, don\u2019t worry: you\u2019ll still keep it in your wallet!"
+        "text": "Winners can trade in their NFTs for a SUGAR value until the expiry date written below. If you don't trade in your NFT by then, don\u2019t worry: you\u2019ll still keep it in your wallet!"
       }
     },
     {
@@ -987,7 +993,7 @@
     {
       "data": {
         "stringId": 654,
-        "text": "Trade in for MINT"
+        "text": "Trade in for SUGAR"
       }
     },
     {
@@ -1113,7 +1119,7 @@
     {
       "data": {
         "stringId": 696,
-        "text": "Stake LP tokens to earn MINT"
+        "text": "Stake LP tokens to earn SUGAR"
       }
     },
     {
@@ -1155,13 +1161,13 @@
     {
       "data": {
         "stringId": 708,
-        "text": "The MINT Lottery"
+        "text": "The SUGAR Lottery"
       }
     },
     {
       "data": {
         "stringId": 710,
-        "text": "Buy tickets with MINT"
+        "text": "Buy tickets with SUGAR"
       }
     },
     {
@@ -1227,7 +1233,7 @@
     {
       "data": {
         "stringId": 10002,
-        "text": "Stake tokens to earn MINT"
+        "text": "Stake tokens to earn SUGAR"
       }
     },
     {
