@@ -8,6 +8,10 @@ import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
+import iconMarketCap from "../img/iconMarketCap.png";
+import iconMinted from "../img/iconMinted2.png";
+import iconBurned from "../img/iconBurned2.png";
+import iconSupply from "../img/iconSupply2.png";
 
 const StyledCakeStats = styled(Card)`
   margin-left: auto;
@@ -44,22 +48,17 @@ const CakeStats = () => {
           {TranslateString(534, 'SUGAR Stats')}
         </Heading>
         <Row>
+          <img src={iconMarketCap} alt='marketCap' width='30'/>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
+          <img src={iconSupply} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(536, 'Total Minted')}</Text>
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
-        </Row>
-        <Row>
-          <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
-        </Row>
-        <Row>
+          <img src={iconMinted} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(540, 'New SUGAR/block')}</Text>
           <Text bold fontSize="14px">{SUGARPerBlock}</Text>
         </Row>
