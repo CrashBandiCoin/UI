@@ -8,7 +8,7 @@ import { Image, Heading } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePriceCakeBusd, usePriceMintBusd } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -19,6 +19,7 @@ import Divider from './components/Divider'
 
 export interface FarmsProps{
   tokenMode?: boolean
+  sugar?: boolean
 }
 
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
@@ -26,9 +27,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
+  const mintPrice = usePriceMintBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
-  const {tokenMode} = farmsProps;
+  const {tokenMode, sugar} = farmsProps;
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -40,11 +42,15 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier !== '0X' && farm.pid !== 12)
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '0X' && farm.pid !== 12)
+  const checkSugarPage = (farm) => {
+    return farm.type === 'Sugar'
+  }
+
+  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && checkSugarPage(farm) === !!sugar && farm.multiplier !== '0X')
+  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && checkSugarPage(farm) === !!sugar && farm.multiplier === '0X')
 
   const stakedOnlyFarms = activeFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
   )
 
   // /!\ This function will be removed soon
@@ -57,10 +63,20 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        let cakeRewardPerBlock = null
+        if (farm.type === 'Mint') {
+          cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        } else {
+          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        }
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = cakePrice.times(cakeRewardPerYear);
+        let apy = null
+        if (farm.type === 'Mint') {
+          apy = mintPrice.times(cakeRewardPerYear);
+        } else {
+          apy = cakePrice.times(cakeRewardPerYear);
+        }
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
@@ -74,19 +90,21 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         return { ...farm, apy }
       })
+      
       return farmsToDisplayWithAPY.map((farm) => (
         <FarmCard
-          key={farm.pid}
+          key={farm.id}
           farm={farm}
           removed={removed}
           bnbPrice={bnbPrice}
-          cakePrice={cakePrice}
+          cakePrice={farm.type === 'Mint' ? mintPrice : cakePrice}
           ethereum={ethereum}
           account={account}
+          sugar={sugar}
         />
       ))
     },
-    [bnbPrice, account, cakePrice, ethereum],
+    [bnbPrice, account, cakePrice, sugar, mintPrice, ethereum],
   )
 
   return (
@@ -94,13 +112,13 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
         {
           tokenMode ?
-            TranslateString(10002, 'Stake tokens to earn Mint')
+            TranslateString(10002, 'Stake tokens to earn SUGAR')
             :
-          TranslateString(320, 'Stake LP tokens to earn Mint')
+          TranslateString(320, 'Stake LP tokens to earn SUGAR')
         }
       </Heading>
       <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(10000, 'Deposit Fee will be used to buyback MINT')}
+        {TranslateString(10000, 'Deposit Fee will be used to buyback SUGAR')}
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>

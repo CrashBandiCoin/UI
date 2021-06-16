@@ -23,13 +23,14 @@ interface FarmCardActionsProps {
   farm: FarmWithStakedValue
   ethereum?: provider
   account?: string
+  sugar?: boolean
 }
 
-const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }) => {
+const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, sugar }) => {
   const TranslateString = useI18n()
   const [requestedApproval, setRequestedApproval] = useState(false)
-  const { pid, lpAddresses, tokenAddresses, isTokenOnly, depositFeeBP } = useFarmFromPid(farm.pid)
-  const { allowance, tokenBalance, stakedBalance, earnings } = useFarmUser(pid)
+  const { id, pid, lpAddresses, tokenAddresses, isTokenOnly, depositFeeBP } = useFarmFromPid(farm.pid, farm.id)
+  const { allowance, tokenBalance, stakedBalance, earnings } = useFarmUser(pid, id)
   const lpAddress = lpAddresses[process.env.REACT_APP_CHAIN_ID]
   const tokenAddress = tokenAddresses[process.env.REACT_APP_CHAIN_ID];
   const lpName = farm.lpSymbol.toUpperCase()
@@ -68,8 +69,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
     <Action>
       <Flex>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-
-          MINT
+          { sugar ? "Sugar" : "Mint"}
         </Text>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {TranslateString(999, 'Earned')}

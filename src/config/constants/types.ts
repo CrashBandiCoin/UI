@@ -29,6 +29,11 @@ export enum QuoteToken {
   'UST' = 'UST',
 }
 
+export enum ContractType {
+  'Mint' = 'Mint',
+  'Sugar' = 'Sugar'
+}
+
 export enum PoolCategory {
   'COMMUNITY' = 'Community',
   'CORE' = 'Core',
@@ -41,7 +46,9 @@ export interface Address {
 }
 
 export interface FarmConfig {
+  id: number
   pid: number
+  type: string
   lpSymbol: string
   lpAddresses: Address
   tokenSymbol: string

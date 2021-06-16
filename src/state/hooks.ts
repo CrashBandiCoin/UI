@@ -24,8 +24,8 @@ export const useFarms = (): Farm[] => {
   return farms
 }
 
-export const useFarmFromPid = (pid): Farm => {
-  const farm = useSelector((state: State) => state.farms.data.find((f) => f.pid === pid))
+export const useFarmFromPid = (pid, id): Farm => {
+  const farm = useSelector((state: State) => state.farms.data.find((f) => f.pid === pid && f.id === id))
   return farm
 }
 
@@ -34,8 +34,8 @@ export const useFarmFromSymbol = (lpSymbol: string): Farm => {
   return farm
 }
 
-export const useFarmUser = (pid) => {
-  const farm = useFarmFromPid(pid)
+export const useFarmUser = (pid, id) => {
+  const farm = useFarmFromPid(pid, id)
 
   return {
     allowance: farm.userData ? new BigNumber(farm.userData.allowance) : new BigNumber(0),
@@ -70,8 +70,9 @@ export const usePoolFromPid = (sousId): Pool => {
 
 export const usePriceBnbBusd = (): BigNumber => {
   const pid = 2 // BUSD-BNB LP
-  const farm = useFarmFromPid(pid)
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+  const id = 4
+  const farm = useFarmFromPid(pid, id)
+  return farm.tokenPriceVsQuote && farm.tokenPriceVsQuote !== new BigNumber('Infinity') ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
@@ -81,7 +82,8 @@ export const usePriceCakeBusd = (): BigNumber => {
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
   const pid = 1; // SUGAR-BUSD LP
   // const bnbPriceUSD = usePriceBnbBusd()
-  const farm = useFarmFromPid(pid);
+  const id = 2;
+  const farm = useFarmFromPid(pid, id)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
@@ -91,9 +93,10 @@ export const usePriceMintBusd = (): BigNumber => { // TODO use to display MINT p
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
   const pid = 1; // MINT-BUSD LP
+  const id = 3;
   // const bnbPriceUSD = usePriceBnbBusd()
-  const farm = useFarmFromPid(pid);
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+  const farm = useFarmFromPid(pid, id)
+  return farm && farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
 
@@ -101,6 +104,7 @@ export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
+  const mintPrice = usePriceMintBusd();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -113,7 +117,8 @@ export const useTotalValue = (): BigNumber => {
       }else{
         val = (farm.lpTotalInQuoteToken);
       }
-      value = value.plus(val);
+      if (val)
+        value = value.plus(val);
     }
   }
   return value;
