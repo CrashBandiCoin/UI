@@ -3,7 +3,7 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+import {useTotalSupply, useBurnedBalance, useTotalSupplyMint} from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
@@ -24,7 +24,7 @@ const Row = styled.div`
 
 const MintStats = () => {
   const TranslateString = useI18n()
-  const totalSupply = useTotalSupply()
+  const totalSupply = useTotalSupplyMint()
   const burnedBalance = useBurnedBalance(getMintAddress())
   const farms = useFarms();
   const MintPrice = usePriceMintBusd();

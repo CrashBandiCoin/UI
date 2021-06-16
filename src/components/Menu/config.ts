@@ -25,43 +25,33 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     href: '/lpswap',
   },
-
   {
     label: 'Buy MINT',
     icon: 'MintIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xCaEcE7B6A662b0FcABDb7d760778fff992365f66',
   },
   {
-    label: 'Migration Mint v2',
-    icon: 'TradeIcon',
-    href: '/migration',
+    label: 'MINT Farms',
+    icon: 'FarmIcon',
+    href: '/farms/mint',
   },
-
-
+  {
+    label: 'MINT Pools',
+    icon: 'PoolIcon',
+    href: '/pools/mint',
+  },
   {
     label: 'Buy SUGAR',
     icon: 'SugarIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
   },
-
   {
-    label: 'Farms Mint',
-    icon: 'FarmIcon',
-    href: '/farms/mint',
-  },
-  {
-    label: 'Pools Mint',
-    icon: 'PoolIcon',
-    href: '/pools/mint',
-  },
-
-  {
-    label: 'Farms Sugar',
+    label: 'SUGAR Farm',
     icon: 'FarmIcon',
     href: '/farms/sugar',
   },
   {
-    label: 'Pools Sugar',
+    label: 'SUGAR Pools',
     icon: 'PoolIcon',
     href: '/pools/sugar',
   },
@@ -71,11 +61,11 @@ const config: MenuEntry[] = [
   //   icon: 'PoolIcon',
   //   href: '/pools',
   // },
-  // {
-  //   label: 'Lottery',
-  //   icon: 'TicketIcon',
-  //   href: '/lottery',
-  // },
+  {
+    label: 'Vote',
+    icon: 'TicketIcon',
+    href: 'https://snapshot.org/#/tea-swap.eth',
+  },
   // {
   //   label: 'NFT',
   //   icon: 'NftIcon',
@@ -125,10 +115,7 @@ const config: MenuEntry[] = [
     label: 'More',
     icon: 'MoreIcon',
     items: [
-      // {
-      //   label: 'Docs',
-      //   href: 'https://goosedefi.gitbook.io/goose-finance/',
-      // },
+
       {
         label: 'Website',
         href: 'https://tea-swap.finance/',
@@ -155,6 +142,12 @@ const config: MenuEntry[] = [
   //   icon: 'RoadmapIcon',
   //   href: '/roadmap',
   // },
+
+  {
+    label: 'Docs',
+    icon: 'DocsIcon',
+    href: 'https://docs.tea-swap.finance',
+  },
   {
     label: 'Audit by TechRate',
     icon: 'AuditIcon',

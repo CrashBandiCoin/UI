@@ -60,9 +60,9 @@ const App: React.FC = () => {
             <Route path="/pools/sugar">
               <Farms sugar tokenMode />
             </Route>
-            {/* <Route path="/lpswap"> */}
-                {/* <Lpswap/> */}
-            {/* </Route> */}
+             <Route path="/lpswap">
+                 <Lpswap/>
+             </Route>
             {/* <Route path="/migration"> */}
                 {/* <Migration/> */}
             {/* </Route> */}

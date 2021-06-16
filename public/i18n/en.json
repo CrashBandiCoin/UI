@@ -686,6 +686,12 @@
     },
     {
       "data": {
+        "stringId": 545,
+          "text": "MINT to Harvest"
+      }
+    },
+    {
+      "data": {
         "stringId": 546,
         "text": "SUGAR in Wallet"
       }
