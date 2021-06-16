@@ -58,11 +58,6 @@ const MintStats = () => {
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <img src={iconBurned} alt='burned' width='30'/>
-          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
-        </Row>
-        <Row>
           <img src={iconMinted} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(541, 'New Mint/block')}</Text>
           <Text bold fontSize="14px">{MintPerBlock}</Text>

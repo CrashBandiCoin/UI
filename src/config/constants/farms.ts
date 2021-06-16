@@ -11,6 +11,7 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988',
+
     },
     tokenSymbol: 'SUGAR',
     tokenAddresses: {
