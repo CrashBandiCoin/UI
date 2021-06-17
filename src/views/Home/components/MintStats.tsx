@@ -59,7 +59,7 @@ const MintStats = () => {
         </Row>
         <Row>
           <img src={iconMinted} alt='minted' width='30'/>
-          <Text fontSize="14px">{TranslateString(541, 'New Mint/block')}</Text>
+          <Text fontSize="14px">{TranslateString(541, 'New MINT/block')}</Text>
           <Text bold fontSize="14px">{MintPerBlock}</Text>
         </Row>
       </CardBody>

@@ -22,7 +22,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
-    id: 0,
+    id: 1,
     pid: 0, // TODO fixe the correct APR
     type: ContractType.Mint,
     risk: 5,

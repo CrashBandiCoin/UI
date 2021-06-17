@@ -46,7 +46,7 @@ const config: MenuEntry[] = [
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
   },
   {
-    label: 'SUGAR Farm',
+    label: 'SUGAR Farms',
     icon: 'FarmIcon',
     href: '/farms/sugar',
   },
