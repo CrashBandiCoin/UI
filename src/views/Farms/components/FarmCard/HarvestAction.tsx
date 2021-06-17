@@ -10,6 +10,7 @@ import useStake from '../../../../hooks/useStake'
 interface FarmCardActionsProps {
     earnings?: BigNumber
     pid?: number
+    type?: string
 }
 
 const BalanceAndCompound = styled.div`
@@ -19,13 +20,13 @@ const BalanceAndCompound = styled.div`
   flex-direction: column;
 `
 
-const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid}) => {
+const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid, type}) => {
     const TranslateString = useI18n()
     const [pendingTx, setPendingTx] = useState(false)
 
     // compound to SUGAR pool
-    const {onReward} = useHarvest(pid)
-    const {onStake} = useStake(3)
+    const {onReward} = useHarvest(pid, type)
+    const {onStake} = useStake(3, type)
 
 
 
