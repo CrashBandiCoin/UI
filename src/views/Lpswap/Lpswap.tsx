@@ -21,7 +21,7 @@ const Lpswap: React.FC = () => {
     return (
         <Page>
             <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center', paddingTop:'130px'}}>
-                You can direct swap here into SUGAR LPs from your wallet assets
+                You can direct swap here into SUGAR LPs your wallet assets
             </Heading>
             <Hero>
             <div>
