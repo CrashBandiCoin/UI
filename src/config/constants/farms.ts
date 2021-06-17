@@ -170,7 +170,7 @@ const farms: FarmConfig[] = [
   },
   {
     id: 9,
-    pid: 4,
+    pid: 8,
     type: ContractType.Mint,
     risk: 4,
     isTokenOnly: true,
@@ -208,7 +208,7 @@ const farms: FarmConfig[] = [
   },
   {
     id: 11,
-    pid: 5,
+    pid: 10,
     type: ContractType.Mint,
     risk: 3,
     isTokenOnly: true,
@@ -241,12 +241,12 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.cake,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     id: 13,
-    pid: 6,
+    pid: 9,
     type: ContractType.Mint,
     risk: 5,
     isTokenOnly: true,
@@ -260,8 +260,8 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.cake,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     id: 14,
@@ -317,26 +317,6 @@ const farms: FarmConfig[] = [
   // },
   {
     id: 15,
-    pid: 10,
-    type: ContractType.Sugar,
-    risk: 5,
-    isTokenOnly: true,
-    lpSymbol: 'BTCB',
-    lpAddresses: {
-      97: '',
-      56: '0xb8875e207ee8096a929d543c9981c9586992eacb', // BTCB-BUSD LP
-    },
-    tokenSymbol: 'BTCB',
-    tokenAddresses: {
-      97: '',
-      56: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
-    },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
-  },
-
-  {
-    id: 16,
     pid: 9,
     type: ContractType.Sugar,
     risk: 5,
@@ -352,6 +332,25 @@ const farms: FarmConfig[] = [
       56: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
     },
     quoteTokenSymbol: QuoteToken.BUSD,  
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    id: 16,
+    pid: 8,
+    type: ContractType.Sugar,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'BTCB',
+    lpAddresses: {
+      97: '',
+      56: '0xb8875e207ee8096a929d543c9981c9586992eacb', // BTCB-BUSD LP
+    },
+    tokenSymbol: 'BTCB',
+    tokenAddresses: {
+      97: '',
+      56: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -705,5 +704,10 @@ const farms: FarmConfig[] = [
   //   quoteTokenAdresses: contracts.wbnb,
   // },
 ]
+const farms1 = farms.filter((farm) => farm.type === 'Mint')
+const farms2 = farms.filter((farm) => farm.type === 'Sugar')
 
-export default farms
+farms1.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
+farms2.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
+
+export default [...farms1, ...farms2]

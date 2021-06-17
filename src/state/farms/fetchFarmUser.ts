@@ -40,7 +40,8 @@ export const fetchFarmUserAllowances = async (account: string) => {
   const parsedLpAllowances2 = rawLpAllowances2.map((lpBalance) => {
     return new BigNumber(lpBalance).toJSON()
   })
-  return [...parsedLpAllowances1, ...parsedLpAllowances2]
+  const parsedLpAllowances = [...parsedLpAllowances1, ...parsedLpAllowances2]
+  return parsedLpAllowances
 }
 
 export const fetchFarmUserTokenBalances = async (account: string) => {
@@ -72,7 +73,8 @@ export const fetchFarmUserTokenBalances = async (account: string) => {
   const parsedTokenBalances2 = rawTokenBalances2.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
   })
-  return [...parsedTokenBalances1, ...parsedTokenBalances2]
+  const parsedTokenBalances = [...parsedTokenBalances1, ...parsedTokenBalances2]
+  return parsedTokenBalances
 }
 
 export const fetchFarmUserStakedBalances = async (account: string) => {
@@ -106,7 +108,6 @@ export const fetchFarmUserStakedBalances = async (account: string) => {
   })
 
   const parsedStakedBalances = [...parsedStakedBalances1, ...parsedStakedBalances2]
-
   return parsedStakedBalances
 }
 

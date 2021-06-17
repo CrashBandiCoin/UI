@@ -138,7 +138,13 @@ const fetchFarms = async () => {
       }
     }),
   )
-  return data
+  
+  const farms1 = data.filter((farm) => farm.type === 'Mint')
+  const farms2 = data.filter((farm) => farm.type === 'Sugar')
+
+  farms1.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
+  farms2.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
+  return [...farms1, ...farms2]
 }
 
 export default fetchFarms

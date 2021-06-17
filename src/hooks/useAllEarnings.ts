@@ -33,8 +33,8 @@ const useAllEarnings = () => {
 
       const res1 = await multicall(masterMintABI, calls1)
       const res2 = await multicall(masterChefABI, calls2)
-
-      setBalance([ ...res1, ...res2])
+      const res = [ ...res1, ...res2] 
+      setBalance(res)
     }
 
     if (account) {

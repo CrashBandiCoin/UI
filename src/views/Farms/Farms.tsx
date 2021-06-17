@@ -84,6 +84,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(bnbPrice);
         }
 
+        console.log(farm)
+
         if(totalValue.comparedTo(0) > 0){
           apy = apy.div(totalValue);
         }
