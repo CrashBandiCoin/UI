@@ -37,9 +37,13 @@ const CakeStats = () => {
   const marketCap = SUGARPrice.times(circSupply);
 
   let SUGARPerBlock = 0;
-  if(farms && farms[0] && farms[0].SUGARPerBlock){
-    SUGARPerBlock = new BigNumber(farms[0].SUGARPerBlock).div(new BigNumber(10).pow(18)).toNumber();
-  }
+
+  farms.map(farm => {
+    if (farm.id === 0 && farm.pid === 0 && farm.SUGARPerBlock) {
+      SUGARPerBlock = new BigNumber(farm.SUGARPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+    }
+    return farm
+  })
 
   return (
     <StyledCakeStats>
