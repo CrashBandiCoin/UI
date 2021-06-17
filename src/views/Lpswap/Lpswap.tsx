@@ -2,6 +2,7 @@ import React from 'react'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import styled from "styled-components";
+import {Heading} from "@pancakeswap-libs/uikit";
 
 const Hero = styled.div`
   align-items: center;
@@ -12,7 +13,6 @@ const Hero = styled.div`
   flex-direction: row;
   margin: auto;
   margin-bottom: 32px;
-  padding-top: 116px;
   text-align: center;
 `
 
@@ -20,6 +20,9 @@ const Lpswap: React.FC = () => {
     const TranslateString = useI18n()
     return (
         <Page>
+            <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center', paddingTop:'130px'}}>
+                You can direct swap here into SUGAR LPs from your wallet assets
+            </Heading>
             <Hero>
             <div>
                 {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
