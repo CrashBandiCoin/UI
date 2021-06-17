@@ -7,13 +7,9 @@ import { useTotalValue } from '../../../state/hooks'
 import CardValue from './CardValue'
 
 
-const StyledTotalValueLockedCard = styled.div`
+const StyledTotalValueLockedCard = styled(Card)`
   align-items: center;
-  display: flex;
-  flex: 1;
-  font-size:50px;
-  color:green;
-  text-shadow: 0 0 7px #35F506;
+  text-align: center;
 `
 
 const TotalValueLockedCard = () => {
@@ -24,7 +20,18 @@ const TotalValueLockedCard = () => {
 
   return (
     <StyledTotalValueLockedCard>
-      <h1>Total Value Locked (TVL) :  {totalValue.toNumber().toLocaleString(navigator.language, { minimumFractionDigits: 0 })} $ </h1>
+      <CardBody>
+        <Heading size="lg" mb="24px">
+          {TranslateString(999, 'Total Value Locked (TVL)')}
+        </Heading>
+        <>
+          {/* <Heading size="xl">{`$${tvl}`}</Heading> */}
+          {/* <Heading size="xl"> */}
+          <CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/>
+          {/* </Heading> */}
+          <Text color="textSubtle">{TranslateString(999, 'Across all Farms and Pools')}</Text>
+        </>
+      </CardBody>
     </StyledTotalValueLockedCard>
 
   )
