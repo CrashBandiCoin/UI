@@ -354,7 +354,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    id: 19,
+    id: 17,
     pid: 11,
     risk: 5,
     type: ContractType.Mint,
@@ -370,6 +370,79 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.CAKE,
     quoteTokenAdresses: contracts.cake,
+  },
+  {
+    id: 18,
+    pid: 13,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'MINT-SUGAR LP',
+    lpAddresses: {
+      97: '',
+      56: '0x45cE45a7d69084c1E3E7Ff29B634Bcb872f62d88',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    id: 19,
+    pid: 14,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'MINT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x7c5e62E0173C94E768D5Af663C99E5b8B296767d',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    id: 20,
+    pid: 15,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'MINT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    id: 21,
+    pid: 16,
+    type: ContractType.Sugar,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'MINT',
+    lpAddresses: {
+      97: '',
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // MINT-BUSD LP
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   // {
   //   pid: 3,
