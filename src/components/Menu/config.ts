@@ -26,11 +26,6 @@ const config: MenuEntry[] = [
     href: '/lpswap',
   },
   {
-    label: 'Euro',
-    icon: 'FarmIcon',
-    href: '/euro',
-  },
-  {
     label: 'Buy MINT',
     icon: 'MintIcon',
     href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
