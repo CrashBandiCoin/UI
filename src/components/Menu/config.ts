@@ -66,32 +66,32 @@ const config: MenuEntry[] = [
         ],
     },
 
-    {
-        label: 'Token Event',
-        icon: 'ListingsIcon',
-        items: [
-            {
-                label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=',
-            },
-            {
-                label: 'Liquidity',
-                href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
-            },
-            {
-                label: 'Farms',
-                href: '/farms/sugar',
-            },
-            {
-                label: 'Pools',
-                href: '/pools/sugar',
-            },
-            {
-                label: 'Chart',
-                href: 'https://dex.guru/token/-bsc',
-            },
-        ],
-    },
+    // {
+    //     label: 'Token Event',
+    //     icon: 'ListingsIcon',
+    //     items: [
+    //         {
+    //             label: 'Exchange',
+    //             href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=',
+    //         },
+    //         {
+    //             label: 'Liquidity',
+    //             href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+    //         },
+    //         {
+    //             label: 'Farms',
+    //             href: '/farms/sugar',
+    //         },
+    //         {
+    //             label: 'Pools',
+    //             href: '/pools/sugar',
+    //         },
+    //         {
+    //             label: 'Chart',
+    //             href: 'https://dex.guru/token/-bsc',
+    //         },
+    //     ],
+    // },
     {
         label: 'LP swap',
         icon: 'TradeIcon',
