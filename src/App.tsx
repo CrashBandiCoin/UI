@@ -60,7 +60,7 @@ const App: React.FC = () => {
               <Farms sugar tokenMode />
             </Route>
             <Route path="/farms/teasport">
-              <Farms sugar={false}/>
+              <Farms sugar/>
             </Route>
             <Route path="/pools/teasport">
               <Farms sugar tokenMode />

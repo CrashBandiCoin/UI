@@ -88,7 +88,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           apy = mintPrice.times(cakeRewardPerYear);
         }
         if (farm.type === 'TeaSport') {
-          apy = mintPrice.times(cakeRewardPerYear);
+          apy = teasportPrice.times(cakeRewardPerYear);
         }
         else {
           apy = cakePrice.times(cakeRewardPerYear);
@@ -113,14 +113,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           farm={farm}
           removed={removed}
           bnbPrice={bnbPrice}
-          cakePrice={farm.type === 'Mint' ? mintPrice : cakePrice}
+          cakePrice={farm.type === 'TeaSport' ? teasportPrice : cakePrice}
           ethereum={ethereum}
           account={account}
           sugar={sugar}
         />
       ))
     },
-    [bnbPrice, account, cakePrice, sugar, mintPrice, ethereum],
+    [bnbPrice, account, cakePrice, sugar, mintPrice, teasportPrice, ethereum],
   )
 
   return (

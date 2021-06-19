@@ -101,7 +101,7 @@ export const usePriceMintBusd = (): BigNumber => { // TODO use to display MINT p
 
 export const usePriceTeaSportBusd = (): BigNumber => { // TODO use to display MINT price
   const pid = 1; // MINT-BUSD LP
-  const id = 3;
+  const id = 23;
   // const bnbPriceUSD = usePriceBnbBusd()
   const farm = useFarmFromPid(pid, id)
   return farm && farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
