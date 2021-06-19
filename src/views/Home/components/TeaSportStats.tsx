@@ -66,7 +66,7 @@ const MintStats = () => {
         </Row>
         <br/>
         <Row>
-          <img src={iconBoost} alt='boost' width='100'/> Emission block bonus : 0 (last match 1-1)
+          <img src={iconBoost} alt='boost' width='60'/> <b>Emission block bonus : 0 (last match 1-1)</b>
         </Row>
       </CardBody>
     </StyledTeaSportStats>
