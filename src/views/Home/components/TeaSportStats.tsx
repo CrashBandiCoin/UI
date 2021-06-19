@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import {useTotalSupply, useBurnedBalance, useTotalSupplyMint, useTotalSupplyTeaSport} from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { getMintAddress } from 'utils/addressHelpers'
+import {getMintAddress, getTeaSportAddress} from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import iconMarketCap from '../img/iconMarketCap.svg'
@@ -29,7 +29,7 @@ const Row = styled.div`
 const MintStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupplyTeaSport()
-  const burnedBalance = useBurnedBalance(getMintAddress())
+  const burnedBalance = useBurnedBalance(getTeaSportAddress())
   const farms = useFarms();
   const TeaSportPrice = usePriceTeaSportBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);

@@ -31,6 +31,7 @@ export enum QuoteToken {
 
 export enum ContractType {
   'Mint' = 'Mint',
+  'TeaSport' = 'TeaSport',
   'Sugar' = 'Sugar'
 }
 

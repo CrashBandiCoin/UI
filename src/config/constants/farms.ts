@@ -444,6 +444,60 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+  {
+    id: 22,
+    pid: 0,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'TeaSport-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x454F7B6455A6fF3B8fDfF287F5F26e50C46d6609', // MINT-BUSD LP
+    },
+    tokenSymbol: 'TeaSport',
+    tokenAddresses: {
+      97: '',
+      56: '0xad299ec68f0dd14b1ebdcf821bda48df2f6f655c',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    id: 23,
+    pid: 1,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'TeaSport-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // MINT-BUSD LP
+    },
+    tokenSymbol: 'TeaSport',
+    tokenAddresses: {
+      97: '',
+      56: '0xad299ec68f0dd14b1ebdcf821bda48df2f6f655c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    id: 24,
+    pid: 2,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'BNB-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+    },
+    tokenSymbol: 'BNB',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
   // {
   //   pid: 3,
   //   risk: 1,

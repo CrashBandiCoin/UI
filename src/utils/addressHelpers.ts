@@ -9,7 +9,7 @@ export const getMintAddress = () => {
   return addresses.mint[chainId]
 }
 export const getTeaSportAddress = () => {
-  return addresses.mint[chainId]
+  return addresses.teaSport[chainId]
 }
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]

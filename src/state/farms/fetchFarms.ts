@@ -31,7 +31,7 @@ const fetchFarms = async () => {
                 {
                     address: farmConfig.isTokenOnly ? farmConfig.tokenAddresses[CHAIN_ID] : lpAdress,
                     name: 'balanceOf',
-                    params: [farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress()],
+                    params: [farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress()],
                 },
                 // Total supply of LP tokens
                 {
@@ -94,20 +94,20 @@ const fetchFarms = async () => {
             }
 
             const [info, totalAllocPoint, perblock] = await multicall(
-                farmConfig.type === 'Mint' ? mastermintABI : masterchefABI,
+                farmConfig.type === 'TeaSport' ? masterTeaSportABI : masterchefABI,
                 [
                     {
-                        address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
+                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
                         name: 'poolInfo',
                         params: [farmConfig.pid],
                     },
                     {
-                        address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
+                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
                         name: 'totalAllocPoint',
                     },
                     {
-                        address: farmConfig.type === 'Mint' ? getMasterMintAddress() : getMasterChefAddress(),
-                        name: farmConfig.type === 'Mint' ? 'MintPerBlock' : 'sugarPerBlock',
+                        address: farmConfig.type === 'TeaSport' ? getMasterMintAddress() : getMasterChefAddress(),
+                        name: farmConfig.type === 'TeaSport' ? 'TeaSportPerBlock' : 'sugarPerBlock',
                     },
                 ]
             )

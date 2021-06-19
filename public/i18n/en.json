@@ -1265,6 +1265,12 @@
         "stringId": 10007,
         "text": "New TEASPORT/block"
       }
+    },
+    {
+      "data": {
+        "stringId": 10008,
+        "text": "TeaSportV1 in Wallet"
+      }
     }
   ],
   "pagination": {
