@@ -580,6 +580,85 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
 
+  {
+    id: 26,
+    pid: 3,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'MINT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x7c5e62E0173C94E768D5Af663C99E5b8B296767d',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+
+  {
+    id: 27,
+    pid: 4,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'MINT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7',
+    },
+    tokenSymbol: 'MINT',
+    tokenAddresses: {
+      97: '',
+      56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+
+  {
+    id: 29,
+    pid: 5,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'SUGAR-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x8e4848DC6535742824d19dA9F19901D01d9f6988',
+
+    },
+    tokenSymbol: 'SUGAR',
+    tokenAddresses: {
+      97: '',
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+
+  {
+    id: 30,
+    pid: 6,
+    type: ContractType.TeaSport,
+    risk: 5,
+    lpSymbol: 'SUGAR-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2',
+    },
+    tokenSymbol: 'SUGAR',
+    tokenAddresses: {
+      97: '',
+      56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+
+
+
 
   // {
   //   pid: 3,
