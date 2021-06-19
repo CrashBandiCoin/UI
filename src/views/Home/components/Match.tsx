@@ -55,7 +55,7 @@ const MintStats = () => {
           -
           <img src={iconFrance} alt='marketCap' width='100'/>
         </Row>
-        1 p.m UTC
+        LIVE !
       </CardBody>
     </StyledTeaSportStats>
   )
