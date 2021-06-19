@@ -449,12 +449,12 @@ const farms: FarmConfig[] = [
     pid: 0,
     type: ContractType.TeaSport,
     risk: 5,
-    lpSymbol: 'TeaSport-BNB LP',
+    lpSymbol: 'TEASPORT-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x7ca18c58c6d890201172800eb0508450ae46e4f5', // TeaSport-BUSD LP
     },
-    tokenSymbol: 'TeaSport',
+    tokenSymbol: 'TEASPORT',
     tokenAddresses: {
       97: '',
       56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
@@ -467,12 +467,12 @@ const farms: FarmConfig[] = [
     pid: 1,
     type: ContractType.TeaSport,
     risk: 5,
-    lpSymbol: 'TeaSport-BUSD LP',
+    lpSymbol: 'TEASPORT-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x154b10d06c8739Df799510a338AC7e61391011F6', // TeaSport-BUSD LP
     },
-    tokenSymbol: 'TeaSport',
+    tokenSymbol: 'TEASPORT',
     tokenAddresses: {
       97: '',
       56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
@@ -566,12 +566,12 @@ const farms: FarmConfig[] = [
     type: ContractType.TeaSport,
     risk: 5,
     isTokenOnly: true,
-    lpSymbol: 'TeaSport',
+    lpSymbol: 'TEASPORT',
     lpAddresses: {
       97: '',
       56: '0x154b10d06c8739Df799510a338AC7e61391011F6', // SUGAR-BUSD LP
     },
-    tokenSymbol: 'TeaSport',
+    tokenSymbol: 'TEASPORT',
     tokenAddresses: {
       97: '',
       56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',

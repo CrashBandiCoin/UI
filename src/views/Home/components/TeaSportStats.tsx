@@ -50,7 +50,7 @@ const MintStats = () => {
     <StyledTeaSportStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(535, 'TeaSport Stats')}
+          {TranslateString(535, 'TEASPORT Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>

@@ -62,7 +62,7 @@ const config: MenuEntry[] = [
     },
 
     {
-        label: 'TeaSportv1',
+        label: 'TEASPORT',
         icon: 'TeaSportV1Icon',
         items: [
             {

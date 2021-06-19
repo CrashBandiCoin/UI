@@ -220,7 +220,7 @@ const FarmedStakingCard = () => {
                 </Heading>
                 <CardImage src="/images/SUGAR/TeaSportV1.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>{TranslateString(10008, 'TeaSportV1 in Wallet')}</Label>
+                    <Label>{TranslateString(10008, 'TEASPORT in Wallet')}</Label>
                     <CakeWalletBalance cakeBalance={teasportBalance}/>
                     <Label>~${(TEASPORTPrice * teasportBalance).toFixed(2)}</Label>
                 </Block>
