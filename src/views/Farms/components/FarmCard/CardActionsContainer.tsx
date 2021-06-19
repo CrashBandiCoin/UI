@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { provider } from 'web3-core'
@@ -65,6 +66,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, 
     )
   }
 
+  const zapUrl = `/zap?to=lpPcsV2-wallet-${lpAddress}&slippage=50`
+
   return (
     <Action>
       <Flex>
@@ -84,7 +87,19 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, 
           {TranslateString(999, 'Staked')}
         </Text>
       </Flex>
+      {!isTokenOnly && !isApproved && (
+        <Button mt="8px" fullWidth variant="secondary" style={{ background: "white" }} as={Link} to={zapUrl}>
+          Get LP
+        </Button>
+      )}
       {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
+      {!isTokenOnly && isApproved && (
+        <Flex justifyContent="flex-end">
+          <Button mt="8px" variant="secondary" style={{ background: "white" }} as={Link} to={zapUrl}>
+            Get LP
+          </Button>
+        </Flex>
+      )}
     </Action>
   )
 }

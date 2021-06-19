@@ -11,20 +11,16 @@ const config: MenuEntry[] = [
         icon: 'MintIcon',
         items: [
             {
-                label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
-            },
-            {
-                label: 'Liquidity',
-                href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
-            },
-            {
                 label: 'Farms',
                 href: '/farms/mint',
             },
             {
                 label: 'Pools',
                 href: '/pools/mint',
+            },
+            {
+                label: 'Exchange',
+                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
             },
             {
                 label: 'Chart',
@@ -39,20 +35,16 @@ const config: MenuEntry[] = [
         icon: 'SugarIcon',
         items: [
             {
-                label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
-            },
-            {
-                label: 'Liquidity',
-                href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
-            },
-            {
                 label: 'Farms',
                 href: '/farms/sugar',
             },
             {
                 label: 'Pools',
                 href: '/pools/sugar',
+            },
+            {
+                label: 'Exchange',
+                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
             },
             {
                 label: 'Chart',
@@ -66,14 +58,6 @@ const config: MenuEntry[] = [
         icon: 'TeaSportV1Icon',
         items: [
             {
-                label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
-            },
-            {
-                label: 'Liquidity',
-                href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
-            },
-            {
                 label: 'Farms',
                 href: '/farms/teasport',
             },
@@ -82,15 +66,19 @@ const config: MenuEntry[] = [
                 href: '/pools/teasport',
             },
             {
+                label: 'Exchange',
+                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+            },
+            {
                 label: 'Chart',
                 href: 'https://dex.guru/token/0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A-bsc',
             },
         ],
     },
     {
-        label: 'LP swap',
+        label: 'Zap',
         icon: 'TradeIcon',
-        href: '/lpswap',
+        href: '/zap',
     },
 
     {
