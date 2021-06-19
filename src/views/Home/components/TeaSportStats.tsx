@@ -13,7 +13,7 @@ import iconBurned from '../img/iconBurned.png'
 import iconMinted from '../img/iconMinted.png'
 import iconSupply from '../img/iconSupply.png'
 import iconBoost from '../img/matchs/boost.png'
-import iconHongrie from "../img/matchs/hongrie.png";
+
 
 const StyledTeaSportStats = styled(Card)`
   margin-left: auto;
@@ -65,9 +65,7 @@ const MintStats = () => {
           <Text bold fontSize="14px">{TeaSportPerBlock}</Text>
         </Row>
         <br/>
-        <Row>
-          <img src={iconBoost} alt='boost' width='60'/> <b>Emission block bonus : 0 (last match 1-1)</b>
-        </Row>
+
       </CardBody>
     </StyledTeaSportStats>
   )

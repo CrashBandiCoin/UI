@@ -11,6 +11,7 @@ import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/h
 import iconMarketCap from '../img/iconMarketCap.svg'
 import iconHongrie from '../img/matchs/hongrie.png'
 import iconFrance from '../img/matchs/france.png'
+import iconBoost from "../img/matchs/boost.png";
 
 
 
@@ -27,6 +28,15 @@ const Row = styled.div`
   text-align: center;
   justify-content: space-between;
   margin-bottom: 8px;
+`
+
+const Row2 = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 8px;
+  
 `
 
 const MintStats = () => {
@@ -52,10 +62,12 @@ const MintStats = () => {
         </Heading>
         <Row>
           <img src={iconHongrie} alt='marketCap' width='100'/>
-          -
+         1 - 1
           <img src={iconFrance} alt='marketCap' width='100'/>
         </Row>
-        1-1
+
+        <b>Emission block bonus : 0 </b>
+
       </CardBody>
     </StyledTeaSportStats>
   )
