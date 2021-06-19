@@ -31,12 +31,7 @@ const Row = styled.div`
 `
 
 const Row2 = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 8px;
-  
+  color:red;
 `
 
 const MintStats = () => {
@@ -67,6 +62,10 @@ const MintStats = () => {
         </Row>
 
         <b>Emission block bonus : 0 </b>
+
+        <br />
+        <br />
+        <p>VOTE FOR THE NEXT MATCH</p><Row2><a href="https://snapshot.org/#/tea-swap.eth/proposal/QmRyEVZ8CCmZB9h3sESNGeBtKomREa2Zz7yWVRMbf2rNZF" > HERE !</a></Row2>
 
       </CardBody>
     </StyledTeaSportStats>
