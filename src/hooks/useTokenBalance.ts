@@ -4,9 +4,10 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import cakeABI from 'config/abi/cake.json'
 import mintABI from 'config/abi/mint.json'
+import teasportABI from 'config/abi/teasport.json'
 import { getContract } from 'utils/web3'
 import { getTokenBalance } from 'utils/erc20'
-import {getCakeAddress, getMintAddress} from 'utils/addressHelpers'
+import {getCakeAddress, getMintAddress, getTeaSportAddress} from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
 const useTokenBalance = (tokenAddress: string) => {
@@ -52,6 +53,23 @@ export const useTotalSupplyMint = () => {
   useEffect(() => {
     async function fetchTotalSupply() {
       const cakeContract = getContract(cakeABI, getMintAddress())
+      const supply = await cakeContract.methods.totalSupply().call()
+      setTotalSupply(new BigNumber(supply))
+    }
+
+    fetchTotalSupply()
+  }, [slowRefresh])
+
+  return totalSupply
+}
+
+export const useTotalSupplyTeaSport = () => {
+  const { slowRefresh } = useRefresh()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+
+  useEffect(() => {
+    async function fetchTotalSupply() {
+      const cakeContract = getContract(teasportABI, getTeaSportAddress())
       const supply = await cakeContract.methods.totalSupply().call()
       setTotalSupply(new BigNumber(supply))
     }

@@ -12,6 +12,8 @@ import TwitterCard from './components/TwitterCard'
 import Soundcloud from './components/Soundcloud'
 import DappRadar from './img/dappradar.png'
 import SocialCard from "./components/SocialCard";
+import TeaSportStats from "./components/TeaSportStats";
+import Match from "./components/Match";
 
 
 const Hero = styled.div`
@@ -78,6 +80,8 @@ const Home: React.FC = () => {
         <Cards>
           <MintStats />
           <CakeStats />
+          <TeaSportStats />
+          <Match />
         </Cards>
         <Cards>
           <Soundcloud/>

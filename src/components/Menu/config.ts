@@ -67,11 +67,11 @@ const config: MenuEntry[] = [
         items: [
             {
                 label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=',
+                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xAd299ec68f0DD14B1EBDCF821BdA48dF2F6f655c',
             },
             {
                 label: 'Liquidity',
-                href: 'https://exchange.pancakeswap.finance/#/add/BNB/',
+                href: 'https://exchange.pancakeswap.finance/#/add/BNB/0xAd299ec68f0DD14B1EBDCF821BdA48dF2F6f655c',
             },
             {
                 label: 'Farms',
@@ -83,7 +83,7 @@ const config: MenuEntry[] = [
             },
             {
                 label: 'Chart',
-                href: 'https://dex.guru/token/-bsc',
+                href: 'https://dex.guru/token/0xAd299ec68f0DD14B1EBDCF821BdA48dF2F6f655c-bsc',
             },
         ],
     },
