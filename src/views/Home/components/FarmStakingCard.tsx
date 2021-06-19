@@ -210,22 +210,7 @@ const FarmedStakingCard = () => {
                         alt="metamask logo"
                     />
                 </Button>
-                <Actions>
-                    {account ? (
-                        <Button
-                            id="harvest-all"
-                            disabled={balancesWithValue.length <= 0 || pendingTx}
-                            onClick={harvestAllFarms}
-                            fullWidth
-                        >
-                            {pendingTx
-                                ? TranslateString(548, 'Collecting SUGAR')
-                                : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
-                        </Button>
-                    ) : (
-                        <UnlockButton fullWidth/>
-                    )}
-                </Actions>
+
 
             </CardBody>
 
