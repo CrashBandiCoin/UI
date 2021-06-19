@@ -452,7 +452,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'TeaSport-BNB LP',
     lpAddresses: {
       97: '',
-      56: '0x454F7B6455A6fF3B8fDfF287F5F26e50C46d6609', // MINT-BUSD LP
+      56: '0x7ca18c58c6d890201172800eb0508450ae46e4f5', // TeaSport-BUSD LP
     },
     tokenSymbol: 'TeaSport',
     tokenAddresses: {
@@ -470,7 +470,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'TeaSport-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // MINT-BUSD LP
+      56: '0x154b10d06c8739Df799510a338AC7e61391011F6', // TeaSport-BUSD LP
     },
     tokenSymbol: 'TeaSport',
     tokenAddresses: {

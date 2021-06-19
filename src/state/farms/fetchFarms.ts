@@ -93,21 +93,45 @@ const fetchFarms = async () => {
                 }
             }
 
+            let abi = null
+            if (farmConfig.type === 'Sugar')
+                abi = masterchefABI
+            else if (farmConfig.type === 'Mint')
+                abi = mastermintABI
+            else if (farmConfig.type === 'TeaSport')
+                abi = masterTeaSportABI
+
+            let address = ''
+            if (farmConfig.type === 'Sugar')
+                address = getMasterChefAddress()
+            else if (farmConfig.type === 'Mint')
+                address = getMasterMintAddress()
+            else if (farmConfig.type === 'TeaSport')
+                address = getMasterTeaSportAddress()
+
+            let name = ''
+            if (farmConfig.type === 'Sugar')
+                name = 'sugarPerBlock'
+            else if (farmConfig.type === 'Mint')
+                name = 'MintPerBlock'
+            else if (farmConfig.type === 'TeaSport')
+                name = 'teasportPerBlock'
+
             const [info, totalAllocPoint, perblock] = await multicall(
-                farmConfig.type === 'TeaSport' ? masterTeaSportABI : masterchefABI,
+                abi,
                 [
                     {
-                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
+                        address,
                         name: 'poolInfo',
                         params: [farmConfig.pid],
                     },
                     {
-                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
+                        address,
                         name: 'totalAllocPoint',
                     },
                     {
-                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
-                        name: farmConfig.type === 'TeaSport' ? 'TeaSportPerBlock' : 'sugarPerBlock',
+                        address,
+                        name
                     },
                 ]
             )
