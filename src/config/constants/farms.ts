@@ -549,7 +549,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BUSD',
     lpAddresses: {
       97: '',
-      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // SUGAR-BUSD LP
+      56: '0x52640B938b033DbA2DEE3eeBF05C72DBD85258a7', // TeaSport-BUSD LP
     },
     tokenSymbol: 'BUSD',
     tokenAddresses: {

@@ -14,6 +14,15 @@ const fetchFarms = async () => {
     const data = await Promise.all(
         farmsConfig.map(async (farmConfig) => {
             const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
+
+            let paramAddress = ''
+            if (farmConfig.type === 'Sugar')
+                paramAddress = getMasterChefAddress()
+            else if (farmConfig.type === 'Mint')
+                paramAddress = getMasterMintAddress()
+            else if (farmConfig.type === 'TeaSport')
+                paramAddress = getMasterTeaSportAddress()
+
             const calls = [
                 // Balance of token in the LP contract
                 {
@@ -31,7 +40,7 @@ const fetchFarms = async () => {
                 {
                     address: farmConfig.isTokenOnly ? farmConfig.tokenAddresses[CHAIN_ID] : lpAdress,
                     name: 'balanceOf',
-                    params: [farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress()],
+                    params: [ paramAddress ],
                 },
                 // Total supply of LP tokens
                 {

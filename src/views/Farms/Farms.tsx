@@ -69,12 +69,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         let cakeRewardPerBlock = null
         if (farm.type === 'Mint') {
           cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        }
-        if (farm.type === 'TeaSport') {
+        } else if (farm.type === 'TeaSport') {
           cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        }
-        else {
-          cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        } else {
+          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         }
 
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
@@ -82,11 +80,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         let apy = null
         if (farm.type === 'Mint') {
           apy = mintPrice.times(cakeRewardPerYear);
-        }
-        if (farm.type === 'TeaSport') {
+        } else if (farm.type === 'TeaSport') {
           apy = teasportPrice.times(cakeRewardPerYear);
-        }
-        else {
+        } else {
           apy = cakePrice.times(cakeRewardPerYear);
         }
 
