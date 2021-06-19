@@ -77,9 +77,7 @@ const App: React.FC = () => {
             <Route path="/lottery">
               <Lottery />
             </Route>
-            <Route path="/roadmap">
-              <Roadmap />
-            </Route>
+
             {/* <Route path="/ifo"> */}
             {/*  <Ifos /> */}
             {/* </Route> */}
