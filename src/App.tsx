@@ -48,22 +48,22 @@ const App: React.FC = () => {
               <Home />
             </Route>
             <Route path="/farms/mint">
-              <Farms sugar={false}/>
+              <Farms type='Mint'/>
             </Route>
             <Route path="/pools/mint">
-              <Farms sugar={false} tokenMode/>
+              <Farms type='Mint' tokenMode/>
             </Route>
             <Route path="/farms/sugar">
-              <Farms sugar/>
+              <Farms type='Sugar'/>
             </Route>
             <Route path="/pools/sugar">
-              <Farms sugar tokenMode />
+              <Farms type='Sugar' tokenMode />
             </Route>
             <Route path="/farms/teasport">
-              <Farms sugar/>
+              <Farms type='TeaSport'/>
             </Route>
             <Route path="/pools/teasport">
-              <Farms sugar tokenMode />
+              <Farms type='TeaSport' tokenMode />
             </Route>
              <Route path="/lpswap">
                  <Lpswap/>

@@ -457,7 +457,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'TeaSport',
     tokenAddresses: {
       97: '',
-      56: '0xad299ec68f0dd14b1ebdcf821bda48df2f6f655c',
+      56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -475,7 +475,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'TeaSport',
     tokenAddresses: {
       97: '',
-      56: '0xad299ec68f0dd14b1ebdcf821bda48df2f6f655c',
+      56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -833,8 +833,10 @@ const farms: FarmConfig[] = [
 ]
 const farms1 = farms.filter((farm) => farm.type === 'Mint')
 const farms2 = farms.filter((farm) => farm.type === 'Sugar')
+const farms3 = farms.filter((farm) => farm.type === 'TeaSport')
 
 farms1.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
 farms2.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
+farms3.sort((a, b) => (a.pid > b.pid) ? 1 : -1)
 
-export default [...farms1, ...farms2]
+export default [...farms1, ...farms2, ...farms3]

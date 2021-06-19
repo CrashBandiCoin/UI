@@ -117,16 +117,17 @@ const fetchFarms = async () => {
             let MintPerBlock = null
             let SUGARPerBlock = null
             let TeaSportPerBlock = null
+
             if (farmConfig.type === 'Mint') {
                 MintPerBlock = perblock
-            }
-            if (farmConfig.type === 'TeaSport') {
+            } else if (farmConfig.type === 'TeaSport') {
                 TeaSportPerBlock = perblock
             } else if (farmConfig.type === 'Sugar') {
                 SUGARPerBlock = perblock
             } else {
                 MintPerBlock = perblock
                 SUGARPerBlock = perblock
+                TeaSportPerBlock = perblock
             }
 
             return {

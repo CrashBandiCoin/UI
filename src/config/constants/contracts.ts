@@ -8,7 +8,7 @@ const contracts = {
     97: '',
   },
   teaSport: {
-    56: '0xad299ec68f0dd14b1ebdcf821bda48df2f6f655c',
+    56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
     97: '',
   },
   masterChef: {
@@ -20,7 +20,7 @@ const contracts = {
     97: '',
   },
   masterTeaSport: {
-    56: '0x081219f23034D52320BFAAC3f9fb7Ce8379c78f1',
+    56: '0x8B810c0a61C0a7BD623E711794B7254595340983',
     97: '',
   },
   wbnb: {

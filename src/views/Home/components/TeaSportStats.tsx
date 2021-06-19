@@ -37,9 +37,12 @@ const MintStats = () => {
   const marketCap = TeaSportPrice.times(circSupply);
 
   let TeaSportPerBlock = 0;
-  if(farms && farms[1] && farms[1].TeaSportPerBlock){
-    TeaSportPerBlock = new BigNumber(farms[1].TeaSportPerBlock).div(new BigNumber(10).pow(18)).toNumber();
-  }
+  farms.map(farm => {
+    if (farm.id === 22 && farm.pid === 0 && farm.TeaSportPerBlock) {
+      TeaSportPerBlock = new BigNumber(farm.TeaSportPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+    }
+    return farm
+  })
 
   return (
     <StyledTeaSportStats>

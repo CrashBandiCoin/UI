@@ -25,7 +25,7 @@ import Divider from './components/Divider'
 
 export interface FarmsProps{
   tokenMode?: boolean
-  sugar?: boolean
+  type?: string
 }
 
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
@@ -37,7 +37,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const teasportPrice = usePriceTeaSportBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
-  const {tokenMode, sugar} = farmsProps;
+  const {tokenMode, type} = farmsProps;
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -49,12 +49,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
-  const checkSugarPage = (farm) => {
-    return farm.type === 'Sugar'
-  }
-
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && checkSugarPage(farm) === !!sugar && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && checkSugarPage(farm) === !!sugar && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.type === type && farm.multiplier !== '0X')
+  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.type === type && farm.multiplier === '0X')
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
@@ -116,11 +112,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           cakePrice={farm.type === 'TeaSport' ? teasportPrice : cakePrice}
           ethereum={ethereum}
           account={account}
-          sugar={sugar}
+          type={type}
         />
       ))
     },
-    [bnbPrice, account, cakePrice, sugar, mintPrice, teasportPrice, ethereum],
+    [bnbPrice, account, cakePrice, type, mintPrice, teasportPrice, ethereum],
   )
 
   return (

@@ -8,14 +8,23 @@ import {
   updateUserPendingReward,
 } from 'state/actions'
 import { unstake, sousUnstake, sousEmegencyUnstake } from 'utils/callHelpers'
-import { useMasterchef, useMastermint, useSousChef } from './useContract'
+import { useMasterchef, useMastermint, useMasterteasport, useSousChef } from './useContract'
 
 const useUnstake = (pid: number, type: string) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
+  
   const masterChefContract = useMasterchef()
   const masterMintContract = useMastermint()
-  const contract = type === 'Sugar' ? masterChefContract : masterMintContract
+  const masterTeaSportContract = useMasterteasport()
+
+  let contract = null
+  if (type === 'Sugar')
+    contract = masterChefContract
+  else if (type === 'Mint')
+    contract = masterMintContract
+  else
+    contract = masterTeaSportContract
 
   const handleUnstake = useCallback(
     async (amount: string) => {
