@@ -106,7 +106,7 @@ const fetchFarms = async () => {
                         name: 'totalAllocPoint',
                     },
                     {
-                        address: farmConfig.type === 'TeaSport' ? getMasterMintAddress() : getMasterChefAddress(),
+                        address: farmConfig.type === 'TeaSport' ? getMasterTeaSportAddress() : getMasterChefAddress(),
                         name: farmConfig.type === 'TeaSport' ? 'TeaSportPerBlock' : 'sugarPerBlock',
                     },
                 ]
