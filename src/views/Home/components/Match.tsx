@@ -55,7 +55,7 @@ const MintStats = () => {
           -
           <img src={iconFrance} alt='marketCap' width='100'/>
         </Row>
-        LIVE !
+        1-0
       </CardBody>
     </StyledTeaSportStats>
   )
