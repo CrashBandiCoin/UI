@@ -8,7 +8,13 @@ import { Image, Heading } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd, usePriceMintBusd } from 'state/hooks'
+import {
+  useFarms,
+  usePriceBnbBusd,
+  usePriceCakeBusd,
+  usePriceMintBusd,
+  usePriceTeaSportBusd,
+} from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -28,6 +34,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
   const mintPrice = usePriceMintBusd()
+  const teasportPrice = usePriceTeaSportBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode, sugar} = farmsProps;
@@ -66,15 +73,24 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         let cakeRewardPerBlock = null
         if (farm.type === 'Mint') {
           cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        } else {
-          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         }
+        if (farm.type === 'TeaSport') {
+          cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        }
+        else {
+          cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        }
+
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
         let apy = null
         if (farm.type === 'Mint') {
           apy = mintPrice.times(cakeRewardPerYear);
-        } else {
+        }
+        if (farm.type === 'TeaSport') {
+          apy = mintPrice.times(cakeRewardPerYear);
+        }
+        else {
           apy = cakePrice.times(cakeRewardPerYear);
         }
 

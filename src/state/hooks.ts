@@ -99,12 +99,21 @@ export const usePriceMintBusd = (): BigNumber => { // TODO use to display MINT p
   return farm && farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
+export const usePriceTeaSportBusd = (): BigNumber => { // TODO use to display MINT price
+  const pid = 1; // MINT-BUSD LP
+  const id = 3;
+  // const bnbPriceUSD = usePriceBnbBusd()
+  const farm = useFarmFromPid(pid, id)
+  return farm && farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+}
+
 
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
   const mintPrice = usePriceMintBusd();
+  const tokenEventPrice = usePriceTeaSportBusd();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]

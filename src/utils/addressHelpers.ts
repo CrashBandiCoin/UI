@@ -8,11 +8,17 @@ export const getCakeAddress = () => {
 export const getMintAddress = () => {
   return addresses.mint[chainId]
 }
+export const getTeaSportAddress = () => {
+  return addresses.mint[chainId]
+}
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]
 }
 export const getMasterMintAddress = () => {
   return addresses.masterMint[chainId]
+}
+export const getMasterTeaSportAddress = () => {
+  return addresses.masterTeaSport[chainId]
 }
 export const getMulticallAddress = () => {
   return addresses.mulltiCall[chainId]

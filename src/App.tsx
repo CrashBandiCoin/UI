@@ -59,10 +59,10 @@ const App: React.FC = () => {
             <Route path="/pools/sugar">
               <Farms sugar tokenMode />
             </Route>
-            <Route path="/farms/euro">
+            <Route path="/farms/teasport">
               <Farms sugar={false}/>
             </Route>
-            <Route path="/pools/euro">
+            <Route path="/pools/teasport">
               <Farms sugar tokenMode />
             </Route>
              <Route path="/lpswap">

@@ -7,8 +7,8 @@ const contracts = {
     56: '0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
     97: '',
   },
-  trueCake: {
-    56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+  teaSport: {
+    56: '',
     97: '',
   },
   masterChef: {
@@ -17,6 +17,10 @@ const contracts = {
   },
   masterMint: {
     56: '0xC74ff270b0d9f495e03078e1bF5b3A7aaa35D18A',
+    97: '',
+  },
+  masterTeaSport: {
+    56: '',
     97: '',
   },
   wbnb: {

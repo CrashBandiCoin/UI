@@ -12,27 +12,22 @@ const config: MenuEntry[] = [
         items: [
             {
                 label: 'Exchange',
-                icon: 'TradeIcon',
                 href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
             },
             {
                 label: 'Liquidity',
-                icon: 'LiquidityIcon',
                 href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
             },
             {
                 label: 'Farms',
-                icon: 'FarmsIcon',
                 href: '/farms/mint',
             },
             {
                 label: 'Pools',
-                icon: 'PoolsIcon',
                 href: '/pools/mint',
             },
             {
                 label: 'Chart',
-                icon: 'ChartIcon',
                 href: 'https://dex.guru/token/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f-bsc',
             },
 
@@ -66,32 +61,32 @@ const config: MenuEntry[] = [
         ],
     },
 
-    // {
-    //     label: 'Token Event',
-    //     icon: 'ListingsIcon',
-    //     items: [
-    //         {
-    //             label: 'Exchange',
-    //             href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=',
-    //         },
-    //         {
-    //             label: 'Liquidity',
-    //             href: 'https://exchange.pancakeswap.finance/#/add/BNB/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
-    //         },
-    //         {
-    //             label: 'Farms',
-    //             href: '/farms/sugar',
-    //         },
-    //         {
-    //             label: 'Pools',
-    //             href: '/pools/sugar',
-    //         },
-    //         {
-    //             label: 'Chart',
-    //             href: 'https://dex.guru/token/-bsc',
-    //         },
-    //     ],
-    // },
+    {
+        label: 'TeaSportv1',
+        icon: 'TeaSportV1Icon',
+        items: [
+            {
+                label: 'Exchange',
+                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=',
+            },
+            {
+                label: 'Liquidity',
+                href: 'https://exchange.pancakeswap.finance/#/add/BNB/',
+            },
+            {
+                label: 'Farms',
+                href: '/farms/teasport',
+            },
+            {
+                label: 'Pools',
+                href: '/pools/teasport',
+            },
+            {
+                label: 'Chart',
+                href: 'https://dex.guru/token/-bsc',
+            },
+        ],
+    },
     {
         label: 'LP swap',
         icon: 'TradeIcon',
