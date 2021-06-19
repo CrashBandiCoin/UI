@@ -151,11 +151,11 @@ const config: MenuEntry[] = [
     //   icon: 'AuditIcon',
     //   href: 'https://certik.org/projects/goose-finance',
     // },
-    // {
-    //   label: 'Roadmap',
-    //   icon: 'RoadmapIcon',
-    //   href: '/roadmap',
-    // },
+    {
+      label: 'Roadmap',
+      icon: 'RoadmapIcon',
+      href: '/roadmap',
+    },
 
     {
         label: 'Docs',
