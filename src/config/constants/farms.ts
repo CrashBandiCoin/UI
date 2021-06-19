@@ -501,8 +501,8 @@ const farms: FarmConfig[] = [
 
 
   {
-    id: 23,
-    pid: 7,
+    id: 32,
+    pid: 12,
     type: ContractType.TeaSport,
     risk: 4,
     isTokenOnly: true,
