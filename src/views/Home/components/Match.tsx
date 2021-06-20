@@ -60,11 +60,13 @@ const MintStats = () => {
          1 - 0
           <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
-        LIVE !
         <br />
         <br />
         <b>Emission block bonus : x2 </b>
 
+        <br />
+        <br />
+        <p>VOTE FOR THE NEXT MATCH</p><Row2><a href="https://snapshot.org/#/tea-swap.eth/proposal/QmXyMnJSUtvxySDT3v41bqnff1oczmAvDd5zQrU2coWn9Z" > HERE !</a></Row2>
 
 
 
