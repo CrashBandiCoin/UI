@@ -116,6 +116,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
+
   const lpLabel = farm.lpSymbol
   let earnLabel = ""
   if (type === 'Sugar')
@@ -129,6 +130,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
+
+    const lpPrice = Number(totalValue)/Number(farm.lpTotalInQuoteToken)
+
+    // console.log("Total value : ")
+    // console.log(totalValue)
+    console.log("LP price : ")
+    console.log(farm.lpTotalInQuoteToken)
+
+    const lpPriceFormated = lpPrice
+        ? `$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+        : '-'
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
 
@@ -194,6 +206,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           quoteTokenAdresses={quoteTokenAdresses}
           quoteTokenSymbol={quoteTokenSymbol}
           tokenAddresses={tokenAddresses}
+          valueLp={lpPriceFormated}
         />
       </ExpandingWrapper>
     </FCard>

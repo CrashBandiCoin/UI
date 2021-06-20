@@ -9,8 +9,8 @@ import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import iconMarketCap from '../img/iconMarketCap.svg'
-import iconHongrie from '../img/matchs/hongrie.png'
-import iconFrance from '../img/matchs/france.png'
+import iconPays1 from '../img/matchs/italie.png'
+import iconPays2 from '../img/matchs/walles.png'
 import iconBoost from "../img/matchs/boost.png";
 
 
@@ -56,16 +56,16 @@ const MintStats = () => {
           {TranslateString(535, 'Match of the Day')}
         </Heading>
         <Row>
-          <img src={iconHongrie} alt='marketCap' width='100'/>
-         1 - 1
-          <img src={iconFrance} alt='marketCap' width='100'/>
+          <img src={iconPays1} alt='marketCap' width='100'/>
+          <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
-
+        4p.m UTC
+        <br />
+        <br />
         <b>Emission block bonus : 0 </b>
 
-        <br />
-        <br />
-        <p>VOTE FOR THE NEXT MATCH</p><Row2><a href="https://snapshot.org/#/tea-swap.eth/proposal/QmRyEVZ8CCmZB9h3sESNGeBtKomREa2Zz7yWVRMbf2rNZF" > HERE !</a></Row2>
+
+
 
       </CardBody>
     </StyledTeaSportStats>
