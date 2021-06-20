@@ -1934,7 +1934,7 @@
 
 "@pancakeswap-libs/uikit@Tea-Swap/teaswap-uikit":
   version "0.10.2"
-  resolved "https://codeload.github.com/Tea-Swap/teaswap-uikit/tar.gz/8dab6ec9ed34e6662870cf1533d16379d63df7a6"
+  resolved "https://codeload.github.com/Tea-Swap/teaswap-uikit/tar.gz/4f9352e5a83b959f2c9d1bdd81024b52e47a6554"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
