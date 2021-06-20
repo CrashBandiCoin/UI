@@ -57,13 +57,13 @@ const MintStats = () => {
         </Heading>
         <Row>
           <img src={iconPays1} alt='marketCap' width='100'/>
-         0 - 0
+         1 - 0
           <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
         LIVE !
         <br />
         <br />
-        <b>Emission block bonus : 0 </b>
+        <b>Emission block bonus : x2 </b>
 
 
 
