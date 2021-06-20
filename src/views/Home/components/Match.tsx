@@ -57,6 +57,7 @@ const MintStats = () => {
         </Heading>
         <Row>
           <img src={iconPays1} alt='marketCap' width='100'/>
+          -
           <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
         4p.m UTC
