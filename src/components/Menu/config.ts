@@ -84,7 +84,7 @@ const config: MenuEntry[] = [
     {
         label: 'Vote',
         icon: 'TicketIcon',
-        href: 'https://vote.tea-swap.finance',
+        href: 'https://snapshot.org/#/tea-swap.eth',
     },
     // {
     //   label: 'NFT',
