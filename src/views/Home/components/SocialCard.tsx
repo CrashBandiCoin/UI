@@ -14,6 +14,7 @@ import DexGuru from "../img/dexguru.png";
 import CoinHut from "../img/coinhut.png";
 import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
+import Bscscan from "../img/bscscan.png";
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -83,6 +84,14 @@ const SocialCard = () => {
                     <a href="https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc">
                         <img
                             src={DexGuru}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://bscscan.com/address/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8">
+                        <img
+                            src={Bscscan}
                             loading="lazy"
                             width='100px'
                             alt=""

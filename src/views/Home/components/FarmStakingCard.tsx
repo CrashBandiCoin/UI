@@ -6,7 +6,6 @@ import BigNumber from 'bignumber.js'
 import useI18n from 'hooks/useI18n'
 import {useAllHarvest} from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
-import UnlockButton from 'components/UnlockButton'
 import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
@@ -14,6 +13,8 @@ import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getCakeAddress, getMintAddress, getTeaSportAddress} from '../../../utils/addressHelpers'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
+
+
 
 
 const StyledFarmStakingCard = styled(Card)`

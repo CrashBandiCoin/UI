@@ -80,6 +80,11 @@ const config: MenuEntry[] = [
         icon: 'TradeIcon',
         href: '/zap',
     },
+    // {
+    //     label: 'Vaults',
+    //     icon: 'VaultsIcon',
+    //     href: '/zap',
+    // },
 
     {
         label: 'Vote',
