@@ -63,7 +63,7 @@ const MintStats = () => {
         LIVE !
         <br />
         <br />
-        <b>Emission block bonus : x2 </b>
+        <b>Emission block bonus : x4 </b>
 
       </CardBody>
     </StyledTeaSportStats>
