@@ -8,11 +8,9 @@ import useI18n from 'hooks/useI18n'
 import {getMintAddress, getTeaSportAddress} from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
-import iconMarketCap from '../img/iconMarketCap.svg'
-import iconBurned from '../img/iconBurned.png'
-import iconMinted from '../img/iconMinted.png'
-import iconSupply from '../img/iconSupply.png'
-import iconBoost from '../img/matchs/boost.png'
+import iconMinted from '../img/iconMinted3.png'
+import iconSupply from '../img/iconSupply3.png'
+import iconMarketCap from "../img/iconMarketCap3.png";
 
 
 const StyledTeaSportStats = styled(Card)`
@@ -53,14 +51,17 @@ const MintStats = () => {
           {TranslateString(535, 'TEASPORT Stats')}
         </Heading>
         <Row>
+          <img src={iconMarketCap} alt='marketCap' width='30'/>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
+          <img src={iconSupply} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(536, 'Total Minted')}</Text>
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
+          <img src={iconMinted} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(10007, 'New TEASPORT/block')}</Text>
           <Text bold fontSize="14px">{TeaSportPerBlock}</Text>
         </Row>

@@ -3,7 +3,7 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
-import {useTotalSupply, useBurnedBalance, useTotalSupplyMint} from 'hooks/useTokenBalance'
+import {useTotalSupply, useBurnedBalance, useTotalSupplyMint, useBurnedBalanceMint} from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
@@ -29,7 +29,7 @@ const Row = styled.div`
 const MintStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupplyMint()
-  const burnedBalance = useBurnedBalance(getMintAddress())
+  const burnedBalance = useBurnedBalanceMint(getMintAddress())
   const farms = useFarms();
   const MintPrice = usePriceMintBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
@@ -58,9 +58,9 @@ const MintStats = () => {
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <img src={iconMinted} alt='minted' width='30'/>
-          <Text fontSize="14px">{TranslateString(541, 'New MINT/block')}</Text>
-          <Text bold fontSize="14px">{MintPerBlock}</Text>
+          <img src={iconBurned} alt='minted' width='30'/>
+          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
+          <Text bold fontSize="14px">{getBalanceNumber(burnedBalance).toFixed(2)}</Text>
         </Row>
       </CardBody>
     </StyledMintStats>
