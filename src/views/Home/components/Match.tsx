@@ -60,7 +60,6 @@ const MintStats = () => {
           0 - 2
           <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
-        LIVE !
         <br />
         <br />
         <b>Emission block bonus : x4 </b>
