@@ -9,8 +9,8 @@ import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import iconMarketCap from '../img/iconMarketCap.svg'
-import iconPays1 from '../img/matchs/england.png'
-import iconPays2 from '../img/matchs/czech.png'
+import iconPays1 from '../img/matchs/czech.png'
+import iconPays2 from '../img/matchs/england.png'
 import iconBoost from "../img/matchs/boost.png";
 
 
