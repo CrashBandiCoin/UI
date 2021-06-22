@@ -9,8 +9,8 @@ import { getMintAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import {useFarms, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import iconMarketCap from '../img/iconMarketCap.svg'
-import iconPays1 from '../img/matchs/finlande.png'
-import iconPays2 from '../img/matchs/belgique.png'
+import iconPays1 from '../img/matchs/england.png'
+import iconPays2 from '../img/matchs/czech.png'
 import iconBoost from "../img/matchs/boost.png";
 
 
@@ -57,12 +57,12 @@ const MintStats = () => {
         </Heading>
         <Row>
           <img src={iconPays1} alt='marketCap' width='100'/>
-          0 - 2
+          0 - 0
           <img src={iconPays2} alt='marketCap' width='100'/>
         </Row>
         <br />
         <br />
-        <b>Emission block bonus : x4 </b>
+        <b>Emission block bonus : 0 </b>
 
       </CardBody>
     </StyledTeaSportStats>
