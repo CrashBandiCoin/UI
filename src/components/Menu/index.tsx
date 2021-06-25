@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { allLanguages } from 'config/localisation/languageCodes'
+import { languageList } from 'config/localization/languages'
 import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from 'state/hooks'
@@ -15,7 +15,6 @@ const Menu = (props) => {
   const mintPriceUsd = usePriceMintBusd()
   const teasportPriceUsd = usePriceTeaSportBusd()
 
-
   return (
     <UikitMenu
       account={account}
@@ -24,16 +23,14 @@ const Menu = (props) => {
       isDark={isDark}
       toggleTheme={toggleTheme}
       currentLang={selectedLanguage && selectedLanguage.code}
-      langs={allLanguages}
+      langs={languageList}
       setLang={setSelectedLanguage}
       mintPriceUsd={mintPriceUsd}
       cakePriceUsd={cakePriceUsd.toNumber()}
       teasportPriceUsd={teasportPriceUsd}
       links={config}
-      // priceLink="https://www.coingecko.com/en/coins/goose-finance"
       {...props}
     />
-
   )
 }
 

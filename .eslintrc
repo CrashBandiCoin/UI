@@ -11,10 +11,11 @@
     "browser": true,
     "jest": true
   },
-  "extends": "@pancakeswap-libs/eslint-config-pancake",
+  "extends": "@pancakeswap/eslint-config-pancake",
   "rules": {
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
     "no-plusplus": 0,
+    "no-else-return": 0,
     "prefer-destructuring": ["warn", { "object": true, "array": false }],
     "no-underscore-dangle": 0,
     // Start temporary rules
@@ -24,6 +25,8 @@
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-explicit-any": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
     "radix": 0,
     "import/no-extraneous-dependencies": 0
     // End temporary rules

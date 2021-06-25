@@ -8,13 +8,13 @@ interface ButtonProps {
   disabled?: boolean
   href?: string
   onClick?: () => void
-  size?: 'sm' | 'md' | 'lg'
+  scale?: 'sm' | 'md' | 'lg'
   text?: string
   to?: string
   variant?: 'default' | 'secondary' | 'tertiary'
 }
 
-const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, size, text, to }) => {
+const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, scale, text, to }) => {
   const { colors, spacing } = useContext(ThemeContext)
   const buttonColor = colors.background
 
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, size
   let buttonSize: number
   let buttonPadding: number
   let fontSize: number
-  switch (size) {
+  switch (scale) {
     case 'sm':
       buttonPadding = spacing[3]
       buttonSize = 36
@@ -62,7 +62,7 @@ const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, size
       fontSize={fontSize}
       onClick={onClick}
       padding={buttonPadding}
-      size={buttonSize}
+      scale={buttonSize}
     >
       {children}
       {ButtonChild}
@@ -76,7 +76,7 @@ interface StyledButtonProps {
   disabled?: boolean
   fontSize: number
   padding: number
-  size: number
+  scale: number
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -89,7 +89,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   font-size: ${(props) => props.fontSize}px;
   font-weight: 700;
-  height: ${(props) => props.size}px;
+  height: ${(props) => props.scale}px;
   justify-content: center;
   outline: none;
   padding-left: ${(props) => props.padding}px;

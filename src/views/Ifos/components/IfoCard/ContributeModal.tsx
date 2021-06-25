@@ -29,11 +29,11 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
         onSelectMax={() => setValue(balance.toString())}
       />
       <Flex justifyContent="space-between" mb="24px">
-        <Button fullWidth variant="secondary" onClick={onDismiss} mr="8px">
+        <Button width="100%" variant="secondary" onClick={onDismiss} mr="8px">
           Cancel
         </Button>
         <Button
-          fullWidth
+          width="100%"
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)

@@ -91,10 +91,10 @@ const BurnNftModal: React.FC<BurnNftModalProps> = ({ nft, tokenIds, onSuccess, o
         </Text>
       </ModalContent>
       <Actions>
-        <Button fullWidth variant="secondary" onClick={onDismiss}>
+        <Button width="100%" variant="secondary" onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
         </Button>
-        <Button fullWidth onClick={handleConfirm} disabled={!account || isLoading || !accepted}>
+        <Button width="100%" onClick={handleConfirm} disabled={!account || isLoading || !accepted}>
           {TranslateString(464, 'Confirm')}
         </Button>
       </Actions>

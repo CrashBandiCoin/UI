@@ -30,7 +30,7 @@ const Header = styled(InfoRow)`
   min-height: 28px;
 `
 
-const DetailsButton = styled(Button).attrs({ variant: 'text', fullWidth: true })`
+const DetailsButton = styled(Button).attrs({ variant: 'text', width: '100%' })`
   height: auto;
   padding: 16px 24px;
 
@@ -138,17 +138,17 @@ const NftCard: React.FC<NftCardProps> = ({ nft }) => {
           )}
         </Header>
         {isInitialized && walletOwnsNft && (
-          <Button fullWidth variant="secondary" mt="24px" onClick={onPresentTransferModal}>
+          <Button width="100%" variant="secondary" mt="24px" onClick={onPresentTransferModal}>
             {TranslateString(999, 'Transfer')}
           </Button>
         )}
         {isInitialized && walletCanClaim && isSupplyAvailable && (
-          <Button fullWidth onClick={onPresentClaimModal} mt="24px">
+          <Button width="100%" onClick={onPresentClaimModal} mt="24px">
             {TranslateString(999, 'Claim this NFT')}
           </Button>
         )}
         {isInitialized && canBurnNft && walletOwnsNft && (
-          <Button variant="danger" fullWidth onClick={onPresentBurnModal} mt="24px">
+          <Button variant="danger" width="100%" onClick={onPresentBurnModal} mt="24px">
             {TranslateString(999, 'Trade in for CAKE')}
           </Button>
         )}

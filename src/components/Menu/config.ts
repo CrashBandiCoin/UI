@@ -5,6 +5,10 @@ const config: MenuEntry[] = [
         label: 'Home',
         icon: 'HomeIcon',
         href: '/',
+        status: {
+            text: "LIVE",
+            color: "success",
+        }
     },
     {
         label: 'MINT',
@@ -29,7 +33,6 @@ const config: MenuEntry[] = [
 
         ],
     },
-
     {
         label: 'SUGAR',
         icon: 'SugarIcon',
@@ -52,7 +55,6 @@ const config: MenuEntry[] = [
             },
         ],
     },
-
     {
         label: 'TEASPORT',
         icon: 'TeaSportV1Icon',
@@ -80,23 +82,11 @@ const config: MenuEntry[] = [
         icon: 'TradeIcon',
         href: '/zap',
     },
-    // {
-    //     label: 'Vaults',
-    //     icon: 'VaultsIcon',
-    //     href: '/zap',
-    // },
-
     {
         label: 'Vote',
         icon: 'TicketIcon',
         href: 'https://snapshot.org/#/tea-swap.eth',
     },
-    // {
-    //   label: 'NFT',
-    //   icon: 'NftIcon',
-    //   href: '/nft',
-    // },
-
     {
         label: 'Listing',
         icon: 'ListingsIcon',
@@ -129,27 +119,6 @@ const config: MenuEntry[] = [
             },
         ],
     },
-    // {
-    //   label: 'Partnerships/IFO',
-    //   icon: 'GooseIcon',
-    //   href: 'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
-    // },
-    // {
-    //   label: 'Audit by Hacken',
-    //   icon: 'AuditIcon',
-    //   href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
-    // },
-    // {
-    //   label: 'Audit by CertiK',
-    //   icon: 'AuditIcon',
-    //   href: 'https://certik.org/projects/goose-finance',
-    // },
-    // {
-    //   label: 'Roadmap',
-    //   icon: 'RoadmapIcon',
-    //   href: '/roadmap',
-    // },
-
     {
         label: 'Docs',
         icon: 'DocsIcon',

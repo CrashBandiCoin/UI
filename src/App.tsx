@@ -7,6 +7,7 @@ import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
+import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 
 // Route-based code splitting
@@ -42,7 +43,7 @@ const App: React.FC = () => {
       <ResetCSS />
       <GlobalStyle />
       <Menu>
-        <Suspense fallback={<PageLoader />}>
+        <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
               <Home />
@@ -94,7 +95,7 @@ const App: React.FC = () => {
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>
-        </Suspense>
+        </SuspenseWithChunkError>
       </Menu>
       <NftGlobalNotification />
     </Router>

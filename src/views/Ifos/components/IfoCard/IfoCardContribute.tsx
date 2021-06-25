@@ -71,7 +71,7 @@ const IfoCardContribute: React.FC<Props> = ({
   if (allowance <= 0) {
     return (
       <Button
-        fullWidth
+        width="100%"
         disabled={pendingTx || isFinished}
         onClick={async () => {
           try {

@@ -41,7 +41,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid, type}) =>
                 {pid !== 3 ?
                     <Button
                         disabled={rawEarningsBalance === 0 || pendingTx}
-                        size='sm'
+                        scale='sm'
                         variant='secondary'
                         marginBottom='15px'
                         onClick={async () => {
@@ -62,7 +62,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({earnings, pid, type}) =>
                 {pid === 3 ?
                     <Button
                         disabled={rawEarningsBalance === 0 || pendingTx}
-                        size='sm'
+                        scale='sm'
                         variant='secondary'
                         marginBottom='15px'
                         onClick={async () => {
