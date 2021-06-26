@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Page from 'components/layout/Page'
 import styled from 'styled-components'
-import { Heading } from '@pancakeswap-libs/uikit'
+import {CardBody, Heading} from '@pancakeswap-libs/uikit'
 import Match from "../Home/components/Match";
 import iconFrance from '../Home/img/matchs/france.png';
 import iconHungrier from '../Home/img/matchs/hongrie.png';
@@ -89,7 +89,6 @@ class Euro extends Component {
                     <Match country1={this.pays5} country2={this.pays6} score={this.score3} bonus={this.bonus3}/>
                     <Match country1={this.pays7} country2={this.pays8} score={this.score4} bonus={this.bonus4}/>
                     <Match country1={this.pays9} country2={this.pays10} score={this.score5} bonus={this.bonus5}/>
-
             </Page>
         )
     }

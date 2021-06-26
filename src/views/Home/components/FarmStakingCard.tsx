@@ -174,13 +174,9 @@ const FarmedStakingCard = () => {
 
     return (
         <StyledFarmStakingCard>
-            <Block2>
-                <Heading size="xl" mb="24px">
-                    Farms & Staking
-                </Heading>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                    MINT
+                    Farms & Staking
                 </Heading>
                 <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64}/>
                 <Block>
@@ -256,8 +252,6 @@ const FarmedStakingCard = () => {
                     />
                 </Button>
             </CardBody>
-            </Block2>
-
         </StyledFarmStakingCard>
     )
 }
