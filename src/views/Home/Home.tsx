@@ -89,11 +89,11 @@ const Home: React.FC = () => {
                     <MintStats/>
                     <CakeStats/>
                     <TeaSportStats/>
-                </Cards>
-                <Cards>
-                    <Soundcloud/>
                     <SocialCard/>
                 </Cards>
+
+                    <Soundcloud/>
+
 
             </div>
         </Page>
