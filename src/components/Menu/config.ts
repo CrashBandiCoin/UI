@@ -5,10 +5,7 @@ const config: MenuEntry[] = [
         label: 'Home',
         icon: 'HomeIcon',
         href: '/',
-        status: {
-            text: "LIVE",
-            color: "success",
-        }
+
     },
     {
         label: 'MINT',
@@ -17,10 +14,18 @@ const config: MenuEntry[] = [
             {
                 label: 'Farms',
                 href: '/farms/mint',
+                status: {
+                    text: "INACTIF",
+                    color: "failure",
+                }
             },
             {
                 label: 'Pools',
                 href: '/pools/mint',
+                status: {
+                    text: "INACTIF",
+                    color: "failure",
+                }
             },
             {
                 label: 'Exchange',
@@ -56,9 +61,25 @@ const config: MenuEntry[] = [
         ],
     },
     {
-        label: 'TEASPORT',
-        icon: 'TeaSportV1Icon',
+        label: 'EVENT',
+        icon: 'ReferralIcon',
         items: [
+            {
+                label: 'UEFA EURO',
+                href: '/euro',
+                status: {
+                    text: "LIVE",
+                    color: "text",
+                },
+            },
+            {
+                label: 'OLYMPIC GAMES',
+                href: '',
+                status: {
+                    text: "SOON",
+                    color: "binance",
+                },
+            },
             {
                 label: 'Farms',
                 href: '/farms/teasport',

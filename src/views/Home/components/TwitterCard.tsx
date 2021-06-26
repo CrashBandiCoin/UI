@@ -7,6 +7,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
+import TelegramEmbed from 'react-telegram-embed'
 import CardValue from './CardValue'
 import { useFarms } from '../../../state/hooks'
 
@@ -38,12 +39,15 @@ const TwitterCard = () => {
             screenName: 'SwapTea'
           }}
           options={{
-            height: '700',
+            height: '500',
             chrome: "noheader, nofooter",
             width: "400"
           }}
         />
       </CardBody>
+
+
+
     </StyledTwitterCard>
   )
 }

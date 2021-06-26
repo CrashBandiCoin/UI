@@ -13,7 +13,9 @@ import Soundcloud from './components/Soundcloud'
 import DappRadar from './img/dappradar.png'
 import SocialCard from "./components/SocialCard";
 import TeaSportStats from "./components/TeaSportStats";
-import Match from "./components/Match";
+import MatchDay from "./components/MatchDay";
+import iconPays1 from "./img/matchs/italie.png";
+import iconPays2 from "./img/matchs/autriche.png";
 
 
 const Hero = styled.div`
@@ -29,7 +31,7 @@ const Hero = styled.div`
   padding-top: 116px;
   text-align: center;
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({theme}) => theme.mediaQueries.lg} {
     background-image: url('/images/SUGAR/3.png'), url('/images/SUGAR/3b.png');
     background-position: left center, right center;
     height: 165px;
@@ -47,13 +49,13 @@ const Cards = styled(BaseLayout)`
     width: 100%;
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     & > div {
       grid-column: span 8;
     }
   }
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({theme}) => theme.mediaQueries.lg} {
     & > div {
       grid-column: span 6;
     }
@@ -61,36 +63,41 @@ const Cards = styled(BaseLayout)`
 `
 
 const Home: React.FC = () => {
-  const TranslateString = useI18n()
+    const TranslateString = useI18n()
 
-  return (
-    <Page>
-      <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="secondary">
-          {TranslateString(576, 'TeaSwap Finance')}
-        </Heading>
-        <Text>{TranslateString(578, 'The first Social Farming Project on BSC.')}</Text>
-      </Hero>
-      <div>
-        <Cards>
-          <FarmStakingCard />
-          <TwitterCard/>
-        </Cards>
-        <TotalValueLockedCard /><br />
-        <Cards>
-          <MintStats />
-          <CakeStats />
-          <TeaSportStats />
-          <Match />
-        </Cards>
-        <Cards>
-          <Soundcloud/>
-          <SocialCard/>
-        </Cards>
+    const pays1=iconPays1;
+    const pays2=iconPays2;
+    const score='SOON';
+    const bonus=0;
 
-      </div>
-    </Page>
-  )
+    return (
+        <Page>
+            <Hero>
+                <Heading as="h1" size="xl" mb="24px" color="secondary">
+                    {TranslateString(576, 'TeaSwap Finance')}
+                </Heading>
+                <Text>{TranslateString(578, 'The first Social Farming Project on BSC.')}</Text>
+            </Hero>
+            <div>
+                <FarmStakingCard/><br/>
+                <Cards>
+                    <TwitterCard/>
+                    <MatchDay/>
+                </Cards>
+                <TotalValueLockedCard/><br/>
+                <Cards>
+                    <MintStats/>
+                    <CakeStats/>
+                    <TeaSportStats/>
+                </Cards>
+                <Cards>
+                    <Soundcloud/>
+                    <SocialCard/>
+                </Cards>
+
+            </div>
+        </Page>
+    )
 }
 
 export default Home

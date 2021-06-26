@@ -26,6 +26,14 @@ const StyledFarmStakingCard = styled(Card)`
 
 const Block = styled.div`
   margin-bottom: 16px;
+  
+`
+
+const Block2 = styled.div`
+  display:flex;
+  margin-left:20px;
+  margin-top:10px;
+  
 `
 
 const CardImage = styled.img`
@@ -166,13 +174,22 @@ const FarmedStakingCard = () => {
 
     return (
         <StyledFarmStakingCard>
+            <Block2>
+                <Heading size="xl" mb="24px">
+                    Farms & Staking
+                </Heading>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                    {TranslateString(542, 'Farms & Staking')}
+                    MINT
                 </Heading>
                 <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>{TranslateString(547, 'MINT in Wallet')}</Label>
+                    <Label>MINT to Harvest</Label>
+                    <CakeHarvestBalance earningsSum='0'/>
+                    <Label>0</Label>
+                </Block>
+                <Block>
+                    <Label>MINT in Wallet</Label>
                     <CakeWalletBalance cakeBalance={mintBalance}/>
                     <Label>~${(MINTPrice * mintBalance).toFixed(2)}</Label>
                 </Block>
@@ -189,7 +206,7 @@ const FarmedStakingCard = () => {
 
             <CardBody>
                 <Heading size="xl" mb="24px">
-                    {TranslateString(542, 'Farms & Staking')}
+                    SUGAR
                 </Heading>
                 <CardImage src="/images/SUGAR/2.png" alt="cake logo" width={64} height={64}/>
                 <Block>
@@ -198,7 +215,7 @@ const FarmedStakingCard = () => {
                     <Label>~${(SUGARPrice * earningsSum).toFixed(2)}</Label>
                 </Block>
                 <Block>
-                    <Label>{TranslateString(546, 'SUGAR in Wallet')}</Label>
+                    <Label>SUGAR in Wallet</Label>
                     <CakeWalletBalance cakeBalance={cakeBalance}/>
                     <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
                 </Block>
@@ -212,16 +229,20 @@ const FarmedStakingCard = () => {
                     />
                 </Button>
 
-
             </CardBody>
 
             <CardBody>
                 <Heading size="xl" mb="24px">
-                    {TranslateString(542, 'Farms & Staking')}
+                    TEASPORT
                 </Heading>
                 <CardImage src="/images/SUGAR/TeaSportV1.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>{TranslateString(10008, 'TEASPORT in Wallet')}</Label>
+                    <Label>TEASPORT to Harvest</Label>
+                    <CakeHarvestBalance earningsSum={earningsSum}/>
+                    <Label>~${(TEASPORTPrice * earningsSum).toFixed(2)}</Label>
+                </Block>
+                <Block>
+                    <Label>TEASPORT in Wallet</Label>
                     <CakeWalletBalance cakeBalance={teasportBalance}/>
                     <Label>~${(TEASPORTPrice * teasportBalance).toFixed(2)}</Label>
                 </Block>
@@ -235,6 +256,7 @@ const FarmedStakingCard = () => {
                     />
                 </Button>
             </CardBody>
+            </Block2>
 
         </StyledFarmStakingCard>
     )
