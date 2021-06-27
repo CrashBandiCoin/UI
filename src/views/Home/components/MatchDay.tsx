@@ -34,12 +34,12 @@ const Match = () => {
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
-                    0 - 0
+                    1 - 0
                     <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : 0 </b>
+                <b>Emission block bonus : x2 </b>
 
             </CardBody>
 <br />
