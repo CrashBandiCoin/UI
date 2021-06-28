@@ -180,11 +180,6 @@ const FarmedStakingCard = () => {
                 </Heading>
                 <CardImage src="/images/SUGAR/mint.png" alt="cake logo" width={64} height={64}/>
                 <Block>
-                    <Label>MINT to Harvest</Label>
-                    <CakeHarvestBalance earningsSum='0'/>
-                    <Label>0</Label>
-                </Block>
-                <Block>
                     <Label>MINT in Wallet</Label>
                     <CakeWalletBalance cakeBalance={mintBalance}/>
                     <Label>~${(MINTPrice * mintBalance).toFixed(2)}</Label>
