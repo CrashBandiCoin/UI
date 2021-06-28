@@ -39,7 +39,7 @@ const Match = () => {
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : 0 </b>
+                <b>Emission block bonus : /2 </b>
 
             </CardBody>
 <br />
