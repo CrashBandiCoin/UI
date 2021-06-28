@@ -12,6 +12,8 @@ import iconEngland from "../Home/img/matchs/england.png";
 import iconBelgique from "../Home/img/matchs/belgique.png";
 import iconFinland from "../Home/img/matchs/finlande.png";
 import iconAllemagne from "../Home/img/matchs/allemagne.png";
+import iconAutriche from "../Home/img/matchs/autriche.png";
+import iconPortugal from "../Home/img/matchs/portugal.png"
 
 
 const Hero = styled.div`
@@ -33,6 +35,13 @@ const Row = styled.div`
   text-align: center;
   justify-content: space-between;
   margin-bottom: 8px;
+
+`
+
+
+const Case1 = styled.div`
+  border:solid;
+
 `
 
 class Euro extends Component {
@@ -76,6 +85,22 @@ class Euro extends Component {
 
     bonus5='x0';
 
+    pays11=iconItaly;
+
+    pays12=iconAutriche;
+
+    score6='2 - 1';
+
+    bonus6='x2';
+
+    pays13=iconBelgique;
+
+    pays14=iconPortugal;
+
+    score7='1 - 0';
+
+    bonus7='x2';
+
 
 
     render() {
@@ -84,11 +109,19 @@ class Euro extends Component {
                 <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center', paddingTop: '100px'}}>
                     Result match/Bonus reward
                 </Heading>
-                    <Match country1={this.pays1} country2={this.pays2} score={this.score1} bonus={this.bonus1}/>
-                    <Match country1={this.pays3} country2={this.pays4} score={this.score2} bonus={this.bonus2}/>
-                    <Match country1={this.pays5} country2={this.pays6} score={this.score3} bonus={this.bonus3}/>
-                    <Match country1={this.pays7} country2={this.pays8} score={this.score4} bonus={this.bonus4}/>
-                    <Match country1={this.pays9} country2={this.pays10} score={this.score5} bonus={this.bonus5}/>
+                <Row>
+                   <Case1> <Match country1={this.pays1} country2={this.pays2} score={this.score1} bonus={this.bonus1}/></Case1>
+                    <Case1><Match country1={this.pays3} country2={this.pays4} score={this.score2} bonus={this.bonus2}/></Case1>
+                    <Case1><Match country1={this.pays5} country2={this.pays6} score={this.score3} bonus={this.bonus3}/></Case1>
+                </Row>
+                <Row>
+                    <Case1><Match country1={this.pays7} country2={this.pays8} score={this.score4} bonus={this.bonus4}/></Case1>
+                    <Case1><Match country1={this.pays9} country2={this.pays10} score={this.score5} bonus={this.bonus5}/></Case1>
+                    <Case1><Match country1={this.pays11} country2={this.pays12} score={this.score6} bonus={this.bonus6}/></Case1>
+                </Row>
+                <Row>
+                    <Case1><Match country1={this.pays13} country2={this.pays14} score={this.score7} bonus={this.bonus7}/></Case1>
+                </Row>
             </Page>
         )
     }
