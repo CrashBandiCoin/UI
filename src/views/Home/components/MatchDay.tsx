@@ -3,8 +3,8 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import iconPays1 from '../img/matchs/france.png'
 import iconPays2 from '../img/matchs/suisse.png'
-import iconPays3 from '../img/matchs/belgique.png'
-import iconPays4 from '../img/matchs/portugal.png'
+import iconPays3 from '../img/matchs/england.png'
+import iconPays4 from '../img/matchs/allemagne.png'
 
 const StyledTeaSportStats = styled(Card)`
   margin-left: auto;
@@ -33,13 +33,13 @@ const Match = () => {
                     Match of the Day
                 </Heading>
                 <Row>
-                    <img src={iconPays1} alt='marketCap' width='100'/>
-                    3 - 3
-                    <img src={iconPays2} alt='marketCap' width='100'/>
+                    <img src={iconPays3} alt='marketCap' width='100'/>
+                    1 - 0
+                    <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : 0 </b>
+                <b>Emission block bonus : x2 </b>
 
             </CardBody>
 <br />
@@ -48,13 +48,13 @@ const Match = () => {
                     Last Match
                 </Heading>
                 <Row>
-                    <img src={iconPays3} alt='marketCap' width='100'/>
-                    1 - 0
-                    <img src={iconPays4} alt='marketCap' width='100'/>
+                    <img src={iconPays1} alt='marketCap' width='100'/>
+                    3 - 3
+                    <img src={iconPays2} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : x2 </b>
+                <b>Emission block bonus : 0 </b>
 
             </CardBody>
         </StyledTeaSportStats>
