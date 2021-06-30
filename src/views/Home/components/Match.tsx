@@ -14,14 +14,8 @@ const Row = styled.div`
   display: flex;
   font-size: 30px;
   text-align: center;
-  justify-content: space-between;
   margin-bottom: 8px;
 `
-
-const Row2 = styled.div`
-  color:red;
-`
-
 
 const Match = ({country1, country2, score, bonus}: any) => {
 

@@ -16,6 +16,7 @@ import iconSupply from "../img/iconSupply2.png";
 const StyledCakeStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
+  background-color: #FF5B7E;
 `
 
 const Row = styled.div`
@@ -49,22 +50,29 @@ const CakeStats = () => {
     <StyledCakeStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'SUGAR Stats')}
+          {TranslateString(534, 'Lagoon Stats')}
         </Heading>
         <Row>
-          <img src={iconMarketCap} alt='marketCap' width='30'/>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
-          <img src={iconSupply} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(536, 'Total Minted')}</Text>
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <img src={iconMinted} alt='minted' width='30'/>
+          <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
+          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
+        </Row>
+        <Row>
+          <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
+          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
+        </Row>
+        <Row>
           <Text fontSize="14px">{TranslateString(540, 'New SUGAR/block')}</Text>
-          <Text bold fontSize="14px">{SUGARPerBlock}</Text>
+          <Text bold fontSize="14px">
+            {SUGARPerBlock}
+          </Text>
         </Row>
       </CardBody>
     </StyledCakeStats>

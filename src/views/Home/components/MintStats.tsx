@@ -16,6 +16,7 @@ import iconSupply from '../img/iconSupply.png'
 const StyledMintStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
+  background-color:#017A7A;
 `
 
 const Row = styled.div`
@@ -45,22 +46,29 @@ const MintStats = () => {
     <StyledMintStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(535, 'MINT Stats')}
+          MINT stats
         </Heading>
         <Row>
-          <img src={iconMarketCap} alt='marketCap' width='30'/>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
-          <img src={iconSupply} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(536, 'Total Minted')}</Text>
           {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
         </Row>
         <Row>
-          <img src={iconBurned} alt='minted' width='30'/>
           <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-          <Text bold fontSize="14px">{getBalanceNumber(burnedBalance).toFixed(2)}</Text>
+          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
+        </Row>
+        <Row>
+          <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
+          {mintSupply && <CardValue fontSize="14px" value={mintSupply} decimals={0} />}
+        </Row>
+        <Row>
+          <Text fontSize="14px">New MINT/block</Text>
+          <Text bold fontSize="14px">
+            0
+          </Text>
         </Row>
       </CardBody>
     </StyledMintStats>

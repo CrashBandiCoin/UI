@@ -61,8 +61,8 @@ const config: MenuEntry[] = [
         ],
     },
     {
-        label: 'EVENT',
-        icon: 'ReferralIcon',
+        label: 'TeaSport',
+        icon: 'TeaSportV1Icon',
         items: [
             {
                 label: 'UEFA EURO',

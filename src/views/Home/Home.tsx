@@ -84,16 +84,15 @@ const Home: React.FC = () => {
                     <TwitterCard/>
                 </Cards>
                 <Cards>
-                    <SocialCard/>
                     <MatchDay/>
+                    <TeaSportStats/>
                 </Cards>
                 <TotalValueLockedCard/><br/>
                 <Cards>
                     <MintStats/>
                     <CakeStats/>
-                    <TeaSportStats/>
-                    <Soundcloud/>
                 </Cards>
+                <SocialCard/>
 
 
 

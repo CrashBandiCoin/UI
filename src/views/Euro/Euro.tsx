@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Page from 'components/layout/Page'
 import styled from 'styled-components'
-import {CardBody, Heading} from '@pancakeswap-libs/uikit'
+import {Card, CardBody, Heading} from '@pancakeswap-libs/uikit'
 import Match from "../Home/components/Match";
 import iconFrance from '../Home/img/matchs/france.png';
 import iconHungrier from '../Home/img/matchs/hongrie.png';
@@ -14,50 +14,29 @@ import iconFinland from "../Home/img/matchs/finlande.png";
 import iconAllemagne from "../Home/img/matchs/allemagne.png";
 import iconAutriche from "../Home/img/matchs/autriche.png";
 import iconPortugal from "../Home/img/matchs/portugal.png"
+import iconSuisse from "../Home/img/matchs/suisse.png"
 
-
-const Hero = styled.div`
-  align-items: center;
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin: auto;
-  margin-bottom: 32px;
-  text-align: center;
+const StyledMintStats = styled(Card)`
+  margin-left: auto;
+  margin-right: auto;
+  width: 20em
 `
 
-const Row = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  text-align: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-
-`
-
-
-const Case1 = styled.div`
-  border:solid;
-
-`
 
 class Euro extends Component {
     pays1=iconHungrier;
 
     pays2=iconFrance;
 
-    score1='1 - 1';
+    score1='1-1';
 
-    bonus1='x0';
+    bonus1='x1';
 
     pays3=iconItaly;
 
     pays4=iconWalles;
 
-    score2='1 - 0';
+    score2='1-0';
 
     bonus2='x2';
 
@@ -65,7 +44,7 @@ class Euro extends Component {
 
     pays6=iconBelgique;
 
-    score3='0 - 2';
+    score3='0-2';
 
     bonus3='x4';
 
@@ -73,7 +52,7 @@ class Euro extends Component {
 
     pays8=iconEngland;
 
-    score4='0 - 1';
+    score4='0-1';
 
     bonus4='x2';
 
@@ -81,15 +60,15 @@ class Euro extends Component {
 
     pays10=iconHungrier;
 
-    score5='2 - 2';
+    score5='2-2';
 
-    bonus5='x0';
+    bonus5='x1';
 
     pays11=iconItaly;
 
     pays12=iconAutriche;
 
-    score6='2 - 1';
+    score6='2-1';
 
     bonus6='x2';
 
@@ -97,32 +76,44 @@ class Euro extends Component {
 
     pays14=iconPortugal;
 
-    score7='1 - 0';
+    score7='1-0';
 
     bonus7='x2';
+
+    pays15=iconFrance;
+
+    pays16=iconSuisse;
+
+    score8='3-3';
+
+    bonus8='x1';
+
+    pays17=iconEngland;
+
+    pays18=iconAllemagne;
+
+    score9='2-0';
+
+    bonus9='x4';
 
 
 
     render() {
         return (
-            <Page>
+            <StyledMintStats>
                 <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center', paddingTop: '100px'}}>
                     Result match/Bonus reward
-                </Heading>
-                <Row>
-                   <Case1> <Match country1={this.pays1} country2={this.pays2} score={this.score1} bonus={this.bonus1}/></Case1>
-                    <Case1><Match country1={this.pays3} country2={this.pays4} score={this.score2} bonus={this.bonus2}/></Case1>
-                    <Case1><Match country1={this.pays5} country2={this.pays6} score={this.score3} bonus={this.bonus3}/></Case1>
-                </Row>
-                <Row>
-                    <Case1><Match country1={this.pays7} country2={this.pays8} score={this.score4} bonus={this.bonus4}/></Case1>
-                    <Case1><Match country1={this.pays9} country2={this.pays10} score={this.score5} bonus={this.bonus5}/></Case1>
-                    <Case1><Match country1={this.pays11} country2={this.pays12} score={this.score6} bonus={this.bonus6}/></Case1>
-                </Row>
-                <Row>
-                    <Case1><Match country1={this.pays13} country2={this.pays14} score={this.score7} bonus={this.bonus7}/></Case1>
-                </Row>
-            </Page>
+                </Heading><br/>
+                    <Match country1={this.pays1} country2={this.pays2} score={this.score1} bonus={this.bonus1}/> <br/>
+                    <Match country1={this.pays3} country2={this.pays4} score={this.score2} bonus={this.bonus2}/><br/>
+                    <Match country1={this.pays5} country2={this.pays6} score={this.score3} bonus={this.bonus3}/><br/>
+                    <Match country1={this.pays7} country2={this.pays8} score={this.score4} bonus={this.bonus4}/><br/>
+                    <Match country1={this.pays9} country2={this.pays10} score={this.score5} bonus={this.bonus5}/><br/>
+                    <Match country1={this.pays11} country2={this.pays12} score={this.score6} bonus={this.bonus6}/><br/>
+                    <Match country1={this.pays13} country2={this.pays14} score={this.score7} bonus={this.bonus7}/><br/>
+                    <Match country1={this.pays15} country2={this.pays16} score={this.score8} bonus={this.bonus8}/><br/>
+                    <Match country1={this.pays17} country2={this.pays18} score={this.score9} bonus={this.bonus9}/><br/>
+            </StyledMintStats>
         )
     }
 }
