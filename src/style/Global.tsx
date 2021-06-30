@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    background-image: url('/images/TeaSwap_Background_v5.png');
+    background-image: url('/images/TeaSwap_Background_v6.png');
     background-size: cover;
     background-repeat: no-repeat;
     // background-attachment: fixed;
