@@ -15,7 +15,7 @@ const config: MenuEntry[] = [
                 label: 'Farms',
                 href: '/farms/mint',
                 status: {
-                    text: "INACTIF",
+                    text: "INACTIVE",
                     color: "failure",
                 }
             },
@@ -23,7 +23,7 @@ const config: MenuEntry[] = [
                 label: 'Pools',
                 href: '/pools/mint',
                 status: {
-                    text: "INACTIF",
+                    text: "INACTIVE",
                     color: "failure",
                 }
             },
