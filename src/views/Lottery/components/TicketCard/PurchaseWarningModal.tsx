@@ -20,6 +20,8 @@ const WarningModal: React.FC<{ onDismiss?: () => void }> = ({ onDismiss }) => {
           474,
           'Buying tickets does not guarantee you will win anything. Please only participate once you understand the risks.',
         )}
+        <br />
+        We encourage to play with rewards from farming in order to have no impact on your capital.
       </TicketsList>
       <ModalActions>
         <Button width="100%" onClick={onDismiss}>
