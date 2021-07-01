@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Heading, Card, CardBody, Ticket } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import UnlockButton from 'components/UnlockButton'
+import iconTicket from "./img/ticket.png";
 
 const StyledCardBody = styled(CardBody)`
   display: flex;
@@ -29,7 +30,7 @@ const UnlockWalletCard = () => {
     <Card isActive>
       <StyledCardBody>
         <IconWrapper>
-          <Ticket />
+          <img src={iconTicket} alt='marketCap' width='100'/>
         </IconWrapper>
         <StyledHeading size="md">{TranslateString(999, 'Unlock wallet to access lottery')}</StyledHeading>
         <UnlockButton />
