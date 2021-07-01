@@ -140,7 +140,7 @@ const CenteredTextWithPadding = styled.div`
 const TicketNumberBox = styled.div`
   padding: 10px;
   border-radius: 12px;
-  background: linear-gradient(180deg, #54dade 0%, #24c7d6 76.22%);
+  background: linear-gradient(180deg, #FEA6B9 0%, #FEA6B9 76.22%);
   color: white;
   font-size: 20px;
   font-weight: 900;
