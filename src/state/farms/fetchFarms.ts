@@ -175,6 +175,8 @@ const fetchFarms = async () => {
                 MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
                 SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
                 TeaSportPerBlock: new BigNumber(TeaSportPerBlock).toNumber(),
+                lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
+                lpTokenBalanceMC: new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
             }
         }),
     )

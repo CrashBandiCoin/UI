@@ -28,11 +28,11 @@ const contracts = {
     97: '',
   },
   lottery: {
-    56: '',
+    56: '0xD876B387D5b0E9E8d5cB4447C98545b91b518aFe',
     97: '',
   },
   lotteryNFT: {
-    56: '',
+    56: '0x621022F467Aa45183A8b38c271C58164Cf892c15',
     97: '',
   },
   mulltiCall: {

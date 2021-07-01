@@ -109,6 +109,11 @@ const config: MenuEntry[] = [
         href: 'https://snapshot.org/#/tea-swap.eth',
     },
     {
+        label: 'Lottery',
+        icon: 'TicketIcon',
+        href: '/lottery',
+    },
+    {
         label: 'Listing',
         icon: 'ListingsIcon',
         items: [

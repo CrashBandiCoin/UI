@@ -10,6 +10,7 @@ export interface ExpandableSectionProps {
   bscScanAddress?: string
   removed?: boolean
   totalValueFormated?: string
+  lpTokenPriceFormated?: string
   lpLabel?: string
   quoteTokenAdresses?: Address
   quoteTokenSymbol?: string
@@ -41,6 +42,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   bscScanAddress,
   removed,
   totalValueFormated,
+  lpTokenPriceFormated,
   lpLabel,
   quoteTokenAdresses,
   quoteTokenSymbol,
@@ -68,6 +70,12 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
           <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
           <Text>{totalValueFormated}</Text>
         </Flex>
+      )}
+      {!isTokenOnly && (
+          <Flex justifyContent="space-between">
+            <Text>{TranslateString(999, 'LP price')}:</Text>
+            <Text>{lpTokenPriceFormated}</Text>
+          </Flex>
       )}
       <Flex justifyContent="flex-start">
         <Link external href={bscScanAddress} bold={false}>

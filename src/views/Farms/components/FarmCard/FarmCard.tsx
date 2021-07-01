@@ -116,6 +116,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
+    const lpPrice = useMemo(() => {
+        if (farm.isTokenOnly) {
+            return null
+        }
+        return Number(totalValue) / Number(farm.lpTokenBalanceMC)
+    }, [farm, totalValue])
+
+    const lpTokenPriceFormated = lpPrice
+        ? `$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+        : '-'
 
   const lpLabel = farm.lpSymbol
   let earnLabel = ""
@@ -130,8 +140,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-
-    const lpPrice = Number(totalValue)/Number(farm.lpTotalInQuoteToken)
 
     // console.log("Total value : ")
     // console.log(totalValue)
@@ -202,6 +210,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
               `https://bscscan.com/token/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
           }
           totalValueFormated={totalValueFormated}
+          lpTokenPriceFormated={lpTokenPriceFormated}
           lpLabel={lpLabel}
           quoteTokenAdresses={quoteTokenAdresses}
           quoteTokenSymbol={quoteTokenSymbol}
