@@ -7,6 +7,7 @@ import useTickets from 'hooks/useTickets'
 import { useCurrentTime } from 'hooks/useTimer'
 import TicketActions from './TicketActions'
 import { getTicketSaleTime } from '../../helpers/CountdownHelpers'
+import iconTicket from "../img/ticket.png";
 
 interface CardProps {
   isSecondCard?: boolean
@@ -62,7 +63,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
       <CardBody>
         <CardHeader>
           <IconWrapper>
-            <TicketRound />
+              <img src={iconTicket} alt='marketCap' width='100'/>
           </IconWrapper>
           {lotteryHasDrawn ? (
             <TicketCountWrapper>

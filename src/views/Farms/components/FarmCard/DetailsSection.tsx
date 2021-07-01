@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
 import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
+import {getFullDisplayBalance} from "../../../../utils/formatBalance";
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
@@ -36,6 +37,7 @@ const StyledLinkExternal = styled(LinkExternal)`
     fill: ${({ theme }) => theme.colors.primary};
   }
 `
+
 
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   isTokenOnly,
