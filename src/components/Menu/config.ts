@@ -105,13 +105,13 @@ const config: MenuEntry[] = [
     },
     {
         label: 'Vote',
-        icon: 'TicketIcon',
+        icon: 'ReferralIcon',
         href: 'https://snapshot.org/#/tea-swap.eth',
     },
     {
-        label: 'Lottery',
+        label: 'Raffle',
         icon: 'TicketIcon',
-        href: '/lottery',
+        href: '/raffle',
     },
     {
         label: 'Listing',

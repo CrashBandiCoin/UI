@@ -45,7 +45,7 @@ const PastLotterySearcher: React.FC<PastLotterySearcherProps> = ({ initialLotter
 
   return (
     <Wrapper>
-      <Text>{TranslateString(999, 'Select lottery number:')}</Text>
+      <Text>Select raffle number :</Text>
       <form onSubmit={handleSubmit}>
         <SearchWrapper>
           <Input
