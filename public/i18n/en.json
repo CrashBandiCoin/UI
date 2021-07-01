@@ -33,7 +33,7 @@
     {
       "data": {
         "stringId": 290,
-        "text": "Lottery"
+        "text": "raffle"
       }
     },
     {
@@ -357,7 +357,7 @@
     {
       "data": {
         "stringId": 426,
-        "text": "Spend SUGAR to buy tickets, contributing to the lottery pot. Ticket purchases end approx. 30 minutes before lottery. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
+        "text": "Spend SUGAR to buy tickets, contributing to the raffle pot. Ticket purchases end approx. 30 minutes before raffle. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
       }
     },
     {
@@ -471,13 +471,13 @@
     {
       "data": {
         "stringId": 468,
-        "text": "Lottery ticket purchases are final."
+        "text": "raffle ticket purchases are final."
       }
     },
     {
       "data": {
         "stringId": 472,
-        "text": "Tickets are only valid for one lottery draw, and will be burned after the draw."
+        "text": "Tickets are only valid for one raffle draw, and will be burned after the draw."
       }
     },
     {
@@ -537,7 +537,7 @@
     {
       "data": {
         "stringId": 492,
-        "text": "Approx. time before next lottery start"
+        "text": "Approx. time before next raffle start"
       }
     },
     {
@@ -711,7 +711,7 @@
     {
       "data": {
         "stringId": 550,
-        "text": "Your Lottery Winnings"
+        "text": "Your raffle Winnings"
       }
     },
     {
@@ -1167,7 +1167,7 @@
     {
       "data": {
         "stringId": 708,
-        "text": "The SUGAR Lottery"
+        "text": "The SUGAR raffle"
       }
     },
     {

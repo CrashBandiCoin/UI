@@ -83,7 +83,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         <Announce>
           Ticket purchases are final. Your SUGAR cannot be returned to you after buying tickets.
         </Announce>
-        <Final>{TranslateString(460, `You will spend: ${cakeCosts(val)} CAKE`)}</Final>
+        <Final>{TranslateString(460, `You will spend: ${cakeCosts(val)} SUGAR`)}</Final>
       </div>
       <ModalActions>
         <Button width="100%" variant="secondary" onClick={onDismiss}>
