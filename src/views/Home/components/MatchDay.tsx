@@ -63,12 +63,12 @@ const Match = () => {
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
-                    0 - 1
+                    0 - 2
                     <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : x2 </b>
+                <b>Emission block bonus : /4 </b>
             </CardBody>
         </StyledTeaSportStats>
     )
