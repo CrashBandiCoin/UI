@@ -59,7 +59,7 @@ const Match = () => {
         <StyledTeaSportStats>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                    LIVE !
+                    Last match
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
