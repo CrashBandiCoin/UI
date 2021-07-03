@@ -3,8 +3,8 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled, {keyframes} from 'styled-components'
 import iconPays1 from '../img/matchs/france.png'
 import iconPays2 from '../img/matchs/suisse.png'
-import iconPays3 from '../img/matchs/belgique.png'
-import iconPays4 from '../img/matchs/italie.png'
+import iconPays3 from '../img/matchs/ukraine.png'
+import iconPays4 from '../img/matchs/england.png'
 
 const RainbowLight = keyframes`
   0% {
@@ -63,12 +63,12 @@ const Match = () => {
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
-                    1 - 2
+                    0 - 1
                     <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : /2 </b>
+                <b>Emission block bonus : x2 </b>
             </CardBody>
         </StyledTeaSportStats>
     )
