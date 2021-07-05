@@ -133,6 +133,10 @@ const config: MenuEntry[] = [
                 label: 'Coinsniper',
                 href: 'https://coinsniper.net/coin/1473',
             },
+            {
+                label: 'Dapp',
+                href: 'https://www.dapp.com/app/teaswap-finance',
+            },
         ],
     },
     {

@@ -14,7 +14,8 @@ import DexGuru from "../img/dexguru.png";
 import CoinHut from "../img/coinhut.png";
 import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
-import Bscscan from "../img/bscscan.png";
+import Bscscan from "../img/bscscan.png"
+import Dapp from "../img/dapp.png";
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -92,6 +93,14 @@ const SocialCard = () => {
                     <a href="https://bscscan.com/address/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8">
                         <img
                             src={Bscscan}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://www.dapp.com/app/teaswap-finance">
+                        <img
+                            src={Dapp}
                             loading="lazy"
                             width='100px'
                             alt=""
