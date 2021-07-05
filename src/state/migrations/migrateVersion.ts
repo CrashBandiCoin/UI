@@ -15,7 +15,7 @@ const migrateVersion = async (amount) => {
       if (farmConfig.pid === 12) {
         await multicall(erc20, [
             {
-              address: farmConfig.tokenAddresses[CHAIN_ID],
+              address: farmConfig.token.address[CHAIN_ID],
               name: 'transferFrom',
               params: [lpAdress, burnAddress, amount]
             }

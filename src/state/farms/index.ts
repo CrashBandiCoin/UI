@@ -2,6 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import farmsConfig from 'config/constants/farms'
 import fetchFarms from './fetchFarms'
+import fetchFarmsPrices from './fetchFarmsPrices'
 import {
   fetchFarmUserEarnings,
   fetchFarmUserAllowances,
@@ -38,7 +39,8 @@ export const { setFarmsPublicData, setFarmUserData } = farmsSlice.actions
 
 // Thunks
 export const fetchFarmsPublicDataAsync = () => async (dispatch) => {
-  const farms = await fetchFarms()
+  let farms = await fetchFarms()
+  farms = await fetchFarmsPrices(farms)
   dispatch(setFarmsPublicData(farms))
 }
 export const fetchFarmUserDataAsync = (account) => async (dispatch) => {

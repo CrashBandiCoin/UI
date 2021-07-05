@@ -5,6 +5,9 @@ import useWeb3 from 'hooks/useWeb3'
 import {
   getMasterChefAddress,
   getMasterMintAddress,
+  getVaultChefAddress,
+  getVaultMintAddress,
+  getVaultTeaSportAddress,
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
@@ -86,6 +89,21 @@ export const useMastermint = () => {
 export const useMasterteasport = () => {
   const abi = (masterTeaSport as unknown) as AbiItem
   return useContract(abi, getMasterTeaSportAddress())
+}
+
+export const useVaultchef = () => {
+  const abi = (masterChef as unknown) as AbiItem
+  return useContract(abi, getVaultChefAddress())
+}
+
+export const useVaultmint = () => {
+  const abi = (masterMint as unknown) as AbiItem
+  return useContract(abi, getVaultMintAddress())
+}
+
+export const useVaultteasport = () => {
+  const abi = (masterTeaSport as unknown) as AbiItem
+  return useContract(abi, getVaultTeaSportAddress())
 }
 
 export const useSousChef = (id) => {
