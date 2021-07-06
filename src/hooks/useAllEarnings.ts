@@ -94,7 +94,7 @@ export const useAllEarningsByCategory = (type: string) => {
       const calls = farms.map((farm) => {
         return {
           address,
-          name: 'pendingSugar',
+          name,
           params: [farm.pid, account]
         }
       })
