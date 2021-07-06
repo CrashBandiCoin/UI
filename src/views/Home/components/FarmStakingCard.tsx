@@ -235,8 +235,8 @@ const FarmedStakingCard = () => {
                 <CardImage src="/images/SUGAR/TeaSportV1.png" alt="cake logo" width={64} height={64}/>
                 <Block>
                     <Label>TEASPORT to Harvest</Label>
-                    <CakeHarvestBalance earningsSum={earningsSum}/>
-                    <Label>~${(TEASPORTPrice * earningsSum).toFixed(2)}</Label>
+                    <CakeHarvestBalance earningsSum={earningsSumTeasport}/>
+                    <Label>~${(TEASPORTPrice * earningsSumTeasport).toFixed(2)}</Label>
                 </Block>
                 <Block>
                     <Label>TEASPORT in Wallet</Label>
