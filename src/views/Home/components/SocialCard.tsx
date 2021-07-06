@@ -14,7 +14,7 @@ import DexGuru from "../img/dexguru.png";
 import CoinHut from "../img/coinhut.png";
 import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
-import Bscscan from "../img/bscscan.png"
+import Bscscan from "../img/bscscan.png";
 import Dapp from "../img/dapp.png";
 
 const StyledTwitterCard = styled(Card)`
