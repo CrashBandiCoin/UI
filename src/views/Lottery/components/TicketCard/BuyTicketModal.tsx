@@ -63,7 +63,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
   }, [maxTickets])
 
   const cakeCosts = (amount: string): number => {
-    return +amount * 10
+    return +amount * 100
   }
   return (
     <Modal title={TranslateString(450, 'Enter amount of tickets to buy')} onDismiss={onDismiss}>
@@ -76,8 +76,8 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         availableSymbol="SUGAR"
       />
       <div>
-        <Tips>Your amount must be a multiple of 10 SUGAR</Tips>
-        <Tips>1 Ticket = 10 SUGAR</Tips>
+        <Tips>Your amount must be a multiple of 100 SUGAR</Tips>
+        <Tips>1 Ticket = 100 SUGAR</Tips>
       </div>
       <div>
         <Announce>
