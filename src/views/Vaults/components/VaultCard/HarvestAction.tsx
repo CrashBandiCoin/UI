@@ -47,7 +47,6 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
           } finally {
             setPendingTx(false)
           }
-          dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
         }}
       >
         Harvest

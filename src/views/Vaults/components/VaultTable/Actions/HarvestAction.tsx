@@ -8,7 +8,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceCakeBusd, useVaultUser } from 'state/hooks'
 import useHarvestFarm from '../../../hooks/useHarvestFarm'
 
 import { ActionContainer, ActionTitles, ActionContent, Earned } from './styles'
@@ -17,8 +17,9 @@ interface HarvestActionProps extends FarmWithStakedValue {
   userDataReady: boolean
 }
 
-const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userData, userDataReady }) => {
-  const earningsBigNumber = new BigNumber(userData.earnings)
+const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady }) => {
+  const userData = useVaultUser(pid, id)
+  const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings : 0)
   const cakePrice = usePriceCakeBusd()
   let earnings = BIG_ZERO
   let earningsBusd = 0

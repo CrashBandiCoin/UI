@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-import farmsConfig from 'config/constants/farms'
+import farmsConfig from 'config/constants/vaults'
 import fetchVaults from './fetchVaults'
 import fetchVaultsPrices from './fetchVaultsPrices'
 import {

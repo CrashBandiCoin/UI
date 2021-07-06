@@ -96,7 +96,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
             if (columnIndex === -1) {
               return null
             }
-
+            
             switch (key) {
               case 'details':
                 return (

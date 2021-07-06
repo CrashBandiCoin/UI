@@ -190,16 +190,15 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       <ActionContainer>
         <HarvestAction {...farm} userDataReady={userDataReady} />
         <StakedAction {...farm} userDataReady={userDataReady} />
-        <StakedAction {...farm} userDataReady={userDataReady} />
       </ActionContainer>
 
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
           <Text bold>APY Calculations</Text>
-          <Text small>EGG APR: 120.8%</Text>
+          <Text small>{`${farm.token.symbol} APY: ${apy.value.toNumber()}%`}</Text>
           <Text small>Optimal compounds: 836</Text>
-          <Text small>Farm APY: 234.39%</Text>
-          <Text small>GUSD APY: 0%</Text>
+          <Text small>{`Farm APY: ${apy.value.toNumber()}%`}</Text>
+          <Text small>SUGAR APY: 0%</Text>
           <Text small>Total APY: 234.39%</Text>
         </InfoWrapper>
         <InfoWrapper>
@@ -207,8 +206,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Text small>Entrance Fee: 0.1%</Text>
         </InfoWrapper>
         <InfoWrapper style={{ maxWidth: 300 }}>
-          <Text bold>Earns EGG & GUSD</Text>
-          <Text small>Your EGG amount will grow over time as the farm rewards gets reinvested.</Text>
+          <Text bold>{`Earns ${farm.lpSymbol} & SUGAR`}</Text>
+          <Text small>Your SUGAR amount will grow over time as the farm rewards gets reinvested.</Text>
         </InfoWrapper>
       </InfoContainer>
       

@@ -61,7 +61,6 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, ethereum, 
     try {
       setRequestedApproval(true)
       await onApprove()
-      dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
       setRequestedApproval(false)
     } catch (e) {
       console.error(e)

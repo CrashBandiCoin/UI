@@ -8,7 +8,7 @@ import UnlockButton from 'components/UnlockButton'
 import Balance from 'components/Balance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useVaultUser, useLpTokenPrice } from 'state/hooks'
-import { fetchFarmUserDataAsync } from 'state/farms'
+import { fetchVaultUserDataAsync } from 'state/vaults'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { useERC20 } from 'hooks/useContract'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
@@ -61,12 +61,10 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
 
   const handleStake = async (amount: string) => {
     await onStake(amount)
-    dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
   }
 
   const handleUnstake = async (amount: string) => {
     await onUnstake(amount)
-    dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
   }
 
   const displayBalance = useCallback(() => {
@@ -91,13 +89,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     try {
       setRequestedApproval(true)
       await onApprove()
-      dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
 
       setRequestedApproval(false)
     } catch (e) {
       console.error(e)
     }
-  }, [onApprove, dispatch, account, pid])
+  }, [onApprove])
 
   if (!account) {
     return (
@@ -200,12 +197,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     <ActionContainer>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-          Enable Farm
+          Approve Farm
         </Text>
       </ActionTitles>
       <ActionContent>
         <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
-          Enable
+          Approve
         </Button>
       </ActionContent>
     </ActionContainer>

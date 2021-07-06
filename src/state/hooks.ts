@@ -169,6 +169,31 @@ export const useTotalValue = (): BigNumber => {
   return value;
 }
 
+export const useVaultTotalValue = (): BigNumber => {
+  const farms = useVaults();
+  const bnbPrice = usePriceBnbBusd();
+  const cakePrice = usePriceCakeBusd();
+  const mintPrice = usePriceMintBusd();
+  const tokenEventPrice = usePriceTeaSportBusd();
+  let value = new BigNumber(0);
+  for (let i = 0; i < farms.length; i++) {
+    const farm = farms[i]
+    if (farm.lpTotalInQuoteToken) {
+      let val;
+      if (farm.quoteToken.symbol === QuoteToken.BNB) {
+        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
+      }else if (farm.quoteToken.symbol === QuoteToken.CAKE) {
+        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      }else{
+        val = (farm.lpTotalInQuoteToken);
+      }
+      if (val)
+        value = value.plus(val);
+    }
+  }
+  return value;
+}
+
 export const useBusdPriceFromPid = (pid: number, id: number): BigNumber => {
   const farm = useVaultFromPid(pid, id)
   return farm && new BigNumber(farm.token.busdPrice)

@@ -24,6 +24,7 @@ import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
 import masterMint from 'config/abi/mastermint.json'
 import masterTeaSport from 'config/abi/masterteasport.json'
+import vaultChef from 'config/abi/vaultChef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 
@@ -92,7 +93,7 @@ export const useMasterteasport = () => {
 }
 
 export const useVaultchef = () => {
-  const abi = (masterChef as unknown) as AbiItem
+  const abi = (vaultChef as unknown) as AbiItem
   return useContract(abi, getVaultChefAddress())
 }
 

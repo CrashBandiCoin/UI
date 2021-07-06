@@ -54,20 +54,23 @@ const Apy: React.FC<ApyProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses: quoteTokenAddress, quoteTokenSymbol, tokenAddresses: tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
+  if (!originalValue) {
+    return (
+        <Container>
+          <ApyWrapper>
+              <Skeleton width={60} />
+          </ApyWrapper>
+        </Container>
+      )
+  }
   return originalValue !== 0 ? (
     <Container>
-      {originalValue ? (
-        <>
-          <ApyWrapper>{value}%</ApyWrapper>
-          {!hideButton && (
-            <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} cakePrice={cakePrice} apy={value} />
-          )}
-        </>
-      ) : (
-        <ApyWrapper>
-          <Skeleton width={60} />
-        </ApyWrapper>
-      )}
+      <>
+        <ApyWrapper>{value.toNumber()}%</ApyWrapper>
+        {!hideButton && (
+          <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} cakePrice={cakePrice} apy={value} />
+        )}
+      </>
     </Container>
   ) : (
     <Container>

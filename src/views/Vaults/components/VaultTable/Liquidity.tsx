@@ -28,10 +28,11 @@ const Container = styled.div`
   align-items: center;
 `
 
-const Liquidity: React.FunctionComponent<LiquidityProps> = ({ liquidity }) => {
+const Liquidity: React.FunctionComponent<LiquidityProps> = (props) => {
+  const {liquidity} = props
   const displayLiquidity =
     liquidity && liquidity.gt(0) ? (
-      `$${Number(liquidity).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+      `$${Number(liquidity.toNumber()).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     ) : (
       <Skeleton width={60} />
     )

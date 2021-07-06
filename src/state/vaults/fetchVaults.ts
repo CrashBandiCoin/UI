@@ -1,19 +1,18 @@
 import BigNumber from 'bignumber.js'
 import erc20 from 'config/abi/erc20.json'
-import vaultchefABI from 'config/abi/masterchef.json'
+import vaultchefABI from 'config/abi/vaultChef.json'
 import vaultmintABI from 'config/abi/mastermint.json'
 import vaultTeaSportABI from 'config/abi/masterteasport.json'
 import multicall from 'utils/multicall'
 import {getVaultChefAddress, getVaultMintAddress, getVaultTeaSportAddress} from 'utils/addressHelpers'
-import farmsConfig from 'config/constants/farms'
+import farmsConfig from 'config/constants/vaults'
 import {QuoteToken} from '../../config/constants/types'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 const fetchVaults = async () => {
-    const sugarFarms = farmsConfig.filter((farm) => farm.type === 'Sugar')
     const data = await Promise.all(
-        sugarFarms.map(async (farmConfig) => {
+        farmsConfig.map(async (farmConfig) => {
             const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
 
             let paramAddress = ''
@@ -121,7 +120,7 @@ const fetchVaults = async () => {
 
             let name = ''
             if (farmConfig.type === 'Sugar')
-                name = 'sugarPerBlock'
+                name = 'SUGARPerBlock'
             else if (farmConfig.type === 'Mint')
                 name = 'MintPerBlock'
             else if (farmConfig.type === 'TeaSport')

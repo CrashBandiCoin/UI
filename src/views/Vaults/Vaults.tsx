@@ -16,6 +16,7 @@ import {
   usePriceCakeBusd,
   usePriceMintBusd,
   usePriceTeaSportBusd,
+  useVaultTotalValue
 } from 'state/hooks'
 import { fetchVaultUserDataAsync } from 'state/actions'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -23,6 +24,7 @@ import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
+import CardValue from 'views/Home/components/CardValue'
 import { Farm } from 'state/types'
 import { RowProps } from './components/VaultTable/Row'
 import Table from './components/VaultTable/VaultTable'
@@ -131,6 +133,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const bnbPrice = usePriceBnbBusd()
   const { account }: { account: string } = useWallet()
   const {tokenMode, type} = vaultsProps;
+  const tvl = useVaultTotalValue()
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -153,8 +156,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const [stakedOnly, setStakedOnly] = useState(!isActive)
   const [activeOnly, setActiveOnly] = useState(!isActive)
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.type === type && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.type === type && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && farm.id !== 4)
+  const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
@@ -295,8 +298,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         value: farm.apy,
         multiplier: farm.multiplier,
         lpLabel,
-        tokenAddress,
-        quoteTokenAddress,
+        tokenAddress: farm.quoteToken.address,
+        quoteTokenAddress: farm.quoteToken.address,
         quoteTokenSymbol: farm.quoteToken.symbol,
         cakePrice,
         originalValue: farm.apy.toNumber(),
@@ -309,7 +312,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         quoteToken: farm.quoteToken,
       },
       earned: {
-        earnings: getBalanceNumber(new BigNumber(farm.userData.earnings)),
+        earnings: getBalanceNumber(new BigNumber(farm.userData && farm.userData.earnings ? farm.userData.earnings : 0)),
         pid: farm.pid,
       },
       liquidity: {
@@ -374,19 +377,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           Stake tokens for farm rewards plus Sugar rewards
         </Heading>
         <Heading scale="md" color="text">
-          TVL : $6,134,025
+          <CardValue value={tvl.toNumber()} prefix="$" decimals={2} fontSize='18px' />
         </Heading>
       </PageHeader>
       <Page>
-        <TextWrapper>
-          <Text>
-            GUSD is 1:1 Backed by BUSD
-          </Text>
-          <Text style={{ marginBottom: 20 }}>
-            Take your GUSD and invest in the GUSD vaults
-          </Text>
-          <FarmTabButtons hasStakeInFinishedVaults={stakedInactiveFarms.length > 0} />
-        </TextWrapper>
         <ControlContainer>
           <FilterContainer>
             <LabelWrapper>
