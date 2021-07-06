@@ -11,7 +11,7 @@ import CakeWalletBalance from './CakeWalletBalance'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getCakeAddress, getMintAddress, getTeaSportAddress} from '../../../utils/addressHelpers'
-import useAllEarnings, { useAllEarningsByCategory } from '../../../hooks/useAllEarnings'
+import {useAllEarnings, useAllEarningsByCategory} from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 
 
@@ -208,8 +208,8 @@ const FarmedStakingCard = () => {
                 <CardImage src="/images/SUGAR/2.png" alt="cake logo" width={64} height={64}/>
                 <Block>
                     <Label>{TranslateString(544, 'SUGAR to Harvest')}</Label>
-                    <CakeHarvestBalance earningsSum={earningsSum}/>
-                    <Label>~${(SUGARPrice * earningsSum).toFixed(2)}</Label>
+                    <CakeHarvestBalance earningsSum={earningsSumSugar}/>
+                    <Label>~${(SUGARPrice * earningsSumSugar).toFixed(2)}</Label>
                 </Block>
                 <Block>
                     <Label>SUGAR in Wallet</Label>

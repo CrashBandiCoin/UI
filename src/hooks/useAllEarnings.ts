@@ -8,7 +8,7 @@ import masterTeaSportABI from 'config/abi/masterteasport.json'
 import { farmsConfig } from 'config/constants'
 import useRefresh from './useRefresh'
 
-const useAllEarnings = () => {
+export const useAllEarnings = () => {
   const [balances, setBalance] = useState([])
   const { account }: { account: string } = useWallet()
   const { fastRefresh } = useRefresh()
@@ -110,5 +110,3 @@ export const useAllEarningsByCategory = (type: string) => {
 
   return balances
 }
-
-export default useAllEarnings
