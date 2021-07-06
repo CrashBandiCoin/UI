@@ -11,7 +11,7 @@ import CakeWalletBalance from './CakeWalletBalance'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getCakeAddress, getMintAddress, getTeaSportAddress} from '../../../utils/addressHelpers'
-import useAllEarnings from '../../../hooks/useAllEarnings'
+import useAllEarnings, { useAllEarningsByCategory } from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 
 
@@ -60,10 +60,13 @@ const FarmedStakingCard = () => {
     const MINTPrice = usePriceMintBusd().toNumber()
     const SUGARPrice = usePriceCakeBusd().toNumber()
     const TEASPORTPrice = usePriceTeaSportBusd().toNumber()
-    const allEarnings = useAllEarnings()
-    const allEarnings2 = useAllEarnings()
+    const allEarningsSugar = useAllEarningsByCategory('Sugar')
+    const allEarningsTeasport = useAllEarningsByCategory('TeaSport')
 
-    const earningsSum = allEarnings.reduce((accum, earning) => {
+    const earningsSumSugar = allEarningsSugar.reduce((accum, earning) => {
+        return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
+    }, 0)
+    const earningsSumTeasport = allEarningsTeasport.reduce((accum, earning) => {
         return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
     }, 0)
 
