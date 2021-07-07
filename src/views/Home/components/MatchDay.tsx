@@ -59,16 +59,16 @@ const Match = () => {
         <StyledTeaSportStats>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                 Today !
+                 Last match
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
-                    1 - 1
+                    2 - 1
                     <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
                 <br />
-                <b>Emission block bonus : 0 </b>
+                <b>Emission block bonus : x2 </b>
             </CardBody>
         </StyledTeaSportStats>
     )
