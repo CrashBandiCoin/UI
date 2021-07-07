@@ -41,7 +41,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
     <ActionContainer>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          CAKE
+          SUGAR
         </Text>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           Earned
@@ -66,7 +66,6 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
             } finally {
               setPendingTx(false)
             }
-            dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))
           }}
           ml="4px"
         >

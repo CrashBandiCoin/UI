@@ -4,20 +4,20 @@ import { FarmConfig, QuoteToken, ContractType } from './types'
 const farms: FarmConfig[] = [
 	{
 	    id: 1,
-	    pid: 0, // TODO fixe the correct APR
+	    pid: 3, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
 	    lpSymbol: 'CAKE',
 	    lpAddresses: {
 	      97: '',
-	      56: '0x0ed8e0a2d99643e1e65cca22ed4424090b8b7458', // SUGAR-BUSD LP
+	      56: '0x3a621acce6b06ddc101c8e2cfcba29270a0f3154', // SUGAR-BUSD LP
 	    },
 	    token: {
 	      symbol: 'CAKE',
 	      address: {
 	        97: '',
-	        56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+	        56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
 	      },
 	    },
 	    quoteToken: {

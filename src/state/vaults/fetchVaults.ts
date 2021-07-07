@@ -13,8 +13,7 @@ const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 const fetchVaults = async () => {
     const data = await Promise.all(
         farmsConfig.map(async (farmConfig) => {
-            const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
-
+            const lpAdress = farmConfig.isTokenOnly ? farmConfig.token.address[CHAIN_ID] : farmConfig.lpAddresses[CHAIN_ID]
             let paramAddress = ''
             if (farmConfig.type === 'Sugar')
                 paramAddress = getVaultChefAddress()
@@ -38,7 +37,7 @@ const fetchVaults = async () => {
                 },
                 // Balance of LP tokens in the master chef contract
                 {
-                    address: farmConfig.isTokenOnly ? farmConfig.token.address[CHAIN_ID] : lpAdress,
+                    address: lpAdress,
                     name: 'balanceOf',
                     params: [ paramAddress ],
                 },
