@@ -47,10 +47,12 @@ export const fetchVaultUserAllowances = async (account: string) => {
   const parsedLpAllowances1 = rawLpAllowances1.map((lpBalance) => {
     return new BigNumber(lpBalance).toJSON()
   })
+
   const rawLpAllowances2 = await multicall(erc20ABI, calls2)
   const parsedLpAllowances2 = rawLpAllowances2.map((lpBalance) => {
     return new BigNumber(lpBalance).toJSON()
   })
+
   // const rawLpAllowances3 = await multicall(erc20ABI, calls3)
   // const parsedLpAllowances3 = rawLpAllowances3.map((lpBalance) => {
   //   return new BigNumber(lpBalance).toJSON()

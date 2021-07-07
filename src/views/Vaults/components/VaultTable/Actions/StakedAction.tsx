@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
+import { provider } from 'web3-core'
 import { useDispatch } from 'react-redux'
 import { Button, useModal, IconButton, AddIcon, MinusIcon, Skeleton, Text } from '@pancakeswap-libs/uikit'
 import { useLocation } from 'react-router-dom'
@@ -7,6 +8,7 @@ import { BigNumber } from 'bignumber.js'
 import UnlockButton from 'components/UnlockButton'
 import Balance from 'components/Balance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
+import { getContract } from 'utils/erc20'
 import { useVaultUser, useLpTokenPrice } from 'state/hooks'
 import { fetchVaultUserDataAsync } from 'state/vaults'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
@@ -38,10 +40,11 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   quoteToken,
   token,
   userDataReady,
-  depositFeeBP
+  depositFeeBP,
+  isTokenOnly
 }) => {
 
-  const { account } = useWallet()
+  const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { allowance, tokenBalance, stakedBalance } = useVaultUser(pid, id)
   const { onStake } = useStakeFarms(pid)
@@ -57,6 +60,8 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     quoteTokenSymbol: quoteToken.symbol,
     tokenAddresses: token.address,
   })
+  const tokenAddress = token.address[process.env.REACT_APP_CHAIN_ID]
+
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
   const handleStake = async (amount: string) => {
@@ -81,7 +86,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={handleUnstake} tokenName={lpSymbol} />,
   )
-  const lpContract = useERC20(lpAddress)
+  const lpContract = useMemo(() => {
+    if(isTokenOnly){
+      return getContract(ethereum as provider, tokenAddress);
+    }
+    return getContract(ethereum as provider, lpAddress);
+  }, [ethereum, lpAddress, tokenAddress, isTokenOnly])
   const dispatch = useDispatch()
   const { onApprove } = useApproveFarm(lpContract)
 

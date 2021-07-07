@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
+import BigNumber from 'bignumber.js'
 import farmsConfig from 'config/constants/vaults'
 import fetchVaults from './fetchVaults'
 import fetchVaultsPrices from './fetchVaultsPrices'

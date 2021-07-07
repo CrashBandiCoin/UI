@@ -8,7 +8,7 @@ import masterTeaSportABI from 'config/abi/masterteasport.json'
 import { farmsConfig } from 'config/constants'
 import useRefresh from './useRefresh'
 
-const useAllEarnings = () => {
+export const useAllEarnings = () => {
   const [balances, setBalance] = useState([])
   const { account }: { account: string } = useWallet()
   const { fastRefresh } = useRefresh()
@@ -55,4 +55,58 @@ const useAllEarnings = () => {
   return balances
 }
 
-export default useAllEarnings
+export const useAllEarningsByCategory = (type: string) => {
+  const [balances, setBalance] = useState([])
+  const { account }: { account: string } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchAllBalances = async () => {
+      const farms = farmsConfig.filter((farm) => farm.type === type)
+        
+      let name = 'pendingSugar'
+      let address = getMasterMintAddress()
+      let contract = null
+
+      switch(type) {
+        case 'Mint':
+            name = 'pendingMint'
+            contract = masterMintABI
+            address = getMasterMintAddress()
+            break;
+        case 'Sugar':
+            name = 'pendingSugar'
+            contract = masterChefABI
+            address = getMasterChefAddress()
+            break
+        case 'TeaSport':
+            name = 'pendingTeaSport'
+            contract = masterTeaSportABI
+            address = getMasterTeaSportAddress()
+            break;
+        default: 
+            name = 'pendingSugar'
+            contract = masterChefABI
+            address = getMasterChefAddress()
+            break
+      }
+
+      const calls = farms.map((farm) => {
+        return {
+          address,
+          name,
+          params: [farm.pid, account]
+        }
+      })
+
+      const res = await multicall(contract, calls)
+      setBalance(res)
+    }
+
+    if (account) {
+      fetchAllBalances()
+    }
+  }, [account, type, fastRefresh])
+
+  return balances
+}
