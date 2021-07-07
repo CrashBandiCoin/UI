@@ -63,7 +63,7 @@ const Match = () => {
                 </Heading>
                 <Row>
                     <img src={iconPays3} alt='marketCap' width='100'/>
-                    0 - 0
+                    1 - 1
                     <img src={iconPays4} alt='marketCap' width='100'/>
                 </Row>
                 <br />
