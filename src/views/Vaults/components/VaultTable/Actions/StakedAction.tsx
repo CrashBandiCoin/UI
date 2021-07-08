@@ -73,18 +73,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   const displayBalance = useCallback(() => {
-    const stakedBalanceBigNumber = getBalanceAmount(earnings)
+    const stakedBalanceBigNumber = getBalanceAmount(stakedBalance)
     if (stakedBalanceBigNumber.gt(0) && stakedBalanceBigNumber.lt(0.0001)) {
-      return getFullDisplayBalance(earnings).toLocaleString()
+      return getFullDisplayBalance(stakedBalance).toLocaleString()
     }
     return stakedBalanceBigNumber.toFixed(10, BigNumber.ROUND_DOWN)
-  }, [earnings])
+  }, [stakedBalance])
 
   const [onPresentDeposit] = useModal(
     <DepositModal max={tokenBalance} onConfirm={handleStake} tokenName={lpSymbol} depositFeeBP={depositFeeBP} />
   )
   const [onPresentWithdraw] = useModal(
-    <WithdrawModal max={earnings} onConfirm={handleUnstake} tokenName={lpSymbol} />,
+    <WithdrawModal max={stakedBalance} onConfirm={handleUnstake} tokenName={lpSymbol} />,
   )
   const lpContract = useMemo(() => {
     if(isTokenOnly){

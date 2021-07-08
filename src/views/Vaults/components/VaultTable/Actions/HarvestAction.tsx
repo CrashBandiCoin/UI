@@ -9,7 +9,7 @@ import { getBalanceAmount } from 'utils/formatBalance'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync } from 'state/farms'
 import { usePriceCakeBusd, useVaultUser } from 'state/hooks'
-import useHarvestFarm from '../../../hooks/useHarvestFarm'
+import useUnstakeFarms from '../../../hooks/useUnstakeFarms'
 
 import { ActionContainer, ActionTitles, ActionContent, Earned } from './styles'
 
@@ -33,7 +33,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
   }
 
   const [pendingTx, setPendingTx] = useState(false)
-  const { onReward } = useHarvestFarm(pid)
+  const { onUnstake } = useUnstakeFarms(pid)
   const dispatch = useDispatch()
   const { account } = useWallet()
 
@@ -59,7 +59,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
           onClick={async () => {
             setPendingTx(true)
             try {
-              await onReward()
+              await onReward(earningsBigNumber)
               console.log('Your CAKE earnings have been sent to your wallet!')
             } catch (e) {
               console.log('Please try again and confirm the transaction.')
