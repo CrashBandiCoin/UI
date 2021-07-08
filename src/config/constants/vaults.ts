@@ -26,6 +26,29 @@ const farms: FarmConfig[] = [
 	    }
 	},
 	{
+	    id: 2,
+	    pid: 1, // TODO fixe the correct APR
+	    type: ContractType.Sugar,
+	    risk: 5,
+	    isTokenOnly: true,
+	    lpSymbol: 'CAKE-BNB LP',
+	    lpAddresses: {
+	      97: '',
+	      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6', // SUGAR-BUSD LP
+	    },
+	    token: {
+	      symbol: 'CAKE',
+	      address: {
+	        97: '',
+	        56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+	      },
+	    },
+	    quoteToken: {
+	      symbol: QuoteToken.BNB,
+	      address: contracts.wbnb
+	    }
+	},
+	{
 	    id: 4,
 	    pid: 2,
 	    type: ContractType.Mint,
