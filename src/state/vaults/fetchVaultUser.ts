@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+  import BigNumber from 'bignumber.js'
 import erc20ABI from 'config/abi/erc20.json'
 import vaultchefABI from 'config/abi/vaultChef.json'
 import vaultmintABI from 'config/abi/mastermint.json'
@@ -128,7 +128,7 @@ export const fetchVaultUserStakedBalances = async (account: string) => {
   const calls2 = farms2.map((farm) => {
     return {
       address:vaultChefAdress,
-      name: 'stakedWantTokens',
+      name: 'userInfo',
       params: [farm.pid, account]
     }
   })

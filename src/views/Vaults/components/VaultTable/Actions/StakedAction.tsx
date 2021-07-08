@@ -46,7 +46,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
 
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const [requestedApproval, setRequestedApproval] = useState(false)
-  const { allowance, tokenBalance, stakedBalance } = useVaultUser(pid, id)
+  const { allowance, tokenBalance, stakedBalance, earnings } = useVaultUser(pid, id)
   const { onStake } = useStakeFarms(pid)
   const { onUnstake } = useUnstakeFarms(pid)
   const location = useLocation()
@@ -73,18 +73,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   const displayBalance = useCallback(() => {
-    const stakedBalanceBigNumber = getBalanceAmount(stakedBalance)
+    const stakedBalanceBigNumber = getBalanceAmount(earnings)
     if (stakedBalanceBigNumber.gt(0) && stakedBalanceBigNumber.lt(0.0001)) {
-      return getFullDisplayBalance(stakedBalance).toLocaleString()
+      return getFullDisplayBalance(earnings).toLocaleString()
     }
     return stakedBalanceBigNumber.toFixed(10, BigNumber.ROUND_DOWN)
-  }, [stakedBalance])
+  }, [earnings])
 
   const [onPresentDeposit] = useModal(
     <DepositModal max={tokenBalance} onConfirm={handleStake} tokenName={lpSymbol} depositFeeBP={depositFeeBP} />
   )
   const [onPresentWithdraw] = useModal(
-    <WithdrawModal max={stakedBalance} onConfirm={handleUnstake} tokenName={lpSymbol} />,
+    <WithdrawModal max={earnings} onConfirm={handleUnstake} tokenName={lpSymbol} />,
   )
   const lpContract = useMemo(() => {
     if(isTokenOnly){
@@ -122,7 +122,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   if (isApproved) {
-    if (stakedBalance.gt(0)) {
+    if (earnings.gt(0)) {
       return (
         <ActionContainer>
           <ActionTitles>

@@ -19,7 +19,7 @@ interface HarvestActionProps extends FarmWithStakedValue {
 
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady, lpSymbol }) => {
   const userData = useVaultUser(pid, id)
-  const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings : 0)
+  const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings.minus(userData.stakedBalance) : 0)
   const cakePrice = usePriceCakeBusd()
   let earnings = BIG_ZERO
   let earningsBusd = 0
@@ -29,7 +29,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
   if (!earningsBigNumber.isZero()) {
     earnings = getBalanceAmount(earningsBigNumber)
     earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
-    displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
+    displayBalance = earnings.toFixed(10, BigNumber.ROUND_DOWN)
   }
 
   const [pendingTx, setPendingTx] = useState(false)
