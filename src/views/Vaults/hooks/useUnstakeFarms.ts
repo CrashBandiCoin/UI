@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { fetchVaultUserDataAsync } from 'state/actions'
-import { unstake } from 'utils/callHelpers'
+import { harvestVault } from 'utils/callHelpers'
 import { useVaultchef } from 'hooks/useContract'
 
 const useUnstakeFarms = (pid: number) => {
@@ -12,7 +12,7 @@ const useUnstakeFarms = (pid: number) => {
 
   const handleUnstake = useCallback(
     async (amount: string) => {
-      const txHash = await unstake(masterChefContract, pid, amount, account)
+      const txHash = await harvestVault(masterChefContract, pid, amount, account)
       dispatch(fetchVaultUserDataAsync(account))
       console.info(txHash)
     },

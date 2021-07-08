@@ -128,7 +128,7 @@ export const fetchVaultUserStakedBalances = async (account: string) => {
   const calls2 = farms2.map((farm) => {
     return {
       address:vaultChefAdress,
-      name: 'userInfo',
+      name: 'stakedWantTokens',
       params: [farm.pid, account]
     }
   })
@@ -176,7 +176,7 @@ export const fetchVaultUserEarnings = async (account: string) => {
   const calls2 = farms2.map((farm) => {
     return {
       address:vaultChefAdress,
-      name: 'pendingSUGAR',
+      name: 'stakedWantTokens',
       params: [farm.pid, account]
     }
   })

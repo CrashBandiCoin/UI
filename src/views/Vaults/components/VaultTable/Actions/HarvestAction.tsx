@@ -17,7 +17,7 @@ interface HarvestActionProps extends FarmWithStakedValue {
   userDataReady: boolean
 }
 
-const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady }) => {
+const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady, lpSymbol }) => {
   const userData = useVaultUser(pid, id)
   const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings : 0)
   const cakePrice = usePriceCakeBusd()
@@ -41,7 +41,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
     <ActionContainer>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          SUGAR
+          {lpSymbol}
         </Text>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           Earned
