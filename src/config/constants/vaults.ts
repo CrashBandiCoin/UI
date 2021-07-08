@@ -30,7 +30,7 @@ const farms: FarmConfig[] = [
 	    pid: 2, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
-	    isTokenOnly: true,
+	    isTokenOnly: false,
 	    lpSymbol: 'CAKE-BNB LP',
 	    lpAddresses: {
 	      97: '',
