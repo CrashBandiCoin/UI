@@ -27,7 +27,7 @@ const farms: FarmConfig[] = [
 	},
 	{
 	    id: 2,
-	    pid: 2, // TODO fixe the correct APR
+	    pid: 1, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: false,
@@ -46,6 +46,29 @@ const farms: FarmConfig[] = [
 	    quoteToken: {
 	      symbol: QuoteToken.BNB,
 	      address: contracts.wbnb
+	    }
+	},
+	{
+	    id: 3,
+	    pid: 3,
+	    type: ContractType.Sugar,
+	    risk: 5,
+	    isTokenOnly: true,
+	    lpSymbol: 'SUGAR',
+	    lpAddresses: {
+	      97: '',
+	      56: '0x21cb4ED35c47B56478cc7c22A24127B8e9Bc01c2', // SUGAR-BUSD LP
+	    },
+	    token: {
+	      symbol: 'SUGAR',
+	      address: {
+	        97: '',
+	        56: '0x41aa9f842af935cc71252c0de4bff13f821546b8',
+	      },
+	    },
+	    quoteToken: {
+	      symbol: QuoteToken.BUSD,
+	      address: contracts.busd
 	    }
 	},
 	{
