@@ -115,11 +115,11 @@ const config: MenuEntry[] = [
         items: [
             {
                 label: 'Sugar',
-                href: '/raffle',
+                href: '/raffleSugar',
             },
             {
                 label: 'Teasport',
-                href: '/raffle',
+                href: '/raffleTeasport',
             },
         ]
     },

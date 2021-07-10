@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
-import {useLottery, useLotteryTeasport, useLotteryTicket} from 'hooks/useContract'
+import {useLottery, useLotteryTeasport, useLotteryTicket, useLotteryTicketTeasport} from 'hooks/useContract'
 import useRefresh from './useRefresh'
 import {
   getTotalRewards,
@@ -14,8 +14,8 @@ import {
 const useTickets = (lotteryNumber = null) => {
   const [tickets, setTickets] = useState([])
   const { account } = useWallet()
-  const ticketsContract = useLotteryTicket()
-  const lotteryContract = useLottery()
+  const ticketsContract = useLotteryTicketTeasport()
+  const lotteryContract = useLotteryTeasport()
   const { fastRefresh } = useRefresh()
 
   useEffect(() => {
@@ -93,6 +93,29 @@ export const useTotalClaim = () => {
   return { claimLoading, claimAmount }
 }
 
+export const useTotalClaimTeasport = () => {
+  const [claimAmount, setClaimAmount] = useState(new BigNumber(0))
+  const [claimLoading, setClaimLoading] = useState(false)
+  const { account } = useWallet()
+  const ticketsContract = useLotteryTicketTeasport()
+  const lotteryContract = useLotteryTeasport()
+
+  const fetchBalance = useCallback(async () => {
+    setClaimLoading(true)
+    const claim = await getTotalClaim(lotteryContract, ticketsContract, account)
+    setClaimAmount(claim)
+    setClaimLoading(false)
+  }, [account, lotteryContract, ticketsContract])
+
+  useEffect(() => {
+    if (account && lotteryContract && ticketsContract) {
+      fetchBalance()
+    }
+  }, [account, fetchBalance, lotteryContract, ticketsContract])
+
+  return { claimLoading, claimAmount }
+}
+
 export const useWinningNumbers = () => {
   const [winngNumbers, setWinningNumbers] = useState([0, 0, 0, 0])
   const lotteryContract = useLottery()
@@ -112,9 +135,48 @@ export const useWinningNumbers = () => {
   return winngNumbers
 }
 
+export const useWinningNumbersTeasport = () => {
+  const [winngNumbers, setWinningNumbers] = useState([0, 0, 0, 0])
+  const lotteryContract = useLotteryTeasport()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const rewards = await getWinningNumbers(lotteryContract)
+      setWinningNumbers(rewards)
+    }
+
+    if (lotteryContract) {
+      fetchBalance()
+    }
+  }, [fastRefresh, lotteryContract, setWinningNumbers])
+
+  return winngNumbers
+}
+
+
 export const useMatchingRewardLength = (numbers) => {
   const [matchingNumbers, setMatchingNumbers] = useState(0)
   const lotteryContract = useLottery()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const matchedNumbaers = await getMatchingRewardLength(lotteryContract, numbers)
+      setMatchingNumbers(matchedNumbaers)
+    }
+
+    if (lotteryContract) {
+      fetchBalance()
+    }
+  }, [lotteryContract, numbers, fastRefresh])
+
+  return matchingNumbers
+}
+
+export const useMatchingRewardLengthTeasport = (numbers) => {
+  const [matchingNumbers, setMatchingNumbers] = useState(0)
+  const lotteryContract = useLotteryTeasport()
   const { fastRefresh } = useRefresh()
 
   useEffect(() => {

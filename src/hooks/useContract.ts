@@ -8,7 +8,7 @@ import {
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
-  getMasterTeaSportAddress
+  getMasterTeaSportAddress, getLotteryAddressTeasport, getLotteryTicketAddressTeasport, getTeaSportAddress
 } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
@@ -53,6 +53,10 @@ export const useCake = () => {
   return useERC20(getCakeAddress())
 }
 
+export const useTeasport = () => {
+  return useERC20(getTeaSportAddress())
+}
+
 export const useRabbitMintingFarm = (address: string) => {
   const rabbitMintingFarmAbi = (rabbitmintingfarm as unknown) as AbiItem
   return useContract(rabbitMintingFarmAbi, address)
@@ -71,6 +75,16 @@ export const useLottery = () => {
 export const useLotteryTicket = () => {
   const abi = (lotteryTicket as unknown) as AbiItem
   return useContract(abi, getLotteryTicketAddress())
+}
+
+export const useLotteryTeasport = () => {
+  const abi = (lottery as unknown) as AbiItem
+  return useContract(abi, getLotteryAddressTeasport())
+}
+
+export const useLotteryTicketTeasport = () => {
+  const abi = (lotteryTicket as unknown) as AbiItem
+  return useContract(abi, getLotteryTicketAddressTeasport())
 }
 
 export const useMasterchef = () => {
