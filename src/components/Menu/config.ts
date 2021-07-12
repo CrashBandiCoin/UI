@@ -83,10 +83,18 @@ const config: MenuEntry[] = [
             {
                 label: 'Farms',
                 href: '/farms/teasport',
+                status: {
+                    text: "INACTIVE",
+                    color: "failure",
+                }
             },
             {
                 label: 'Pools',
                 href: '/pools/teasport',
+                status: {
+                    text: "INACTIVE",
+                    color: "failure",
+                }
             },
             {
                 label: 'Exchange',
