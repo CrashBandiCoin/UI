@@ -69,7 +69,7 @@ const TeasportStats = () => {
         <Row>
           <Text fontSize="14px">New TEASPORT/block</Text>
           <Text bold fontSize="14px">
-            {TeaSportPerBlock}
+            0
           </Text>
         </Row>
       </CardBody>
