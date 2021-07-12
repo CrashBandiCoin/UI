@@ -115,3 +115,20 @@ export const useBurnedBalanceMint = (tokenAddress: string) => {
 }
 
 export default useTokenBalance
+
+export const useBurnedBalanceTeasport = (tokenAddress: string) => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { slowRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const cakeContract = getContract(teasportABI, getTeaSportAddress())
+      const bal = await cakeContract.methods.balanceOf('0x000000000000000000000000000000000000dEaD').call()
+      setBalance(new BigNumber(bal))
+    }
+
+    fetchBalance()
+  }, [tokenAddress, slowRefresh])
+
+  return balance
+}

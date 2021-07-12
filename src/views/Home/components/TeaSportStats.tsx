@@ -3,7 +3,7 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled, {keyframes} from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
-import {useTotalSupply, useBurnedBalance, useTotalSupplyMint, useTotalSupplyTeaSport} from 'hooks/useTokenBalance'
+import {useTotalSupply, useBurnedBalance, useTotalSupplyMint, useTotalSupplyTeaSport, useBurnedBalanceTeasport} from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import {getMintAddress, getTeaSportAddress} from 'utils/addressHelpers'
 import CardValue from './CardValue'
@@ -29,7 +29,7 @@ const Row = styled.div`
 const TeasportStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupplyTeaSport()
-  const burnedBalance = useBurnedBalance(getTeaSportAddress())
+  const burnedBalance = useBurnedBalanceTeasport(getTeaSportAddress())
   const farms = useFarms();
   const TeaSportPrice = usePriceTeaSportBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
