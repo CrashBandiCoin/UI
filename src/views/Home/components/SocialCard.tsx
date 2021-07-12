@@ -16,6 +16,8 @@ import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
 import Bscscan from "../img/bscscan.png";
 import Dapp from "../img/dapp.png";
+import Blockfolio from "../img/blockfolio.png";
+import Delta from "../img/delta.png";
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -90,17 +92,25 @@ const SocialCard = () => {
                             alt=""
                         />
                     </a>
-                    <a href="https://bscscan.com/address/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8">
+                    <a href="https://www.dapp.com/app/teaswap-finance">
                         <img
-                            src={Bscscan}
+                            src={Dapp}
                             loading="lazy"
                             width='100px'
                             alt=""
                         />
                     </a>
-                    <a href="https://www.dapp.com/app/teaswap-finance">
+                    <a href="https://blockfolio.com/">
                         <img
-                            src={Dapp}
+                            src={Blockfolio}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://delta.app/en">
+                        <img
+                            src={Delta}
                             loading="lazy"
                             width='100px'
                             alt=""
