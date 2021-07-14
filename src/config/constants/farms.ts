@@ -676,6 +676,26 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
 
+  {
+    id: 33,
+    pid: 17,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT',
+    isTokenOnly: true,
+    lpAddresses: {
+      97: '',
+      56: '0x154b10d06c8739Df799510a338AC7e61391011F6',
+    },
+    tokenSymbol: 'TEASPORT',
+    tokenAddresses: {
+      97: '',
+      56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+
 
 
 
