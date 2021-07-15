@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
 	    lpSymbol: 'CAKE-BNB LP',
 	    lpAddresses: {
 	      97: '',
-	      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6', // SUGAR-BUSD LP
+	      56: '0x0ed7e52944161450477ee417de9cd3a859b14fd0', // SUGAR-BUSD LP
 	    },
 	    token: {
 	      symbol: 'CAKE',
@@ -50,7 +50,7 @@ const farms: FarmConfig[] = [
 	},
 	{
 	    id: 3,
-	    pid: 3,
+	    pid: 2,
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
