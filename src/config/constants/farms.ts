@@ -696,6 +696,44 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
 
+  {
+    id: 34,
+    pid: 18,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x7ca18c58C6D890201172800EB0508450aE46e4F5',
+    },
+    tokenSymbol: 'TEASPORT',
+    tokenAddresses: {
+      97: '',
+      56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+
+  {
+    id: 35,
+    pid: 19,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x154b10d06c8739Df799510a338AC7e61391011F6',
+    },
+    tokenSymbol: 'TEASPORT',
+    tokenAddresses: {
+      97: '',
+      56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+
 
 
 
