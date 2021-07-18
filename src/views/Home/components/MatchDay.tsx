@@ -1,10 +1,8 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled, {keyframes} from 'styled-components'
-import iconPays1 from '../img/matchs/france.png'
-import iconPays2 from '../img/matchs/suisse.png'
-import iconPays3 from '../img/matchs/italie.png'
-import iconPays4 from '../img/matchs/england.png'
+import iconJo from '../img/matchs/jo_tokyo.png'
+
 
 const RainbowLight = keyframes`
   0% {
@@ -47,6 +45,7 @@ const Row = styled.div`
   justify-content: space-between;
   margin-bottom: 8px;
   font-size: 30px;
+  margin-left:150px;
 `
 
 const Row2 = styled.div`
@@ -59,16 +58,11 @@ const Match = () => {
         <StyledTeaSportStats>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                 Last match
+                Coming soon
                 </Heading>
                 <Row>
-                    <img src={iconPays3} alt='marketCap' width='100'/>
-                    1 - 1
-                    <img src={iconPays4} alt='marketCap' width='100'/>
+                    <img src={iconJo} alt='marketCap' width='100'/>   
                 </Row>
-                <br />
-                <br />
-                <b>Emission block bonus : 0 </b>
             </CardBody>
         </StyledTeaSportStats>
     )
