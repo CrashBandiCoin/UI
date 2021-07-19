@@ -583,6 +583,26 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
 
+  {
+    id: 36,
+    pid: 21,
+    risk: 5,
+    type: ContractType.Sugar,
+    isTokenOnly: true,
+    lpSymbol: 'LINK',
+    lpAddresses: {
+      97: '',
+      56: '0x00C4849E82D574B02f43c0F84b131dCC9cAbFC49',
+    },
+    tokenSymbol: 'LINK',
+    tokenAddresses: {
+      97: '',
+      56: '0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+
 
 
 
