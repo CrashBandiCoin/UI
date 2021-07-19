@@ -12,14 +12,6 @@ const config: MenuEntry[] = [
         icon: 'MintIcon',
         items: [
             {
-                label: 'Farms',
-                href: '/farms/mint',
-                status: {
-                    text: "INACTIVE",
-                    color: "failure",
-                }
-            },
-            {
                 label: 'Pools',
                 href: '/pools/mint',
                 status: {
@@ -64,14 +56,6 @@ const config: MenuEntry[] = [
         label: 'TeaSport',
         icon: 'TeaSportV1Icon',
         items: [
-            {
-                label: 'UEFA EURO',
-                href: '/euro',
-                status: {
-                    text: "LIVE",
-                    color: "text",
-                },
-            },
             {
                 label: 'OLYMPIC GAMES',
                 href: '',
