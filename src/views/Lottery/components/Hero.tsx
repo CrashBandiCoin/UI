@@ -4,7 +4,19 @@ import { Heading, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Container from 'components/layout/Container'
 import LotteryProgress from './LotteryProgress'
-import iconChainlink from "./img/chainlink.png";
+import iconChainlink from "../img/chainlink.png";
+
+const Row = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 8px;
+  color:white;
+  font-size: 30px;
+  
+  
+`
 
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
   color: ${({ theme }) => theme.colors.secondary};
@@ -74,6 +86,7 @@ const Hero = () => {
           <Title>The SUGAR Raffle</Title>
           <Blurb>{TranslateString(999, 'Buy tickets with SUGAR')}</Blurb>
           <Blurb>{TranslateString(999, 'Win if 2, 3, or 4 of your ticket numbers match!')}</Blurb>
+          <Row>powered by <img src={iconChainlink} alt='marketCap' width='70'/> </Row>
         </LeftWrapper>
         <RightWrapper>
           <LotteryProgress />

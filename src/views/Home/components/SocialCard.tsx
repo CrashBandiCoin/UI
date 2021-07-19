@@ -19,6 +19,7 @@ import Dapp from "../img/dapp.png";
 import Blockfolio from "../img/blockfolio.png";
 import Delta from "../img/delta.png";
 
+
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
   margin-right: auto;

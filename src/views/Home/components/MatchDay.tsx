@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled, {keyframes} from 'styled-components'
 import iconJo from '../img/matchs/jo_tokyo.png'
+import inconChainlink from '../img/matchs/chainlink.png'
 
 
 const RainbowLight = keyframes`
@@ -42,10 +43,10 @@ const Row = styled.div`
   display: flex;
   font-size: 14px;
   text-align: center;
-  justify-content: space-between;
   margin-bottom: 8px;
   font-size: 30px;
-  margin-left:150px;
+  justify-content: center;
+  
 `
 
 const Row2 = styled.div`
@@ -63,6 +64,9 @@ const Match = () => {
                 <Row>
                     <img src={iconJo} alt='marketCap' width='100'/>   
                 </Row>
+                <Row>
+                powered by <img src={inconChainlink} alt='marketCap' width='100'/> 
+                </Row> 
             </CardBody>
         </StyledTeaSportStats>
     )
