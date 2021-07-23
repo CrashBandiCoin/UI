@@ -8,7 +8,7 @@ import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface WithdrawModalProps {
   max: BigNumber
-  onConfirm: (amount: string) => void
+  onConfirm: (amount: string, actionType:string) => void
   onDismiss?: () => void
   tokenName?: string
 }
@@ -49,7 +49,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm(val)
+            await onConfirm(val, "2")
             setPendingTx(false)
             onDismiss()
           }}

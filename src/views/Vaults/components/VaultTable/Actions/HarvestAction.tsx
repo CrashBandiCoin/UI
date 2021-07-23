@@ -59,7 +59,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
           onClick={async () => {
             setPendingTx(true)
             try {
-              await onUnstake(earningsBigNumber.toJSON())
+              await onUnstake(earningsBigNumber.toJSON(), '1')
               console.log('Your CAKE earnings have been sent to your wallet!')
             } catch (e) {
               console.log('Please try again and confirm the transaction.')

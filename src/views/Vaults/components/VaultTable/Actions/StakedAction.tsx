@@ -69,7 +69,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   const handleUnstake = async (amount: string) => {
-    await onUnstake(amount)
+    await onUnstake(amount, "0")
   }
 
   const displayBalance = useCallback(() => {

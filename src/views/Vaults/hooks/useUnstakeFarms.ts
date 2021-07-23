@@ -11,8 +11,8 @@ const useUnstakeFarms = (pid: number) => {
   const dispatch = useDispatch()
 
   const handleUnstake = useCallback(
-    async (amount: string) => {
-      const txHash = await unstake(masterChefContract, pid, amount, account)
+    async (amount: string, actionType: string) => {
+      const txHash = await unstake(masterChefContract, pid, amount, actionType, account)
       dispatch(fetchVaultUserDataAsync(account))
       console.info(txHash)
     },
