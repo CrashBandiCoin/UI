@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useVaultUser } from 'state/hooks'
-import { Text, Tag } from '@pancakeswap-libs/uikit'
+import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { Token } from 'config/constants/types'
 import TokenPairImage from 'components/TokenPairImage'
@@ -11,7 +11,8 @@ export interface VaultProps {
   pid: number
   id: number
   token: Token
-  quoteToken: Token
+  quoteToken: Token,
+  isTokenOnly: boolean
 }
 
 const Container = styled.div`
@@ -23,7 +24,6 @@ const Container = styled.div`
     padding-left: 32px;
   }
 `
-
 const TokenWrapper = styled.div`
   padding-right: 8px;
   width: 24px;
@@ -33,7 +33,7 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, pid, id }) => {
+const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, pid, id, isTokenOnly }) => {
   const { stakedBalance } = useVaultUser(pid, id)
   const rawStakedBalance = getBalanceNumber(stakedBalance)
 
@@ -52,7 +52,9 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
   return (
     <Container>
       <TokenWrapper>
-        <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={40} height={40} />
+        { isTokenOnly ? (
+            <Image src={`/images/farms/${token.symbol.toLowerCase()}.png`} alt={label} width={64} height={64} />
+          ): <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={40} height={40} />}
       </TokenWrapper>
       
       <div>

@@ -310,6 +310,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         pid: farm.pid,
         token: farm.token,
         quoteToken: farm.quoteToken,
+        isTokenOnly: farm.isTokenOnly
       },
       earned: {
         earnings: getBalanceNumber(new BigNumber(farm.userData && farm.userData.earnings ? farm.userData.earnings : 0)),
