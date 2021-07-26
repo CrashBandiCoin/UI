@@ -94,95 +94,177 @@ const fetchVaults = async () => {
             else if (farmConfig.type === 'TeaSport')
                 name = 'teasportPerBlock'
 
-            const [info, totalAllocPoint, perblock, tvl] = await multicall(
-                abi,
-                [
-                    {
-                        address,
-                        name: 'poolInfo',
-                        params: [farmConfig.pid],
-                    },
-                    {
-                        address,
-                        name: 'totalAllocPoint',
-                    },
-                    {
-                        address,
-                        name
-                    },
-                    {
-                        address,
-                        name: 'getTVL',
-                        params: [farmConfig.pid]
-                    },
-                ]
-            )
+            if (farmConfig.type === 'Sugar') {
+                const [info, totalAllocPoint, perblock, tvl] = await multicall(
+                    abi,
+                    [
+                        {
+                            address,
+                            name: 'poolInfo',
+                            params: [farmConfig.pid],
+                        },
+                        {
+                            address,
+                            name: 'totalAllocPoint',
+                        },
+                        {
+                            address,
+                            name
+                        },
+                        {
+                            address,
+                            name: 'getTVL',
+                            params: [farmConfig.pid]
+                        },
+                    ]
+                )
 
-            let tokenPriceVsQuote;
-            if (farmConfig.isTokenOnly) {
-                tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
-                if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
-                    tokenPriceVsQuote = new BigNumber(1);
+                let tokenPriceVsQuote;
+                if (farmConfig.isTokenOnly) {
+                    tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
+                    if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
+                        tokenPriceVsQuote = new BigNumber(1);
+                    } else {
+                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    }
+                    lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
                 } else {
-                    tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    // Ratio in % a LP tokens that are in staking, vs the total number in circulation
+                    const lpTokenRatio = new BigNumber(tvl).div(new BigNumber(lpTotalSupply))
+
+                    // Total value in staking in quote token value
+                    lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
+                        .div(new BigNumber(10).pow(18))
+                        .times(new BigNumber(2))
+                        .times(lpTokenRatio)
+
+                    // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
+                    tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
+                    const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
+                        .div(new BigNumber(10).pow(quoteTokenDecimals))
+                        .times(lpTokenRatio)
+
+                    if (tokenAmount.comparedTo(0) > 0) {
+                        tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
+                    } else {
+                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    }
                 }
-                lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
+
+                const allocPoint = new BigNumber(info.allocPoint._hex)
+                const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
+                let SUGARPerBlock = null
+
+                SUGARPerBlock = perblock
+
+                return {
+                    ...farmConfig,
+                    tokenAmount: tokenAmount.toJSON(),
+                    // quoteTokenAmount: quoteTokenAmount,
+                    lpTotalInQuoteToken: new BigNumber(tvl).toJSON(),
+                    tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
+                    poolWeight: poolWeight.toNumber(),
+                    multiplier: `${allocPoint.div(100).toString()}X`,
+                    depositFeeBP: info.depositFeeBP,
+                    MintPerBlock: null,
+                    SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
+                    TeaSportPerBlock: null,
+                    lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
+                    lpTokenBalanceMC: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
+                }
             } else {
-                // Ratio in % a LP tokens that are in staking, vs the total number in circulation
-                const lpTokenRatio = new BigNumber(tvl).div(new BigNumber(lpTotalSupply))
-
-                // Total value in staking in quote token value
-                lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
-                    .div(new BigNumber(10).pow(18))
-                    .times(new BigNumber(2))
-                    .times(lpTokenRatio)
-
-                // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
-                tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
-                const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
-                    .div(new BigNumber(10).pow(quoteTokenDecimals))
-                    .times(lpTokenRatio)
-
-                if (tokenAmount.comparedTo(0) > 0) {
-                    tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
+                let tokenPriceVsQuote;
+                if (farmConfig.isTokenOnly) {
+                    tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
+                    if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
+                        tokenPriceVsQuote = new BigNumber(1);
+                    } else {
+                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    }
+                    lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
                 } else {
-                    tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    // Ratio in % a LP tokens that are in staking, vs the total number in circulation
+                    const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
+
+                    // Total value in staking in quote token value
+                    lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
+                        .div(new BigNumber(10).pow(18))
+                        .times(new BigNumber(2))
+                        .times(lpTokenRatio)
+
+                    // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
+                    tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
+                    const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
+                        .div(new BigNumber(10).pow(quoteTokenDecimals))
+                        .times(lpTokenRatio)
+
+                    if (tokenAmount.comparedTo(0) > 0) {
+                        tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
+                    } else {
+                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
+                    }
                 }
-            }
 
-            const allocPoint = new BigNumber(info.allocPoint._hex)
-            const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
-            let MintPerBlock = null
-            let SUGARPerBlock = null
-            let TeaSportPerBlock = null
+                if (farmConfig.type === 'Sugar')
+                    abi = vaultchefABI
+                else if (farmConfig.type === 'Mint')
+                    abi = vaultmintABI
+                else if (farmConfig.type === 'TeaSport')
+                    abi = vaultTeaSportABI
 
-            if (farmConfig.type === 'Mint') {
-                MintPerBlock = perblock
-            } else if (farmConfig.type === 'TeaSport') {
-                TeaSportPerBlock = perblock
-            } else if (farmConfig.type === 'Sugar') {
-                SUGARPerBlock = perblock
-            } else {
-                MintPerBlock = perblock
-                SUGARPerBlock = perblock
-                TeaSportPerBlock = perblock
-            }
+                const [info, totalAllocPoint, perblock] = await multicall(
+                    abi,
+                    [
+                        {
+                            address,
+                            name: 'poolInfo',
+                            params: [farmConfig.pid],
+                        },
+                        {
+                            address,
+                            name: 'totalAllocPoint',
+                        },
+                        {
+                            address,
+                            name
+                        },
+                    ]
+                )
 
-            return {
-                ...farmConfig,
-                tokenAmount: tokenAmount.toJSON(),
-                // quoteTokenAmount: quoteTokenAmount,
-                lpTotalInQuoteToken: tvl.toJSON(),
-                tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
-                poolWeight: poolWeight.toNumber(),
-                multiplier: `${allocPoint.div(100).toString()}X`,
-                depositFeeBP: info.depositFeeBP,
-                MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
-                SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
-                TeaSportPerBlock: new BigNumber(TeaSportPerBlock).toNumber(),
-                lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
-                lpTokenBalanceMC: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
-            }
+                const allocPoint = new BigNumber(info.allocPoint._hex)
+                const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
+                let MintPerBlock = null
+                let SUGARPerBlock = null
+                let TeaSportPerBlock = null
+
+                if (farmConfig.type === 'Mint') {
+                    MintPerBlock = perblock
+                } else if (farmConfig.type === 'TeaSport') {
+                    TeaSportPerBlock = perblock
+                } else if (farmConfig.type === 'Sugar') {
+                    SUGARPerBlock = perblock
+                } else {
+                    MintPerBlock = perblock
+                    SUGARPerBlock = perblock
+                    TeaSportPerBlock = perblock
+                }
+
+                return {
+                    ...farmConfig,
+                    tokenAmount: tokenAmount.toJSON(),
+                    // quoteTokenAmount: quoteTokenAmount,
+                    lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
+                    tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
+                    poolWeight: poolWeight.toNumber(),
+                    multiplier: `${allocPoint.div(100).toString()}X`,
+                    depositFeeBP: info.depositFeeBP,
+                    MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
+                    SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
+                    TeaSportPerBlock: new BigNumber(TeaSportPerBlock).toNumber(),
+                    lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
+                    lpTokenBalanceMC: new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
+                }
+            }            
         }),
     )
 
