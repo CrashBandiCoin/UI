@@ -27,7 +27,7 @@ const farms: FarmConfig[] = [
 	},
 	{
 	    id: 2,
-	    pid: 3, // TODO fixe the correct APR
+	    pid: 1, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: false,
