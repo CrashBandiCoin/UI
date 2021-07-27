@@ -9,7 +9,7 @@ import { getBalanceAmount } from 'utils/formatBalance'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync } from 'state/farms'
 import { usePriceCakeBusd, useVaultUser } from 'state/hooks'
-import useUnstakeFarms from '../../../hooks/useUnstakeFarms'
+import useHarvestFarm from '../../../hooks/useHarvestFarm'
 
 import { ActionContainer, ActionTitles, ActionContent, Earned } from './styles'
 
@@ -19,7 +19,7 @@ interface HarvestActionProps extends FarmWithStakedValue {
 
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady, lpSymbol }) => {
   const userData = useVaultUser(pid, id)
-  const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings.minus(userData.stakedBalance) : 0)
+  const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings : 0)
   const cakePrice = usePriceCakeBusd()
   let earnings = BIG_ZERO
   let earningsBusd = 0
@@ -33,7 +33,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
   }
 
   const [pendingTx, setPendingTx] = useState(false)
-  const { onUnstake } = useUnstakeFarms(pid)
+  const { onReward } = useHarvestFarm(pid)
   const dispatch = useDispatch()
   const { account } = useWallet()
 
@@ -59,7 +59,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
           onClick={async () => {
             setPendingTx(true)
             try {
-              await onUnstake(new BigNumber(earningsBigNumber).div(new BigNumber(10).pow(18)).toString(), '1')
+              await onReward()
               console.log('Your CAKE earnings have been sent to your wallet!')
             } catch (e) {
               console.log('Please try again and confirm the transaction.')

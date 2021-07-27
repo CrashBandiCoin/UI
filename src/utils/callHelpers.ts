@@ -52,6 +52,15 @@ export const unstake = async (masterChefContract, pid, amount, type, account) =>
   }
 }
 
+export const harvestVault = async (masterChefContract, pid, account) => {
+  return masterChefContract.methods
+      .harvestWantToken(pid, "0")
+      .send({ from: account })
+      .on('transactionHash', (tx) => {
+        return tx.transactionHash
+      }) 
+}
+
 export const sousUnstake = async (sousChefContract, amount, account) => {
   // shit code: hard fix for old CTK and BLK
   if (sousChefContract.options.address === '0x3B9B74f48E89Ebd8b45a53444327013a2308A9BC') {
@@ -90,15 +99,6 @@ export const sousEmegencyUnstake = async (sousChefContract, amount, account) => 
 export const harvest = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
     .deposit(pid, new BigNumber(0).toString())
-    .send({ from: account })
-    .on('transactionHash', (tx) => {
-      return tx.transactionHash
-    })
-}
-
-export const harvestVault = async (masterChefContract, pid, amount, account) => {
-  return masterChefContract.methods
-    .withdrawWantedToken(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash

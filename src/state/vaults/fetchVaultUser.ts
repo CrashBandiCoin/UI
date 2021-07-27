@@ -176,7 +176,7 @@ export const fetchVaultUserEarnings = async (account: string) => {
   const calls2 = farms2.map((farm) => {
     return {
       address:vaultChefAdress,
-      name: 'stakedWantTokens',
+      name: 'pendintWantToken',
       params: [farm.pid, account]
     }
   })
