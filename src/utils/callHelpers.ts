@@ -54,7 +54,7 @@ export const unstake = async (masterChefContract, pid, amount, type, account) =>
 
 export const harvestVault = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
-      .harvestWantToken(pid, "0")
+      .harvestWantToken(pid, account)
       .send({ from: account })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
