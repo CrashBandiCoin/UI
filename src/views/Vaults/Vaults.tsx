@@ -372,10 +372,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" scale="xl" color="secondary" mb="24px">
-          Sugar Vaults (Auto-Compounder)
+          TEASWAP Vaults (Auto-Compounder)
         </Heading>
         <Heading scale="lg" color="text">
-          Stake tokens for farm rewards plus Sugar rewards
+          Stake tokens for farm rewards !
         </Heading>
         <Heading scale="md" color="text">
           <CardValue value={tvl.toNumber()} prefix="$" decimals={2} fontSize='18px' />
@@ -397,17 +397,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                     value: 'pcs',
                   },
                   {
-                    label: 'AUTO',
-                    value: 'auto',
+                    label: 'TEASWAP',
+                    value: 'teaswap',
                   },
-                  {
-                    label: 'GOOSE',
-                    value: 'goose',
-                  },
-                  {
-                    label: 'VENUS',
-                    value: 'venus',
-                  },
+
                 ]}
                 onChange={handlePlatformOptionChange}
               />
@@ -440,7 +433,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                     value: 'earned',
                   },
                   {
-                    label: 'APY',
+                    label: 'APR',
                     value: 'apy',
                   },
                   {

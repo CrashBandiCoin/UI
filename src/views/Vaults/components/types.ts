@@ -61,17 +61,12 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     sortable: true,
     label: '',
   },
-  {
-    id: 2,
-    name: 'earned',
-    sortable: true,
-    label: 'Bonus',
-  },
+
   {
     id: 3,
     name: 'apy',
     sortable: true,
-    label: 'APY',
+    label: 'APR',
   },
   {
     id: 4,
@@ -79,12 +74,7 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     sortable: true,
     label: 'TVL',
   },
-  {
-    id: 5,
-    name: 'multiplier',
-    sortable: true,
-    label: 'Multiplier',
-  },
+
   {
     id: 6,
     name: 'details',

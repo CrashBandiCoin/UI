@@ -194,20 +194,20 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
-          <Text bold>APY Calculations</Text>
-          <Text small>{`${farm.token.symbol} APY: ${apy.value.toNumber()}%`}</Text>
-          <Text small>Optimal compounds: 836</Text>
-          <Text small>{`Farm APY: ${apy.value.toNumber()}%`}</Text>
-          <Text small>SUGAR APY: 0%</Text>
-          <Text small>Total APY: 234.39%</Text>
+          <Text bold>APR : </Text>
+          <Text small>{`Annual : ${apy.value.toNumber()}%`}</Text>
+          <Text small>{`Daily : ${apy.value.toNumber()}%`}</Text>
         </InfoWrapper>
         <InfoWrapper>
           <Text bold>Fees</Text>
-          <Text small>Entrance Fee: 0.1%</Text>
+          <Text small>Exit Fee: 0.1%</Text>
+          <Text small>Buy Back/Burn: 2%</Text>
+          <Text small>Network fee: 0.2%</Text>
+          <Text small>Operational fee: 1.8%</Text>
         </InfoWrapper>
         <InfoWrapper style={{ maxWidth: 300 }}>
-          <Text bold>{`Earns ${farm.lpSymbol} & SUGAR`}</Text>
-          <Text small>Your SUGAR amount will grow over time as the farm rewards gets reinvested.</Text>
+          <Text bold>{`Earns ${farm.lpSymbol}`}</Text>
+          <Text small>Your {`${farm.lpSymbol}`} amount will grow over time as the farm rewards gets reinvested.</Text>
         </InfoWrapper>
       </InfoContainer>
       
