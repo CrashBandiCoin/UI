@@ -161,7 +161,7 @@ const fetchVaults = async () => {
                     ...farmConfig,
                     tokenAmount: tokenAmount.toJSON(),
                     // quoteTokenAmount: quoteTokenAmount,
-                    lpTotalInQuoteToken: new BigNumber(tvl).toJSON(),
+                    lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                     tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
                     poolWeight: poolWeight.toNumber(),
                     multiplier: `${allocPoint.div(100).toString()}X`,
