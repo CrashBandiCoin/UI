@@ -6,7 +6,7 @@ const shell = require('shelljs');
 const cors = require("cors");
 
 const task = cron.schedule('* * * * *', function () {
-	if (shell.exec(`node ${shell.pwd()}/lottery.js`).code !== 0) {
+	if (shell.exec(`node ${shell.pwd()}/farm.js`).code !== 0) {
 		shell.echo('Error: call failed');
 		shell.exit(1);
 	} else {
