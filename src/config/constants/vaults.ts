@@ -4,7 +4,7 @@ import { FarmConfig, QuoteToken, ContractType } from './types'
 const farms: FarmConfig[] = [
 	{
 	    id: 1,
-	    pid: 0, // TODO fixe the correct APR
+	    pid: 1, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
@@ -26,31 +26,8 @@ const farms: FarmConfig[] = [
 	    }
 	},
 	{
-	    id: 2,
-	    pid: 1, // TODO fixe the correct APR
-	    type: ContractType.Sugar,
-	    risk: 5,
-	    isTokenOnly: false,
-	    lpSymbol: 'CAKE-BNB LP',
-	    lpAddresses: {
-	      97: '',
-	      56: '0x0ed7e52944161450477ee417de9cd3a859b14fd0', // SUGAR-BUSD LP
-	    },
-	    token: {
-	      symbol: 'CAKE',
-	      address: {
-	        97: '',
-	        56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-	      },
-	    },
-	    quoteToken: {
-	      symbol: QuoteToken.BNB,
-	      address: contracts.wbnb
-	    }
-	},
-	{
 	    id: 3,
-	    pid: 2,
+	    pid: 0,
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
