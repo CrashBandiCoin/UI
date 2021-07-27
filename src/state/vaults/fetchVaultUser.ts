@@ -192,7 +192,18 @@ export const fetchVaultUserEarnings = async (account: string) => {
   const parsedEarnings1 = rawEarnings1.map((earnings) => {
     return new BigNumber(earnings).toJSON()
   })
-  const rawEarnings2 = await multicall(vaultchefABI, calls2)
+
+  let rawEarnings2; 
+  try {
+    rawEarnings2 = await multicall(vaultchefABI, calls2)
+  } catch(err) {
+    rawEarnings2 = [
+      new BigNumber('0'),
+      new BigNumber('0'),
+      new BigNumber('0')
+    ]
+  }
+  
   const parsedEarnings2 = rawEarnings2.map((earnings) => {
     return new BigNumber(earnings).toJSON()
   })
