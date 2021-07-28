@@ -176,7 +176,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         } else if (farm.type === 'TeaSport') {
           cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         } else {
-          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+          cakeRewardPerBlock = new BigNumber(farm.apy) .div(new BigNumber(10).pow(18))
         }
 
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
@@ -184,9 +184,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
         let apy = null
-        if (farm.apr) {
-          apy = farm.apr
-        } else if (farm.type === 'Mint') {
+        if (farm.type === 'Mint') {
           apy = mintPrice.times(cakeRewardPerYear);
         } else if (farm.type === 'TeaSport') {
           apy = teasportPrice.times(cakeRewardPerYear);
@@ -374,10 +372,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" scale="xl" color="secondary" mb="24px">
-          TEASWAP Vaults (Auto-Compounder)
+          Sugar Vaults (Auto-Compounder)
         </Heading>
         <Heading scale="lg" color="text">
-          Stake tokens for farm rewards !
+          Stake tokens for farm rewards plus Sugar rewards
         </Heading>
         <Heading scale="md" color="text">
           <CardValue value={tvl.toNumber()} prefix="$" decimals={2} fontSize='18px' />
@@ -399,10 +397,17 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                     value: 'pcs',
                   },
                   {
-                    label: 'TEASWAP',
-                    value: 'teaswap',
+                    label: 'AUTO',
+                    value: 'auto',
                   },
-
+                  {
+                    label: 'GOOSE',
+                    value: 'goose',
+                  },
+                  {
+                    label: 'VENUS',
+                    value: 'venus',
+                  },
                 ]}
                 onChange={handlePlatformOptionChange}
               />
@@ -435,7 +440,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                     value: 'earned',
                   },
                   {
-                    label: 'APR',
+                    label: 'APY',
                     value: 'apy',
                   },
                   {
