@@ -184,7 +184,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
         let apy = null
-        if (farm.type === 'Mint') {
+        if (farm.apr) {
+          apy = farm.apr
+        } else if (farm.type === 'Mint') {
           apy = mintPrice.times(cakeRewardPerYear);
         } else if (farm.type === 'TeaSport') {
           apy = teasportPrice.times(cakeRewardPerYear);

@@ -95,7 +95,7 @@ const fetchVaults = async () => {
                 name = 'teasportPerBlock'
 
             if (farmConfig.type === 'Sugar') {
-                const [info, totalAllocPoint, perblock, tvl] = await multicall(
+                const [info, totalAllocPoint, perblock, tvl, apr] = await multicall(
                     abi,
                     [
                         {
@@ -113,13 +113,20 @@ const fetchVaults = async () => {
                         },
                         {
                             address,
-                            name: 'getTVL',
+                            name: 'tvl',
                             params: [farmConfig.pid]
                         },
+                        {
+                            address,
+                            name: 'originAPR',
+                            params: [farmConfig.pid]
+                        }
                     ]
                 )
 
                 let tokenPriceVsQuote;
+                const originAPR = apr ? new BigNumber(apr).div(new BigNumber(10).pow(tokenDecimals)) : new BigNumber(0);
+
                 if (farmConfig.isTokenOnly) {
                     tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
                     if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
@@ -159,6 +166,7 @@ const fetchVaults = async () => {
 
                 return {
                     ...farmConfig,
+                    apr: originAPR,
                     tokenAmount: tokenAmount.toJSON(),
                     // quoteTokenAmount: quoteTokenAmount,
                     lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
