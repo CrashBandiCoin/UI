@@ -5,7 +5,7 @@ const fs = require('fs');
 const shell = require('shelljs');
 const cors = require("cors");
 
-const task = cron.schedule('* * * * *', function () {
+const task = cron.schedule('2 * * * *', function () {
 	if (shell.exec(`node ${shell.pwd()}/farm.js`).code !== 0) {
 		shell.echo('Error: call failed');
 		shell.exit(1);

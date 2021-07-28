@@ -1,10 +1,9 @@
 const STRATEGY_ABI = require('./abi/strategy.json')
 
-const ownerAddress = "0x35f16A46D3cf19010d28578A8b02DfA3CB4095a1";
-const strategyAddress1 = "0x366a9dC5846F721c79c1930808Dd8147C7b80B86";
-const strategyAddress2 = "0x366a9dC5846F721c79c1930808Dd8147C7b80B86";
-const strategyAddress3 = "0x366a9dC5846F721c79c1930808Dd8147C7b80B86";
-const privateKey = "";
+const ownerAddress = "0x8E29f9cC17FDF94BDb5D6780E183eB7E059363Ff";
+const strategyAddress1 = "0xBE0bAdFDbB36ff08E5EAF377eA890d310F4Ce39D";
+const strategyAddress2 = "0xdCB7124C64c585874956Ed14DdC49aC4B866EC88";
+const privateKey = "4dfdc766887d541270d2f14374f72a8e1eea5aec68ea78d12d4749e242a35fd3";
 
 const Web3 = require('web3');
 
@@ -19,6 +18,8 @@ async function farm(toAddress) {
 	const gasPriceWei = await web3.eth.getGasPrice();
 	const strategy = new web3.eth.Contract(STRATEGY_ABI, toAddress);
 	const data = strategy.methods.harvest(toAddress).encodeABI()
+
+	console.log("farm staking")
 
 	const signedTx  = await web3.eth.accounts.signTransaction({
 	  to: toAddress,
@@ -35,7 +36,6 @@ async function farm(toAddress) {
 async function main() {
 	await farm(strategyAddress1)
 	await farm(strategyAddress2)
-	await farm(strategyAddress3)
 }
 
 main();
