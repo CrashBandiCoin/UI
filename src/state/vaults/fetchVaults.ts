@@ -165,7 +165,7 @@ const fetchVaults = async () => {
 
                 return {
                     ...farmConfig,
-                    apr: new BigNumber(originRewardsPerBlock._hex).div(new BigNumber(10).pow(tokenDecimals)),
+                    apr: new BigNumber(1).div(new BigNumber(10).pow(tokenDecimals)),
                     tokenAmount: tokenAmount.toJSON(),
                     // quoteTokenAmount: quoteTokenAmount,
                     lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
