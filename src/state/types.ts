@@ -12,7 +12,6 @@ export interface Farm extends FarmConfig {
   depositFeeBP?: number
   MintPerBlock?: number
   SUGARPerBlock?: number
-  apr?: BigNumber
   TeaSportPerBlock?: number
   userData?: {
     allowance: BigNumber

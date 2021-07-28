@@ -176,7 +176,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         } else if (farm.type === 'TeaSport') {
           cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         } else {
-          cakeRewardPerBlock = new BigNumber(farm.apr).div(new BigNumber(10).pow(18))
+          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock).div(new BigNumber(10).pow(18))
         }
 
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)

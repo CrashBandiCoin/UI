@@ -165,7 +165,6 @@ const fetchVaults = async () => {
 
                 return {
                     ...farmConfig,
-                    apr: new BigNumber(1),
                     tokenAmount: tokenAmount.toJSON(),
                     // quoteTokenAmount: quoteTokenAmount,
                     lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
