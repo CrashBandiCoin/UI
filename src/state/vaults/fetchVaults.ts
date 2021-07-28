@@ -125,7 +125,7 @@ const fetchVaults = async () => {
                 )
 
                 let tokenPriceVsQuote;
-                
+
                 if (farmConfig.isTokenOnly) {
                     tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
                     if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
@@ -165,7 +165,7 @@ const fetchVaults = async () => {
 
                 return {
                     ...farmConfig,
-                    apr: originRewardsPerBlock,
+                    apr: new BigNumber(originRewardsPerBlock._hex).div(new BigNumber(10).pow(tokenDecimals)),
                     tokenAmount: tokenAmount.toJSON(),
                     // quoteTokenAmount: quoteTokenAmount,
                     lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
