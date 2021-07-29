@@ -122,7 +122,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   if (isApproved) {
-    if (earnings.gt(0)) {
+    if (stakedBalance.gt(0)) {
       return (
         <ActionContainer>
           <ActionTitles>

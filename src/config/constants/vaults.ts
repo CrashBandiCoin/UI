@@ -27,7 +27,7 @@ const farms: FarmConfig[] = [
 	},
 	{
 	    id: 3,
-	    pid: 3,
+	    pid: 1,
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
