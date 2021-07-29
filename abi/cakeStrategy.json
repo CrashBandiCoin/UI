@@ -119,6 +119,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "addressExistence",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "burnAddressForFarm",
 				"outputs": [
@@ -185,19 +204,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "buyBackRate",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "buyBackRateForFarm",
 				"outputs": [
 					{
@@ -225,19 +231,6 @@
 			{
 				"inputs": [],
 				"name": "buyBackRateUL",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "controllerFee",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -396,19 +389,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "entranceFeeFactor",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "entranceFeeFactorLL",
 				"outputs": [
 					{
@@ -482,6 +462,11 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "_userAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "_wantAmt",
 						"type": "uint256"
@@ -519,6 +504,30 @@
 				"name": "inCaseTokensGetStuck",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "investInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "shares",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewards",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -659,19 +668,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "originStakedTotal",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "originTVL",
 				"outputs": [
 					{
@@ -731,9 +727,50 @@
 			},
 			{
 				"inputs": [],
+				"name": "poolInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewardRateForFarm",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -803,45 +840,6 @@
 					}
 				],
 				"name": "setBuyBackRateForFarm",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "rate",
-						"type": "uint256"
-					}
-				],
-				"name": "setByBackRate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_controllerFee",
-						"type": "uint256"
-					}
-				],
-				"name": "setControllerFee",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_entranceFeeFactor",
-						"type": "uint256"
-					}
-				],
-				"name": "setEntranceFeeFactor",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -927,12 +925,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_buyBackAddress",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "_rate",
+						"type": "uint256"
 					}
 				],
-				"name": "setbuyBackAddress",
+				"name": "setRewardRateForFarm",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -940,12 +938,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "_buyBackRate",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "_buyBackAddress",
+						"type": "address"
 					}
 				],
-				"name": "setbuyBackRate",
+				"name": "setbuyBackAddress",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
