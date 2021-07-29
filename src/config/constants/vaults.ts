@@ -4,7 +4,7 @@ import { FarmConfig, QuoteToken, ContractType } from './types'
 const farms: FarmConfig[] = [
 	{
 	    id: 1,
-	    pid: 2, // TODO fixe the correct APR
+	    pid: 4, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
@@ -27,7 +27,7 @@ const farms: FarmConfig[] = [
 	},
 	{
 	    id: 3,
-	    pid: 1,
+	    pid: 3,
 	    type: ContractType.Sugar,
 	    risk: 5,
 	    isTokenOnly: true,
