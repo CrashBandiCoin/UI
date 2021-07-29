@@ -1,10 +1,10 @@
 const SUGARU_STRATEGY_ABI = require('./abi/sugarStrategy.json')
 const CAKE_STRATEGY_ABI = require('./abi/cakeStrategy.json')
 
-const ownerAddress = "0x8E29f9cC17FDF94BDb5D6780E183eB7E059363Ff";
-const sugarStrategyAddress = "0xBE0bAdFDbB36ff08E5EAF377eA890d310F4Ce39D";
-const cakeStrategyAddress = "0xdCB7124C64c585874956Ed14DdC49aC4B866EC88";
-const privateKey = "4dfdc766887d541270d2f14374f72a8e1eea5aec68ea78d12d4749e242a35fd3";
+const ownerAddress = "add owner address";
+const sugarStrategyAddress = "add sugar strategy address";
+const cakeStrategyAddress = "add cake strategy address";
+const privateKey = "add private key";
 
 const Web3 = require('web3');
 
