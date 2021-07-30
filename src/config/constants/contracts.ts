@@ -24,7 +24,7 @@ const contracts = {
     97: '',
   },
   vaultChef: {
-    56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+    56: '0x1dED65A965e1D9BCE5D09bae7fda21D6170e4703',
     97: '',
   },
   vaultMint: {
