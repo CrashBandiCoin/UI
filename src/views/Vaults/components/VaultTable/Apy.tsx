@@ -53,6 +53,7 @@ const Apy: React.FC<ApyProps> = ({
 }) => {
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses: quoteTokenAddress, quoteTokenSymbol, tokenAddresses: tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  const farmAPY = value && value.times(new BigNumber(100)).toNumber()
 
   if (!originalValue) {
     return (
@@ -66,7 +67,7 @@ const Apy: React.FC<ApyProps> = ({
   return originalValue !== 0 ? (
     <Container>
       <>
-        <ApyWrapper>{value.toNumber()}%</ApyWrapper>
+        <ApyWrapper>{farmAPY}%</ApyWrapper>
         {!hideButton && (
           <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} cakePrice={cakePrice} apy={value} />
         )}
@@ -74,7 +75,7 @@ const Apy: React.FC<ApyProps> = ({
     </Container>
   ) : (
     <Container>
-      <ApyWrapper>{originalValue}%</ApyWrapper>
+      <ApyWrapper>{farmAPY}%</ApyWrapper>
     </Container>
   )
 }

@@ -126,6 +126,8 @@ const fetchVaults = async () => {
 
                 let tokenPriceVsQuote;
 
+                const rewardsPerBlock = new BigNumber(originRewardsPerBlock).div(new BigNumber(10).pow(tokenDecimals));
+                
                 if (farmConfig.isTokenOnly) {
                     tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
                     if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
@@ -173,7 +175,7 @@ const fetchVaults = async () => {
                     multiplier: `${allocPoint.div(100).toString()}X`,
                     depositFeeBP: info.depositFeeBP,
                     MintPerBlock: null,
-                    SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
+                    SUGARPerBlock: new BigNumber(rewardsPerBlock).toNumber(),
                     TeaSportPerBlock: null,
                     lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                     lpTokenBalanceMC: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
