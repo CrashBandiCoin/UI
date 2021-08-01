@@ -41,11 +41,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
-  // useEffect(() => {
-  //   if (account) {
-  //     dispatch(fetchFarmUserDataAsync(account))
-  //   }
-  // }, [account, dispatch, fastRefresh])
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchFarmUserDataAsync(account))
+    }
+  }, [account, dispatch, fastRefresh])
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
@@ -53,7 +53,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.type === type && farm.multiplier === '0X')
 
   const stakedOnlyFarms = activeFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
   // /!\ This function will be removed soon

@@ -93,10 +93,6 @@ const Home: React.FC = () => {
                     <CakeStats/>
                 </Cards>
                 <SocialCard/>
-
-
-
-
             </div>
         </Page>
     )

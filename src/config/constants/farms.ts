@@ -439,9 +439,12 @@ const farms: FarmConfig[] = [
       },
     },
     quoteToken: {
-      symbol: QuoteToken.CAKE,
-      address: contracts.cake
-    }
+      symbol: 'SUGAR',
+      address: {
+        97: '',
+        56: '0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+      },
+    },
   },
   {
     id: 18,

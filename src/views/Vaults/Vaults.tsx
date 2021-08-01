@@ -160,7 +160,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
 
   const stakedOnlyFarms = activeFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
   const stakedInactiveFarms = inactiveFarms.filter(
@@ -255,6 +255,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
 
+    if (farmsStaked.length < numberOfFarmsVisible) {
+      setNumberOfFarmsVisible(farmsStaked.length)
+    }
     return sortFarms(farmsStaked).slice(0, numberOfFarmsVisible)
   }, [
     sortOption,
@@ -397,16 +400,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                     value: 'pcs',
                   },
                   {
-                    label: 'AUTO',
-                    value: 'auto',
-                  },
-                  {
-                    label: 'GOOSE',
-                    value: 'goose',
-                  },
-                  {
-                    label: 'VENUS',
-                    value: 'venus',
+                    label: 'SUGAR',
+                    value: 'sugar',
                   },
                 ]}
                 onChange={handlePlatformOptionChange}
@@ -437,7 +432,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                   },
                   {
                     label: 'Earnings',
-                    value: 'earned',
+                    value: 'earning',
                   },
                   {
                     label: 'APY',
