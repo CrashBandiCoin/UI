@@ -4,7 +4,14 @@ import vaultchefABI from 'config/abi/vaultChef.json'
 import vaultmintABI from 'config/abi/mastermint.json'
 import vaultTeaSportABI from 'config/abi/masterteasport.json'
 import multicall from 'utils/multicall'
-import {getVaultChefAddress, getVaultMintAddress, getVaultTeaSportAddress} from 'utils/addressHelpers'
+import {
+    getVaultChefAddress, 
+    getVaultMintAddress, 
+    getVaultTeaSportAddress, 
+    getMasterChefAddress,
+    getMasterMintAddress,
+    getMasterTeaSportAddress
+} from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/vaults'
 import {QuoteToken} from '../../config/constants/types'
 
@@ -21,6 +28,14 @@ const fetchVaults = async () => {
                 paramAddress = getVaultMintAddress()
             else if (farmConfig.type === 'TeaSport')
                 paramAddress = getVaultTeaSportAddress()
+
+            let masterChefAddress = ''
+            if (farmConfig.type === 'Sugar')
+                masterChefAddress = getMasterChefAddress()
+            else if (farmConfig.type === 'Mint')
+                masterChefAddress = getMasterMintAddress()
+            else if (farmConfig.type === 'TeaSport')
+                masterChefAddress = getMasterTeaSportAddress()
 
             const calls = [
                 // Balance of token in the LP contract

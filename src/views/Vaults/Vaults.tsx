@@ -11,6 +11,7 @@ import useI18n from 'hooks/useI18n'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import { QuoteToken } from 'config/constants/types'
 import {
+  useFarms,
   useVaults,
   usePriceBnbBusd,
   usePriceCakeBusd,
@@ -127,6 +128,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const TranslateString = useI18n()
   const { pathname } = useLocation()
   const farmsLP = useVaults()
+  const poolsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
   const mintPrice = usePriceMintBusd()
   const teasportPrice = usePriceTeaSportBusd()
@@ -171,12 +173,14 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
         let cakeRewardPerBlock = null
+        const fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
+
         if (farm.type === 'Mint') {
           cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         } else if (farm.type === 'TeaSport') {
           cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
         } else {
-          cakeRewardPerBlock = new BigNumber(farm.SUGARPerBlock || 1)
+          cakeRewardPerBlock = new BigNumber(fetchedFarm.SUGARPerBlock || 1).times(new BigNumber(fetchedFarm.poolWeight)) .div(new BigNumber(10).pow(18))
         }
 
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
@@ -192,7 +196,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           apy = cakePrice.times(cakeRewardPerYear);
         }
 
-        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
+        let totalValue = new BigNumber(fetchedFarm.lpTotalInQuoteToken || 0);
 
         if (farm.quoteToken.symbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice);
@@ -214,7 +218,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
       return farmsToDisplayWithAPY
     },
-    [bnbPrice, cakePrice, mintPrice, teasportPrice, query],
+    [bnbPrice, cakePrice, mintPrice, teasportPrice, poolsLP, query],
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)

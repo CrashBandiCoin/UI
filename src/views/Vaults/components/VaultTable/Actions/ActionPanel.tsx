@@ -1,4 +1,5 @@
 import React from 'react'
+import BigNumber from 'bignumber.js'
 import styled, { keyframes, css } from 'styled-components'
 import { LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
@@ -169,6 +170,15 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const bsc = getBscScanAddressUrl(lpAddress)
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
+  const farmApy = apy.value && apy.value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+  const farmApyDaily = apy.value && apy.value.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
   return (
     <Container expanded={expanded}>
       
@@ -195,8 +205,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
           <Text bold>APR : </Text>
-          <Text small>{`Annual : ${apy.value.toNumber()}%`}</Text>
-          <Text small>{`Daily : ${apy.value.toNumber()}%`}</Text>
+          <Text small>{`Annual : ${farmApy}%`}</Text>
+          <Text small>{`Daily : ${farmApyDaily}%`}</Text>
         </InfoWrapper>
         <InfoWrapper>
           <Text bold>Fees</Text>

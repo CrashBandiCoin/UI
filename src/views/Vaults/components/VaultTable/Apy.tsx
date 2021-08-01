@@ -53,7 +53,10 @@ const Apy: React.FC<ApyProps> = ({
 }) => {
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses: quoteTokenAddress, quoteTokenSymbol, tokenAddresses: tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
-  const farmAPY = value && value.times(new BigNumber(100)).toNumber()
+  const farmAPY = value && value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
 
   if (!originalValue) {
     return (
