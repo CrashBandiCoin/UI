@@ -42,10 +42,9 @@ const StyledTeaSportStats = styled(Card)`
 const Row = styled.div`
   align-items: center;
   display: flex;
-  font-size: 14px;
+  font-size: 28px;
   text-align: center;
   margin-bottom: 8px;
-  font-size: 30px;
   justify-content: center;
   
 `
