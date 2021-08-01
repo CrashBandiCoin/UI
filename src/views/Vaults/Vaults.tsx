@@ -183,7 +183,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           cakeRewardPerBlock = new BigNumber(fetchedFarm.SUGARPerBlock || 1).times(new BigNumber(fetchedFarm.poolWeight)) .div(new BigNumber(10).pow(18))
         }
 
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        const totalLiquidity = new BigNumber(fetchedFarm.lpTotalInQuoteToken).times(fetchedFarm.quoteToken.busdPrice)
 
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
