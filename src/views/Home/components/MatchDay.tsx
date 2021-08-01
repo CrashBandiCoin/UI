@@ -1,8 +1,9 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled, {keyframes} from 'styled-components'
-import iconJo from '../img/matchs/jo_tokyo.png'
+import iconJo100m from '../img/matchs/jo100m.png'
 import inconChainlink from '../img/matchs/chainlink.png'
+import iconteasport from "../img/matchs/teasport.png"
 
 
 const RainbowLight = keyframes`
@@ -59,10 +60,14 @@ const Match = () => {
         <StyledTeaSportStats>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                Coming soon
+                OLYMPICS GAMES LIVE !
                 </Heading>
                 <Row>
-                    <img src={iconJo} alt='marketCap' width='100'/>   
+                    <img src={iconJo100m} alt='marketCap'/>
+                </Row>
+            <br />
+                <Row>
+                   WINNER : JACOBS Lamont Marcell ! (<img src={iconteasport} alt='marketCap' width='30'/> x30)
                 </Row>
                 <Row>
                 powered by <img src={inconChainlink} alt='marketCap' width='100'/> 
