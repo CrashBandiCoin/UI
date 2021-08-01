@@ -60,8 +60,8 @@ const config: MenuEntry[] = [
                 label: 'OLYMPIC GAMES',
                 href: '',
                 status: {
-                    text: "SOON",
-                    color: "binance",
+                    text: "LIVE",
+                    color: "success",
                 },
             },
             {
