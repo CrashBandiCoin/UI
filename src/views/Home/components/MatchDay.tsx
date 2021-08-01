@@ -42,7 +42,7 @@ const StyledTeaSportStats = styled(Card)`
 const Row = styled.div`
   align-items: center;
   display: flex;
-  font-size: 28px;
+  font-size: 25px;
   text-align: center;
   margin-bottom: 8px;
   justify-content: center;
@@ -66,7 +66,7 @@ const Match = () => {
                 </Row>
             <br />
                 <Row>
-                   WINNER : JACOBS Lamont Marcell ! (<img src={iconteasport} alt='marketCap' width='30'/> x30)
+                   WINNER : JACOBS (<img src={iconteasport} alt='marketCap' width='30'/> x30)
                 </Row>
                 <Row>
                 powered by <img src={inconChainlink} alt='marketCap' width='100'/> 
