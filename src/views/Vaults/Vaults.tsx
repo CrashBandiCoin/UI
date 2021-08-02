@@ -259,6 +259,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
 
+    if (platformOption !== 'all') {
+      farmsStaked = farmsStaked.filter(farm => farm.type.toLowerCase() === platformOption)
+    }
+
     if (farmsStaked.length < numberOfFarmsVisible) {
       setNumberOfFarmsVisible(farmsStaked.length)
     }
@@ -274,6 +278,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     stakedOnly,
     stakedOnlyFarms,
     numberOfFarmsVisible,
+    platformOption
   ])
 
   useEffect(() => {
@@ -317,7 +322,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         pid: farm.pid,
         token: farm.token,
         quoteToken: farm.quoteToken,
-        isTokenOnly: farm.isTokenOnly
+        isTokenOnly: farm.isTokenOnly,
+        type: farm.type
       },
       earned: {
         earnings: getBalanceNumber(new BigNumber(farm.userData && farm.userData.earnings ? farm.userData.earnings : 0)),

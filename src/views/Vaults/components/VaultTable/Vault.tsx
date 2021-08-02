@@ -13,6 +13,7 @@ export interface VaultProps {
   token: Token
   quoteToken: Token,
   isTokenOnly: boolean
+  type: string
 }
 
 const Container = styled.div`
@@ -33,7 +34,7 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, pid, id, isTokenOnly }) => {
+const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, pid, id, isTokenOnly, type }) => {
   const { stakedBalance } = useVaultUser(pid, id)
   const rawStakedBalance = getBalanceNumber(stakedBalance)
 
@@ -62,7 +63,7 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
         <Text bold color="primary" fontSize="12px">EARNS {label}</Text>
         <Text bold>{label}</Text>
         <Tag outline variant="success" mr="8px">
-          PCS
+          {type}
         </Tag>
       </div>
     </Container>

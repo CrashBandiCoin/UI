@@ -171,6 +171,7 @@ export const useTotalValue = (): BigNumber => {
 
 export const useVaultTotalValue = (): BigNumber => {
   const farms = useVaults();
+  const poolsLP = useFarms();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
   const mintPrice = usePriceMintBusd();
@@ -178,14 +179,15 @@ export const useVaultTotalValue = (): BigNumber => {
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
-    if (farm.lpTotalInQuoteToken) {
+    const fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
+    if (fetchedFarm && fetchedFarm.lpTotalInQuoteToken) {
       let val;
-      if (farm.quoteToken.symbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }else if (farm.quoteToken.symbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      if (fetchedFarm.quoteToken.symbol === QuoteToken.BNB) {
+        val = (bnbPrice.times(fetchedFarm.lpTotalInQuoteToken));
+      }else if (fetchedFarm.quoteToken.symbol === QuoteToken.CAKE) {
+        val = (cakePrice.times(fetchedFarm.lpTotalInQuoteToken));
       }else{
-        val = (farm.lpTotalInQuoteToken);
+        val = (fetchedFarm.lpTotalInQuoteToken);
       }
       if (val)
         value = value.plus(val);
