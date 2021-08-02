@@ -18,6 +18,7 @@ import Bscscan from "../img/bscscan.png";
 import Dapp from "../img/dapp.png";
 import Blockfolio from "../img/blockfolio.png";
 import Delta from "../img/delta.png";
+import CoinScope from "../img/Logo_CoinScope_OK.png";
 
 
 const StyledTwitterCard = styled(Card)`
@@ -115,6 +116,14 @@ const SocialCard = () => {
                             loading="lazy"
                             width='100px'
                             alt=""
+                        />
+                    </a>
+                    <a href="https://www.coinscope.co/coin/mintv2">
+                        <img
+                          src={CoinScope}
+                          loading="lazy"
+                          width='100px'
+                          alt=""
                         />
                     </a>
                 </div>

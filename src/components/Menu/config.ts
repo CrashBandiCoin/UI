@@ -58,7 +58,7 @@ const config: MenuEntry[] = [
         items: [
             {
                 label: 'OLYMPIC GAMES',
-                href: '',
+                href: 'https://teaswap.gitbook.io/teaswap/features/sportparties/olympics-games',
                 status: {
                     text: "LIVE",
                     color: "success",
