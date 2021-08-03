@@ -173,7 +173,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
         let cakeRewardPerBlock = null
-        const fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
+        let fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
+        if (!fetchedFarm) {
+          fetchedFarm = farm
+        }
 
         if (farm.type === 'Mint') {
           cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
@@ -193,7 +196,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         } else if (farm.type === 'TeaSport') {
           apy = teasportPrice.times(cakeRewardPerYear);
         } else {
-          apy = cakePrice.times(cakeRewardPerYear);
+          apy = new BigNumber(fetchedFarm.tokenPriceVsQuote).times(cakeRewardPerYear);
         }
 
         let totalValue = new BigNumber(fetchedFarm.lpTotalInQuoteToken || 0);
@@ -218,7 +221,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
       return farmsToDisplayWithAPY
     },
-    [bnbPrice, cakePrice, mintPrice, teasportPrice, poolsLP, query],
+    [bnbPrice, mintPrice, teasportPrice, poolsLP, query],
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
