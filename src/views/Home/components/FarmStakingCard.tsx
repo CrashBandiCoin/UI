@@ -11,7 +11,7 @@ import CakeWalletBalance from './CakeWalletBalance'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getCakeAddress, getMintAddress, getTeaSportAddress} from '../../../utils/addressHelpers'
-import {useAllEarnings, useAllEarningsByCategory} from '../../../hooks/useAllEarnings'
+import {useAllEarningsByCategory} from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 
 
