@@ -201,6 +201,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
         let totalValue = new BigNumber(fetchedFarm.lpTotalInQuoteToken || 0);
 
+        if (apy === null) {
+          apy = new BigNumber(0)
+        }
+
         if (farm.quoteToken.symbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice);
         }
