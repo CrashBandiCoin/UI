@@ -22,6 +22,7 @@ const StyledTeaSportStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  cursor: pointer;
   background: linear-gradient(45deg,
   rgba(255, 0, 0, 1) 0%,
   rgba(255, 154, 0, 1) 10%,
