@@ -17,6 +17,7 @@ const Farms = lazy(() => import('./views/Farms'))
 const Lottery = lazy(() => import('./views/Lottery'))
 const LotteryTeasport = lazy(() => import('./views/LotteryTeasport'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
+const Vaults = lazy(() => import('./views/Vaults'))
 const Zap = lazy(() => import('./views/Zap'))
 const Euro = lazy(() => import('./views/Euro'))
 // const Pools = lazy(() => import('./views/Pools'))
@@ -67,6 +68,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools/teasport">
               <Farms type='TeaSport' tokenMode />
+            </Route>
+            <Route path="/vaults">
+              <Vaults />
             </Route>
              <Route path="/zap">
                  <Zap/>

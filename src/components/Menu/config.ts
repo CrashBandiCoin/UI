@@ -91,6 +91,11 @@ const config: MenuEntry[] = [
         ],
     },
     {
+        label: 'Vaults',
+        icon: 'FarmIcon',
+        href: '/vaults',
+    },
+    {
         label: 'Zap',
         icon: 'TradeIcon',
         href: '/zap',
@@ -134,10 +139,6 @@ const config: MenuEntry[] = [
             {
                 label: 'Coinsniper',
                 href: 'https://coinsniper.net/coin/1473',
-            },
-            {
-                label: 'Dapp',
-                href: 'https://www.dapp.com/app/teaswap-finance',
             },
         ],
     },

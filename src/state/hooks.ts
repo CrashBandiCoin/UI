@@ -2,7 +2,9 @@ import BigNumber from 'bignumber.js'
 import { useEffect, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
-import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
+import { BIG_ZERO } from 'utils/bigNumber'
+import { getBalanceAmount } from 'utils/formatBalance'
+import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchVaultsPublicDataAsync } from './actions'
 import { State, Farm, Pool } from './types'
 import { QuoteToken } from '../config/constants/types'
 
@@ -13,6 +15,7 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
+    dispatch(fetchVaultsPublicDataAsync())
     // dispatch(fetchPoolsPublicDataAsync())
   }, [dispatch, slowRefresh])
 }
@@ -43,6 +46,39 @@ export const useFarmUser = (pid, id) => {
     stakedBalance: farm.userData ? new BigNumber(farm.userData.stakedBalance) : new BigNumber(0),
     earnings: farm.userData ? new BigNumber(farm.userData.earnings) : new BigNumber(0),
   }
+}
+
+// Vaults
+
+export const useVaults = (): Farm[] => {
+  const vaults = useSelector((state: State) => state.vaults.data)
+  return vaults
+}
+
+export const useVaultFromPid = (pid, id): Farm => {
+  const vault = useSelector((state: State) => state.vaults.data.find((f) => f.pid === pid && f.id === id))
+  return vault
+}
+
+export const useVaultFromSymbol = (lpSymbol: string): Farm => {
+  const vault = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
+  return vault
+}
+
+export const useVaultUser = (pid, id) => {
+  const vault = useVaultFromPid(pid, id)
+
+  return {
+    allowance: vault.userData ? new BigNumber(vault.userData.allowance) : new BigNumber(0),
+    tokenBalance: vault.userData ? new BigNumber(vault.userData.tokenBalance) : new BigNumber(0),
+    stakedBalance: vault.userData ? new BigNumber(vault.userData.stakedBalance) : new BigNumber(0),
+    earnings: vault.userData ? new BigNumber(vault.userData.earnings) : new BigNumber(0),
+  }
+}
+
+export const useVaultFromLpSymbol = (lpSymbol: string): Farm => {
+  const farm = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
+  return farm
 }
 
 
@@ -119,9 +155,9 @@ export const useTotalValue = (): BigNumber => {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
       let val;
-      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+      if (farm.quoteToken.symbol === QuoteToken.BNB) {
         val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+      }else if (farm.quoteToken.symbol === QuoteToken.CAKE) {
         val = (cakePrice.times(farm.lpTotalInQuoteToken));
       }else{
         val = (farm.lpTotalInQuoteToken);
@@ -131,4 +167,54 @@ export const useTotalValue = (): BigNumber => {
     }
   }
   return value;
+}
+
+export const useVaultTotalValue = (): BigNumber => {
+  const farms = useVaults();
+  const poolsLP = useFarms();
+  const bnbPrice = usePriceBnbBusd();
+  const cakePrice = usePriceCakeBusd();
+  const mintPrice = usePriceMintBusd();
+  const tokenEventPrice = usePriceTeaSportBusd();
+  let value = new BigNumber(0);
+  for (let i = 0; i < farms.length; i++) {
+    const farm = farms[i]
+    const fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
+    if (fetchedFarm && fetchedFarm.lpTotalInQuoteToken) {
+      let val;
+      if (fetchedFarm.quoteToken.symbol === QuoteToken.BNB) {
+        val = (bnbPrice.times(fetchedFarm.lpTotalInQuoteToken));
+      }else if (fetchedFarm.quoteToken.symbol === QuoteToken.CAKE) {
+        val = (cakePrice.times(fetchedFarm.lpTotalInQuoteToken));
+      }else{
+        val = (fetchedFarm.lpTotalInQuoteToken);
+      }
+      if (val)
+        value = value.plus(val);
+    }
+  }
+  return value;
+}
+
+export const useBusdPriceFromPid = (pid: number, id: number): BigNumber => {
+  const farm = useVaultFromPid(pid, id)
+  return farm && new BigNumber(farm.token.busdPrice)
+}
+
+export const useLpTokenPrice = (symbol: string) => {
+  const farm = useVaultFromLpSymbol(symbol)
+  const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid, farm.id)
+  let lpTokenPrice = BIG_ZERO
+
+  if (farm.lpTotalSupply && farm.lpTotalInQuoteToken) {
+    // Total value of base token in LP
+    const valueOfBaseTokenInFarm = farmTokenPriceInUsd.times(farm.tokenAmountTotal)
+    // Double it to get overall value in LP
+    const overallValueOfAllTokensInFarm = valueOfBaseTokenInFarm.times(2)
+    // Divide total value of all tokens, by the number of LP tokens
+    const totalLpTokens = getBalanceAmount(new BigNumber(farm.lpTotalSupply))
+    lpTokenPrice = overallValueOfAllTokensInFarm.div(totalLpTokens)
+  }
+
+  return lpTokenPrice
 }

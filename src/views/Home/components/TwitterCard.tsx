@@ -45,9 +45,6 @@ const TwitterCard = () => {
           }}
         />
       </CardBody>
-
-
-
     </StyledTwitterCard>
   )
 }

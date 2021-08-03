@@ -37,6 +37,7 @@ const StyledTokenSymbol = styled.span`
 const BalanceInput: React.FC<Props> = ({ max, symbol, onChange, onSelectMax, value }) => {
   const TranslateString = useI18n()
 
+  // @ts-ignore
   return (
     <div>
       <Input

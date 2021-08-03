@@ -23,6 +23,18 @@ const contracts = {
     56: '0x8B810c0a61C0a7BD623E711794B7254595340983',
     97: '',
   },
+  vaultChef: {
+    56: '0xec067DE0E738c6b7Bb93Fb8E8133b1a1a602b66E',
+    97: '',
+  },
+  vaultMint: {
+    56: '0xC74ff270b0d9f495e03078e1bF5b3A7aaa35D18A',
+    97: '',
+  },
+  vaultTeaSport: {
+    56: '0x8B810c0a61C0a7BD623E711794B7254595340983',
+    97: '',
+  },
   wbnb: {
     56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     97: '',

@@ -18,7 +18,7 @@ const FarmTabButtons = ({ stakedOnly, setStakedOnly }) => {
         <ButtonMenuItem as={Link} to={`${url}`}>
           {TranslateString(698, 'Active')}
         </ButtonMenuItem>
-        <ButtonMenuItem as={Link} to={`${url}/history`}>
+        <ButtonMenuItem as={Link} to={`${url}/gusd`}>
           {TranslateString(700, 'Inactive')}
         </ButtonMenuItem>
       </ButtonMenu>

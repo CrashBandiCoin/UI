@@ -1,6 +1,11 @@
 import addresses from 'config/constants/contracts'
+import { Address } from 'config/constants/types'
 
 const chainId = process.env.REACT_APP_CHAIN_ID
+
+export const getAddress = (address: Address): string => {
+  return address[chainId]
+}
 
 export const getCakeAddress = () => {
   return addresses.cake[chainId]
@@ -19,6 +24,15 @@ export const getMasterMintAddress = () => {
 }
 export const getMasterTeaSportAddress = () => {
   return addresses.masterTeaSport[chainId]
+}
+export const getVaultChefAddress = () => {
+  return addresses.vaultChef[chainId]
+}
+export const getVaultMintAddress = () => {
+  return addresses.vaultMint[chainId]
+}
+export const getVaultTeaSportAddress = () => {
+  return addresses.vaultTeaSport[chainId]
 }
 export const getMulticallAddress = () => {
   return addresses.mulltiCall[chainId]

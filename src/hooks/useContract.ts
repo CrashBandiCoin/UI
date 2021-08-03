@@ -5,6 +5,9 @@ import useWeb3 from 'hooks/useWeb3'
 import {
   getMasterChefAddress,
   getMasterMintAddress,
+  getVaultChefAddress,
+  getVaultMintAddress,
+  getVaultTeaSportAddress,
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
@@ -21,6 +24,7 @@ import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
 import masterMint from 'config/abi/mastermint.json'
 import masterTeaSport from 'config/abi/masterteasport.json'
+import vaultChef from 'config/abi/vaultChef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 
@@ -100,6 +104,21 @@ export const useMastermint = () => {
 export const useMasterteasport = () => {
   const abi = (masterTeaSport as unknown) as AbiItem
   return useContract(abi, getMasterTeaSportAddress())
+}
+
+export const useVaultchef = () => {
+  const abi = (vaultChef as unknown) as AbiItem
+  return useContract(abi, getVaultChefAddress())
+}
+
+export const useVaultmint = () => {
+  const abi = (masterMint as unknown) as AbiItem
+  return useContract(abi, getVaultMintAddress())
+}
+
+export const useVaultteasport = () => {
+  const abi = (masterTeaSport as unknown) as AbiItem
+  return useContract(abi, getVaultTeaSportAddress())
 }
 
 export const useSousChef = (id) => {

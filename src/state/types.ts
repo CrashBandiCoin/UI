@@ -4,6 +4,8 @@ import { FarmConfig, PoolConfig } from 'config/constants/types'
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber
   // quoteTokenAmount?: BigNumber
+  quoteTokenAmountTotal?: BigNumber
+  tokenAmountTotal?: BigNumber
   lpTotalInQuoteToken?: BigNumber
   tokenPriceVsQuote?: BigNumber
   poolWeight?: number
@@ -48,4 +50,5 @@ export interface PoolsState {
 export interface State {
   farms: FarmsState
   pools: PoolsState
+  vaults: FarmsState
 }

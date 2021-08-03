@@ -19,6 +19,12 @@ export interface Ifo {
   releaseBlockNumber: number
 }
 
+export interface Token {
+  symbol: string
+  address?: Address
+  busdPrice?: string
+}
+
 export enum QuoteToken {
   'BNB' = 'BNB',
   'WBNB' = 'WBNB',
@@ -52,10 +58,8 @@ export interface FarmConfig {
   type: string
   lpSymbol: string
   lpAddresses: Address
-  tokenSymbol: string
-  tokenAddresses: Address
-  quoteTokenSymbol: QuoteToken
-  quoteTokenAdresses: Address
+  token: Token
+  quoteToken: Token
   multiplier?: string
   isTokenOnly?: boolean
   isCommunity?: boolean

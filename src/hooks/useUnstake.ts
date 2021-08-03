@@ -27,8 +27,8 @@ const useUnstake = (pid: number, type: string) => {
     contract = masterTeaSportContract
 
   const handleUnstake = useCallback(
-    async (amount: string) => {
-      const txHash = await unstake(contract, pid, amount, account)
+    async (amount: string, actionType: string) => {
+      const txHash = await unstake(contract, pid, amount, actionType, account)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
     },
@@ -48,9 +48,9 @@ export const useSousUnstake = (sousId) => {
   const isOldSyrup = SYRUPIDS.includes(sousId)
 
   const handleUnstake = useCallback(
-    async (amount: string) => {
+    async (amount: string, actionType: string) => {
       if (sousId === 0) {
-        const txHash = await unstake(masterChefContract, 0, amount, account)
+        const txHash = await unstake(masterChefContract, 0, amount, actionType, account)
         console.info(txHash)
       } else if (isOldSyrup) {
         const txHash = await sousEmegencyUnstake(sousChefContract, amount, account)

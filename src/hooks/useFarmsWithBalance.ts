@@ -58,7 +58,7 @@ const useFarmsWithBalance = () => {
     if (account) {
       fetchBalances()
     }
-  }, [account, fastRefresh])
+  }, [account, fastRefresh, setFarmsWithBalances])
 
   return farmsWithBalances
 }

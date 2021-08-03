@@ -98,19 +98,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   // const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
-  const farmImage = farm.isTokenOnly ? farm.tokenSymbol.toLowerCase() : `${farm.tokenSymbol.toLowerCase()}-${farm.quoteTokenSymbol.toLowerCase()}`
+  const farmImage = farm.isTokenOnly ? farm.token.symbol.toLowerCase() : `${farm.token.symbol.toLowerCase()}-${farm.quoteToken.symbol.toLowerCase()}`
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
       return null
     }
-    if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+    if (farm.quoteToken.symbol === QuoteToken.BNB) {
       return bnbPrice.times(farm.lpTotalInQuoteToken)
     }
-    if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+    if (farm.quoteToken.symbol === QuoteToken.CAKE) {
       return cakePrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cakePrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice, cakePrice, farm.lpTotalInQuoteToken, farm.quoteToken.symbol])
 
   const totalValueFormated = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -141,27 +141,22 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     maximumFractionDigits: 2,
   })
 
-    // console.log("Total value : ")
-    // console.log(totalValue)
-    console.log("LP price : ")
-    console.log(farm.lpTotalInQuoteToken)
-
     const lpPriceFormated = lpPrice
         ? `$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
         : '-'
 
-  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
+  const { quoteToken, token, risk } = farm
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'SUGAR' && <StyledCardAccent />}
+      {farm.token.symbol === 'SUGAR' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
         risk={risk}
         depositFee={farm.depositFeeBP}
         farmImage={farmImage}
-        tokenSymbol={farm.tokenSymbol}
+        tokenSymbol={farm.token.symbol}
       />
       {!removed && (
         <Flex justifyContent='space-between' alignItems='center'>
@@ -171,9 +166,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
               <>
                 <ApyButton
                   lpLabel={lpLabel}
-                  quoteTokenAdresses={quoteTokenAdresses}
-                  quoteTokenSymbol={quoteTokenSymbol}
-                  tokenAddresses={tokenAddresses}
+                  quoteTokenAdresses={quoteToken.address}
+                  quoteTokenSymbol={quoteToken.symbol}
+                  tokenAddresses={token.address}
                   cakePrice={cakePrice}
                   apy={farm.apy}
                 />
@@ -205,16 +200,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           isTokenOnly={farm.isTokenOnly}
           bscScanAddress={
             farm.isTokenOnly ?
-              `https://bscscan.com/token/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+              `https://bscscan.com/token/${farm.token.address[process.env.REACT_APP_CHAIN_ID]}`
               :
               `https://bscscan.com/token/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
           }
           totalValueFormated={totalValueFormated}
           lpTokenPriceFormated={lpTokenPriceFormated}
           lpLabel={lpLabel}
-          quoteTokenAdresses={quoteTokenAdresses}
-          quoteTokenSymbol={quoteTokenSymbol}
-          tokenAddresses={tokenAddresses}
+          quoteTokenAdresses={quoteToken.address}
+          quoteTokenSymbol={quoteToken.symbol}
+          tokenAddresses={token.address}
           valueLp={lpPriceFormated}
         />
       </ExpandingWrapper>

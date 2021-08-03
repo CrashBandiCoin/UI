@@ -13,6 +13,7 @@ interface BalanceProps extends TextProps {
   value?: number
   decimals?: number
   unit?: string
+  prefix?: string
 }
 
 const StyledText = styled(Text)<TextProps>`

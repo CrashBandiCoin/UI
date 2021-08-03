@@ -4,6 +4,7 @@ import masterchefABI from 'config/abi/masterchef.json'
 import mastermintABI from 'config/abi/mastermint.json'
 import masterTeaSportABI from 'config/abi/masterteasport.json'
 import multicall from 'utils/multicall'
+import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber'
 import {getMasterChefAddress, getMasterMintAddress, getMasterTeaSportAddress} from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/farms'
 import {QuoteToken} from '../../config/constants/types'
@@ -26,19 +27,19 @@ const fetchFarms = async () => {
             const calls = [
                 // Balance of token in the LP contract
                 {
-                    address: farmConfig.tokenAddresses[CHAIN_ID],
+                    address: farmConfig.token.address[CHAIN_ID],
                     name: 'balanceOf',
                     params: [lpAdress],
                 },
                 // Balance of quote token on LP contract
                 {
-                    address: farmConfig.quoteTokenAdresses[CHAIN_ID],
+                    address: farmConfig.quoteToken.address[CHAIN_ID],
                     name: 'balanceOf',
                     params: [lpAdress],
                 },
                 // Balance of LP tokens in the master chef contract
                 {
-                    address: farmConfig.isTokenOnly ? farmConfig.tokenAddresses[CHAIN_ID] : lpAdress,
+                    address: farmConfig.isTokenOnly ? farmConfig.token.address[CHAIN_ID] : lpAdress,
                     name: 'balanceOf',
                     params: [ paramAddress ],
                 },
@@ -49,12 +50,12 @@ const fetchFarms = async () => {
                 },
                 // Token decimals
                 {
-                    address: farmConfig.tokenAddresses[CHAIN_ID],
+                    address: farmConfig.token.address[CHAIN_ID],
                     name: 'decimals',
                 },
                 // Quote token decimals
                 {
-                    address: farmConfig.quoteTokenAdresses[CHAIN_ID],
+                    address: farmConfig.quoteToken.address[CHAIN_ID],
                     name: 'decimals',
                 },
             ]
@@ -73,7 +74,7 @@ const fetchFarms = async () => {
             let tokenPriceVsQuote;
             if (farmConfig.isTokenOnly) {
                 tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
-                if (farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD) {
+                if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
                     tokenPriceVsQuote = new BigNumber(1);
                 } else {
                     tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
@@ -151,6 +152,9 @@ const fetchFarms = async () => {
             let SUGARPerBlock = null
             let TeaSportPerBlock = null
 
+            const tokenAmountTotal = new BigNumber(tokenBalanceLP).div(BIG_TEN.pow(tokenDecimals))
+            const quoteTokenAmountTotal = new BigNumber(quoteTokenBlanceLP).div(BIG_TEN.pow(quoteTokenDecimals))
+
             if (farmConfig.type === 'Mint') {
                 MintPerBlock = perblock
             } else if (farmConfig.type === 'TeaSport') {
@@ -169,6 +173,8 @@ const fetchFarms = async () => {
                 // quoteTokenAmount: quoteTokenAmount,
                 lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
                 tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
+                tokenAmountTotal: tokenAmountTotal.toJSON(),
+                quoteTokenAmountTotal: quoteTokenAmountTotal.toJSON(),
                 poolWeight: poolWeight.toNumber(),
                 multiplier: `${allocPoint.div(100).toString()}X`,
                 depositFeeBP: info.depositFeeBP,
