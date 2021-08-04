@@ -151,22 +151,18 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
   const userDataReady = true
 
-  const isArchived = pathname.includes('archived')
-  const isInactive = pathname.includes('history')
-  const isActive = !isInactive && !isArchived
-
-  const [stakedOnly, setStakedOnly] = useState(!isActive)
-  const [activeOnly, setActiveOnly] = useState(!isActive)
+  const [stakedOnly, setStakedOnly] = useState(false)
+  const [activeOnly, setActiveOnly] = useState(false)
 
   const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && farm.id !== 4)
-  const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
+  const inactiveFarms = farmsLP.filter((farm) => farm.id !== 4)
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
   const stakedInactiveFarms = inactiveFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
   const farmsList = useCallback(
@@ -258,10 +254,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       }
     }
 
-    if (isActive) {
+    if (activeOnly) {
       farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
-    }
-    if (isInactive) {
+    } else {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
 
@@ -275,10 +270,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     activeFarms,
     farmsList,
     inactiveFarms,
-    isActive,
-    isInactive,
     stakedInactiveFarms,
     stakedOnly,
+    activeOnly,
     stakedOnlyFarms,
     platformOption
   ])
@@ -406,7 +400,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="md" />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">Show inactive</Text>
+              <Text textTransform="uppercase">Show active</Text>
               <Toggle checked={activeOnly} onChange={() => setActiveOnly(!activeOnly)} scale="md" />
             </LabelWrapper>
           </FilterContainer>
