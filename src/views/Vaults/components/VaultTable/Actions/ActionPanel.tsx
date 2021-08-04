@@ -188,10 +188,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Apy {...apy} />
         </ValueWrapper>
         <ValueWrapper>
-          <Text>Multiplier</Text>
-          <Multiplier {...multiplier} />
-        </ValueWrapper>
-        <ValueWrapper>
           <Text>Liquidity</Text>
           <Liquidity {...liquidity} />
         </ValueWrapper>
