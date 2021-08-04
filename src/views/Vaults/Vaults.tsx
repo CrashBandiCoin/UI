@@ -155,7 +155,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const [activeOnly, setActiveOnly] = useState(false)
 
   const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && farm.id !== 4)
-  const inactiveFarms = farmsLP.filter((farm) => farm.id !== 4)
+  const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -400,7 +400,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="md" />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">Show active</Text>
+              <Text textTransform="uppercase">Show inactive</Text>
               <Toggle checked={activeOnly} onChange={() => setActiveOnly(!activeOnly)} scale="md" />
             </LabelWrapper>
           </FilterContainer>
