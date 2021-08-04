@@ -184,12 +184,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       
       <ValueContainer>
         <ValueWrapper>
-          <Text>APR</Text>
+          <Text>APY</Text>
           <Apy {...apy} />
-        </ValueWrapper>
-        <ValueWrapper>
-          <Text>Multiplier</Text>
-          <Multiplier {...multiplier} />
         </ValueWrapper>
         <ValueWrapper>
           <Text>Liquidity</Text>
@@ -204,16 +200,16 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
-          <Text bold>APR : </Text>
+          <Text bold>APY : </Text>
           <Text small>{`Annual : ${farmApy}%`}</Text>
           <Text small>{`Daily : ${farmApyDaily}%`}</Text>
         </InfoWrapper>
         <InfoWrapper>
           <Text bold>Fees</Text>
           <Text small>Exit Fee: 0.1%</Text>
-          <Text small>Buy Back/Burn: 2%</Text>
-          <Text small>Network fee: 0.2%</Text>
-          <Text small>Operational fee: 1.8%</Text>
+          <Text small>Buy Back/Burn: 2% (on profits)</Text>
+          <Text small>Network fee: 0.2% (on profits)</Text>
+          <Text small>Operational fee: 1.8% (on profits)</Text>
         </InfoWrapper>
         <InfoWrapper style={{ maxWidth: 300 }}>
           <Text bold>{`Earns ${farm.lpSymbol}`}</Text>

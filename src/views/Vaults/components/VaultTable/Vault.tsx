@@ -59,11 +59,10 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
       </TokenWrapper>
       
       <div>
-        {handleRenderFarming()}
         <Text bold color="primary" fontSize="12px">EARNS {label}</Text>
         <Text bold>{label}</Text>
         <Tag outline variant="success" mr="8px">
-          {type}
+          TEASWAP
         </Tag>
       </div>
     </Container>
