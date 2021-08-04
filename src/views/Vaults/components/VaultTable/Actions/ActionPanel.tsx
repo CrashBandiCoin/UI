@@ -170,11 +170,19 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const bsc = getBscScanAddressUrl(lpAddress)
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
-  const farmApy = apy.value && apy.value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+  let apyValue = null;
+  if (lpLabel === 'SUGAR')
+    apyValue = new BigNumber(0.499);
+  else if (lpLabel === 'CAKE')
+    apyValue = new BigNumber(0.947);
+  else 
+    apyValue = new BigNumber(0.7021);
+
+  const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-  const farmApyDaily = apy.value && apy.value.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
+  const farmApyDaily = apyValue && apyValue.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
@@ -184,7 +192,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       
       <ValueContainer>
         <ValueWrapper>
-          <Text>APR</Text>
+          <Text>APY</Text>
           <Apy {...apy} />
         </ValueWrapper>
         <ValueWrapper>
@@ -194,22 +202,21 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       </ValueContainer>
       
       <ActionContainer>
-        <HarvestAction {...farm} userDataReady={userDataReady} />
         <StakedAction {...farm} userDataReady={userDataReady} />
       </ActionContainer>
 
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
-          <Text bold>APR : </Text>
+          <Text bold>APY : </Text>
           <Text small>{`Annual : ${farmApy}%`}</Text>
           <Text small>{`Daily : ${farmApyDaily}%`}</Text>
         </InfoWrapper>
         <InfoWrapper>
           <Text bold>Fees</Text>
           <Text small>Exit Fee: 0.1%</Text>
-          <Text small>Buy Back/Burn: 2%</Text>
-          <Text small>Network fee: 0.2%</Text>
-          <Text small>Operational fee: 1.8%</Text>
+          <Text small>Buy Back/Burn: 2% (on profits)</Text>
+          <Text small>Network fee: 0.2% (on profits)</Text>
+          <Text small>Operational fee: 1.8% (on profits)</Text>
         </InfoWrapper>
         <InfoWrapper style={{ maxWidth: 300 }}>
           <Text bold>{`Earns ${farm.lpSymbol}`}</Text>

@@ -112,7 +112,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                 return (
                   <td key={key}>
                     <CellInner>
-                      <CellLayout label='APR'>
+                      <CellLayout label='APY'>
                         <Apy {...props.apy} hideButton={isMobile} />
                       </CellLayout>
                     </CellInner>

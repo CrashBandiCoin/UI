@@ -166,7 +166,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   )
 
   const stakedInactiveFarms = inactiveFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance[farm.type]).isGreaterThan(0),
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
   const farmsList = useCallback(
@@ -230,7 +230,6 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
 
-  const [numberOfFarmsVisible, setNumberOfFarmsVisible] = useState(NUMBER_OF_FARMS_VISIBLE)
   const [observerIsSet, setObserverIsSet] = useState(false)
 
   const farmsStakedMemoized = useMemo(() => {
@@ -270,10 +269,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       farmsStaked = farmsStaked.filter(farm => farm.type.toLowerCase() === platformOption)
     }
 
-    if (farmsStaked.length < numberOfFarmsVisible) {
-      setNumberOfFarmsVisible(farmsStaked.length)
-    }
-    return sortFarms(farmsStaked).slice(0, numberOfFarmsVisible)
+    return sortFarms(farmsStaked)
   }, [
     sortOption,
     activeFarms,
@@ -284,27 +280,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     stakedInactiveFarms,
     stakedOnly,
     stakedOnlyFarms,
-    numberOfFarmsVisible,
     platformOption
   ])
-
-  useEffect(() => {
-    const showMoreFarms = (entries) => {
-      const [entry] = entries
-      if (entry.isIntersecting) {
-        setNumberOfFarmsVisible((farmsCurrentlyVisible) => farmsCurrentlyVisible + NUMBER_OF_FARMS_VISIBLE)
-      }
-    }
-
-    if (!observerIsSet) {
-      const loadMoreObserver = new IntersectionObserver(showMoreFarms, {
-        rootMargin: '0px',
-        threshold: 1,
-      })
-      loadMoreObserver.observe(loadMoreRef.current)
-      setObserverIsSet(true)
-    }
-  }, [farmsStakedMemoized, observerIsSet])
 
   const rowData = farmsStakedMemoized.map((farm) => {
     const tokenAddress = farm.token.address[chainId]
@@ -392,10 +369,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" scale="xl" color="secondary" mb="24px">
-          Sugar Vaults (Auto-Compounder)
+          TeaSwap Vaults (Auto-Compounder)
         </Heading>
         <Heading scale="lg" color="text">
-          Stake tokens for farm rewards plus Sugar rewards
+          Stake tokens for farm rewards
         </Heading>
         <Heading scale="md" color="text">
           <CardValue value={tvl.toNumber()} prefix="$" decimals={2} fontSize='18px' />
@@ -411,14 +388,6 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                   {
                     label: 'ALL',
                     value: 'all',
-                  },
-                  {
-                    label: 'PCS',
-                    value: 'pcs',
-                  },
-                  {
-                    label: 'SUGAR',
-                    value: 'sugar',
                   },
                 ]}
                 onChange={handlePlatformOptionChange}
@@ -440,7 +409,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
               <Select
                 options={[
                   {
-                    label: 'TVL',
+                    label: 'Liquidity',
                     value: 'liquidity',
                   },
                   {
@@ -454,10 +423,6 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
                   {
                     label: 'APY',
                     value: 'apy',
-                  },
-                  {
-                    label: 'Multipliers',
-                    value: 'multiplier',
                   },
                 ]}
                 onChange={handleSortOptionChange}
