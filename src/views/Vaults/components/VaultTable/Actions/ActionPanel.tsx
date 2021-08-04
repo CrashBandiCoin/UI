@@ -178,11 +178,11 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   else 
     apyValue = new BigNumber(0.7021);
 
-  const farmApy = apyValue.value && apyValue.value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+  const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-  const farmApyDaily = apyValue.value && apyValue.value.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
+  const farmApyDaily = apyValue && apyValue.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
