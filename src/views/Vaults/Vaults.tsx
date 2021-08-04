@@ -230,7 +230,6 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
 
-  const [numberOfFarmsVisible, setNumberOfFarmsVisible] = useState(NUMBER_OF_FARMS_VISIBLE)
   const [observerIsSet, setObserverIsSet] = useState(false)
 
   const farmsStakedMemoized = useMemo(() => {
@@ -270,10 +269,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       farmsStaked = farmsStaked.filter(farm => farm.type.toLowerCase() === platformOption)
     }
 
-    if (farmsStaked.length < numberOfFarmsVisible) {
-      setNumberOfFarmsVisible(farmsStaked.length)
-    }
-    return sortFarms(farmsStaked).slice(0, numberOfFarmsVisible)
+    return sortFarms(farmsStaked)
   }, [
     sortOption,
     activeFarms,
@@ -284,27 +280,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     stakedInactiveFarms,
     stakedOnly,
     stakedOnlyFarms,
-    numberOfFarmsVisible,
     platformOption
   ])
-
-  useEffect(() => {
-    const showMoreFarms = (entries) => {
-      const [entry] = entries
-      if (entry.isIntersecting) {
-        setNumberOfFarmsVisible((farmsCurrentlyVisible) => farmsCurrentlyVisible + NUMBER_OF_FARMS_VISIBLE)
-      }
-    }
-
-    if (!observerIsSet) {
-      const loadMoreObserver = new IntersectionObserver(showMoreFarms, {
-        rootMargin: '0px',
-        threshold: 1,
-      })
-      loadMoreObserver.observe(loadMoreRef.current)
-      setObserverIsSet(true)
-    }
-  }, [farmsStakedMemoized, observerIsSet])
 
   const rowData = farmsStakedMemoized.map((farm) => {
     const tokenAddress = farm.token.address[chainId]
