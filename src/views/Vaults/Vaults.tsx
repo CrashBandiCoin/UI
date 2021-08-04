@@ -151,8 +151,12 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
   const userDataReady = true
 
-  const [stakedOnly, setStakedOnly] = useState(false)
-  const [activeOnly, setActiveOnly] = useState(false)
+  const isArchived = pathname.includes('archived')
+  const isInactive = pathname.includes('history')
+  const isActive = !isInactive && !isArchived
+
+  const [stakedOnly, setStakedOnly] = useState(!isActive)
+  const [activeOnly, setActiveOnly] = useState(!isActive)
 
   const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && farm.id !== 4)
   const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
@@ -254,9 +258,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       }
     }
 
-    if (activeOnly) {
+    if (isActive) {
       farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
-    } else {
+    }
+    if (isInactive) {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
 
@@ -270,9 +275,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     activeFarms,
     farmsList,
     inactiveFarms,
+    isActive,
+    isInactive,
     stakedInactiveFarms,
     stakedOnly,
-    activeOnly,
     stakedOnlyFarms,
     platformOption
   ])
