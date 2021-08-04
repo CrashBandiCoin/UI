@@ -386,8 +386,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
               <Select
                 options={[
                   {
-                    label: 'TEASWAP',
-                    value: 'teaswap',
+                    label: 'ALL',
+                    value: 'all',
                   },
                 ]}
                 onChange={handlePlatformOptionChange}

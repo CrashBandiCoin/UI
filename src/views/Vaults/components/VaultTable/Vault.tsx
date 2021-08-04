@@ -62,7 +62,7 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
         <Text bold color="primary" fontSize="12px">EARNS {label}</Text>
         <Text bold>{label}</Text>
         <Tag outline variant="success" mr="8px">
-          TEASWAP
+          6x compound per day !
         </Tag>
       </div>
     </Container>
