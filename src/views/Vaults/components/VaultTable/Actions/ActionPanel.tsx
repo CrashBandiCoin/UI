@@ -170,11 +170,19 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const bsc = getBscScanAddressUrl(lpAddress)
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
-  const farmApy = apy.value && apy.value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+  let apyValue = null;
+  if (lpLabel === 'SUGAR')
+    apyValue = new BigNumber(0.499);
+  else if (lpLabel === 'CAKE')
+    apyValue = new BigNumber(0.947);
+  else 
+    apyValue = new BigNumber(0.7021);
+
+  const farmApy = apyValue.value && apyValue.value.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-  const farmApyDaily = apy.value && apy.value.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
+  const farmApyDaily = apyValue.value && apyValue.value.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
