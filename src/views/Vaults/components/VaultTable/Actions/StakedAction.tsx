@@ -73,18 +73,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   const displayBalance = useCallback(() => {
-    const stakedBalanceBigNumber = getBalanceAmount(stakedBalance)
+    const stakedBalanceBigNumber = getBalanceAmount(stakedBalance.plus(earnings))
     if (stakedBalanceBigNumber.gt(0) && stakedBalanceBigNumber.lt(0.0001)) {
-      return getFullDisplayBalance(stakedBalance).toLocaleString()
+      return getFullDisplayBalance(stakedBalance.plus(earnings)).toLocaleString()
     }
     return stakedBalanceBigNumber.toFixed(10, BigNumber.ROUND_DOWN)
-  }, [stakedBalance])
+  }, [stakedBalance, earnings])
 
   const [onPresentDeposit] = useModal(
     <DepositModal max={tokenBalance} onConfirm={handleStake} tokenName={lpSymbol} depositFeeBP={depositFeeBP} />
   )
   const [onPresentWithdraw] = useModal(
-    <WithdrawModal max={stakedBalance} onConfirm={handleUnstake} tokenName={lpSymbol} />,
+    <WithdrawModal max={stakedBalance.plus(earnings)} onConfirm={handleUnstake} tokenName={lpSymbol} />,
   )
   const lpContract = useMemo(() => {
     if(isTokenOnly){
@@ -122,7 +122,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   if (isApproved) {
-    if (stakedBalance.gt(0)) {
+    if (stakedBalance.plus(earnings).gt(0)) {
       return (
         <ActionContainer>
           <ActionTitles>
@@ -136,12 +136,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           <ActionContent>
             <div>
               <Earned>{displayBalance()}</Earned>
-              {stakedBalance.gt(0) && lpPrice.gt(0) && (
+              {stakedBalance.plus(earnings).gt(0) && lpPrice.gt(0) && (
                 <Balance
                   fontSize="12px"
                   color="textSubtle"
                   decimals={10}
-                  value={getBalanceNumber(lpPrice.times(stakedBalance))}
+                  value={getBalanceNumber(lpPrice.times(stakedBalance.plus(earnings)))}
                   unit=" USD"
                   prefix="~"
                 />
