@@ -151,11 +151,15 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
   const userDataReady = true
 
-  const [stakedOnly, setStakedOnly] = useState(false)
-  const [activeOnly, setActiveOnly] = useState(false)
+  const isArchived = pathname.includes('archived')
+  const isInactive = pathname.includes('history')
+  const isActive = !isInactive && !isArchived
+
+  const [stakedOnly, setStakedOnly] = useState(!isActive)
+  const [activeOnly, setActiveOnly] = useState(!isActive)
 
   const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && farm.id !== 4)
-  const inactiveFarms = farmsLP.filter((farm) => farm.id !== 4)
+  const inactiveFarms = farmsLP.filter((farm) =>  farm.multiplier === '0X' && farm.id !== 4)
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -254,9 +258,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       }
     }
 
-    if (activeOnly) {
+    if (isActive) {
       farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
-    } else {
+    }
+    if (isInactive) {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
 
@@ -270,9 +275,10 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     activeFarms,
     farmsList,
     inactiveFarms,
+    isActive,
+    isInactive,
     stakedInactiveFarms,
     stakedOnly,
-    activeOnly,
     stakedOnlyFarms,
     platformOption
   ])
@@ -392,7 +398,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="md" />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">Show active</Text>
+              <Text textTransform="uppercase">Show inactive</Text>
               <Toggle checked={activeOnly} onChange={() => setActiveOnly(!activeOnly)} scale="md" />
             </LabelWrapper>
           </FilterContainer>
