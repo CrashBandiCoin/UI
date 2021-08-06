@@ -64,6 +64,9 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
         <Tag outline variant="success" mr="8px">
           6x compound per day !
         </Tag>
+        <Tag outline variant="warning" mr="8px">
+          MAINTENANCE !
+        </Tag>
       </div>
     </Container>
   )
