@@ -2,7 +2,7 @@ import React from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes, css } from 'styled-components'
 import { LinkExternal, Text } from '@pancakeswap-libs/uikit'
-import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
+import { FarmWithStakedValue } from 'views/Vaults/components/VaultCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'
 
@@ -172,7 +172,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   let apyValue = null;
   if (lpLabel === 'SUGAR')
-    apyValue = new BigNumber(0.499);
+    apyValue = apy.value;
   else if (lpLabel === 'CAKE')
     apyValue = new BigNumber(0.947);
   else 

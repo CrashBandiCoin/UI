@@ -55,7 +55,7 @@ const Apy: React.FC<ApyProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   let apy = null;
   if (lpLabel === 'SUGAR')
-    apy = new BigNumber(0.499);
+    apy = new BigNumber(value);
   else if (lpLabel === 'CAKE')
     apy = new BigNumber(0.947);
   else 

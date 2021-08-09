@@ -5,7 +5,7 @@ import useRefresh from 'hooks/useRefresh'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchVaultsPublicDataAsync } from './actions'
-import { State, Farm, Pool } from './types'
+import { State, Farm, Pool, Vault } from './types'
 import { QuoteToken } from '../config/constants/types'
 
 const ZERO = new BigNumber(0)
@@ -50,17 +50,17 @@ export const useFarmUser = (pid, id) => {
 
 // Vaults
 
-export const useVaults = (): Farm[] => {
+export const useVaults = (): Vault[] => {
   const vaults = useSelector((state: State) => state.vaults.data)
   return vaults
 }
 
-export const useVaultFromPid = (pid, id): Farm => {
+export const useVaultFromPid = (pid, id): Vault => {
   const vault = useSelector((state: State) => state.vaults.data.find((f) => f.pid === pid && f.id === id))
   return vault
 }
 
-export const useVaultFromSymbol = (lpSymbol: string): Farm => {
+export const useVaultFromSymbol = (lpSymbol: string): Vault => {
   const vault = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
   return vault
 }
@@ -76,7 +76,7 @@ export const useVaultUser = (pid, id) => {
   }
 }
 
-export const useVaultFromLpSymbol = (lpSymbol: string): Farm => {
+export const useVaultFromLpSymbol = (lpSymbol: string): Vault => {
   const farm = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
   return farm
 }

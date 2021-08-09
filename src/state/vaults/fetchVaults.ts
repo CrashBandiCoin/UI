@@ -8,9 +8,6 @@ import {
     getVaultChefAddress, 
     getVaultMintAddress, 
     getVaultTeaSportAddress, 
-    getMasterChefAddress,
-    getMasterMintAddress,
-    getMasterTeaSportAddress
 } from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/vaults'
 import {QuoteToken} from '../../config/constants/types'
@@ -29,14 +26,6 @@ const fetchVaults = async () => {
             else if (farmConfig.type === 'TeaSport')
                 paramAddress = getVaultTeaSportAddress()
 
-            let masterChefAddress = ''
-            if (farmConfig.type === 'Sugar')
-                masterChefAddress = getMasterChefAddress()
-            else if (farmConfig.type === 'Mint')
-                masterChefAddress = getMasterMintAddress()
-            else if (farmConfig.type === 'TeaSport')
-                masterChefAddress = getMasterTeaSportAddress()
-
             const calls = [
                 // Balance of token in the LP contract
                 {
@@ -52,7 +41,7 @@ const fetchVaults = async () => {
                 },
                 // Balance of LP tokens in the master chef contract
                 {
-                    address: lpAdress,
+                    address: farmConfig.isTokenOnly ? farmConfig.token.address[CHAIN_ID] : lpAdress,
                     name: 'balanceOf',
                     params: [ paramAddress ],
                 },
@@ -110,7 +99,7 @@ const fetchVaults = async () => {
                 name = 'teasportPerBlock'
 
             if (farmConfig.type === 'Sugar') {
-                const [info, totalAllocPoint, perblock, tvl, originRewardsPerBlock] = await multicall(
+                const [info, tvl, lpTokenBalanceOnMC, apr] = await multicall(
                     abi,
                     [
                         {
@@ -120,65 +109,47 @@ const fetchVaults = async () => {
                         },
                         {
                             address,
-                            name: 'totalAllocPoint',
-                        },
-                        {
-                            address,
-                            name
-                        },
-                        {
-                            address,
-                            name: 'tvl',
+                            name: 'getTVL',
                             params: [farmConfig.pid]
                         },
+                        // Balance of LP tokens in the master chef contract
                         {
-                            address,
-                            name: 'originRewardsPerBlock',
-                            params: [farmConfig.pid]
-                        }
+                            address: paramAddress,
+                            name: 'getTotalOnMC',
+                            params: [ farmConfig.pid ],
+                        },
+                        {
+                            address: paramAddress,
+                            name: 'getAPR',
+                            params: [ farmConfig.pid ],
+                        },
                     ]
                 )
 
                 let tokenPriceVsQuote;
 
-                const rewardsPerBlock = new BigNumber(originRewardsPerBlock).div(new BigNumber(10).pow(tokenDecimals));
-                
-                if (farmConfig.isTokenOnly) {
-                    tokenAmount = new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals));
-                    if (farmConfig.token.symbol === QuoteToken.BUSD && farmConfig.quoteToken.symbol === QuoteToken.BUSD) {
-                        tokenPriceVsQuote = new BigNumber(1);
-                    } else {
-                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
-                    }
-                    lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
+                // Ratio in % a LP tokens that are in staking, vs the total number in circulation
+                const lpTokenRatio = new BigNumber(lpTokenBalanceOnMC).div(new BigNumber(lpTotalSupply))
+
+                // Total value in staking in quote token value
+                lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
+                    .div(new BigNumber(10).pow(18))
+                    .times(new BigNumber(2))
+                    .times(lpTokenRatio)
+
+                // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
+                tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
+                const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
+                    .div(new BigNumber(10).pow(quoteTokenDecimals))
+                    .times(lpTokenRatio)
+
+                if (tokenAmount.comparedTo(0) > 0) {
+                    tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
                 } else {
-                    // Ratio in % a LP tokens that are in staking, vs the total number in circulation
-                    const lpTokenRatio = new BigNumber(tvl).div(new BigNumber(lpTotalSupply))
-
-                    // Total value in staking in quote token value
-                    lpTotalInQuoteToken = new BigNumber(quoteTokenBlanceLP)
-                        .div(new BigNumber(10).pow(18))
-                        .times(new BigNumber(2))
-                        .times(lpTokenRatio)
-
-                    // Amount of token in the LP that are considered staking (i.e amount of token * lp ratio)
-                    tokenAmount = new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)).times(lpTokenRatio)
-                    const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
-                        .div(new BigNumber(10).pow(quoteTokenDecimals))
-                        .times(lpTokenRatio)
-
-                    if (tokenAmount.comparedTo(0) > 0) {
-                        tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
-                    } else {
-                        tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
-                    }
+                    tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
                 }
 
                 const allocPoint = new BigNumber(info.allocPoint._hex)
-                const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
-                let SUGARPerBlock = null
-
-                SUGARPerBlock = perblock
 
                 return {
                     ...farmConfig,
@@ -186,12 +157,10 @@ const fetchVaults = async () => {
                     // quoteTokenAmount: quoteTokenAmount,
                     lpTotalInQuoteToken: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                     tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
-                    poolWeight: poolWeight.toNumber(),
                     multiplier: `${allocPoint.div(100).toString()}X`,
-                    depositFeeBP: info.depositFeeBP,
-                    MintPerBlock: null,
-                    SUGARPerBlock: new BigNumber(rewardsPerBlock).toNumber(),
-                    TeaSportPerBlock: null,
+                    depositFeeBP: new BigNumber(info.depositFeeBP || 0).toJSON(),
+                    apr: new BigNumber(apr || 0).toNumber(),
+                    tvl: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toNumber(),
                     lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                     lpTokenBalanceMC: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                 }
@@ -280,7 +249,7 @@ const fetchVaults = async () => {
                     tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
                     poolWeight: poolWeight.toNumber(),
                     multiplier: `${allocPoint.div(100).toString()}X`,
-                    depositFeeBP: info.depositFeeBP,
+                    depositFeeBP: info.depositFeeBP ? new BigNumber(info.depositFeeBP).toNumber() : new BigNumber(0).toNumber(),
                     MintPerBlock: new BigNumber(MintPerBlock).toNumber(),
                     SUGARPerBlock: new BigNumber(SUGARPerBlock).toNumber(),
                     TeaSportPerBlock: new BigNumber(TeaSportPerBlock).toNumber(),
