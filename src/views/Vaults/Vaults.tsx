@@ -171,8 +171,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const farmsList = useCallback(
     (farmsToDisplay: Vault[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.tokenPriceVsQuote)
+        const lpTotlalInQuoteJSON = new BigNumber(farm.lpTotalInQuoteToken).toJSON();
         // const apy = new BigNumber(new BigNumber(1).plus(new BigNumber(farm.apr).div(new BigNumber(2190))).pow(new BigNumber(farm.apr))).minus(new BigNumber(1))
         const apy = new BigNumber(farm.apr || 1).div(new BigNumber(10).pow(18));
         

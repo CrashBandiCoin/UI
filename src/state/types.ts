@@ -45,6 +45,7 @@ export interface Vault extends VaultConfig {
     earnings: BigNumber
   }
   depositFeeBP?: number
+  tokenPriceVsQuote?: BigNumber
   lpTotalSupply?: BigNumber
   lpTotalInQuoteToken?: BigNumber
   quoteTokenAmountTotal?: BigNumber
