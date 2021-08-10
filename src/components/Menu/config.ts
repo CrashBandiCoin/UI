@@ -21,7 +21,7 @@ const config: MenuEntry[] = [
             },
             {
                 label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
+                href: 'https://pancakeswap.finance/swap?outputCurrency=0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f',
             },
             {
                 label: 'Chart',
@@ -44,7 +44,7 @@ const config: MenuEntry[] = [
             },
             {
                 label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
+                href: 'https://pancakeswap.finance/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
             },
             {
                 label: 'Chart',
@@ -82,7 +82,7 @@ const config: MenuEntry[] = [
             },
             {
                 label: 'Exchange',
-                href: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+                href: 'https://pancakeswap.finance/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
             },
             {
                 label: 'Chart',
