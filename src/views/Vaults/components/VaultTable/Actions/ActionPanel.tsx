@@ -171,13 +171,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
   let apyValue = null;
-  if (lpLabel === 'SUGAR')
-    apyValue = apy.value;
-  else if (lpLabel === 'CAKE')
-    apyValue = new BigNumber(0.947);
-  else 
-    apyValue = new BigNumber(0.7021);
-
+  apyValue = apy.value;
+  
   const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
