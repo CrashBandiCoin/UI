@@ -176,7 +176,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         const dailyApy = new BigNumber(farm.apr).div(new BigNumber(10).pow(18)).div(new BigNumber(365)).plus(new BigNumber(1))
         const jsonapy = new BigNumber(dailyApy).pow(new BigNumber(365)).minus(new BigNumber(1)).toNumber()
         // const apy = new BigNumber(dailyApy).pow(new BigNumber(365)).plus(new BigNumber(1))
-        const apy = new BigNumber(farm.apr || 1).div(new BigNumber(10).pow(18));
+        const apy = new BigNumber(dailyApy).pow(new BigNumber(365)).minus(new BigNumber(1));
         
         return { ...farm, apy, liquidity: totalLiquidity }
       })
