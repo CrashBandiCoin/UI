@@ -4,7 +4,7 @@ import { VaultConfig, QuoteToken, ContractType } from './types'
 const vaults: VaultConfig[] = [
 	{
 	    id: 1,
-	    pid: 1, // TODO fixe the correct APR
+	    pid: 4, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
 	    isTokenOnly: true,
 	    lpSymbol: 'CAKE',
@@ -26,7 +26,7 @@ const vaults: VaultConfig[] = [
 	},
 	{
 	    id: 2,
-	    pid: 0,
+	    pid: 3,
 	    type: ContractType.Sugar,
 	    isTokenOnly: true,
 	    lpSymbol: 'SUGAR',
@@ -48,7 +48,7 @@ const vaults: VaultConfig[] = [
 	},
 	{
 	    id: 3,
-	    pid: 2,
+	    pid: 5,
 	    type: ContractType.Sugar,
 	    isTokenOnly: false,
 	    lpSymbol: 'CAKE-BNB',
