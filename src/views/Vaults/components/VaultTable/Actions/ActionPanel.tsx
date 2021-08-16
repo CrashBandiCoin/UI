@@ -208,7 +208,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
         </InfoWrapper>
         <InfoWrapper>
           <Text bold>Fees</Text>
-          <Text small>Exit Fee: 0.1%</Text>
           <Text small>Buy Back/Burn: 2% (on profits)</Text>
           <Text small>Network fee: 0.2% (on profits)</Text>
           <Text small>Operational fee: 1.8% (on profits)</Text>
