@@ -185,7 +185,11 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         let apy = new BigNumber(dailyApy).pow(new BigNumber(365)).minus(new BigNumber(1));
         
         if (farm.id === 2) {
-          apy = new BigNumber(farm.apr || 0)
+          if (new BigNumber(farm.apr).isGreaterThan(new BigNumber(0.4593))) {
+            apy = new BigNumber(farm.apr || 0)
+          } else {
+            apy = new BigNumber(0.4593)
+          }
         }
 
         return { ...farm, apy, liquidity: totalLiquidity }
