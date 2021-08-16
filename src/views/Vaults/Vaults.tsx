@@ -183,6 +183,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         const lpTotlalInQuoteJSON = new BigNumber(farm.lpTotalInQuoteToken).toJSON();
         const dailyApy = new BigNumber(farm.apr).div(new BigNumber(365)).plus(new BigNumber(1))
         let apy = new BigNumber(dailyApy).pow(new BigNumber(365)).minus(new BigNumber(1));
+
+        console.log(apy.toNumber())
         
         if (farm.id === 2) {
           if (new BigNumber(farm.apr).isGreaterThan(new BigNumber(0.4593))) {
