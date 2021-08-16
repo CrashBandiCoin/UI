@@ -142,8 +142,8 @@ const fetchVaults = async () => {
                 const quoteTokenAmount = new BigNumber(quoteTokenBlanceLP)
                     .div(new BigNumber(10).pow(quoteTokenDecimals))
                     .times(lpTokenRatio)
-
-                const aprValue = new BigNumber(apr || 0).times(new BigNumber(10).pow(tokenDecimals)).div(new BigNumber(tvl || 1))
+                    
+                const aprValue = new BigNumber(apr || 0).div(new BigNumber(tvl || 1))
 
                 if (tokenAmount.comparedTo(0) > 0) {
                     tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
