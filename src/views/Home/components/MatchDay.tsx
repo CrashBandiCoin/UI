@@ -1,10 +1,12 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import styled, {keyframes} from 'styled-components'
-import iconJo100m from '../img/matchs/jo100m.png'
 import inconChainlink from '../img/matchs/chainlink.png'
-import iconteasport from "../img/matchs/teasport.png"
-
+import iconRun from "../img/Olympics/run.png"
+import iconBasket from "../img/Olympics/basket.png"
+import iconFootball from "../img/Olympics/football.png"
+import iconHand from "../img/Olympics/hand.png"
+import iconVolley from "../img/Olympics/volley.png"
 
 const RainbowLight = keyframes`
   0% {
@@ -46,12 +48,19 @@ const Row = styled.div`
   font-size: 25px;
   text-align: center;
   margin-bottom: 8px;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 30px;
   
 `
 
 const Row2 = styled.div`
-  color:red;
+align-items: center;
+display: flex;
+font-size: 25px;
+text-align: center;
+margin-bottom: 8px;
+justify-content: center;
+margin: 30px;
   
 `
 
@@ -60,18 +69,20 @@ const Match = () => {
         <StyledTeaSportStats>
             <CardBody>
                 <Heading size="xl" mb="24px">
-                OLYMPICS GAMES LIVE !
+                TeaSwapers vote results | SportParty2 (Olympics) !
                 </Heading>
-                <Row>
-                    <img src={iconJo100m} alt='marketCap'/>
-                </Row>
             <br />
                 <Row>
-                   WINNER : JACOBS (<img src={iconteasport} alt='marketCap' width='30'/> x30)
+                <img src={iconRun} alt='marketCap' width='50'/> Athletics MEN (100m) - LOSING VOTE ❌
                 </Row>
-                <Row>
+               <Row><img src={iconBasket} alt='marketCap' width='50'/> BASKETBALL (MEN) - WINNING VOTE ✅ </Row>
+               <Row> <img src={iconFootball} alt='marketCap' width='50'/> FOOTBALL (MEN) - WINNING VOTE ✅ </Row>
+                <Row><img src={iconHand} alt='marketCap' width='50'/> HANDBALL (WOMEN) - WINNING VOTE ✅ </Row>
+                <Row><img src={iconVolley} alt='marketCap' width='50'/> VOLLEYBALL (MEN) - WINNING VOTE ✅ </Row>
+            
+                <Row2>
                 powered by <img src={inconChainlink} alt='marketCap' width='100'/> 
-                </Row> 
+                </Row2>
             </CardBody>
         </StyledTeaSportStats>
     )
