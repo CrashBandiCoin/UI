@@ -143,6 +143,8 @@ const fetchVaults = async () => {
                     .div(new BigNumber(10).pow(quoteTokenDecimals))
                     .times(lpTokenRatio)
 
+                const aprValue = new BigNumber(apr || 0).times(new BigNumber(10).pow(tokenDecimals)).div(new BigNumber(tvl || 1))
+
                 if (tokenAmount.comparedTo(0) > 0) {
                     tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
                 } else {
@@ -159,7 +161,7 @@ const fetchVaults = async () => {
                     tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
                     multiplier: `${allocPoint.div(100).toString()}X`,
                     depositFeeBP: new BigNumber(info.depositFeeBP || 0).toJSON(),
-                    apr: new BigNumber(apr || 0).toNumber(),
+                    apr: new BigNumber(aprValue || 0).toNumber(),
                     tvl: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toNumber(),
                     lpTotalSupply: new BigNumber(lpTotalSupply).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
                     lpTokenBalanceMC: new BigNumber(tvl).div(new BigNumber(10).pow(tokenDecimals)).toJSON(),
