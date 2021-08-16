@@ -26,7 +26,7 @@ const vaults: VaultConfig[] = [
 	},
 	{
 	    id: 2,
-	    pid: 3,
+	    pid: 7,
 	    type: ContractType.Sugar,
 	    isTokenOnly: true,
 	    lpSymbol: 'SUGAR',
