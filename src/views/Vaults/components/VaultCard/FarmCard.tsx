@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { Flex, Text, Skeleton } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Vault } from 'state/types'
+import { Farm } from 'state/types'
 import { getBscScanAddressUrl } from 'utils/bscscan'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
@@ -14,7 +14,7 @@ import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
 
-export interface FarmWithStakedValue extends Vault {
+export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
   liquidity?: BigNumber
 }
@@ -104,6 +104,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
+        isCommunityFarm={farm.isCommunity}
         token={farm.token}
         quoteToken={farm.quoteToken}
       />
