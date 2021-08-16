@@ -123,6 +123,18 @@ export const usePriceCakeBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
+export const usePricePanCakeBusd = (): BigNumber => {
+  // const pid = 1 // CAKE-BNB LP
+  // const bnbPriceUSD = usePriceBnbBusd()
+  // const farm = useFarmFromPid(pid)
+  // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
+  const pid = 4; // CAKE-BUSD LP
+  // const bnbPriceUSD = usePriceBnbBusd()
+  const id = 8;
+  const farm = useFarmFromPid(pid, id)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+}
+
 export const usePriceMintBusd = (): BigNumber => { // TODO use to display MINT price
   // const pid = 1 // CAKE-BNB LP
   // const bnbPriceUSD = usePriceBnbBusd()

@@ -15,6 +15,7 @@ import {
   useVaults,
   usePriceBnbBusd,
   usePriceCakeBusd,
+  usePricePanCakeBusd,
   usePriceMintBusd,
   usePriceTeaSportBusd,
   useVaultTotalValue
@@ -128,7 +129,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const TranslateString = useI18n()
   const { pathname } = useLocation()
   const farmsLP = useVaults()
-  const cakePrice = usePriceCakeBusd()
+  const sugarPrice = usePriceCakeBusd()
+  const cakePrice = usePricePanCakeBusd()
   const mintPrice = usePriceMintBusd()
   const teasportPrice = usePriceTeaSportBusd()
   const bnbPrice = usePriceBnbBusd()
@@ -171,9 +173,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const farmsList = useCallback(
     (farmsToDisplay: Vault[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        let tokenPrice = cakePrice
+        let tokenPrice = sugarPrice
         if (farm.id === 1) {
-          tokenPrice = new BigNumber("22.15")
+          tokenPrice = cakePrice
         } else if (farm.id === 3) {
           tokenPrice = new BigNumber("22.13")
         }
@@ -196,7 +198,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
       return farmsToDisplayWithAPY
     },
-    [query, cakePrice],
+    [query, cakePrice, sugarPrice],
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
