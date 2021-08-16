@@ -10,16 +10,16 @@ import {
   fetchVaultUserTokenBalances,
   fetchVaultUserStakedBalances,
 } from './fetchVaultUser'
-import { FarmsState, Farm } from '../types'
+import { VaultState, Vault } from '../types'
 
-const initialState: FarmsState = { data: [...farmsConfig] }
+const initialState: VaultState = { data: [...farmsConfig] }
 
 export const vaultsSlice = createSlice({
   name: 'Vaults',
   initialState,
   reducers: {
     setVaultsPublicData: (state, action) => {
-      const liveFarmsData: Farm[] = action.payload
+      const liveFarmsData: Vault[] = action.payload
       state.data = state.data.map((farm) => {
         const liveFarmData = liveFarmsData.find((f) => f.pid === farm.pid && f.id === farm.id && f.type === farm.type)
         return { ...farm, ...liveFarmData }

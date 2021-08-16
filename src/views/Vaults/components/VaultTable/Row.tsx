@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
+import { FarmWithStakedValue } from 'views/Vaults/components/VaultCard/FarmCard'
 import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
 import { useVaultUser } from 'state/hooks'

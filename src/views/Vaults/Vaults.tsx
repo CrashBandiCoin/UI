@@ -15,6 +15,7 @@ import {
   useVaults,
   usePriceBnbBusd,
   usePriceCakeBusd,
+  usePricePanCakeBusd,
   usePriceMintBusd,
   usePriceTeaSportBusd,
   useVaultTotalValue
@@ -26,13 +27,13 @@ import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
 import CardValue from 'views/Home/components/CardValue'
-import { Farm } from 'state/types'
+import { Vault } from 'state/types'
 import { RowProps } from './components/VaultTable/Row'
 import Table from './components/VaultTable/VaultTable'
 import FarmTabButtons from './components/VaultTabButtons'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 
-export interface FarmWithStakedValue extends Farm {
+export interface FarmWithStakedValue extends Vault {
   apy?: BigNumber
   liquidity?: BigNumber
 }
@@ -128,8 +129,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const TranslateString = useI18n()
   const { pathname } = useLocation()
   const farmsLP = useVaults()
-  const poolsLP = useFarms()
-  const cakePrice = usePriceCakeBusd()
+  const sugarPrice = usePriceCakeBusd()
+  const cakePrice = usePricePanCakeBusd()
   const mintPrice = usePriceMintBusd()
   const teasportPrice = usePriceTeaSportBusd()
   const bnbPrice = usePriceBnbBusd()
@@ -170,47 +171,29 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   )
 
   const farmsList = useCallback(
-    (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
+    (farmsToDisplay: Vault[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        let cakeRewardPerBlock = null
-        let fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
-        if (!fetchedFarm) {
-          fetchedFarm = farm
+        let tokenPrice = sugarPrice
+        if (farm.id === 1) {
+          tokenPrice = cakePrice
+        } else if (farm.id === 3) {
+          tokenPrice = new BigNumber("22.13")
         }
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(tokenPrice)
+        const lpTotlalInQuoteJSON = new BigNumber(farm.lpTotalInQuoteToken).toJSON();
+        const dailyApy = new BigNumber(farm.apr).div(new BigNumber(365)).plus(new BigNumber(1))
+        let apy = new BigNumber(dailyApy).pow(new BigNumber(365)).minus(new BigNumber(1));
 
-        if (farm.type === 'Mint') {
-          cakeRewardPerBlock = new BigNumber(farm.MintPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        } else if (farm.type === 'TeaSport') {
-          cakeRewardPerBlock = new BigNumber(farm.TeaSportPerBlock || 1).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
-        } else {
-          cakeRewardPerBlock = new BigNumber(fetchedFarm.SUGARPerBlock || 1).times(new BigNumber(fetchedFarm.poolWeight)) .div(new BigNumber(10).pow(18))
-        }
-
-        const totalLiquidity = new BigNumber(fetchedFarm.lpTotalInQuoteToken).times(fetchedFarm.quoteToken.busdPrice)
-
-        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-
-        let apy = null
-        if (farm.type === 'Mint') {
-          apy = mintPrice.times(cakeRewardPerYear);
-        } else if (farm.type === 'TeaSport') {
-          apy = teasportPrice.times(cakeRewardPerYear);
-        } else {
-          apy = new BigNumber(fetchedFarm.tokenPriceVsQuote).times(cakeRewardPerYear);
-        }
-
-        let totalValue = new BigNumber(fetchedFarm.lpTotalInQuoteToken || 0);
-
-        if (apy === null) {
-          apy = new BigNumber(0)
-        }
-
-        if (farm.quoteToken.symbol === QuoteToken.BNB) {
-          totalValue = totalValue.times(bnbPrice);
-        }
+        console.log(apy.toNumber())
         
-        if(totalValue.comparedTo(0) > 0){
-          apy = apy.div(totalValue);
+        if (farm.id === 2) {
+          if (new BigNumber(farm.apr).isGreaterThan(new BigNumber(0.4593))) {
+            apy = new BigNumber(farm.apr || 0)
+          } else if (new BigNumber(farm.apr || 0).isEqualTo(new BigNumber(0))) {
+              apy = new BigNumber(0)
+          } else {
+              apy = new BigNumber(0.4593)
+          }
         }
 
         return { ...farm, apy, liquidity: totalLiquidity }
@@ -225,7 +208,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
       return farmsToDisplayWithAPY
     },
-    [bnbPrice, mintPrice, teasportPrice, poolsLP, query],
+    [query, cakePrice, sugarPrice],
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
@@ -319,7 +302,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
       multiplier: {
         multiplier: farm.multiplier,
       },
-      details: farm,
+      details: farm
     }
 
     return row
