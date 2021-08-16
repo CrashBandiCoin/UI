@@ -71,6 +71,21 @@ export interface FarmConfig {
   }
 }
 
+export interface VaultConfig {
+  id: number
+  pid: number
+  type: string
+  lpSymbol: string
+  lpAddresses: Address
+  token: Token
+  quoteToken: Token
+  multiplier?: string
+  isTokenOnly?: boolean
+  dual?: {
+    earnLabel: string
+  }
+}
+
 export interface PoolConfig {
   sousId: number
   image?: string

@@ -1,12 +1,11 @@
 import contracts from './contracts'
-import { FarmConfig, QuoteToken, ContractType } from './types'
+import { VaultConfig, QuoteToken, ContractType } from './types'
 
-const farms: FarmConfig[] = [
+const vaults: VaultConfig[] = [
 	{
 	    id: 1,
 	    pid: 11, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
-	    risk: 5,
 	    isTokenOnly: true,
 	    lpSymbol: 'CAKE',
 	    lpAddresses: {
@@ -29,7 +28,6 @@ const farms: FarmConfig[] = [
 	    id: 2,
 	    pid: 10,
 	    type: ContractType.Sugar,
-	    risk: 5,
 	    isTokenOnly: true,
 	    lpSymbol: 'SUGAR',
 	    lpAddresses: {
@@ -48,12 +46,10 @@ const farms: FarmConfig[] = [
 	      address: contracts.busd
 	    }
 	},
-
 	{
 	    id: 4,
 	    pid: 2,
 	    type: ContractType.Mint,
-	    risk: 3,
 	    lpSymbol: 'BNB-BUSD LP',
 	    lpAddresses: {
 	      97: '',
@@ -73,8 +69,8 @@ const farms: FarmConfig[] = [
 	},
 ]
 
-const farms1 = farms.filter((farm) => farm.type === 'Mint')
-const farms2 = farms.filter((farm) => farm.type === 'Sugar')
-const farms3 = farms.filter((farm) => farm.type === 'TeaSport')
+const vaults1 = vaults.filter((vault) => vault.type === 'Mint')
+const vaults2 = vaults.filter((vault) => vault.type === 'Sugar')
+const vaults3 = vaults.filter((vault) => vault.type === 'TeaSport')
 
-export default [...farms1, ...farms2, ...farms3]
+export default [...vaults1, ...vaults2, ...vaults3]

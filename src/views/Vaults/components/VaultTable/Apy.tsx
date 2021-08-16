@@ -54,12 +54,7 @@ const Apy: React.FC<ApyProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses: quoteTokenAddress, quoteTokenSymbol, tokenAddresses: tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   let apy = null;
-  if (lpLabel === 'SUGAR')
-    apy = new BigNumber(0.499);
-  else if (lpLabel === 'CAKE')
-    apy = new BigNumber(0.947);
-  else 
-    apy = new BigNumber(0.7021);
+  apy = new BigNumber(value);
 
   const farmAPY = apy && apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
