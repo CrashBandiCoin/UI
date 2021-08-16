@@ -46,3 +46,10 @@ export const getLotteryAddress = () => {
 export const getLotteryTicketAddress = () => {
   return addresses.lotteryNFT[chainId]
 }
+
+export const getLotteryAddressTeasport = () => {
+  return addresses.lotteryTeasport[chainId]
+}
+export const getLotteryTicketAddressTeasport = () => {
+  return addresses.lotteryNFTTeasport[chainId]
+}

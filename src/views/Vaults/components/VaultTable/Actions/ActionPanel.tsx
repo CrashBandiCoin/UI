@@ -2,7 +2,7 @@ import React from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes, css } from 'styled-components'
 import { LinkExternal, Text } from '@pancakeswap-libs/uikit'
-import { FarmWithStakedValue } from 'views/Vaults/components/VaultCard/FarmCard'
+import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'
 
@@ -171,8 +171,13 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
   let apyValue = null;
-  apyValue = apy.value;
-  
+  if (lpLabel === 'SUGAR')
+    apyValue = new BigNumber(0.499);
+  else if (lpLabel === 'CAKE')
+    apyValue = new BigNumber(0.947);
+  else 
+    apyValue = new BigNumber(0.7021);
+
   const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,

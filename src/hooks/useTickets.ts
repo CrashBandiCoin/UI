@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
-import { useLottery, useLotteryTicket } from 'hooks/useContract'
+import {useLottery, useLotteryTeasport, useLotteryTicket} from 'hooks/useContract'
 import useRefresh from './useRefresh'
 import {
   getTotalRewards,
@@ -35,6 +35,25 @@ const useTickets = (lotteryNumber = null) => {
 export const useTotalRewards = () => {
   const [rewards, setRewards] = useState(new BigNumber(0))
   const lotteryContract = useLottery()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getTotalRewards(lotteryContract)
+      setRewards(new BigNumber(res))
+    }
+
+    if (lotteryContract) {
+      fetchBalance()
+    }
+  }, [lotteryContract, fastRefresh])
+
+  return rewards
+}
+
+export const useTotalRewardsTeasport = () => {
+  const [rewards, setRewards] = useState(new BigNumber(0))
+  const lotteryContract = useLotteryTeasport()
   const { fastRefresh } = useRefresh()
 
   useEffect(() => {

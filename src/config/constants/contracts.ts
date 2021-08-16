@@ -24,7 +24,7 @@ const contracts = {
     97: '',
   },
   vaultChef: {
-    56: '0xD3087e53a6CCCe60C3fEec44AeDc67c730b5dBD6',
+    56: '0x3C1bC49CB0B9229d8a8A8c11702E86af06078659',
     97: '',
   },
   vaultMint: {
@@ -40,11 +40,19 @@ const contracts = {
     97: '',
   },
   lottery: {
-    56: '0xD876B387D5b0E9E8d5cB4447C98545b91b518aFe',
+    56: '0x211EAC1AB2dD15ca683437f7C5fb7b32f72Ae84E',
     97: '',
   },
   lotteryNFT: {
-    56: '0x621022F467Aa45183A8b38c271C58164Cf892c15',
+    56: '0xAFc5Ed957F17Af49c3532B67a2087881b84C768B',
+    97: '',
+  },
+  lotteryTeasport: {
+    56: '0x76430Dd654755c815Cc2Dd5Ad2Fc2a1676574fd2',
+    97: '',
+  },
+  lotteryNFTTeasport: {
+    56: '0xd1199c9B0262763CB06FD1F9caE7B0cCBeF57500',
     97: '',
   },
   mulltiCall: {

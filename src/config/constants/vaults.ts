@@ -1,11 +1,12 @@
 import contracts from './contracts'
-import { VaultConfig, QuoteToken, ContractType } from './types'
+import { FarmConfig, QuoteToken, ContractType } from './types'
 
-const vaults: VaultConfig[] = [
+const farms: FarmConfig[] = [
 	{
 	    id: 1,
-	    pid: 4, // TODO fixe the correct APR
+	    pid: 11, // TODO fixe the correct APR
 	    type: ContractType.Sugar,
+	    risk: 5,
 	    isTokenOnly: true,
 	    lpSymbol: 'CAKE',
 	    lpAddresses: {
@@ -26,8 +27,9 @@ const vaults: VaultConfig[] = [
 	},
 	{
 	    id: 2,
-	    pid: 7,
+	    pid: 10,
 	    type: ContractType.Sugar,
+	    risk: 5,
 	    isTokenOnly: true,
 	    lpSymbol: 'SUGAR',
 	    lpAddresses: {
@@ -46,32 +48,12 @@ const vaults: VaultConfig[] = [
 	      address: contracts.busd
 	    }
 	},
-	{
-	    id: 3,
-	    pid: 5,
-	    type: ContractType.Sugar,
-	    isTokenOnly: false,
-	    lpSymbol: 'CAKE-BNB',
-	    lpAddresses: {
-	      97: '',
-	      56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0', // SUGAR-BUSD LP
-	    },
-	    token: {
-	      symbol: 'CAKE',
-	      address: {
-	        97: '',
-	        56: '0x41aa9f842af935cc71252c0de4bff13f821546b8',
-	      },
-	    },
-	    quoteToken: {
-	      symbol: QuoteToken.BNB,
-	      address: contracts.wbnb
-	    }
-	},
+
 	{
 	    id: 4,
 	    pid: 2,
 	    type: ContractType.Mint,
+	    risk: 3,
 	    lpSymbol: 'BNB-BUSD LP',
 	    lpAddresses: {
 	      97: '',
@@ -91,8 +73,8 @@ const vaults: VaultConfig[] = [
 	},
 ]
 
-const vaults1 = vaults.filter((vault) => vault.type === 'Mint')
-const vaults2 = vaults.filter((vault) => vault.type === 'Sugar')
-const vaults3 = vaults.filter((vault) => vault.type === 'TeaSport')
+const farms1 = farms.filter((farm) => farm.type === 'Mint')
+const farms2 = farms.filter((farm) => farm.type === 'Sugar')
+const farms3 = farms.filter((farm) => farm.type === 'TeaSport')
 
-export default [...vaults1, ...vaults2, ...vaults3]
+export default [...farms1, ...farms2, ...farms3]

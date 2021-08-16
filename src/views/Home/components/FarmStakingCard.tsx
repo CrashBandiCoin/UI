@@ -11,8 +11,11 @@ import CakeWalletBalance from './CakeWalletBalance'
 import {usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd} from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getCakeAddress, getMintAddress, getTeaSportAddress} from '../../../utils/addressHelpers'
-import { useAllEarnings, useAllEarningsByCategory } from '../../../hooks/useAllEarnings'
+import {useAllEarningsByCategory} from '../../../hooks/useAllEarnings'
 import {getBalanceNumber} from '../../../utils/formatBalance'
+
+
+
 
 const StyledFarmStakingCard = styled(Card)`
   background-image: url('/images/SUGAR/2a.png');
@@ -63,7 +66,6 @@ const FarmedStakingCard = () => {
     const earningsSumSugar = allEarningsSugar.reduce((accum, earning) => {
         return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
     }, 0)
-
     const earningsSumTeasport = allEarningsTeasport.reduce((accum, earning) => {
         return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
     }, 0)
@@ -231,11 +233,6 @@ const FarmedStakingCard = () => {
                     TEASPORT
                 </Heading>
                 <CardImage src="/images/SUGAR/TeaSportV1.png" alt="cake logo" width={64} height={64}/>
-                <Block>
-                    <Label>TEASPORT to Harvest</Label>
-                    <CakeHarvestBalance earningsSum={earningsSumTeasport}/>
-                    <Label>~${(TEASPORTPrice * earningsSumTeasport).toFixed(2)}</Label>
-                </Block>
                 <Block>
                     <Label>TEASPORT in Wallet</Label>
                     <CakeWalletBalance cakeBalance={teasportBalance}/>

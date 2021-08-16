@@ -5,7 +5,7 @@ import useRefresh from 'hooks/useRefresh'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchVaultsPublicDataAsync } from './actions'
-import { State, Farm, Pool, Vault } from './types'
+import { State, Farm, Pool } from './types'
 import { QuoteToken } from '../config/constants/types'
 
 const ZERO = new BigNumber(0)
@@ -50,17 +50,17 @@ export const useFarmUser = (pid, id) => {
 
 // Vaults
 
-export const useVaults = (): Vault[] => {
+export const useVaults = (): Farm[] => {
   const vaults = useSelector((state: State) => state.vaults.data)
   return vaults
 }
 
-export const useVaultFromPid = (pid, id): Vault => {
+export const useVaultFromPid = (pid, id): Farm => {
   const vault = useSelector((state: State) => state.vaults.data.find((f) => f.pid === pid && f.id === id))
   return vault
 }
 
-export const useVaultFromSymbol = (lpSymbol: string): Vault => {
+export const useVaultFromSymbol = (lpSymbol: string): Farm => {
   const vault = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
   return vault
 }
@@ -76,7 +76,7 @@ export const useVaultUser = (pid, id) => {
   }
 }
 
-export const useVaultFromLpSymbol = (lpSymbol: string): Vault => {
+export const useVaultFromLpSymbol = (lpSymbol: string): Farm => {
   const farm = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
   return farm
 }
@@ -119,18 +119,6 @@ export const usePriceCakeBusd = (): BigNumber => {
   const pid = 1; // SUGAR-BUSD LP
   // const bnbPriceUSD = usePriceBnbBusd()
   const id = 2;
-  const farm = useFarmFromPid(pid, id)
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
-}
-
-export const usePricePanCakeBusd = (): BigNumber => {
-  // const pid = 1 // CAKE-BNB LP
-  // const bnbPriceUSD = usePriceBnbBusd()
-  // const farm = useFarmFromPid(pid)
-  // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  const pid = 4; // CAKE-BUSD LP
-  // const bnbPriceUSD = usePriceBnbBusd()
-  const id = 8;
   const farm = useFarmFromPid(pid, id)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }

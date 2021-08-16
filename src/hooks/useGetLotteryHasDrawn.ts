@@ -27,4 +27,6 @@ const useGetLotteryHasDrawn = () => {
   return lotteryHasDrawn
 }
 
+
+
 export default useGetLotteryHasDrawn

@@ -7,7 +7,7 @@ import { provider } from 'web3-core'
 import { getContract } from 'utils/erc20'
 import { getAddress } from 'utils/addressHelpers'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { Vault } from 'state/types'
+import { Farm } from 'state/types'
 import { useERC20 } from 'hooks/useContract'
 import UnlockButton from 'components/UnlockButton'
 import StakeAction from './StakeAction'
@@ -17,7 +17,7 @@ import useApproveFarm from '../../hooks/useApproveFarm'
 const Action = styled.div`
   padding-top: 16px;
 `
-export interface FarmWithStakedValue extends Vault {
+export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
 }
 

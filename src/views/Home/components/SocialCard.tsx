@@ -15,6 +15,11 @@ import CoinHut from "../img/coinhut.png";
 import CoinSniper from "../img/coinsniper.png";
 import IcoHolder from "../img/icoholder.png";
 import Bscscan from "../img/bscscan.png";
+import Dapp from "../img/dapp.png";
+import Blockfolio from "../img/blockfolio.png";
+import Delta from "../img/delta.png";
+import CoinScope from "../img/Logo_CoinScope_OK.png";
+
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -89,12 +94,36 @@ const SocialCard = () => {
                             alt=""
                         />
                     </a>
-                    <a href="https://bscscan.com/address/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8">
+                    <a href="https://www.dapp.com/app/teaswap-finance">
                         <img
-                            src={Bscscan}
+                            src={Dapp}
                             loading="lazy"
                             width='100px'
                             alt=""
+                        />
+                    </a>
+                    <a href="https://blockfolio.com/">
+                        <img
+                            src={Blockfolio}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://delta.app/en">
+                        <img
+                            src={Delta}
+                            loading="lazy"
+                            width='100px'
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://www.coinscope.co/coin/mintv2">
+                        <img
+                          src={CoinScope}
+                          loading="lazy"
+                          width='100px'
+                          alt=""
                         />
                     </a>
                 </div>

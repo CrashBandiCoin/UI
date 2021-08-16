@@ -811,6 +811,100 @@ const farms: FarmConfig[] = [
       address: contracts.cake
     }
   },
+
+  {
+    id: 33,
+    pid: 17,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT',
+    isTokenOnly: true,
+    lpAddresses: {
+      97: '',
+      56: '0x154b10d06c8739Df799510a338AC7e61391011F6',
+    },
+    token: {
+      symbol: 'TEASPORT',
+      address: {
+        97: '',
+        56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+      },
+    },
+    quoteToken: {
+      symbol: QuoteToken.BUSD,
+      address: contracts.busd
+    }
+  },
+
+  {
+    id: 34,
+    pid: 18,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x7ca18c58C6D890201172800EB0508450aE46e4F5',
+    },
+    token: {
+      symbol: 'TEASPORT',
+      address: {
+        97: '',
+        56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+      },
+    },
+    quoteToken: {
+      symbol: QuoteToken.BNB,
+      address: contracts.wbnb
+    }
+  },
+
+  {
+    id: 35,
+    pid: 19,
+    risk: 5,
+    type: ContractType.Sugar,
+    lpSymbol: 'TEASPORT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x154b10d06c8739Df799510a338AC7e61391011F6',
+    },
+    token: {
+      symbol: 'TEASPORT',
+      address: {
+        97: '',
+        56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
+      },
+    },
+    quoteToken: {
+      symbol: QuoteToken.BUSD,
+      address: contracts.busd
+    }
+  },
+
+  {
+    id: 36,
+    pid: 21,
+    risk: 5,
+    type: ContractType.Sugar,
+    isTokenOnly: true,
+    lpSymbol: 'LINK',
+    lpAddresses: {
+      97: '',
+      56: '0x00C4849E82D574B02f43c0F84b131dCC9cAbFC49',
+    },
+    token: {
+      symbol: 'LINK',
+      address: {
+        97: '',
+        56: '0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd',
+      },
+    },
+    quoteToken: {
+      symbol: QuoteToken.BUSD,
+      address: contracts.busd
+    }
+  },
   // {
   //   pid: 3,
   //   risk: 1,

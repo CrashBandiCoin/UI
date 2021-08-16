@@ -25,7 +25,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
   }, [max])
 
   const maxTickets = useMemo(() => {
-    return parseInt(getFullDisplayBalance(max.div(new BigNumber(10))))
+    return parseInt(getFullDisplayBalance(max.div(new BigNumber(100))))
   }, [max])
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => setVal(e.currentTarget.value)
@@ -44,7 +44,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         Math.floor(Math.random() * maxNumber) + 1,
         Math.floor(Math.random() * maxNumber) + 1,
       ])
-      const txHash = await onMultiBuy('10', numbers)
+      const txHash = await onMultiBuy('100', numbers)
       // user rejected tx or didn't go thru
       if (txHash) {
         setRequestedBuy(false)
@@ -63,7 +63,7 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
   }, [maxTickets])
 
   const cakeCosts = (amount: string): number => {
-    return +amount * 10
+    return +amount * 100
   }
   return (
     <Modal title={TranslateString(450, 'Enter amount of tickets to buy')} onDismiss={onDismiss}>
@@ -76,8 +76,8 @@ const BuyTicketModal: React.FC<BuyTicketModalProps> = ({ max, onDismiss }) => {
         availableSymbol="SUGAR"
       />
       <div>
-        <Tips>Your amount must be a multiple of 10 SUGAR</Tips>
-        <Tips>1 Ticket = 10 SUGAR</Tips>
+        <Tips>Your amount must be a multiple of 100 SUGAR</Tips>
+        <Tips>1 Ticket = 100 SUGAR</Tips>
       </div>
       <div>
         <Announce>
