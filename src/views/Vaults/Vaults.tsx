@@ -137,6 +137,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
   const { account }: { account: string } = useWallet()
   const {tokenMode, type} = vaultsProps;
   const tvl = useVaultTotalValue()
+  const tvlJSOn = tvl.toNumber()
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -194,6 +195,8 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           } else {
               apy = new BigNumber(0.4593)
           }
+        } else if (farm.id === 3) {
+          apy = new BigNumber(farm.apr)
         }
 
         return { ...farm, apy, liquidity: totalLiquidity }
