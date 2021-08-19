@@ -184,26 +184,21 @@ export const useTotalValue = (): BigNumber => {
 export const useVaultTotalValue = (): BigNumber => {
   const farms = useVaults();
   const poolsLP = useFarms();
+  const cakePrice = usePricePanCakeBusd()
   const bnbPrice = usePriceBnbBusd();
-  const cakePrice = usePriceCakeBusd();
-  const mintPrice = usePriceMintBusd();
-  const tokenEventPrice = usePriceTeaSportBusd();
+  const sugarPrice = usePriceCakeBusd();
+
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
-    const fetchedFarm = poolsLP.filter(pool => pool.isTokenOnly && pool.lpSymbol === farm.lpSymbol && pool.type === farm.type)[0]
-    if (fetchedFarm && fetchedFarm.lpTotalInQuoteToken) {
-      let val;
-      if (fetchedFarm.quoteToken.symbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(fetchedFarm.lpTotalInQuoteToken));
-      }else if (fetchedFarm.quoteToken.symbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(fetchedFarm.lpTotalInQuoteToken));
-      }else{
-        val = (fetchedFarm.lpTotalInQuoteToken);
-      }
-      if (val)
-        value = value.plus(val);
+    let tokenPrice = sugarPrice
+    if (farm.id === 1) {
+      tokenPrice = cakePrice
+    } else if (farm.id === 3) {
+      tokenPrice = new BigNumber("22.13")
     }
+    const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(tokenPrice)
+    value = value.plus(totalLiquidity)
   }
   return value;
 }
