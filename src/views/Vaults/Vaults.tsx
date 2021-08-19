@@ -195,7 +195,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           } else {
               apy = new BigNumber(0.4593)
           }
-        } else if (farm.id === 3) {
+        } else {
           apy = new BigNumber(farm.apr)
         }
 
