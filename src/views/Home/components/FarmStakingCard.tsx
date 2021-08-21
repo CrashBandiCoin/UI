@@ -209,12 +209,12 @@ const FarmedStakingCard = () => {
                 <Block>
                     <Label>{TranslateString(544, 'SUGAR to Harvest')}</Label>
                     <CakeHarvestBalance earningsSum={earningsSumSugar}/>
-                    <Label>~${(SUGARPrice * earningsSumSugar).toFixed(2)}</Label>
+                    <Label>${(SUGARPrice * earningsSumSugar).toFixed(2)}</Label>
                 </Block>
                 <Block>
                     <Label>SUGAR in Wallet</Label>
                     <CakeWalletBalance cakeBalance={cakeBalance}/>
-                    <Label>~${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
+                    <Label>${(SUGARPrice * cakeBalance).toFixed(2)}</Label>
                 </Block>
                 <Button onClick={addWatchBlzdToken} mb="sm">
                     +{' '}
@@ -236,7 +236,7 @@ const FarmedStakingCard = () => {
                 <Block>
                     <Label>TEASPORT in Wallet</Label>
                     <CakeWalletBalance cakeBalance={teasportBalance}/>
-                    <Label>~${(TEASPORTPrice * teasportBalance).toFixed(2)}</Label>
+                    <Label>${(TEASPORTPrice * teasportBalance).toFixed(2)}</Label>
                 </Block>
                 <Button onClick={addWatchTeaSportToken} mb="sm">
                     +{' '}

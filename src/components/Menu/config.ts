@@ -28,7 +28,7 @@ const config: MenuEntry[] = [
     },
 
     {
-        label: 'BUY/SELL',
+        label: 'EXCHANGE',
         icon: 'TradeIcon',
         items: [
             {
