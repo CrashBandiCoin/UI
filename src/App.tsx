@@ -78,6 +78,9 @@ const App: React.FC = () => {
             <Route path="/euro">
               <Euro/>
             </Route>
+            <Route path="/roadmap">
+              <Roadmap/>
+            </Route>
             {/* <Route path="/migration"> */}
                 {/* <Migration/> */}
             {/* </Route> */}

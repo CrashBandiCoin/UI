@@ -53,6 +53,11 @@ const config: MenuEntry[] = [
         href: 'https://snapshot.org/#/tea-swap.eth',
     },
     {
+        label: 'Roadmap',
+        icon: 'RoadmapIcon',
+        href: '/roadmap',
+    },
+    {
         label: 'Raffle',
         icon: 'TicketIcon',
         href: '/raffle',
