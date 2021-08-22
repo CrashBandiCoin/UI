@@ -12,6 +12,8 @@ import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
+import { useFarmFromPid, useFarmUser } from '../../../../state/hooks'
+import { getBalanceNumber } from '../../../../utils/formatBalance'
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber
@@ -93,7 +95,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   const TranslateString = useI18n()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
-
+  const { id, pid } = useFarmFromPid(farm.pid, farm.id)
+  const {tokenBalance, stakedBalance, earnings } = useFarmUser(pid, id)
   // const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
@@ -211,6 +214,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           quoteTokenSymbol={quoteToken.symbol}
           tokenAddresses={token.address}
           valueLp={lpPriceFormated}
+          earnedValue = {getBalanceNumber(earnings)*cakePrice.toNumber()}
+          liquidityValue = {getBalanceNumber(stakedBalance)*lpPrice}
         />
       </ExpandingWrapper>
     </FCard>

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
-import {getFullDisplayBalance} from "../../../../utils/formatBalance";
+import BigNumber from 'bignumber.js'
+
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
@@ -17,6 +18,8 @@ export interface ExpandableSectionProps {
   quoteTokenSymbol?: string
   tokenAddresses: Address
   valueLp: string
+  earnedValue : number
+  liquidityValue : number
 }
 
 const Wrapper = styled.div`
@@ -50,6 +53,8 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   quoteTokenSymbol,
   tokenAddresses,
   valueLp,
+  earnedValue,
+  liquidityValue,
 }) => {
   const TranslateString = useI18n()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
@@ -75,10 +80,14 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       )}
       {!isTokenOnly && (
           <Flex justifyContent="space-between">
-            <Text>{TranslateString(999, 'LP price')}:</Text>
-            <Text>{lpTokenPriceFormated}</Text>
+            <Text>{TranslateString(999, 'Your liquidity')}:</Text>
+            <Text>${liquidityValue.toFixed(2)}</Text>
           </Flex>
       )}
+        <Flex justifyContent="space-between">
+          <Text>{TranslateString(999, 'To earn')}:</Text>
+          <Text>${earnedValue.toFixed(2)}</Text>
+        </Flex>
       <Flex justifyContent="flex-start">
         <Link external href={bscScanAddress} bold={false}>
           {TranslateString(356, 'View on BscScan')}
