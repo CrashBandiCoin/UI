@@ -120,14 +120,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     : '-'
 
     const lpPrice = useMemo(() => {
-        if (farm.isTokenOnly) {
-            return null
-        }
         return Number(totalValue) / Number(farm.lpTokenBalanceMC)
     }, [farm, totalValue])
 
     const lpTokenPriceFormated = lpPrice
-        ? `$${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+        ? `${Number(lpPrice).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
         : '-'
 
   const lpLabel = farm.lpSymbol

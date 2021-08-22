@@ -84,6 +84,12 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
             <Text>${liquidityValue.toFixed(2)}</Text>
           </Flex>
       )}
+      {isTokenOnly && (
+        <Flex justifyContent="space-between">
+          <Text>{TranslateString(999, 'Your liquidity')}:</Text>
+          <Text>${liquidityValue.toFixed(2)}</Text>
+        </Flex>
+      )}
         <Flex justifyContent="space-between">
           <Text>{TranslateString(999, 'To Harvest')}:</Text>
           <Text>${earnedValue.toFixed(2)}</Text>
