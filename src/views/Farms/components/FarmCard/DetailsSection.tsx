@@ -85,7 +85,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
           </Flex>
       )}
         <Flex justifyContent="space-between">
-          <Text>{TranslateString(999, 'To earn')}:</Text>
+          <Text>{TranslateString(999, 'To Harvest')}:</Text>
           <Text>${earnedValue.toFixed(2)}</Text>
         </Flex>
       <Flex justifyContent="flex-start">
