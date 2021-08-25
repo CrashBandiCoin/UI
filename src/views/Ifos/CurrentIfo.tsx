@@ -56,24 +56,14 @@ const Ifo = () => {
               {TranslateString(999, 'Get LP tokens')}
             </LinkExternal>
           </Flex>
-          <Heading mb="16px">{TranslateString(600, 'During Sale')}:</Heading>
-          <List>
-            <li>{TranslateString(602, 'While the sale is live, commit your SUGAR-LP tokens to buy the IFO tokens')}</li>
-          </List>
-          <Heading mb="16px">{TranslateString(604, 'After Sale')}:</Heading>
-          <List>
-            <li>{TranslateString(606, 'Claim the tokens you bought, along with any unspent funds.')}</li>
-            <li>{TranslateString(608, 'Done!')}</li>
-          </List>
         </div>
         <div>
           <div>
             <Title as="h2">{TranslateString(512, 'Want to launch your own IFO?')}</Title>
             <Text mb={3}>
-              {TranslateString(
-                514,
-                'Launch your project with TeaSwap !',
-              )}
+
+                Launch your project with TeaSwap !
+
             </Text>
             <Button
               as="a"

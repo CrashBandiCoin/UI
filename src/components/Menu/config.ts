@@ -83,7 +83,7 @@ const config: MenuEntry[] = [
         ]
     },
     {
-        label: 'Chart',
+        label: 'Charts',
         icon: 'InfoIcon',
         href: '/chart',
         items: [
