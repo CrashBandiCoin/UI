@@ -21,7 +21,8 @@ const Vaults = lazy(() => import('./views/Vaults'))
 const Zap = lazy(() => import('./views/Zap'))
 const Euro = lazy(() => import('./views/Euro'))
 // const Pools = lazy(() => import('./views/Pools'))
-// const Ifos = lazy(() => import('./views/Ifos'))
+const Ifos = lazy(() => import('./views/Ifos'))
+const Chart = lazy(() => import('./views/Chart'))
 const NotFound = lazy(() => import('./views/NotFound'))
 // const Nft = lazy(() => import('./views/Nft'))
 
@@ -93,10 +94,12 @@ const App: React.FC = () => {
             <Route path="/raffleTeasport">
               <LotteryTeasport />
             </Route>
-
-            {/* <Route path="/ifo"> */}
-            {/*  <Ifos /> */}
-            {/* </Route> */}
+            <Route path="/ifo">
+             <Ifos />
+            </Route>
+            <Route path="/chart">
+              <Chart />
+            </Route>
             {/* <Route path="/nft"> */}
             {/*  <Nft /> */}
             {/* </Route> */}

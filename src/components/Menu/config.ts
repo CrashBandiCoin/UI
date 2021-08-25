@@ -58,6 +58,16 @@ const config: MenuEntry[] = [
         href: '/roadmap',
     },
     {
+        label: 'IFO',
+        icon: 'IfoIcon',
+        href: '/ifo',
+        status: {
+        text: 'New',
+        color: 'contrast'
+    },
+
+    },
+    {
         label: 'Raffle',
         icon: 'TicketIcon',
         href: '/raffle',
@@ -72,6 +82,26 @@ const config: MenuEntry[] = [
             },
         ]
     },
+    {
+        label: 'Chart',
+        icon: 'InfoIcon',
+        href: '/chart',
+        items: [
+            {
+                label: 'MINT',
+                href: 'https://dex.guru/token/0x2deb28ec61e7b6b4bba5f8398398330227cd293f-bsc',
+            },
+            {
+                label: 'SUGAR',
+                href: 'https://dex.guru/token/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8-bsc',
+            },
+            {
+                label: 'TEASPORT',
+                href: 'https://dex.guru/token/0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A-bsc',
+            },
+        ],
+    },
+
     {
         label: 'More',
         icon: 'MoreIcon',
