@@ -19,7 +19,7 @@ const IfoTabButtons = () => {
         <ButtonMenuItem as={Link} to={`${url}`}>
           Next IFO
         </ButtonMenuItem>
-        <ButtonMenuItem as={Link} to={`${url}/history`}>
+        <ButtonMenuItem as={Link} to={`${url}`}>
           Past IFOs
         </ButtonMenuItem>
       </ButtonMenu>
