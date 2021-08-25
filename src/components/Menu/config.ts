@@ -68,7 +68,7 @@ const config: MenuEntry[] = [
 
     },
     {
-        label: 'Raffle',
+        label: 'Raffles',
         icon: 'TicketIcon',
         href: '/raffle',
         items: [

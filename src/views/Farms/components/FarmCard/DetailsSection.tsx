@@ -79,6 +79,12 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         </Flex>
       )}
       {!isTokenOnly && (
+        <Flex justifyContent="space-between">
+          <Text>{TranslateString(999, 'LP price')}:</Text>
+          <Text>${lpTokenPriceFormated}</Text>
+        </Flex>
+      )}
+      {!isTokenOnly && (
           <Flex justifyContent="space-between">
             <Text>{TranslateString(999, 'Your liquidity')}:</Text>
             <Text>${liquidityValue.toFixed(2)}</Text>
