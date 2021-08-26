@@ -52,7 +52,8 @@ const Ifo = () => {
             <LinkExternal href="https://pancakeswap.finance/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8" mr="16px">
               Buy SUGAR
             </LinkExternal>
-            <LinkExternal href="https://pancakeswap.finance/swap#/add/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f">
+            <LinkExternal href="https://pancakeswap.finance/add/0x41AA9F842AF935cC71252C0dE4BFF13F821546b8/0x2Deb28ec61E7B6B4Bba5f8398398330227Cd293f
+">
               {TranslateString(999, 'Get LP tokens')}
             </LinkExternal>
           </Flex>
