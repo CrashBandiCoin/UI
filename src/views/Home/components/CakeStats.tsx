@@ -8,10 +8,7 @@ import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
-import iconMarketCap from "../img/iconMarketCap.png";
-import iconMinted from "../img/iconMinted2.png";
-import iconBurned from "../img/iconBurned2.png";
-import iconSupply from "../img/iconSupply2.png";
+
 
 const StyledCakeStats = styled(Card)`
   margin-left: auto;
