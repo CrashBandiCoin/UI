@@ -16,10 +16,6 @@ import { getBalanceNumber } from '../../../utils/formatBalance'
 import CardValue from './CardValue'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/SUGAR/2a.png');
-  background-repeat: no-repeat;
-  background-position: top right;
-  min-height: 376px;
 `
 const Block = styled.div`
   margin-bottom: 16px;
@@ -125,18 +121,6 @@ const FarmedStakingCard = ({
           <CakeWalletBalance cakeBalance={cakeBalance} />
           <Label>~${(cakePrice * cakeBalance).toFixed(2)}</Label>
         </Block>
-        <Block>
-          <Button onClick={addWatchToken}  mb='sm'>
-            +{' '}
-            <img
-              style={{ marginLeft: 8 }}
-              width={16}
-              src='https://raw.githubusercontent.com/blzd-dev/blzd-frontend/master/public/images/wallet/metamask.png'
-              alt='metamask logo'
-            />
-          </Button>
-        </Block>
-        <br/>
         <Block>
           <HorizontalBlock>
             <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />

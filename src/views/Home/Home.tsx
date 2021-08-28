@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Heading, Text, BaseLayout, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
@@ -43,6 +43,22 @@ const Hero = styled.div`
   }
 `
 
+
+const HorizontalBlock = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+`
+
+const HorizontalBlock2 = styled.div`
+  text-align: center;
+
+`
+const CardImage = styled.img`
+  margin-bottom: 16px;
+`
+
 const Cards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
@@ -69,7 +85,7 @@ const Cards = styled(BaseLayout)`
 const Home: React.FC = () => {
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
-
+  const [showStats, setStats] = useState()
   const allEarningsSugar = useAllEarningsByCategory('Sugar')
 
   // Balance token
@@ -92,17 +108,17 @@ const Home: React.FC = () => {
   const teasportTotalSupply = useTotalSupplyTeaSport()
   const sugarTotalSupply = useTotalSupply()
 
-  const mintCircSupply = mintTotalSupply ? mintTotalSupply.minus(mintBurnedBalance) : new BigNumber(0);
-  const teasportCircSupply = teasportTotalSupply ? teasportTotalSupply.minus(teasportBurnedBalance) : new BigNumber(0);
-  const sugarCircSupply = sugarTotalSupply ? sugarTotalSupply.minus(sugarBurnedBalance) : new BigNumber(0);
+  const mintCircSupply = mintTotalSupply ? mintTotalSupply.minus(mintBurnedBalance) : new BigNumber(0)
+  const teasportCircSupply = teasportTotalSupply ? teasportTotalSupply.minus(teasportBurnedBalance) : new BigNumber(0)
+  const sugarCircSupply = sugarTotalSupply ? sugarTotalSupply.minus(sugarBurnedBalance) : new BigNumber(0)
 
-  const mintSupply = getBalanceNumber(mintCircSupply);
-  const teasportSupply = getBalanceNumber(teasportCircSupply);
-  const sugarSupply = getBalanceNumber(sugarCircSupply);
+  const mintSupply = getBalanceNumber(mintCircSupply)
+  const teasportSupply = getBalanceNumber(teasportCircSupply)
+  const sugarSupply = getBalanceNumber(sugarCircSupply)
 
-  const mintMarketCap = MINTPrice.times(mintCircSupply);
-  const teasportMarketCap = TEASPORTPrice.times(teasportCircSupply);
-  const sugarMarketCap = SUGARPrice.times(sugarCircSupply);
+  const mintMarketCap = MINTPrice.times(mintCircSupply)
+  const teasportMarketCap = TEASPORTPrice.times(teasportCircSupply)
+  const sugarMarketCap = SUGARPrice.times(sugarCircSupply)
 
 
   // address token
@@ -111,21 +127,24 @@ const Home: React.FC = () => {
   const addressSugar = getCakeAddress()
 
   // logo token
-  const logoMint ="/images/SUGAR/mint.png"
-  const logoTeasport = "/images/SUGAR/teasportV1.png"
-  const logoSugar = "/images/SUGAR/sugar.png"
+  const logoMint = '/images/SUGAR/mint.png'
+  const logoTeasport = '/images/SUGAR/teasportV1.png'
+  const logoSugar = '/images/SUGAR/sugar.png'
 
-  const farms = useFarms();
+  const farms = useFarms()
 
-  let SUGARPerBlock = 0;
+  let SUGARPerBlock = 0
 
   farms.map(farm => {
     if (farm.id === 0 && farm.pid === 0 && farm.SUGARPerBlock) {
-      SUGARPerBlock = new BigNumber(farm.SUGARPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+      SUGARPerBlock = new BigNumber(farm.SUGARPerBlock).div(new BigNumber(10).pow(18)).toNumber()
     }
     return farm
   })
 
+  const showToken = (val) => {
+    setStats(val)
+  }
 
   return (
     <Page>
@@ -135,27 +154,38 @@ const Home: React.FC = () => {
         </Heading>
         <Text>The first Social Farming Project</Text>
       </Hero>
+      <TotalValueLockedCard />
+      <br /><br /><br />
+      <HorizontalBlock>
+        <input type="image" src={logoMint} alt='mint logo' width={100} height={100} onClick={() => showToken('MINT')} />
+        <input type="image" src={logoSugar} alt='sugar logo' width={100} height={100} onClick={() => showToken('SUGAR')} />
+        <input type="image" src={logoTeasport} alt='sugar logo' width={100} height={100} onClick={() => showToken('TEASPORT')} />
+      </HorizontalBlock>
+      <br /><br /><br />
       <div>
-        <Cards>
-          <FarmStakingCard cakeBalance={mintBalance} cakePrice={MINTPrice}
-                           logo={logoMint} label='MINT' address={addressMint}
-                           totalSupply={mintTotalSupply} circSupply={mintCircSupply} supply={mintSupply}
-                           marketCap={mintMarketCap} tokenPerBlock={0} burnBalance={mintBurnedBalance}/>
-          <FarmStakingCard cakeBalance={teasportBalance} cakePrice={TEASPORTPrice} logo={logoTeasport} label='TEASPORT' address={addressTeasport}
-                           totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
-                           marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance}/>
-        </Cards>
-        <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR' address={addressSugar}
+
+        {showStats === 'MINT' &&
+        <FarmStakingCard cakeBalance={mintBalance} cakePrice={MINTPrice}
+                         logo={logoMint} label='MINT' address={addressMint}
+                         totalSupply={mintTotalSupply} circSupply={mintCircSupply}
+                         supply={mintSupply}
+                         marketCap={mintMarketCap} tokenPerBlock={0}
+                         burnBalance={mintBurnedBalance} />}
+        {showStats === 'TEASPORT' &&
+        <FarmStakingCard cakeBalance={teasportBalance} cakePrice={TEASPORTPrice} logo={logoTeasport} label='TEASPORT'
+                         address={addressTeasport}
+                         totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
+                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />}
+        {showStats === 'SUGAR' &&
+        <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
+                         address={addressSugar}
                          totalSupply={sugarTotalSupply} circSupply={sugarCircSupply} supply={sugarSupply}
-                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance}/>
-        <br/><br/>
+                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} />}
+        <br /><br />
         <Cards>
           <ImageDay />
           <TwitterCard />
         </Cards>
-        <br/>
-        <TotalValueLockedCard />
-        <br/><br/>
         <SocialCard />
       </div>
     </Page>
