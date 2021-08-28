@@ -10,6 +10,7 @@ import { getCakeAddress } from 'utils/addressHelpers'
 import TelegramEmbed from 'react-telegram-embed'
 import CardValue from './CardValue'
 import { useFarms } from '../../../state/hooks'
+import DappRadar from '../img/dappradar.png'
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -17,36 +18,31 @@ const StyledTwitterCard = styled(Card)`
 `
 
 const Row = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  display: inline-block;
+  text-align: center;
+  
 `
 
-const TwitterCard = () => {
-  const TranslateString = useI18n()
+const NFT ="/images/nfts/teaswap/tRex.png"
 
+const ImageDay = () => {
   return (
     <StyledTwitterCard>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(10003, 'Announcements')}
+          Design of the Day
         </Heading>
-        <Timeline
-          dataSource={{
-            sourceType: 'profile',
-            screenName: 'SwapTea'
-          }}
-          options={{
-            height: '300',
-            chrome: "noheader, nofooter",
-            width: "400"
-          }}
-        />
+        <Row>
+          <img
+            src={NFT}
+            loading='lazy'
+            alt=''
+          />
+        </Row>
+
       </CardBody>
     </StyledTwitterCard>
   )
 }
 
-export default TwitterCard
+export default ImageDay
