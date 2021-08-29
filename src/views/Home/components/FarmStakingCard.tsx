@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, Text } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Button, Text, Flex } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import useI18n from 'hooks/useI18n'
@@ -36,8 +36,42 @@ const Label = styled.div`
   font-size: 14px;
 `
 
+
+const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean }>`
+  flex-direction: column;
+  ${({ noMobileBorder, theme }) =>
+          noMobileBorder
+                  ? `${theme.mediaQueries.md} {
+           padding: 0 16px;
+           border-left: 1px ${theme.colors.inputSecondary} solid;
+         }
+       `
+                  : `border-left: 1px ${theme.colors.inputSecondary} solid;
+         padding: 0 8px;
+         ${theme.mediaQueries.sm} {
+           padding: 0 16px;
+         }
+       `}
+`
+
+const Grid = styled.div`
+  display: grid;
+  grid-gap: 16px 8px;
+  margin-top: 24px;
+  grid-template-columns: repeat(2, auto);
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-gap: 16px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-gap: 32px;
+    grid-template-columns: repeat(4, auto);
+  }
+`
+
 // icon token
-const burnIcon = "/images/icons/burnIcon.svg"
+const burnIcon = '/images/icons/burnIcon.svg'
 
 const FarmedStakingCard = ({
                              cakeBalance,
@@ -110,56 +144,59 @@ const FarmedStakingCard = ({
   }, [])
 
   return (
-    <StyledFarmStakingCard>
-      <CardBody>
-        <Heading size='xl' mb='24px'>
-          {label}
-        </Heading>
-        <CardImage src={logo} alt='cake logo' width={64} height={64} />
-        <Block>
-          <Label>{label} in Wallet</Label>
-          <CakeWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(cakePrice * cakeBalance).toFixed(2)}</Label>
-        </Block>
-        <Block>
-          <HorizontalBlock>
-            <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-            <Text fontSize='14px'>{TranslateString(10005, 'Market Cap')}</Text>
-            <CardValue fontSize='14px' value={getBalanceNumber(marketCap)} decimals={0} prefix='$' />
-          </HorizontalBlock>
-
-          <HorizontalBlock>
-            <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-            <Text fontSize='14px'>{TranslateString(536, 'Total Minted')}</Text>
-            {totalSupply && <CardValue fontSize='14px' value={getBalanceNumber(totalSupply)} decimals={0} />}
-          </HorizontalBlock>
-
-          <HorizontalBlock>
-            <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-            <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-            <CardValue fontSize="14px" value={getBalanceNumber(burnBalance)} decimals={0} />
-          </HorizontalBlock>
-
-          <HorizontalBlock>
-            <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-            <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-            {supply && <CardValue fontSize="14px" value={supply} decimals={0} />}
-          </HorizontalBlock>
-          {tokenPerBlock ?
-          <HorizontalBlock>
-            <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-              <Text fontSize="14px">Emission rate :</Text>
-              <Text bold fontSize="14px">
-                {tokenPerBlock}
-              </Text>
-          </HorizontalBlock>
-          : ''}
-
-        </Block>
-
-
-      </CardBody>
-    </StyledFarmStakingCard>
+    <Grid>
+      <Flex flexDirection='column'>
+        <Label>Token : {label}</Label>
+        <br/>
+        <CardImage src={logo} alt='cake logo' width={60} height={60} />
+      </Flex>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>{TranslateString(10005, 'Your wallet')}</Text>
+        <CakeWalletBalance cakeBalance={cakeBalance} />
+        <Label>~${(cakePrice * cakeBalance).toFixed(2)}</Label>
+      </StyledColumn>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>Your % supply</Text>
+        <CardValue fontSize='14px' value={(cakeBalance/getBalanceNumber(totalSupply))*100} decimals={0} prefix='%' />
+      </StyledColumn>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>{TranslateString(10005, 'Market Cap')}</Text>
+        <CardValue fontSize='14px' value={getBalanceNumber(marketCap)} decimals={0} prefix='$' />
+      </StyledColumn>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>{TranslateString(536, 'Total Minted')}</Text>
+        {totalSupply && <CardValue fontSize='14px' value={getBalanceNumber(totalSupply)} decimals={0} />}
+      </StyledColumn>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>{TranslateString(538, 'Total Burned')}</Text>
+        <CardValue fontSize='14px' value={getBalanceNumber(burnBalance)} decimals={0} />
+      </StyledColumn>
+      <StyledColumn>
+        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+        <Text fontSize='14px'>{TranslateString(10004, 'Circulating Supply')}</Text>
+        {supply && <CardValue fontSize='14px' value={supply} decimals={0} />}
+      </StyledColumn>
+      {tokenPerBlock ?
+        <StyledColumn>
+          <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+          <Text fontSize='14px'>Emission rate :</Text>
+          <Text bold fontSize='14px'>
+            {tokenPerBlock}
+          </Text>
+        </StyledColumn>
+        : ''}
+      {!tokenPerBlock ?
+        <StyledColumn>
+          <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
+          <Text fontSize='14px'>CAPPED (no more token)</Text>
+        </StyledColumn>
+        : ''}
+    </Grid>
   )
 }
 

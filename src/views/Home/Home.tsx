@@ -36,7 +36,7 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/SUGAR/3.png'), url('/images/SUGAR/3b.png');
+    background-image: url('/images/icons/NFT/TeaRex.svg'), url('/images/icons/NFT/TeaRex.svg');
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
