@@ -23,14 +23,14 @@ const Row = styled.div`
   
 `
 
-const NFT ="/images/nfts/teaswap/tRex.png"
+const NFT ="/images/nfts/teaswap/tRex.jpg"
 
 const ImageDay = () => {
   return (
     <StyledTwitterCard>
       <CardBody>
         <Heading size="xl" mb="24px">
-          Design of the Day
+          Winner of the last giveaway
         </Heading>
         <Row>
           <img

@@ -145,45 +145,29 @@ const FarmedStakingCard = ({
 
   return (
     <Grid>
-      <Flex flexDirection='column'>
-        <Label>Token : {label}</Label>
-        <br/>
-        <CardImage src={logo} alt='cake logo' width={60} height={60} />
-      </Flex>
       <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-        <Text fontSize='14px'>{TranslateString(10005, 'Your wallet')}</Text>
+        <Text fontSize='14px'>Your wallet</Text>
         <CakeWalletBalance cakeBalance={cakeBalance} />
         <Label>~${(cakePrice * cakeBalance).toFixed(2)}</Label>
       </StyledColumn>
       <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
-        <Text fontSize='14px'>Your % supply</Text>
-        <CardValue fontSize='14px' value={(cakeBalance/getBalanceNumber(totalSupply))*100} decimals={0} prefix='%' />
-      </StyledColumn>
-      <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
         <Text fontSize='14px'>{TranslateString(10005, 'Market Cap')}</Text>
         <CardValue fontSize='14px' value={getBalanceNumber(marketCap)} decimals={0} prefix='$' />
       </StyledColumn>
       <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
         <Text fontSize='14px'>{TranslateString(536, 'Total Minted')}</Text>
         {totalSupply && <CardValue fontSize='14px' value={getBalanceNumber(totalSupply)} decimals={0} />}
       </StyledColumn>
       <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
         <Text fontSize='14px'>{TranslateString(538, 'Total Burned')}</Text>
         <CardValue fontSize='14px' value={getBalanceNumber(burnBalance)} decimals={0} />
       </StyledColumn>
       <StyledColumn>
-        <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
         <Text fontSize='14px'>{TranslateString(10004, 'Circulating Supply')}</Text>
         {supply && <CardValue fontSize='14px' value={supply} decimals={0} />}
       </StyledColumn>
       {tokenPerBlock ?
         <StyledColumn>
-          <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
           <Text fontSize='14px'>Emission rate :</Text>
           <Text bold fontSize='14px'>
             {tokenPerBlock}
@@ -192,7 +176,6 @@ const FarmedStakingCard = ({
         : ''}
       {!tokenPerBlock ?
         <StyledColumn>
-          <CardImage src={burnIcon} alt='cake logo' width={30} height={30} />
           <Text fontSize='14px'>CAPPED (no more token)</Text>
         </StyledColumn>
         : ''}
