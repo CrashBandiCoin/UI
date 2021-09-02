@@ -28,7 +28,6 @@ const TwitterCard = () => {
   const TranslateString = useI18n()
 
   return (
-    <StyledTwitterCard>
       <CardBody>
         <Heading size="xl" mb="24px">
           {TranslateString(10003, 'Announcements')}
@@ -39,13 +38,12 @@ const TwitterCard = () => {
             screenName: 'SwapTea'
           }}
           options={{
-            height: '300',
+            height: '380',
             chrome: "noheader, nofooter",
             width: "400"
           }}
         />
       </CardBody>
-    </StyledTwitterCard>
   )
 }
 

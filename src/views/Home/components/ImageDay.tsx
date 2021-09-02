@@ -27,7 +27,7 @@ const NFT ="/images/nfts/teaswap/tRex.jpg"
 
 const ImageDay = () => {
   return (
-    <StyledTwitterCard>
+
       <CardBody>
         <Heading size="xl" mb="24px">
           Winner of the last giveaway
@@ -38,11 +38,11 @@ const ImageDay = () => {
             loading='lazy'
             alt=''
           />
-          <br/><br/>Designer : <b>Amiral</b>
+          <br/><br/>Designer : <b>NEZARI</b>
         </Row>
 
       </CardBody>
-    </StyledTwitterCard>
+
   )
 }
 

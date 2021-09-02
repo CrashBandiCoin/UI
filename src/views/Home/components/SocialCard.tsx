@@ -37,11 +37,7 @@ const SocialCard = () => {
   const TranslateString = useI18n()
 
   return (
-    <StyledTwitterCard>
       <CardBody>
-        <Heading size='xl' mb='24px'>
-          {TranslateString(10006, 'Social listing')}
-        </Heading>
         <Carousel itemsToShow={5} isRTL>
             <a href='https://dappradar.com/binance-smart-chain/defi/teaswap' rel="noreferrer" target="_blank">
               <img
@@ -126,7 +122,6 @@ const SocialCard = () => {
             </a>
         </Carousel>
       </CardBody>
-    </StyledTwitterCard>
   )
 }
 

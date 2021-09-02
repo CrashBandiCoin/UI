@@ -20,18 +20,13 @@ const TotalValueLockedCard = () => {
 
   return (
     <StyledTotalValueLockedCard>
-      <CardBody>
-        <Heading size="lg" mb="24px">
-          {TranslateString(999, 'Total Value Locked (TVL)')}
+
+        <Heading size="h1" mb="24px">
+          <CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/>
         </Heading>
         <>
-          {/* <Heading size="xl">{`$${tvl}`}</Heading> */}
-          {/* <Heading size="xl"> */}
-          <CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/>
-          {/* </Heading> */}
-          <Text color="textSubtle">{TranslateString(999, 'Across all Farms and Pools')}</Text>
+          <Text color="textSubtle">Total Deposit Value at TeaSwap</Text>
         </>
-      </CardBody>
     </StyledTotalValueLockedCard>
 
   )

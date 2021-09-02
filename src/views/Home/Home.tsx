@@ -18,15 +18,16 @@ import useTokenBalance, {
   useTotalSupplyTeaSport,
 } from '../../hooks/useTokenBalance'
 import { getCakeAddress, getMintAddress, getTeaSportAddress } from '../../utils/addressHelpers'
-import { useFarms, usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd } from '../../state/hooks'
+import { useFarms, usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd, useTotalValue } from '../../state/hooks'
 import { useAllEarningsByCategory } from '../../hooks/useAllEarnings'
 import SalesSection from './components/SalesSection'
 import {mintSectionData, sugarSectionData, teasportSectionData } from './components/SalesSection/data'
+import CardValue from './components/CardValue'
 
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/SUGAR/3.png');
+  background-image: url('/images/logoTeaswap.svg');
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -36,13 +37,7 @@ const Hero = styled.div`
   margin-bottom: 32px;
   padding-top: 116px;
   text-align: center;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/icons/NFT/TeaRex.svg'), url('/images/icons/NFT/TeaRex.svg');
-    background-position: left center, right center;
-    height: 165px;
-    padding-top: 0;
-  }
+  
 `
 
 
@@ -59,6 +54,11 @@ const HorizontalBlock2 = styled.div`
 `
 const CardImage = styled.img`
   margin-bottom: 16px;
+`
+
+const TextTVL = styled.div`
+  font-size: 50px;
+  text-align: center;
 `
 
 const Cards = styled(BaseLayout)`
@@ -148,16 +148,13 @@ const Home: React.FC = () => {
     setStats(val)
   }
 
+  const totalValue = useTotalValue();
+  const tvlImage = "";
+
   return (
     <Page>
-      <Hero>
-        <Heading as='h1' size='xl' mb='24px' color='secondary'>
-          {TranslateString(576, 'TeaSwap Finance')}
-        </Heading>
-        <Text>The first Social Farming Project</Text>
-      </Hero>
-      <TotalValueLockedCard />
-      <br/><br/>
+      <Hero/>
+      <br/>
       <div>
         <SalesSection {...sugarSectionData} />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
