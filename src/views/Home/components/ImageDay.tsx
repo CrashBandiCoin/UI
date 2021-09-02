@@ -38,6 +38,7 @@ const ImageDay = () => {
             loading='lazy'
             alt=''
           />
+          <br/><br/>Designer : <b>Amiral</b>
         </Row>
 
       </CardBody>
