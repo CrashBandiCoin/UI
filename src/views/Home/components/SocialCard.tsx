@@ -38,12 +38,11 @@ const SocialCard = () => {
 
   return (
       <CardBody>
-        <Carousel itemsToShow={5} isRTL>
             <a href='https://dappradar.com/binance-smart-chain/defi/teaswap' rel="noreferrer" target="_blank">
               <img
                 src={DappRadar}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -53,7 +52,7 @@ const SocialCard = () => {
               <img
                 src={CoinHut}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -62,7 +61,7 @@ const SocialCard = () => {
               <img
                 src={CoinSniper}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -71,7 +70,7 @@ const SocialCard = () => {
               <img
                 src={IcoHolder}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -80,7 +79,7 @@ const SocialCard = () => {
               <img
                 src={DexGuru}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -89,7 +88,7 @@ const SocialCard = () => {
               <img
                 src={Dapp}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -98,7 +97,7 @@ const SocialCard = () => {
               <img
                 src={Blockfolio}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -107,7 +106,7 @@ const SocialCard = () => {
               <img
                 src={Delta}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
@@ -116,11 +115,11 @@ const SocialCard = () => {
               <img
                 src={CoinScope}
                 loading='lazy'
-                width='100px'
+                width='95px'
                 alt=''
               />
             </a>
-        </Carousel>
+
       </CardBody>
   )
 }

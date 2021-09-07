@@ -5,12 +5,16 @@ import styled from 'styled-components'
 import { Timeline } from 'react-twitter-widgets'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+import Carousel from 'react-elastic-carousel'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import TelegramEmbed from 'react-telegram-embed'
 import CardValue from './CardValue'
 import { useFarms } from '../../../state/hooks'
-import DappRadar from '../img/dappradar.png'
+import Vault from '../img/vault.svg'
+import ChampionsLeague from '../img/foot/championsLeague.jpg'
+import Soccer from '../img/foot/soccer.png'
+
 
 const StyledTwitterCard = styled(Card)`
   margin-left: auto;
@@ -18,34 +22,49 @@ const StyledTwitterCard = styled(Card)`
 `
 
 const Row = styled.div`
-  display: inline-block;
+  align-items: center;
   text-align: center;
+`
+
+const TextGreen = styled.div`
+  align-items: center;
+  text-align: center;
+  color: green;
+  font-size: 30px;
   
 `
 
-const NFT ="/images/nfts/teaswap/tRex.jpg"
+const NextFeature = () => {
+  const TranslateString = useI18n()
 
-const ImageDay = () => {
   return (
-
       <CardBody>
         <Heading size="xl" mb="24px">
-          Winner of the last giveaway
+          Next Features coming :
         </Heading>
-        <Row>
+        <br/>
+        <Carousel itemsToShow={1} isRTL>
           <img
-            src={NFT}
-            width="500px"
-            height="500px"
+            src={ChampionsLeague}
             loading='lazy'
+            width="200px"
             alt=''
           />
-          <br/><br/>Designer : <b>NEZARI</b>
-        </Row>
+        </Carousel>
+        <br/>
+        <Heading size="xl" mb="24px">
+          <TextGreen>Sport Parties</TextGreen>
+          <br/>
+          <Row><img
+            src={Soccer}
+            loading='lazy'
+            width="30px"
+            alt=''
+          /></Row>
+        </Heading>
 
       </CardBody>
-
   )
 }
 
-export default ImageDay
+export default NextFeature

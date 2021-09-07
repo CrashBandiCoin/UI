@@ -19,7 +19,6 @@ const LotteryTeasport = lazy(() => import('./views/LotteryTeasport'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Vaults = lazy(() => import('./views/Vaults'))
 const Zap = lazy(() => import('./views/Zap'))
-const Euro = lazy(() => import('./views/Euro'))
 // const Pools = lazy(() => import('./views/Pools'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const Chart = lazy(() => import('./views/Chart'))
@@ -76,9 +75,6 @@ const App: React.FC = () => {
              <Route path="/zap">
                  <Zap/>
              </Route>
-            <Route path="/euro">
-              <Euro/>
-            </Route>
             <Route path="/roadmap">
               <Roadmap/>
             </Route>

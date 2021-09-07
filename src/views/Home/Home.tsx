@@ -23,6 +23,9 @@ import { useAllEarningsByCategory } from '../../hooks/useAllEarnings'
 import SalesSection from './components/SalesSection'
 import {mintSectionData, sugarSectionData, teasportSectionData } from './components/SalesSection/data'
 import CardValue from './components/CardValue'
+import NextFeature from './components/NextFeature'
+import ChampionsLeague from './img/foot/championsLeague.png'
+import TokenShow from './components/TokenShow'
 
 
 const Hero = styled.div`
@@ -83,6 +86,8 @@ const Cards = styled(BaseLayout)`
     }
   }
 `
+
+const tvlLogo = "/images/tvlLogo.svg";
 
 const Home: React.FC = () => {
   const TranslateString = useI18n()
@@ -154,7 +159,10 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero/>
-      <br/>
+      <Cards>
+          <NextFeature/>
+          <TwitterCard/>
+      </Cards>
       <div>
         <SalesSection {...sugarSectionData} />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
@@ -175,12 +183,8 @@ const Home: React.FC = () => {
                          address={addressTeasport}
                          totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
                          marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />
-        <br/><br/><br/><br/>
-        <br /><br />
-        <Cards>
-          <ImageDay />
-          <TwitterCard />
-        </Cards>
+        <br/><br/>
+        <TotalValueLockedCard/>
         <SocialCard />
       </div>
     </Page>

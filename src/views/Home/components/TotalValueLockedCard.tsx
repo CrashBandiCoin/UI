@@ -5,9 +5,16 @@ import useI18n from 'hooks/useI18n'
 import { useGetStats } from 'hooks/api'
 import { useTotalValue } from '../../../state/hooks'
 import CardValue from './CardValue'
+import vaultIcon from '../img/vaultIcon.png'
+import CoinHut from '../img/coinhut.png'
 
 
 const StyledTotalValueLockedCard = styled(Card)`
+  align-items: center;
+  text-align: center;
+`
+
+const Row = styled.div`
   align-items: center;
   text-align: center;
 `
@@ -19,15 +26,21 @@ const TotalValueLockedCard = () => {
   // const tvl = totalValue.toFixed(2);
 
   return (
-    <StyledTotalValueLockedCard>
-
+    <CardBody>
         <Heading size="h1" mb="24px">
-          <CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/>
+          <Row><Text color="textSubtle">Total Deposit Value at TeaSwap</Text></Row>
+          <br/>
+          <Row><img
+            src={vaultIcon}
+            loading='lazy'
+            width='95px'
+            alt=''
+          /></Row>
+          <Row><CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/></Row>
         </Heading>
         <>
-          <Text color="textSubtle">Total Deposit Value at TeaSwap</Text>
         </>
-    </StyledTotalValueLockedCard>
+    </CardBody>
 
   )
 }

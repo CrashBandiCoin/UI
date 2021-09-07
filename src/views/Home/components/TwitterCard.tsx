@@ -30,7 +30,7 @@ const TwitterCard = () => {
   return (
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(10003, 'Announcements')}
+          Twitter Announcements :
         </Heading>
         <Timeline
           dataSource={{
@@ -38,7 +38,7 @@ const TwitterCard = () => {
             screenName: 'SwapTea'
           }}
           options={{
-            height: '380',
+            height: '270',
             chrome: "noheader, nofooter",
             width: "400"
           }}
