@@ -35,6 +35,11 @@ export enum QuoteToken {
   'UST' = 'UST',
 }
 
+export enum ChampionsLeagueToken {
+  'SUGAR' = 'SUGAR',
+  'TEASPORT' = 'TEASPORT',
+}
+
 export enum ContractType {
   'Mint' = 'Mint',
   'TeaSport' = 'TeaSport',
@@ -84,6 +89,26 @@ export interface VaultConfig {
   dual?: {
     earnLabel: string
   }
+}
+
+export interface TeamConfig {
+  id: number
+  label: string
+  icon: string
+  votedToken?: ChampionsLeagueToken
+  score?: number
+}
+
+export interface MatchConfig {
+  id: number
+  matchDate: string
+  teams: TeamConfig[]
+}
+
+export interface MatchdayConfig {
+  id: number
+  label: string
+  matches: MatchConfig[]
 }
 
 export interface PoolConfig {

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { FarmConfig, PoolConfig, VaultConfig } from 'config/constants/types'
+import { FarmConfig, PoolConfig, VaultConfig, MatchdayConfig, MatchConfig, TeamConfig, ChampionsLeagueToken } from 'config/constants/types'
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber
@@ -52,6 +52,20 @@ export interface Vault extends VaultConfig {
   tokenAmountTotal?: BigNumber
 }
 
+export interface Match extends MatchConfig {
+  winnerToken?: ChampionsLeagueToken
+  winnerTeamId?: number
+}
+
+export interface Team extends TeamConfig {
+  isWinner?: boolean
+}
+
+export interface Matchday extends MatchdayConfig {
+  winnerToken?: ChampionsLeagueToken
+}
+
+
 // Slices states
 
 export interface FarmsState {
@@ -66,10 +80,15 @@ export interface VaultState {
   data: Vault[]
 }
 
+export interface MatchdayState {
+  data: Matchday[]
+}
+
 // Global state
 
 export interface State {
   farms: FarmsState
   pools: PoolsState
   vaults: VaultState
+  matchdays: MatchdayState
 }

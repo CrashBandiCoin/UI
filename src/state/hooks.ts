@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
-import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchVaultsPublicDataAsync } from './actions'
-import { State, Farm, Pool, Vault } from './types'
-import { QuoteToken } from '../config/constants/types'
+import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync, fetchVaultsPublicDataAsync, fetchMatchdaysPublicDataAsync } from './actions'
+import { State, Farm, Pool, Vault, Matchday } from './types'
+import { QuoteToken, ChampionsLeagueToken } from '../config/constants/types'
 
 const ZERO = new BigNumber(0)
 
@@ -17,6 +17,7 @@ export const useFetchPublicData = () => {
     dispatch(fetchFarmsPublicDataAsync())
     dispatch(fetchVaultsPublicDataAsync())
     // dispatch(fetchPoolsPublicDataAsync())
+    dispatch(fetchMatchdaysPublicDataAsync())
   }, [dispatch, slowRefresh])
 }
 
@@ -79,6 +80,23 @@ export const useVaultUser = (pid, id) => {
 export const useVaultFromLpSymbol = (lpSymbol: string): Vault => {
   const farm = useSelector((state: State) => state.vaults.data.find((f) => f.lpSymbol === lpSymbol))
   return farm
+}
+
+
+// Matchdays ( for Champions league )
+
+export const useMatchdays = (): Matchday[] => {
+  return  useSelector((state: State) => state.matchdays.data)
+}
+
+
+// export const useMatchdaysFromToken = (token: ChampionsLeagueToken): Matchday[] => {
+//   return useSelector((state: State) => state.matchdays.data.find((md) => md.winnerToken && md.winnerToken === token))
+// }
+
+
+export const useMatchdayFromId = (id): Matchday => {
+  return useSelector((state: State) => state.matchdays.data.find((md) => md.id === id))
 }
 
 

@@ -23,6 +23,10 @@ const contracts = {
     56: '0x8B810c0a61C0a7BD623E711794B7254595340983',
     97: '',
   },
+  matchdayChef: {
+    56: '0xD3087e53a6CCCe60C3fEec44AeDc67c730b5dBD6',
+    97: '',
+  },
   vaultChef: {
     56: '0xD3087e53a6CCCe60C3fEec44AeDc67c730b5dBD6',
     97: '',

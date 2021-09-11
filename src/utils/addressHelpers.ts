@@ -25,14 +25,8 @@ export const getMasterMintAddress = () => {
 export const getMasterTeaSportAddress = () => {
   return addresses.masterTeaSport[chainId]
 }
-export const getVaultChefAddress = () => {
+export const getMatchdayChefAddress = () => {
   return addresses.vaultChef[chainId]
-}
-export const getVaultMintAddress = () => {
-  return addresses.vaultMint[chainId]
-}
-export const getVaultTeaSportAddress = () => {
-  return addresses.vaultTeaSport[chainId]
 }
 export const getMulticallAddress = () => {
   return addresses.mulltiCall[chainId]
