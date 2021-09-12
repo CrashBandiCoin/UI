@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
-import { Match } from 'config/constants/types'
+import { Match } from 'state/types'
 
 export interface MatchesProps {
   matches: Match[]
