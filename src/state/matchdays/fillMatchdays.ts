@@ -1,15 +1,59 @@
-import { Matchday, Match } from 'state/types'
+import { Matchday, Match, Team } from 'state/types'
 import { ChampionsLeagueToken } from 'config/constants/types'
  
 
 
 const findWinnerMatchdayToken = (matchday: Matchday ): ChampionsLeagueToken => {
-  return matchday.id % 2 === 0 ? ChampionsLeagueToken.SUGAR: ChampionsLeagueToken.TEASPORT
+
+  const nbSugarWinnerMatch = matchday.matches.reduce((acc,match) => {
+
+    if (!match) return acc
+
+    if (!match.winnerToken) return acc
+
+    if ( match.winnerToken === ChampionsLeagueToken.SUGAR ) return acc+1
+
+    return acc
+  },0)
+
+
+  const nbTeasportWinnerMatch = matchday.matches.reduce((acc,match) => {
+
+    if (!match) return acc
+
+    if (!match.winnerToken) return acc
+
+    if ( match.winnerToken === ChampionsLeagueToken.TEASPORT ) return acc +1 
+
+    return acc
+
+
+  },0)
+ 
+ 
+  return nbSugarWinnerMatch > nbTeasportWinnerMatch ? ChampionsLeagueToken.SUGAR: ChampionsLeagueToken.TEASPORT
 
 }
+ 
+const findTheWinnerTeam = (match: Match ): Team|null => {
+  
+  const theWinnerTeam:Team = match.teams.reduce((winner, team) => {
 
-const findWinnerMatchToken = (match: Match ): ChampionsLeagueToken => {
-  return match.id % 3 === 0 ? ChampionsLeagueToken.TEASPORT: ChampionsLeagueToken.SUGAR
+    if (!winner) return team
+
+    if (!team) return winner
+
+    if (!winner.score) return team
+
+    if (!team.score) return winner
+
+    return winner.score > team.score ? winner : team
+
+
+
+  })
+
+  return theWinnerTeam
 
 }
 
@@ -22,26 +66,25 @@ const findMatchdayDate = (matchday: Matchday ): string => {
 const fillMatchdays = (matchdays: Matchday[] ): Matchday[] => {
 
   const calculatedMatchdays = matchdays.map((matchday) => {
-
  
-    const winnerMatchdayToken = findWinnerMatchdayToken(matchday)
-
     const isActive = matchday.id % 2 === 0
 
     const theDate = findMatchdayDate(matchday)
 
-    const filledInMAtchday = matchday.matches.map ( match => {
+    const filledInMatches = matchday.matches.map ( match => {
 
+    const theWinnerTeam:Team|null = findTheWinnerTeam(match)
 
-      const winnerMatchToken = findWinnerMatchToken(match)
+    if ( theWinnerTeam ) {
+        return {...match, winnerToken : theWinnerTeam.votedToken, winnerTeamId:theWinnerTeam.id}
+    } else return {...match}
 
-      return {...filledInMAtchday, winnerMatchToken}
     })
 
+    const winnerMatchdayToken = findWinnerMatchdayToken(matchday)
 
 
-
-    return { ...matchday, winnerMatchdayToken, isActive, theDate }
+    return { ...matchday, matches: filledInMatches, winnerToken: winnerMatchdayToken, isActive, theDate }
 
   })
 

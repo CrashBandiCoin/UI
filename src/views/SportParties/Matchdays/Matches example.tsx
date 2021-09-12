@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
-import { MatchConfig } from 'config/constants/types'
+import { Match } from 'config/constants/types'
 
 export interface MatchesProps {
-  matches: MatchConfig[]
+  matches: Match[]
 }
 
 const LabelWrapper = styled.div`

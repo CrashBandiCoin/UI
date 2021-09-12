@@ -9,7 +9,7 @@ import { orderBy } from 'lodash'
 import useRefresh from 'hooks/useRefresh'
 import useI18n from 'hooks/useI18n'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
-import { MatchConfig } from 'config/constants/types'
+import { Match } from 'state/types'
 
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
@@ -23,7 +23,7 @@ import FarmTabButtons from './components/MatchTabButtons'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 
 export interface MatchesProps {
-  matches: MatchConfig[]
+  matches: Match[]
 }
 
 const ControlContainer = styled.div`
