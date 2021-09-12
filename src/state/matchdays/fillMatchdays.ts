@@ -1,7 +1,4 @@
-import BigNumber from 'bignumber.js'
-import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber'
-import { filterMatchdaysByWinnerToken } from 'utils/matchdaysPriceHelpers'
-import { Matchday, Match, Team } from 'state/types'
+import { Matchday, Match } from 'state/types'
 import { ChampionsLeagueToken } from 'config/constants/types'
  
 
@@ -33,12 +30,12 @@ const fillMatchdays = (matchdays: Matchday[] ): Matchday[] => {
 
     const theDate = findMatchdayDate(matchday)
 
-    const FilledInMAtchday = matchday.matches.map ( match => {
+    const filledInMAtchday = matchday.matches.map ( match => {
 
 
       const winnerMatchToken = findWinnerMatchToken(match)
 
-      return {...match, winnerMatchToken}
+      return {...filledInMAtchday, winnerMatchToken}
     })
 
 
