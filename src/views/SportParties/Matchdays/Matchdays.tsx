@@ -128,8 +128,8 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
 
   const [activeOnly, setActiveOnly] = useState(true)
 
-  const activeMatchdays = matchdaysFromState.filter((matchday) => matchday.multiplier !== '0X' && matchday.id !== 4)
-  const inactiveMatchdays = matchdaysFromState.filter((matchday) => matchday.multiplier === '0X' && matchday.id !== 4)
+  const activeMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
+  const inactiveMatchdays = matchdaysFromState.filter((matchday) => !matchday.isActive)
 
   const stakedOnlyMatchdays = activeMatchdays.filter(
     (matchday) => matchday.userData && new BigNumber(matchday.userData.stakedBalance).isGreaterThan(0),
