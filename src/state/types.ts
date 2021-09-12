@@ -51,22 +51,22 @@ export interface Vault extends VaultConfig {
   quoteTokenAmountTotal?: BigNumber
   tokenAmountTotal?: BigNumber
 }
-
-export interface Match {
-  id: number
-  matchDate: string
-  teams: Team[]
-  isActive?: boolean
-  winnerToken?: ChampionsLeagueToken
-  winnerTeamId?: number
-}
-
 export interface Team {
   id: number
   label: string
   icon: string
   votedToken?: ChampionsLeagueToken
   score?: number  
+}
+
+export interface Match {
+  id: number
+  theDate: string
+  teams: Team[]
+  theWinnerTeam?: Team
+  isActive?: boolean
+  winnerToken?: ChampionsLeagueToken
+
 }
 
 export interface Matchday {

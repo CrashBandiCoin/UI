@@ -58,7 +58,7 @@ const findTheWinnerTeam = (match: Match ): Team|null => {
 }
 
 const findMatchdayDate = (matchday: Matchday ): string => {
-  return matchday.matches[0].matchDate
+  return matchday.matches[0].theDate
 
 }
  
@@ -76,7 +76,7 @@ const fillMatchdays = (matchdays: Matchday[] ): Matchday[] => {
     const theWinnerTeam:Team|null = findTheWinnerTeam(match)
 
     if ( theWinnerTeam ) {
-        return {...match, winnerToken : theWinnerTeam.votedToken, winnerTeamId:theWinnerTeam.id}
+        return {...match, winnerToken : theWinnerTeam.votedToken, theWinnerTeam}
     } else return {...match}
 
     })
