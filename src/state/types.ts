@@ -53,6 +53,7 @@ export interface Vault extends VaultConfig {
 }
 
 export interface Match extends MatchConfig {
+  isActive?: boolean
   winnerToken?: ChampionsLeagueToken
   winnerTeamId?: number
 }

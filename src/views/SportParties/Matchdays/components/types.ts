@@ -1,10 +1,3 @@
-export type TableProps = {
-  data?: TableDataTypes[]
-  selectedFilters?: string
-  sortBy?: string
-  sortDir?: string
-  onSort?: (value: string) => void
-}
 
 export type ColumnsDefTypes = {
   id: number
@@ -18,65 +11,45 @@ export type ScrollBarProps = {
   width: number
 }
 
-export type TableDataTypes = {
-  POOL: string
-  APR: string
-  EARNED: string
-  STAKED: string
-  DETAILS: string
-  LINKS: string
-}
 
 export const MobileColumnSchema: ColumnsDefTypes[] = [
   {
     id: 1,
-    name: 'farm',
+    name: 'matchday',
     sortable: true,
-    label: '',
+    label: 'DGDFGDSFDFDFGDF',
   },
+
   {
     id: 2,
-    name: 'earned',
+    name: 'theDate',
     sortable: true,
-    label: 'Bonus',
+    label: 'FSDFSDSF',
   },
   {
     id: 3,
-    name: 'apy',
-    sortable: true,
-    label: 'APR',
-  },
-  {
-    id: 6,
     name: 'details',
     sortable: true,
-    label: '',
+    label: 'GFHGHGFHFG',
   },
 ]
 
 export const DesktopColumnSchema: ColumnsDefTypes[] = [
   {
     id: 1,
-    name: 'farm',
+    name: 'matchday',
     sortable: true,
     label: '',
   },
 
   {
+    id: 2,
+    name: 'theDate',
+    sortable: true,
+    label: '',
+  },
+  {
     id: 3,
-    name: 'apy',
-    sortable: true,
-    label: 'APR',
-  },
-  {
-    id: 4,
-    name: 'liquidity',
-    sortable: true,
-    label: 'Liquidity',
-  },
-
-  {
-    id: 6,
     name: 'details',
     sortable: true,
     label: '',

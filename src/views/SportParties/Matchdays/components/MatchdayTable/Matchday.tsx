@@ -1,19 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useMatchdayUser } from 'state/hooks'
 import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
-import { getBalanceNumber } from 'utils/formatBalance'
-import { Token } from 'config/constants/types'
-import TokenPairImage from 'components/TokenPairImage'
+import { ChampionsLeagueToken } from 'config/constants/types'
 
 export interface MatchdayProps {
-  label: string
-  pid: number
   id: number
-  token: Token
-  quoteToken: Token
-  isTokenOnly: boolean
-  type: string
+  label: string
+  winnerToken?: ChampionsLeagueToken
 }
 
 const Container = styled.div`
@@ -34,43 +27,31 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Matchday: React.FunctionComponent<MatchdayProps> = ({ token, quoteToken, label, pid, id, isTokenOnly, type }) => {
-  const { stakedBalance } = useMatchdayUser(pid, id)
-  const rawStakedBalance = getBalanceNumber(stakedBalance)
-
-  const handleRenderFarming = (): JSX.Element => {
-    if (rawStakedBalance) {
-      return (
-        <Text color="secondary" fontSize="12px" bold textTransform="uppercase">
-          Farming
-        </Text>
-      )
-    }
-
-    return null
-  }
-
+const Matchday: React.FunctionComponent<MatchdayProps> = ({ id, label, winnerToken }) => {
   return (
     <Container>
-      <TokenWrapper>
-        {isTokenOnly ? (
-          <Image src={`/images/farms/${token.symbol.toLowerCase()}.png`} alt={label} width={64} height={64} />
-        ) : (
-          <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={40} height={40} />
-        )}
-      </TokenWrapper>
+      {winnerToken && (
+        <TokenWrapper>
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt={label} width={40} height={40} />
+        </TokenWrapper>
+      )}
 
       <div>
         <Text bold color="primary" fontSize="12px">
-          EARNS {label}
+          {label}
         </Text>
-        <Text bold>{label}</Text>
-        <Tag outline variant="success" mr="8px">
-          6x compound per day !
-        </Tag>
-        <Tag outline variant="warning" mr="8px">
-          Maintenance !
-        </Tag>
+
+        {winnerToken && (
+          <Tag outline variant="success" mr="8px">
+            {winnerToken}
+          </Tag>
+        )}
+
+        {!winnerToken && (
+          <Tag outline variant="warning" mr="8px">
+            Day not yet finished
+          </Tag>
+        )}
       </div>
     </Container>
   )

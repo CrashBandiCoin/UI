@@ -12,7 +12,7 @@ import { Matchday } from 'state/types'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
-//const fetchMatchdays = async ():Matchday[] => {
+// const fetchMatchdays = async ():Matchday[] => {
     const fetchMatchdays = ():Matchday[] => {
 
     const data =  matchdays 

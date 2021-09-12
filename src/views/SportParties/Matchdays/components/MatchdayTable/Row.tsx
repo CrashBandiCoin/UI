@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { FarmWithStakedValue } from 'views/Matchdays/components/MatchdayCard/MatchdayCard'
 import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
-import { useMatchdayUser } from 'state/hooks'
 
-import Apy, { ApyProps } from './Apy'
+import TheDate, { TheDateProps } from './TheDate'
 import Matchday, { MatchdayProps } from './Matchday'
-import Earned, { EarnedProps } from './Earned'
 import Details from './Details'
-import Multiplier, { MultiplierProps } from './Multiplier'
-import Liquidity, { LiquidityProps } from './Liquidity'
 import ActionPanel from './Actions/ActionPanel'
 import CellLayout from './CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from '../types'
+import { MatchdayWithMoreValue } from '../MatchdayCard/MatchdayCard'
 
 export interface RowProps {
-  apy: ApyProps
-  farm: MatchdayProps
-  earned: EarnedProps
-  multiplier: MultiplierProps
-  liquidity: LiquidityProps
-  details: FarmWithStakedValue
+  theDate: TheDateProps
+  matchday: MatchdayProps
+  details: MatchdayWithMoreValue
 }
 
 interface RowPropsWithLoading extends RowProps {
@@ -29,12 +22,9 @@ interface RowPropsWithLoading extends RowProps {
 }
 
 const cells = {
-  apy: Apy,
-  farm: Matchday,
-  earned: Earned,
+  theDate: TheDate,
+  matchday: Matchday,
   details: Details,
-  multiplier: Multiplier,
-  liquidity: Liquidity,
 }
 
 const CellInner = styled.div`
@@ -58,7 +48,7 @@ const EarnedMobileCell = styled.td`
   padding: 16px 0 24px 16px;
 `
 
-const ApyMobileCell = styled.td`
+const TheDateMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
 `
@@ -68,8 +58,8 @@ const FarmMobileCell = styled.td`
 `
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
-  const { details, userDataReady } = props
-  const hasStakedAmount = !!useMatchdayUser(details.pid, details.id).stakedBalance.toNumber()
+  const { theDate, matchday, details } = props
+  const hasStakedAmount = true
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount)
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300)
 
@@ -108,12 +98,12 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                     </CellInner>
                   </td>
                 )
-              case 'apy':
+              case 'theDate':
                 return (
                   <td key={key}>
                     <CellInner>
-                      <CellLayout label="APY">
-                        <Apy {...props.apy} hideButton={isMobile} />
+                      <CellLayout>
+                        <TheDate {...props.theDate} />
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -123,7 +113,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                   <td key={key}>
                     <CellInner>
                       <CellLayout label={tableSchema[columnIndex].label}>
-                        {React.createElement(cells[key], { ...props[key], userDataReady })}
+                        {React.createElement(cells[key], { ...props[key] })}
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -140,21 +130,16 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
           <tr>
             <FarmMobileCell>
               <CellLayout>
-                <Matchday {...props.farm} />
+                <Matchday {...props.matchday} />
               </CellLayout>
             </FarmMobileCell>
           </tr>
           <tr>
-            <EarnedMobileCell>
-              <CellLayout label="Bonus">
-                <Earned {...props.earned} userDataReady={userDataReady} />
+            <TheDateMobileCell>
+              <CellLayout>
+                <TheDate {...props.theDate} />
               </CellLayout>
-            </EarnedMobileCell>
-            <ApyMobileCell>
-              <CellLayout label="APY">
-                <Apy {...props.apy} hideButton />
-              </CellLayout>
-            </ApyMobileCell>
+            </TheDateMobileCell>
           </tr>
         </td>
         <td>

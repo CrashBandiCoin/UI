@@ -2,21 +2,19 @@ import React from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes, css } from 'styled-components'
 import { LinkExternal, Text } from '@pancakeswap-libs/uikit'
-import { FarmWithStakedValue } from 'views/Matchdays/components/MatchdayCard/MatchdayCard'
+
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'
 
-import HarvestAction from './HarvestAction'
-import StakedAction from './StakedAction'
-import Apy, { ApyProps } from '../Apy'
-import Multiplier, { MultiplierProps } from '../Multiplier'
-import Liquidity, { LiquidityProps } from '../Liquidity'
+import { Matchday } from 'state/types'
+import Matches from 'views/SportParties/Matchdays/Matches'
+import TheDate, { TheDateProps } from '../TheDate'
+import { MatchdayProps } from '../Matchday'
 
 export interface ActionPanelProps {
-  apy: ApyProps
-  multiplier: MultiplierProps
-  liquidity: LiquidityProps
-  details: FarmWithStakedValue
+  matchday: MatchdayProps
+  theDate: TheDateProps
+  details: Matchday
   userDataReady: boolean
   expanded: boolean
 }
@@ -148,80 +146,11 @@ const ValueWrapper = styled.div`
   margin: 4px 0px;
 `
 
-const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
-  details,
-  apy,
-  multiplier,
-  liquidity,
-  userDataReady,
-  expanded,
-}) => {
-  const farm = details
-
-  const isActive = farm.multiplier !== '0X'
-  const { quoteToken, token, dual } = farm
-  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
-  const liquidityUrlPathParts = getLiquidityUrlPathParts({
-    quoteTokenAdresses: quoteToken.address,
-    quoteTokenSymbol: quoteToken.symbol,
-    tokenAddresses: token.address,
-  })
-  const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-  const bsc = getBscScanAddressUrl(lpAddress)
-  const info = `https://pancakeswap.info/pool/${lpAddress}`
-
-  let apyValue = null
-  apyValue = apy.value
-
-  const farmApy =
-    apyValue &&
-    apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })
-  const farmApyDaily =
-    apyValue &&
-    apyValue.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })
-
+const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, expanded }) => {
+  const data = details
   return (
     <Container expanded={expanded}>
-      <ValueContainer>
-        <ValueWrapper>
-          <Text>APY</Text>
-          <Apy {...apy} />
-        </ValueWrapper>
-        <ValueWrapper>
-          <Text>Liquidity</Text>
-          <Liquidity {...liquidity} />
-        </ValueWrapper>
-      </ValueContainer>
-
-      <ActionContainer>
-        <StakedAction {...farm} userDataReady={userDataReady} />
-      </ActionContainer>
-
-      <InfoContainer>
-        <InfoWrapper style={{ marginLeft: 0 }}>
-          <Text bold>APY : </Text>
-          <Text small>{`Annual : ${farmApy}%`}</Text>
-          <Text small>{`Daily : ${farmApyDaily}%`}</Text>
-        </InfoWrapper>
-        <InfoWrapper>
-          <Text bold>Fees</Text>
-          <Text small>Deposit Fee: 0 %</Text>
-          <Text small>Exit Fee: 0 %</Text>
-          <Text small>Buy Back/Burn: 2% (on profits)</Text>
-          <Text small>Network fee: 0.2% (on profits)</Text>
-          <Text small>Operational fee: 1.8% (on profits)</Text>
-        </InfoWrapper>
-        <InfoWrapper style={{ maxWidth: 300 }}>
-          <Text bold>{`Earns ${farm.lpSymbol}`}</Text>
-          <Text small>Your {`${farm.lpSymbol}`} amount will grow over time as the farm rewards gets reinvested.</Text>
-        </InfoWrapper>
-      </InfoContainer>
+      <Matches {...details} />
     </Container>
   )
 }

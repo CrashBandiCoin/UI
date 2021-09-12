@@ -9,23 +9,21 @@ import { orderBy } from 'lodash'
 import useRefresh from 'hooks/useRefresh'
 import useI18n from 'hooks/useI18n'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
-import { QuoteToken } from 'config/constants/types'
-import { useMatchdays } from 'state/hooks'
+import { MatchConfig } from 'config/constants/types'
 
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
 import CardValue from 'views/Home/components/CardValue'
-import { Matchday } from 'state/types'
-import { RowProps } from './components/MatchdayTable/Row'
-import Table from './components/MatchdayTable/MatchdayTable'
-import FarmTabButtons from './components/MatchdayTabButtons'
+import { Match } from 'state/types'
+import { RowProps } from './components/MatchTable/Row'
+import Table from './components/MatchTable/MatchTable'
+import FarmTabButtons from './components/MatchTabButtons'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 
-export interface MatchdaysProps {
-  tokenMode?: boolean
-  type?: string
+export interface MatchesProps {
+  matches: MatchConfig[]
 }
 
 const ControlContainer = styled.div`
@@ -108,33 +106,28 @@ const StyledImage = styled(Image)`
 
 const NUMBER_OF_FARMS_VISIBLE = 12
 
-const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
+const Matches: React.FC<MatchesProps> = ({ matches }) => {
   const TranslateString = useI18n()
-
-  const matchdaysFromState = useMatchdays()
-
-  const { tokenMode, type } = matchdaysProps
 
   const [query, setQuery] = useState('')
   const [sortOption, setSortOption] = useState('label')
-  const [platformOption, setPlatformOption] = useState('all')
 
   const userDataReady = true
 
   const [activeOnly, setActiveOnly] = useState(true)
 
-  const activeMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
-  const inactiveMatchdays = matchdaysFromState.filter((matchday) => !matchday.isActive)
+  const activeMatches = matches.filter((match) => match.isActive)
+  const inactiveMatches = matches.filter((match) => !match.isActive)
 
-  const matchdaysList = useCallback(
-    (matchdaysToDisplay: Matchday[]): Matchday[] => {
+  const matchesList = useCallback(
+    (matchesToDisplay: Match[]): Match[] => {
       if (query) {
-        return matchdaysToDisplay.filter((matchday: Matchday) => {
-          return matchday.label.toLowerCase().includes(query.toLowerCase())
+        return matchesToDisplay.filter((match: Match) => {
+          return match.label.toLowerCase().includes(query.toLowerCase())
         })
       }
 
-      return matchdaysToDisplay
+      return matchesToDisplay
     },
     [query],
   )
@@ -143,34 +136,32 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
 
   const [observerIsSet, setObserverIsSet] = useState(false)
 
-  const matchdaysMemoized = useMemo(() => {
-    const sortMatchdays = (matchdays: Matchday[]): Matchday[] => {
+  const matchesMemoized = useMemo(() => {
+    const sortMatches = (matches: Match[]): Match[] => {
       switch (sortOption) {
-        case 'label':
-          return orderBy(matchdays, (matchday: Matchday) => matchday.label, 'asc')
         case 'theDate':
-          return orderBy(matchdays, (matchday: Matchday) => matchday.id, 'asc')
+          return orderBy(matches, (match: Match) => match.id, 'asc')
         default:
-          return matchdays
+          return matches
       }
     }
 
-    if (activeOnly) return sortMatchdays(matchdaysList(activeMatchdays))
+    if (activeOnly) return sortMatches(matchesList(activeMatches))
 
-    return sortMatchdays(matchdaysList(inactiveMatchdays))
-  }, [activeMatchdays, activeOnly, inactiveMatchdays, matchdaysList, sortOption])
+    return sortMatches(matchesList(inactiveMatches))
+  }, [activeMatches, activeOnly, inactiveMatches, matchesList, sortOption])
 
-  const rowData = matchdaysMemoized.map((matchday) => {
+  const rowData = matchesMemoized.map((match) => {
     const row: RowProps = {
       theDate: {
-        theDate: matchday.theDate.toUpperCase(),
+        theDate: match.theDate.toUpperCase(),
       },
-      matchday: {
-        label: matchday.label,
-        id: matchday.id,
-        winnerToken: matchday.winnerToken,
+      match: {
+        label: match.label,
+        id: match.id,
+        winnerToken: match.winnerToken,
       },
-      details: matchday,
+      details: match,
     }
 
     return row
@@ -185,7 +176,7 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
       label: column.label,
       sort: (a: RowType<RowProps>, b: RowType<RowProps>) => {
         switch (column.name) {
-          case 'matchday':
+          case 'match':
             return b.id - a.id
           default:
             return 1
@@ -230,10 +221,6 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
               <Select
                 options={[
                   {
-                    label: 'Label',
-                    value: 'label',
-                  },
-                  {
                     label: 'Day',
                     value: 'theDate',
                   },
@@ -254,4 +241,4 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
   )
 }
 
-export default Matchdays
+export default Matches
