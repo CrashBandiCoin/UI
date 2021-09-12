@@ -18,6 +18,7 @@ const Lottery = lazy(() => import('./views/Lottery'))
 const LotteryTeasport = lazy(() => import('./views/LotteryTeasport'))
 const Roadmap = lazy(() => import('./views/Roadmap'))
 const Vaults = lazy(() => import('./views/Vaults'))
+const Matchdays = lazy(() => import('./views/Matchdays'))
 const Zap = lazy(() => import('./views/Zap'))
 // const Pools = lazy(() => import('./views/Pools'))
 const Ifos = lazy(() => import('./views/Ifos'))
@@ -52,34 +53,38 @@ const App: React.FC = () => {
               <Home />
             </Route>
             <Route path="/farms/mint">
-              <Farms type='Mint'/>
+              <Farms type="Mint" />
             </Route>
             <Route path="/pools/mint">
-              <Farms type='Mint' tokenMode/>
+              <Farms type="Mint" tokenMode />
             </Route>
             <Route path="/farms/sugar">
-              <Farms type='Sugar'/>
+              <Farms type="Sugar" />
             </Route>
             <Route path="/pools/sugar">
-              <Farms type='Sugar' tokenMode />
+              <Farms type="Sugar" tokenMode />
             </Route>
             <Route path="/farms/teasport">
-              <Farms type='TeaSport'/>
+              <Farms type="TeaSport" />
             </Route>
             <Route path="/pools/teasport">
-              <Farms type='TeaSport' tokenMode />
+              <Farms type="TeaSport" tokenMode />
+            </Route>
+
+            <Route path="/SportParties/Championsleague">
+              <Matchdays />
             </Route>
             <Route path="/vaults">
               <Vaults />
             </Route>
-             <Route path="/zap">
-                 <Zap/>
-             </Route>
+            <Route path="/zap">
+              <Zap />
+            </Route>
             <Route path="/roadmap">
-              <Roadmap/>
+              <Roadmap />
             </Route>
             {/* <Route path="/migration"> */}
-                {/* <Migration/> */}
+            {/* <Migration/> */}
             {/* </Route> */}
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
@@ -91,7 +96,7 @@ const App: React.FC = () => {
               <LotteryTeasport />
             </Route>
             <Route path="/ifo">
-             <Ifos />
+              <Ifos />
             </Route>
             <Route path="/chart">
               <Chart />

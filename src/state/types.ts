@@ -62,7 +62,9 @@ export interface Team extends TeamConfig {
 }
 
 export interface Matchday extends MatchdayConfig {
+  isActive?: boolean
   winnerToken?: ChampionsLeagueToken
+  theDate?: string
 }
 
 

@@ -6,38 +6,37 @@ import { ChampionsLeagueToken } from 'config/constants/types'
  
 
 
-const calculeWinnerToken = (matchday: Matchday ): ChampionsLeagueToken => {
-
-
+const findWinnerToken = (matchday: Matchday ): ChampionsLeagueToken => {
   return ChampionsLeagueToken.SUGAR
-
-
-
 
 }
 
+const findMatchdayDate = (matchday: Matchday ): string => {
+  return matchday.matches[0].matchDate
+
+}
+ 
  
 const fillMatchdays = (matchdays: Matchday[] ): Matchday[] => {
-
-
 
   const calculatedMatchdays = matchdays.map((matchday) => {
 
     // TODO TOM
 
-
  
-    const winnerToken = calculeWinnerToken(matchday)
+    const winnerToken = findWinnerToken(matchday)
 
-    return { ...matchday, winnerToken }
+    const isActive = matchday.id % 2 === 0
+
+    const theDate = findMatchdayDate(matchday)
+
+    return { ...matchday, winnerToken, isActive, theDate }
 
   })
 
   return calculatedMatchdays
 
 } 
-
-
 
   
 export default fillMatchdays

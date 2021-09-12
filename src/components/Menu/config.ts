@@ -26,6 +26,16 @@ const config: MenuEntry[] = [
             
         ],
     },
+    {
+        label: 'SportParties',
+        icon: 'FarmIcon',
+        items: [
+            {
+                label: 'Champion\'s league',
+                href: '/SportParties/Championsleague',
+            },
+        ],
+    },
 
     {
         label: 'Exchange',
