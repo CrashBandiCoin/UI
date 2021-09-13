@@ -4,7 +4,8 @@ import {  ChampionsLeagueToken } from './types'
 const matchdays: Matchday[] = [
 	{
 	    id: 1,
-	    label: 'day 1',
+	    label: 'Day 1 of 6',
+	    theDate: 'Sept 14 & 15 . Start at 4:45 pm UTC',
 		matches:[
 			{
 				id:1,

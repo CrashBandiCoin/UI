@@ -8,11 +8,13 @@ import iconChainlink from '../img/chainlink.png'
 const Row = styled.div`
   align-items: center;
   display: flex;
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 8px;
+  text-align: right;
   color: white;
   font-size: 30px;
+`
+
+const LinkWrapper = styled.a`
+  color: blue;
 `
 
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
@@ -22,11 +24,12 @@ const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
 const SubTitle = styled(Heading).attrs({ as: 'h2', size: 'xxl' })`
   color: ${({ theme }) => theme.colors.primary};
   margin-top: 12px;
+  margin-bottom: 24px;
 `
 
 const Blurb = styled(Text)`
   color: #ffffff;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 `
 
@@ -47,7 +50,7 @@ const StyledContainer = styled(Container)`
 `
 
 const LeftWrapper = styled.div`
-  flex: 1;
+  flex: 3;
   padding-right: 0;
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -69,11 +72,12 @@ const RightWrapper = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-top: 0;
-    padding-left: 24px;
+    padding-left: 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding-left: 32px;
+    margin-top: 0;
+    padding-left: 1px;
   }
 `
 
@@ -90,7 +94,31 @@ const Hero = () => {
           <Blurb>{TranslateString(999, 'Buy as many MINT as the vote power you want to get !')}</Blurb>
           <Blurb>
             {TranslateString(999, 'Vote here : ')}
-            <a href="https://snapshot.org/#/tea-swap.eth">{TranslateString(999, 'VOTING SYSTEM : ')}</a>
+            <LinkWrapper>
+              <a href="https://snapshot.org/#/tea-swap.eth" target="_blank" rel="noreferrer">
+                {TranslateString(999, 'VOTING SYSTEM')}
+              </a>
+            </LinkWrapper>
+          </Blurb>
+          <Blurb>
+            {TranslateString(999, 'See the SportParty3 rules on our ')}
+            <LinkWrapper>
+              <a
+                href="https://teaswap.gitbook.io/teaswap/features/sportparties/champions-league"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {TranslateString(999, 'Gitbook')}
+              </a>
+            </LinkWrapper>
+          </Blurb>
+          <Blurb>
+            {TranslateString(999, 'Come to speak with us on ')}
+            <LinkWrapper>
+              <a href="https://t.me/TeaswapFinance" target="_blank" rel="noreferrer">
+                {TranslateString(999, 'Telegram Channel')}
+              </a>
+            </LinkWrapper>
           </Blurb>
         </LeftWrapper>
         <RightWrapper>

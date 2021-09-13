@@ -31,7 +31,7 @@ const config: MenuEntry[] = [
         icon: 'FarmIcon',
         items: [
             {
-                label: 'Champions league',
+                label: 'Champions League',
                 href: '/SportParties/Championsleague',
             },
         ],

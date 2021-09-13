@@ -104,7 +104,7 @@ const Matchdays: React.FC = () => {
   const rowData = matchdaysMemoized.map((matchday) => {
     const row: RowProps = {
       theDate: {
-        theDate: matchday.theDate.toUpperCase(),
+        theDate: matchday.theDate,
       },
       matchday: {
         label: matchday.label,
@@ -150,8 +150,13 @@ const Matchdays: React.FC = () => {
     <>
       <Hero />
       <StyledPage>
+        {/* 
+        
         <HowItWorks />
-        <Divider />
+        <Divider /> 
+        
+        */}
+
         <ControlContainer>
           <FilterContainer>
             <LabelWrapper style={{ marginLeft: 16 }}>

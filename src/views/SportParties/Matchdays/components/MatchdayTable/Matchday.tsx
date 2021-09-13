@@ -40,7 +40,7 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
 
         {winnerToken && (
           <Tag outline variant="success" mr="8px">
-            {winnerToken}
+            {winnerToken} wins
           </Tag>
         )}
 

@@ -28,8 +28,8 @@ export const { setMatchdaysPublicData, } = matchdaysSlice.actions
 
 // Thunks
 export const fetchMatchdaysPublicDataAsync = () => async (dispatch) => {
-  let thunkMatchdays = await fetchMatchdays()
-  thunkMatchdays = fillMatchdays(thunkMatchdays)
+  const thunkMatchdays = await fetchMatchdays()
+//  thunkMatchdays = fillMatchdays(thunkMatchdays)
   dispatch(setMatchdaysPublicData(thunkMatchdays))
 }
 

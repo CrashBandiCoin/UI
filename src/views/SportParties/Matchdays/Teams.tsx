@@ -26,7 +26,7 @@ const Teams: React.FC<TeamsProps> = ({ teams }) => {
     const row: RowProps = {
       team: {
         id: team.id,
-        label: team.label,
+        label: team.label?.toUpperCase(),
         icon: team.icon,
       },
       votedToken: {
