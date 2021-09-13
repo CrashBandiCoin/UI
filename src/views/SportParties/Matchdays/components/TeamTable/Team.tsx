@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
-import { ChampionsLeagueToken } from 'config/constants/types'
+import { Text, Image } from '@pancakeswap-libs/uikit'
 
 export interface TeamProps {
   id: number
   label: string
-  votedToken?: ChampionsLeagueToken
+  icon: string
 }
 
 const Container = styled.div`
@@ -27,12 +26,12 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Team: React.FunctionComponent<TeamProps> = ({ label, votedToken }) => {
+const Team: React.FunctionComponent<TeamProps> = ({ label, icon }) => {
   return (
     <Container>
-      {votedToken && (
+      {icon && (
         <TokenWrapper>
-          <Image src={`/images/farms/${votedToken.toLowerCase()}.png`} alt="" width={40} height={40} />
+          <Image src={`/images/football/${icon.toLowerCase()}.png`} alt="" width={48} height={48} />
         </TokenWrapper>
       )}
 
@@ -40,18 +39,6 @@ const Team: React.FunctionComponent<TeamProps> = ({ label, votedToken }) => {
         <Text bold color="primary" fontSize="12px">
           {label}
         </Text>
-
-        {votedToken && (
-          <Tag outline variant="success" mr="8px">
-            {votedToken}
-          </Tag>
-        )}
-
-        {!votedToken && (
-          <Tag outline variant="warning" mr="8px">
-            Not yet voted for SUGAR or TEASPORT token
-          </Tag>
-        )}
       </div>
     </Container>
   )

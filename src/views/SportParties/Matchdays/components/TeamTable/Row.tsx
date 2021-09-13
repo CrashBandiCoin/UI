@@ -3,13 +3,15 @@ import styled from 'styled-components'
 import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 
 import Team, { TeamProps } from './Team'
+import VotedToken, { VotedTokenProps } from './VotedTokenProps'
 import Score, { ScoreProps } from './Score'
 import CellLayout from '../CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from './types'
 
 export interface RowProps {
   team: TeamProps
-  score: ScoreProps
+  score?: ScoreProps
+  votedToken?: VotedTokenProps
 }
 
 interface RowPropsWithLoading extends RowProps {
@@ -19,6 +21,7 @@ interface RowPropsWithLoading extends RowProps {
 const cells = {
   team: Team,
   score: Score,
+  votedToken: VotedToken,
 }
 
 const CellInner = styled.div`
@@ -98,6 +101,13 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
             <TeamMobileCell>
               <CellLayout>
                 <Team {...props.team} />
+              </CellLayout>
+            </TeamMobileCell>
+          </tr>
+          <tr>
+            <TeamMobileCell>
+              <CellLayout>
+                <VotedToken {...props.votedToken} />
               </CellLayout>
             </TeamMobileCell>
           </tr>

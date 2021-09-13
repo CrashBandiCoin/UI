@@ -5,7 +5,6 @@ import Page from 'components/layout/Page'
 import { Team } from 'state/types'
 import { RowProps } from './components/TeamTable/Row'
 import Table from './components/TeamTable/TeamTable'
-
 import { DesktopColumnSchema } from './components/TeamTable/types'
 
 export interface TeamsProps {
@@ -20,6 +19,9 @@ const Teams: React.FC<TeamsProps> = ({ teams }) => {
       team: {
         id: team.id,
         label: team.label,
+        icon: team.icon,
+      },
+      votedToken: {
         votedToken: team.votedToken,
       },
       score: {

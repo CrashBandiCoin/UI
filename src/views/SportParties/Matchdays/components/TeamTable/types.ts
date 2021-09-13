@@ -17,14 +17,20 @@ export const MobileColumnSchema: ColumnsDefTypes[] = [
     id: 1,
     name: 'team',
     sortable: true,
-    label: 'DGDFGDSFDFDFGDF',
+    label: '',
   },
 
   {
     id: 2,
+    name: 'votedToken',
+    sortable: true,
+    label: '',
+  },
+  {
+    id: 3,
     name: 'score',
     sortable: true,
-    label: 'FSDFSDSF',
+    label: '',
   },
 ]
 
@@ -33,13 +39,19 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     id: 1,
     name: 'team',
     sortable: true,
-    label: 'DGDFGDSFDFDFGDF',
+    label: '',
   },
 
   {
     id: 2,
+    name: 'votedToken',
+    sortable: true,
+    label: '',
+  },
+  {
+    id: 3,
     name: 'score',
     sortable: true,
-    label: 'FSDFSDSF',
+    label: '',
   },
 ]
