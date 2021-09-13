@@ -15,48 +15,31 @@ export type ScrollBarProps = {
 export const MobileColumnSchema: ColumnsDefTypes[] = [
   {
     id: 1,
-    name: 'matchday',
+    name: 'team',
     sortable: true,
     label: 'DGDFGDSFDFDFGDF',
   },
 
   {
     id: 2,
-    name: 'theDate',
+    name: 'score',
     sortable: true,
     label: 'FSDFSDSF',
-  },
-  {
-    id: 3,
-    name: 'details',
-    sortable: true,
-    label: 'GFHGHGFHFG',
   },
 ]
 
 export const DesktopColumnSchema: ColumnsDefTypes[] = [
   {
     id: 1,
-    name: 'matchday',
+    name: 'team',
     sortable: true,
-    label: '',
+    label: 'DGDFGDSFDFDFGDF',
   },
 
   {
     id: 2,
-    name: 'theDate',
+    name: 'score',
     sortable: true,
-    label: '',
-  },
-  {
-    id: 3,
-    name: 'details',
-    sortable: true,
-    label: '',
+    label: 'FSDFSDSF',
   },
 ]
-
-export enum ViewMode {
-  'TABLE' = 'TABLE',
-  'CARD' = 'CARD',
-}

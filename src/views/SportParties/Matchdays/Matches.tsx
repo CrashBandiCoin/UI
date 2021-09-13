@@ -6,7 +6,7 @@ import { Match } from 'state/types'
 import { RowProps } from './components/MatchTable/Row'
 import Table from './components/MatchTable/MatchTable'
 
-import { DesktopColumnSchema } from './components/types'
+import { DesktopColumnSchema } from './components/MatchTable/types'
 
 export interface MatchesProps {
   matches: Match[]

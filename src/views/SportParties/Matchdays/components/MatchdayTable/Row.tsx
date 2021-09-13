@@ -8,12 +8,12 @@ import Matchday, { MatchdayProps } from './Matchday'
 import Details from '../Details'
 import ActionPanel from './Actions/ActionPanel'
 import CellLayout from '../CellLayout'
-import { DesktopColumnSchema, MobileColumnSchema } from '../types'
+import { DesktopColumnSchema, MobileColumnSchema } from './types'
 import { MatchdayWithMoreValue } from '../MatchdayCard/MatchdayCard'
 
 export interface RowProps {
-  theDate: TheDateProps
   matchday: MatchdayProps
+  theDate: TheDateProps
   details: MatchdayWithMoreValue
 }
 

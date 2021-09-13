@@ -6,7 +6,7 @@ import { Team } from 'state/types'
 import { RowProps } from './components/TeamTable/Row'
 import Table from './components/TeamTable/TeamTable'
 
-import { DesktopColumnSchema } from './components/types'
+import { DesktopColumnSchema } from './components/TeamTable/types'
 
 export interface TeamsProps {
   teams: Team[]

@@ -11,7 +11,7 @@ import Select, { OptionProps } from 'components/Select/Select'
 import { Matchday } from 'state/types'
 import { RowProps } from './components/MatchdayTable/Row'
 import Table from './components/MatchdayTable/MatchdayTable'
-import { DesktopColumnSchema } from './components/types'
+import { DesktopColumnSchema } from './components/MatchdayTable/types'
 
 const ControlContainer = styled.div`
   display: flex;

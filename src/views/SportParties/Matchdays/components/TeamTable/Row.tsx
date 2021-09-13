@@ -5,7 +5,7 @@ import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 import Team, { TeamProps } from './Team'
 import Score, { ScoreProps } from './Score'
 import CellLayout from '../CellLayout'
-import { DesktopColumnSchema, MobileColumnSchema } from '../types'
+import { DesktopColumnSchema, MobileColumnSchema } from './types'
 
 export interface RowProps {
   team: TeamProps

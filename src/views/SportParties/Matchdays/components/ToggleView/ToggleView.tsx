@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ListViewIcon, CardViewIcon, IconButton } from '@pancakeswap-libs/uikit'
-import { ViewMode } from '../types'
+
+enum ViewMode {
+  'TABLE' = 'TABLE',
+  'CARD' = 'CARD',
+}
 
 interface ToggleViewProps {
   viewMode: ViewMode
