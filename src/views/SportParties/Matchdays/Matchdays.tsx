@@ -13,6 +13,12 @@ import { RowProps } from './components/MatchdayTable/Row'
 import Table from './components/MatchdayTable/MatchdayTable'
 import { DesktopColumnSchema } from './components/MatchdayTable/types'
 
+const StyledPage = styled(Page)`
+  min-height: 1000px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+`
+
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
@@ -148,7 +154,7 @@ const Matchdays: React.FC = () => {
           Championsleague
         </Heading>
       </PageHeader>
-      <Page>
+      <StyledPage>
         <ControlContainer>
           <FilterContainer>
             <LabelWrapper style={{ marginLeft: 16 }}>
@@ -182,7 +188,7 @@ const Matchdays: React.FC = () => {
         </ControlContainer>
         {renderContent()}
         <div ref={loadMoreRef} />
-      </Page>
+      </StyledPage>
     </>
   )
 }

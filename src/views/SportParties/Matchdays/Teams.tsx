@@ -1,6 +1,6 @@
 import React from 'react'
 import { RowType } from '@pancakeswap-libs/uikit'
-
+import styled from 'styled-components'
 import Page from 'components/layout/Page'
 import { Team } from 'state/types'
 import { RowProps } from './components/TeamTable/Row'
@@ -10,6 +10,14 @@ import { DesktopColumnSchema } from './components/TeamTable/types'
 export interface TeamsProps {
   teams: Team[]
 }
+
+const StyledPage = styled(Page)`
+  min-height: 0px;
+  padding-top: 0px;
+  align-items: left;
+  padding-bottom: 0px;
+  width: 90%;
+`
 
 const Teams: React.FC<TeamsProps> = ({ teams }) => {
   const userDataReady = true
@@ -53,7 +61,7 @@ const Teams: React.FC<TeamsProps> = ({ teams }) => {
     return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
   }
 
-  return <>{renderContent()}</>
+  return <StyledPage>{renderContent()}</StyledPage>
 }
 
 export default Teams
