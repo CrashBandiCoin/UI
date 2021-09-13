@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Timeline } from 'react-twitter-widgets'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
@@ -21,6 +21,40 @@ const StyledTwitterCard = styled(Card)`
   margin-right: auto;
 `
 
+const RainbowLight = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`
+
+const StyledSportPartie = styled(Card)`
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(45deg,
+  rgba(255, 0, 0, 1) 0%,
+  rgba(255, 154, 0, 1) 10%,
+  rgba(208, 222, 33, 1) 20%,
+  rgba(79, 220, 74, 1) 30%,
+  rgba(63, 218, 216, 1) 40%,
+  rgba(47, 201, 226, 1) 50%,
+  rgba(28, 127, 238, 1) 60%,
+  rgba(95, 21, 242, 1) 70%,
+  rgba(186, 12, 248, 1) 80%,
+  rgba(251, 7, 217, 1) 90%,
+  rgba(255, 0, 0, 1) 100%);
+  background-size: 300% 300%;
+  animation: ${RainbowLight} 2s linear infinite;
+  border-radius: 16px;
+`
+
 const Row = styled.div`
   align-items: center;
   text-align: center;
@@ -38,32 +72,19 @@ const NextFeature = () => {
   const TranslateString = useI18n()
 
   return (
-      <CardBody>
+      <StyledSportPartie>
         <Heading size="xl" mb="24px">
-          Next Features coming :
+          <br/>
+          <Row>New Feature Launched</Row>
         </Heading>
-        <br/>
-        <Carousel itemsToShow={1} isRTL>
-          <img
+          <Row><img
             src={ChampionsLeague}
             loading='lazy'
-            width="200px"
-            alt=''
-          />
-        </Carousel>
-        <br/>
-        <Heading size="xl" mb="24px">
-          <TextGreen>Sport Parties</TextGreen>
-          <br/>
-          <Row><img
-            src={Soccer}
-            loading='lazy'
-            width="30px"
             alt=''
           /></Row>
-        </Heading>
-
-      </CardBody>
+        <br/>
+        <Row>Sport Partie 3 : 09/14/21</Row>
+      </StyledSportPartie>
   )
 }
 

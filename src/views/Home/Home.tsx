@@ -30,7 +30,6 @@ import TokenShow from './components/TokenShow'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/logoTeaswap.svg');
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -158,10 +157,10 @@ const Home: React.FC = () => {
 
   return (
     <Page>
-      <Hero/>
+
       <Cards>
+        <TotalValueLockedCard/>
           <NextFeature/>
-          <TwitterCard/>
       </Cards>
       <div>
         <SalesSection {...sugarSectionData} />
@@ -184,7 +183,6 @@ const Home: React.FC = () => {
                          totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
                          marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />
         <br/><br/>
-        <TotalValueLockedCard/>
         <SocialCard />
       </div>
     </Page>

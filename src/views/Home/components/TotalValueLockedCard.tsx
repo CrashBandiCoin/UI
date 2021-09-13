@@ -29,13 +29,13 @@ const TotalValueLockedCard = () => {
     <CardBody>
         <Heading size="h1" mb="24px">
           <Row><Text color="textSubtle">Total Deposit Value at TeaSwap</Text></Row>
-          <br/>
+          <br/><br/>
           <Row><img
             src={vaultIcon}
             loading='lazy'
             width='95px'
             alt=''
-          /></Row>
+          /></Row><br/>
           <Row><CardValue value={totalValue.toNumber()} prefix="$" decimals={2}/></Row>
         </Heading>
         <>
