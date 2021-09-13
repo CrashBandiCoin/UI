@@ -1,5 +1,5 @@
 import { Matchday } from 'state/types'
-import {  ChampionsLeagueToken } from './types'
+import { ChampionsLeagueToken } from './types'
 
 const matchdays: Matchday[] = [
 	{
@@ -19,6 +19,7 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'RB Salzburg',
 						icon: 'salzburg',
+						score: 2
 						
 					},
 				],
