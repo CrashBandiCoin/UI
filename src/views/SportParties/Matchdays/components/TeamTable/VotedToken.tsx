@@ -31,9 +31,11 @@ const VotedToken: React.FC<VotedTokenProps> = ({ votedToken }) => {
       )}
 
       {!votedToken && (
-        <Tag outline variant="warning" mr="8px">
-          Vote for your favorite token
-        </Tag>
+        <a target="_blank" rel="noreferrer" href="https://snapshot.org/#/tea-swap.eth">
+          <Tag outline variant="warning" mr="8px">
+            Vote for your favorite token
+          </Tag>
+        </a>
       )}
     </Container>
   )
