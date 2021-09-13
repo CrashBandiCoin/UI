@@ -59,7 +59,7 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
     return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
   }
 
-  return <StyledPage>{renderContent()}</StyledPage>
+  return <>{renderContent()}</>
 }
 
 export default Matches

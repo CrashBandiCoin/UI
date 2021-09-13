@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useTable, ColumnType } from '@pancakeswap-libs/uikit'
-
+import Page from 'components/layout/Page'
 import Row, { RowProps } from './Row'
 
 export interface ITableProps {
@@ -10,6 +10,13 @@ export interface ITableProps {
   userDataReady: boolean
   sortColumn?: string
 }
+
+const StyledPage = styled(Page)`
+  min-height: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 100%;
+`
 
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
@@ -56,7 +63,7 @@ const MatchTable: React.FC<ITableProps> = (props) => {
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'match' })
 
   return (
-    <Container>
+    <>
       <TableWrapper ref={tableWrapperEl}>
         <StyledTable>
           <TableBody>
@@ -66,7 +73,7 @@ const MatchTable: React.FC<ITableProps> = (props) => {
           </TableBody>
         </StyledTable>
       </TableWrapper>
-    </Container>
+    </>
   )
 }
 

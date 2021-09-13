@@ -44,7 +44,7 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  border-bottom: 4px solid ${({ theme }) => theme.colors.cardBorder};
+  border-top: 3px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
 const TheDateMobileCell = styled.td`

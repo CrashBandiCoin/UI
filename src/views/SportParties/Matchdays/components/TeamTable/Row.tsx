@@ -38,7 +38,7 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
 const ScoreMobileCell = styled.td`
