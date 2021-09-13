@@ -21,13 +21,13 @@ const expandAnimation = keyframes`
     max-height: 0px;
   }
   to {
-    max-height: 500px;
+    max-height: 100%;
   }
 `
 
 const collapseAnimation = keyframes`
   from {
-    max-height: 500px;
+    max-height: 100%;
   }
   to {
     max-height: 0px;
@@ -48,12 +48,10 @@ const Container = styled.div<{ expanded }>`
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
-  padding: 24px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: block;
     flex-direction: column;
-    padding: 16px 32px;
   }
 `
 

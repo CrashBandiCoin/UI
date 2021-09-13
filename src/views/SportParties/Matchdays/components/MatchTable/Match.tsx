@@ -28,14 +28,13 @@ const TokenWrapper = styled.div`
   }
 `
 
+const TagWrapper = styled(Tag)`
+  margin-left: 5px;
+`
+
 const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
   return (
     <Container>
-      <div>
-        <Text bold color="primary" fontSize="24px">
-          Match :
-        </Text>
-      </div>
       {winnerToken && (
         <TokenWrapper>
           <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={40} height={40} />
@@ -43,16 +42,10 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
       )}
 
       <div>
-        {winnerToken && (
-          <Tag outline variant="success" mr="8px">
-            {winnerToken}
-          </Tag>
-        )}
-
         {!winnerToken && (
-          <Tag outline variant="warning" mr="8px">
-            Match not yet finished
-          </Tag>
+          <TagWrapper outline variant="warning" mr="8px">
+            No Token Yet
+          </TagWrapper>
         )}
       </div>
     </Container>

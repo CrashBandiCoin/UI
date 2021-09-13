@@ -31,11 +31,11 @@ const cells = {
 }
 
 const CellInner = styled.div`
-  padding: 24px 0px;
+  padding: 12px 0px;
   display: flex;
   width: 100%;
   align-items: center;
-  padding-right: 8px;
+  padding-right: 0px;
 
   ${({ theme }) => theme.mediaQueries.xl} {
     padding-right: 32px;
@@ -44,7 +44,7 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  border-bottom: 4px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
 const TheDateMobileCell = styled.td`
@@ -129,27 +129,25 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     return (
       <StyledTr onClick={toggleActionPanel}>
         <td>
-          <tr>
-            <FarmMobileCell>
-              <CellLayout>
-                <Match {...props.match} />
-              </CellLayout>
-            </FarmMobileCell>
-          </tr>
-          <tr>
-            <TheDateMobileCell>
-              <CellLayout>
-                <TheDate {...props.theDate} />
-              </CellLayout>
-            </TheDateMobileCell>
-          </tr>
-          <tr>
-            <TheWinnerTeamMobileCell>
-              <CellLayout>
-                <TheWinnerTeam {...props.theWinnerTeam} />
-              </CellLayout>
-            </TheWinnerTeamMobileCell>
-          </tr>
+          <FarmMobileCell>
+            <CellLayout>
+              <Match {...props.match} />
+            </CellLayout>
+          </FarmMobileCell>
+        </td>
+        <td>
+          <TheDateMobileCell>
+            <CellLayout>
+              <TheDate {...props.theDate} />
+            </CellLayout>
+          </TheDateMobileCell>
+        </td>
+        <td>
+          <TheWinnerTeamMobileCell>
+            <CellLayout>
+              <TheWinnerTeam {...props.theWinnerTeam} />
+            </CellLayout>
+          </TheWinnerTeamMobileCell>
         </td>
       </StyledTr>
     )

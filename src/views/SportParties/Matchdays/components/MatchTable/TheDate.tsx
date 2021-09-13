@@ -19,7 +19,7 @@ const TheDateWrapper = styled.div`
 const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
   return (
     <Container>
-      <TheDateWrapper>{theDate}</TheDateWrapper>
+      <TheDateWrapper>Match at : {theDate}</TheDateWrapper>
     </Container>
   )
 }

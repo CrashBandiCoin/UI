@@ -26,7 +26,6 @@ const ControlContainer = styled.div`
   position: relative;
 
   justify-content: space-between;
-  flex-direction: column;
   margin-bottom: 32px;
 
   ${({ theme }) => theme.mediaQueries.sm} {

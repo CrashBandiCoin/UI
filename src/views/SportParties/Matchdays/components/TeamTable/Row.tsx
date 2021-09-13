@@ -25,14 +25,14 @@ const cells = {
 }
 
 const CellInner = styled.div`
-  padding: 24px 0px;
+  padding: 12px 0px;
   display: flex;
   width: 100%;
   align-items: center;
   padding-right: 8px;
 
   ${({ theme }) => theme.mediaQueries.xl} {
-    padding-right: 32px;
+    padding-right: 4px;
   }
 `
 
@@ -42,12 +42,12 @@ const StyledTr = styled.tr`
 `
 
 const ScoreMobileCell = styled.td`
-  padding-top: 16px;
-  padding-bottom: 24px;
+  padding-top: 8px;
+  padding-bottom: 12px;
 `
 
 const TeamMobileCell = styled.td`
-  padding-top: 24px;
+  padding-top: 12px;
 `
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {

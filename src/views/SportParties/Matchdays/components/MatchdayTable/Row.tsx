@@ -28,7 +28,7 @@ const cells = {
 }
 
 const CellInner = styled.div`
-  padding: 24px 0px;
+  padding: 12px 0px;
   display: flex;
   width: 100%;
   align-items: center;
@@ -122,20 +122,18 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     return (
       <StyledTr onClick={toggleActionPanel}>
         <td>
-          <tr>
-            <FarmMobileCell>
-              <CellLayout>
-                <Matchday {...props.matchday} />
-              </CellLayout>
-            </FarmMobileCell>
-          </tr>
-          <tr>
-            <TheDateMobileCell>
-              <CellLayout>
-                <TheDate {...props.theDate} />
-              </CellLayout>
-            </TheDateMobileCell>
-          </tr>
+          <FarmMobileCell>
+            <CellLayout>
+              <Matchday {...props.matchday} />
+            </CellLayout>
+          </FarmMobileCell>
+        </td>
+        <td>
+          <TheDateMobileCell>
+            <CellLayout>
+              <TheDate {...props.theDate} />
+            </CellLayout>
+          </TheDateMobileCell>
         </td>
         <td>
           <CellInner>
@@ -152,11 +150,11 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     <>
       {handleRenderRow()}
       {shouldRenderChild && (
-        <tr>
+        <StyledTr>
           <td colSpan={6}>
             <ActionPanel {...props} expanded={actionPanelExpanded} />
           </td>
-        </tr>
+        </StyledTr>
       )}
     </>
   )

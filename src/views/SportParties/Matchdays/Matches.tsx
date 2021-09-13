@@ -12,7 +12,7 @@ const StyledPage = styled(Page)`
   min-height: 0;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 90%;
+  width: 100%;
 `
 
 export interface MatchesProps {
