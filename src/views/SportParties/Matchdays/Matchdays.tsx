@@ -1,32 +1,17 @@
-import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
-import { Route, useRouteMatch, useLocation } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import BigNumber from 'bignumber.js'
-import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
+import React, { useCallback, useState, useMemo, useRef } from 'react'
+import { Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { orderBy } from 'lodash'
-import useRefresh from 'hooks/useRefresh'
-import useI18n from 'hooks/useI18n'
-import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
-import { QuoteToken } from 'config/constants/types'
 import { useMatchdays } from 'state/hooks'
 
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
-import CardValue from 'views/Home/components/CardValue'
 import { Matchday } from 'state/types'
 import { RowProps } from './components/MatchdayTable/Row'
 import Table from './components/MatchdayTable/MatchdayTable'
-import FarmTabButtons from './components/MatchdayTabButtons'
-import { DesktopColumnSchema, ViewMode } from './components/types'
-
-export interface MatchdaysProps {
-  tokenMode?: boolean
-  type?: string
-}
+import { DesktopColumnSchema } from './components/types'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -46,25 +31,10 @@ const ControlContainer = styled.div`
   }
 `
 
-const ToggleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-
-  ${Text} {
-    margin-left: 8px;
-  }
-`
-
 const LabelWrapper = styled.div`
   > ${Text} {
     font-size: 12px;
   }
-`
-
-const TextWrapper = styled.div`
-  text-align: center;
-  margin-bottom: 25px;
 `
 
 const FilterContainer = styled.div`
@@ -79,45 +49,11 @@ const FilterContainer = styled.div`
   }
 `
 
-const ViewControls = styled.div`
-  flex-wrap: wrap;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  > div {
-    padding: 8px 0px;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: flex-start;
-    width: auto;
-
-    > div {
-      padding: 0;
-    }
-  }
-`
-
-const StyledImage = styled(Image)`
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 58px;
-`
-
-const NUMBER_OF_FARMS_VISIBLE = 12
-
-const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
-  const TranslateString = useI18n()
-
+const Matchdays: React.FC = () => {
   const matchdaysFromState = useMatchdays()
-
-  const { tokenMode, type } = matchdaysProps
 
   const [query, setQuery] = useState('')
   const [sortOption, setSortOption] = useState('label')
-  const [platformOption, setPlatformOption] = useState('all')
 
   const userDataReady = true
 
@@ -140,8 +76,6 @@ const Matchdays: React.FC<MatchdaysProps> = (matchdaysProps) => {
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
-
-  const [observerIsSet, setObserverIsSet] = useState(false)
 
   const matchdaysMemoized = useMemo(() => {
     const sortMatchdays = (matchdays: Matchday[]): Matchday[] => {

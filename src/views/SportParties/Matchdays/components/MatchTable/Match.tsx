@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
+import { Tag, Image } from '@pancakeswap-libs/uikit'
 import { ChampionsLeagueToken } from 'config/constants/types'
 
-export interface MatchdayProps {
+export interface MatchProps {
   id: number
-  label: string
   winnerToken?: ChampionsLeagueToken
 }
 
@@ -27,7 +26,7 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }) => {
+const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
   return (
     <Container>
       {winnerToken && (
@@ -37,10 +36,6 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
       )}
 
       <div>
-        <Text bold color="primary" fontSize="12px">
-          {label}
-        </Text>
-
         {winnerToken && (
           <Tag outline variant="success" mr="8px">
             {winnerToken}
@@ -57,4 +52,4 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
   )
 }
 
-export default Matchday
+export default Match

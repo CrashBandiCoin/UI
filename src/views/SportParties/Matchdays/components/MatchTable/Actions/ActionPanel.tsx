@@ -1,15 +1,17 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 
-import { Matchday } from 'state/types'
-import Matches from 'views/SportParties/Matchdays/Matches'
+import { Match } from 'state/types'
+import Teams from 'views/SportParties/Matchdays/Teams'
 import { TheDateProps } from '../TheDate'
-import { MatchdayProps } from '../Matchday'
+import { MatchProps } from '../Match'
+import { TheWinnerTeamProps } from '../TheWinnerTeam'
 
 export interface ActionPanelProps {
-  matchday: MatchdayProps
+  match: MatchProps
   theDate: TheDateProps
-  details: Matchday
+  theWinnerTeam: TheWinnerTeamProps
+  details: Match
   userDataReady: boolean
   expanded: boolean
 }
@@ -58,7 +60,7 @@ const Container = styled.div<{ expanded }>`
 const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({ details, expanded }) => {
   return (
     <Container expanded={expanded}>
-      <Matches {...details} />
+      <Teams {...details} />
     </Container>
   )
 }

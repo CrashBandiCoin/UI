@@ -1,13 +1,14 @@
-import { MatchdayConfig, ChampionsLeagueToken } from './types'
+import { Matchday } from 'state/types'
+import {  ChampionsLeagueToken } from './types'
 
-const matchdays: MatchdayConfig[] = [
+const matchdays: Matchday[] = [
 	{
 	    id: 1,
 	    label: 'day 1',
 		matches:[
 			{
 				id:1,
-				matchDate: '12 Sept. 17:30 UTC',
+				theDate: '12 Sept. 17:30 UTC',
 				teams: [
 					{
 						id:1,
@@ -26,7 +27,7 @@ const matchdays: MatchdayConfig[] = [
 			},
 			{
 				id:2,
-				matchDate: '12 Sept. 17:30 UTC',
+				theDate: '12 Sept. 17:30 UTC',
 				teams: [
 					{
 						id:1,
@@ -52,7 +53,7 @@ const matchdays: MatchdayConfig[] = [
 		matches:[
 			{
 				id:1,
-				matchDate: '19 Sept. 18:30 UTC',
+				theDate: '19 Sept. 18:30 UTC',
 				teams: [
 					{
 						id:1,
@@ -69,7 +70,7 @@ const matchdays: MatchdayConfig[] = [
 			},
 			{
 				id:2,
-				matchDate: '19 Sept. 20:50 UTC',
+				theDate: '19 Sept. 20:50 UTC',
 				teams: [
 					{
 						id:1,

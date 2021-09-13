@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
 import { ChampionsLeagueToken } from 'config/constants/types'
 
-export interface MatchdayProps {
+export interface TeamProps {
   id: number
   label: string
-  winnerToken?: ChampionsLeagueToken
+  votedToken?: ChampionsLeagueToken
 }
 
 const Container = styled.div`
@@ -27,12 +27,12 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }) => {
+const Team: React.FunctionComponent<TeamProps> = ({ label, votedToken }) => {
   return (
     <Container>
-      {winnerToken && (
+      {votedToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={40} height={40} />
+          <Image src={`/images/farms/${votedToken.toLowerCase()}.png`} alt="" width={40} height={40} />
         </TokenWrapper>
       )}
 
@@ -41,15 +41,15 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
           {label}
         </Text>
 
-        {winnerToken && (
+        {votedToken && (
           <Tag outline variant="success" mr="8px">
-            {winnerToken}
+            {votedToken}
           </Tag>
         )}
 
-        {!winnerToken && (
+        {!votedToken && (
           <Tag outline variant="warning" mr="8px">
-            Day not yet finished
+            Not yet voted for SUGAR or TEASPORT token
           </Tag>
         )}
       </div>
@@ -57,4 +57,4 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
   )
 }
 
-export default Matchday
+export default Team

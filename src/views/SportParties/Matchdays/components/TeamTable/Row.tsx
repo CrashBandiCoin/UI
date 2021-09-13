@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
-import useDelayedUnmount from 'hooks/useDelayedUnmount'
 
-import TheDate, { TheDateProps } from './TheDate'
-import Matchday, { MatchdayProps } from './Matchday'
-import Details from '../Details'
-import ActionPanel from './Actions/ActionPanel'
+import Team, { TeamProps } from './Team'
+import Score, { ScoreProps } from './Score'
 import CellLayout from '../CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from '../types'
-import { MatchdayWithMoreValue } from '../MatchdayCard/MatchdayCard'
 
 export interface RowProps {
-  theDate: TheDateProps
-  matchday: MatchdayProps
-  details: MatchdayWithMoreValue
+  team: TeamProps
+  score: ScoreProps
 }
 
 interface RowPropsWithLoading extends RowProps {
@@ -22,9 +17,8 @@ interface RowPropsWithLoading extends RowProps {
 }
 
 const cells = {
-  theDate: TheDate,
-  matchday: Matchday,
-  details: Details,
+  team: Team,
+  score: Score,
 }
 
 const CellInner = styled.div`
@@ -44,28 +38,16 @@ const StyledTr = styled.tr`
   border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
-const TheDateMobileCell = styled.td`
+const ScoreMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
 `
 
-const FarmMobileCell = styled.td`
+const TeamMobileCell = styled.td`
   padding-top: 24px;
 `
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
-  const hasStakedAmount = true
-  const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount)
-  const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300)
-
-  const toggleActionPanel = () => {
-    setActionPanelExpanded(!actionPanelExpanded)
-  }
-
-  useEffect(() => {
-    setActionPanelExpanded(hasStakedAmount)
-  }, [hasStakedAmount])
-
   const { isXl, isXs } = useMatchBreakpoints()
 
   const isMobile = !isXl
@@ -75,7 +57,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const handleRenderRow = () => {
     if (!isXs) {
       return (
-        <StyledTr onClick={toggleActionPanel}>
+        <StyledTr>
           {Object.keys(props).map((key) => {
             const columnIndex = columnNames.indexOf(key)
             if (columnIndex === -1) {
@@ -83,22 +65,12 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
             }
 
             switch (key) {
-              case 'details':
+              case 'score':
                 return (
                   <td key={key}>
                     <CellInner>
                       <CellLayout>
-                        <Details actionPanelToggled={actionPanelExpanded} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                )
-              case 'theDate':
-                return (
-                  <td key={key}>
-                    <CellInner>
-                      <CellLayout>
-                        <TheDate {...props.theDate} />
+                        <Score {...props.score} />
                       </CellLayout>
                     </CellInner>
                   </td>
@@ -120,46 +92,28 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     }
 
     return (
-      <StyledTr onClick={toggleActionPanel}>
+      <StyledTr>
         <td>
           <tr>
-            <FarmMobileCell>
+            <TeamMobileCell>
               <CellLayout>
-                <Matchday {...props.matchday} />
+                <Team {...props.team} />
               </CellLayout>
-            </FarmMobileCell>
+            </TeamMobileCell>
           </tr>
           <tr>
-            <TheDateMobileCell>
+            <ScoreMobileCell>
               <CellLayout>
-                <TheDate {...props.theDate} />
+                <Score {...props.score} />
               </CellLayout>
-            </TheDateMobileCell>
+            </ScoreMobileCell>
           </tr>
-        </td>
-        <td>
-          <CellInner>
-            <CellLayout>
-              <Details actionPanelToggled={actionPanelExpanded} />
-            </CellLayout>
-          </CellInner>
         </td>
       </StyledTr>
     )
   }
 
-  return (
-    <>
-      {handleRenderRow()}
-      {shouldRenderChild && (
-        <tr>
-          <td colSpan={6}>
-            <ActionPanel {...props} expanded={actionPanelExpanded} />
-          </td>
-        </tr>
-      )}
-    </>
-  )
+  return <>{handleRenderRow()}</>
 }
 
 export default Row

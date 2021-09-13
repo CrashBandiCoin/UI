@@ -2,30 +2,29 @@ import React from 'react'
 import { RowType } from '@pancakeswap-libs/uikit'
 
 import Page from 'components/layout/Page'
-import { Match } from 'state/types'
-import { RowProps } from './components/MatchTable/Row'
-import Table from './components/MatchTable/MatchTable'
+import { Team } from 'state/types'
+import { RowProps } from './components/TeamTable/Row'
+import Table from './components/TeamTable/TeamTable'
 
 import { DesktopColumnSchema } from './components/types'
 
-export interface MatchesProps {
-  matches: Match[]
+export interface TeamsProps {
+  teams: Team[]
 }
 
-const Matches: React.FC<MatchesProps> = ({ matches }) => {
+const Teams: React.FC<TeamsProps> = ({ teams }) => {
   const userDataReady = true
 
-  const rowData = matches.map((match) => {
+  const rowData = teams.map((team) => {
     const row: RowProps = {
-      match: {
-        id: match.id,
-        winnerToken: match.winnerToken,
+      team: {
+        id: team.id,
+        label: team.label,
+        votedToken: team.votedToken,
       },
-      theDate: {
-        theDate: match.theDate,
+      score: {
+        score: team.score,
       },
-      theWinnerTeam: match.theWinnerTeam,
-      details: match,
     }
 
     return row
@@ -40,7 +39,7 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
       label: column.label,
       sort: (a: RowType<RowProps>, b: RowType<RowProps>) => {
         switch (column.name) {
-          case 'match':
+          case 'team':
             return b.id - a.id
           default:
             return 1
@@ -55,4 +54,4 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
   return <Page>{renderContent()}</Page>
 }
 
-export default Matches
+export default Teams

@@ -4,17 +4,20 @@ import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
 
 import TheDate, { TheDateProps } from './TheDate'
-import Matchday, { MatchdayProps } from './Matchday'
+import Match, { MatchProps } from './Match'
 import Details from '../Details'
 import ActionPanel from './Actions/ActionPanel'
 import CellLayout from '../CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from '../types'
-import { MatchdayWithMoreValue } from '../MatchdayCard/MatchdayCard'
+import { MatchWithMoreValue } from '../MatchCard/MatchCard'
+import { TeamWithMoreValue } from '../TeamCard/TeamCard'
+import TheWinnerTeam from './TheWinnerTeam'
 
 export interface RowProps {
+  match: MatchProps
   theDate: TheDateProps
-  matchday: MatchdayProps
-  details: MatchdayWithMoreValue
+  theWinnerTeam: TeamWithMoreValue
+  details: MatchWithMoreValue
 }
 
 interface RowPropsWithLoading extends RowProps {
@@ -22,9 +25,9 @@ interface RowPropsWithLoading extends RowProps {
 }
 
 const cells = {
+  match: Match,
   theDate: TheDate,
-  matchday: Matchday,
-  details: Details,
+  theWinnerTeam: TheWinnerTeam,
 }
 
 const CellInner = styled.div`
@@ -45,6 +48,10 @@ const StyledTr = styled.tr`
 `
 
 const TheDateMobileCell = styled.td`
+  padding-top: 16px;
+  padding-bottom: 24px;
+`
+const TheWinnerTeamMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
 `
@@ -125,7 +132,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
           <tr>
             <FarmMobileCell>
               <CellLayout>
-                <Matchday {...props.matchday} />
+                <Match {...props.match} />
               </CellLayout>
             </FarmMobileCell>
           </tr>
@@ -136,13 +143,13 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
               </CellLayout>
             </TheDateMobileCell>
           </tr>
-        </td>
-        <td>
-          <CellInner>
-            <CellLayout>
-              <Details actionPanelToggled={actionPanelExpanded} />
-            </CellLayout>
-          </CellInner>
+          <tr>
+            <TheWinnerTeamMobileCell>
+              <CellLayout>
+                <TheWinnerTeam {...props.theWinnerTeam} />
+              </CellLayout>
+            </TheWinnerTeamMobileCell>
+          </tr>
         </td>
       </StyledTr>
     )
