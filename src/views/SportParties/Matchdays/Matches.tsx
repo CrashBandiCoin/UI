@@ -51,7 +51,7 @@ const Matches: React.FC<MatchesProps> = ({ matches }) => {
     return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
   }
 
-  return <Page>{renderContent()}</Page>
+  return <>{renderContent()}</>
 }
 
 export default Matches
