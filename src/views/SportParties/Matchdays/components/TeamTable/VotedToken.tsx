@@ -14,10 +14,10 @@ const Container = styled.div`
 `
 const TokenWrapper = styled.div`
   padding-right: 8px;
-  width: 24px;
+  width: 48px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 40px;
+    width: 48px;
   }
 `
 
@@ -26,7 +26,7 @@ const VotedToken: React.FC<VotedTokenProps> = ({ votedToken }) => {
     <Container>
       {votedToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${votedToken.toLowerCase()}.png`} alt="" width={40} height={40} />
+          <Image src={`/images/farms/${votedToken.toLowerCase()}.png`} alt="" width={48} height={42} />
         </TokenWrapper>
       )}
 

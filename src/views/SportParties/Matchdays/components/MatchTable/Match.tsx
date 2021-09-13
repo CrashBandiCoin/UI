@@ -14,17 +14,14 @@ const Container = styled.div`
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-left: 32px;
+    padding-left: 16px;
   }
 `
 const TokenWrapper = styled.div`
-  margin-right: 8px;
-  margin-left: 8px;
-
-  width: 24px;
+  width: 48px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 40px;
+    width: 48px;
   }
 `
 
@@ -37,14 +34,14 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
     <Container>
       {winnerToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={40} height={40} />
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={48} height={40} />
         </TokenWrapper>
       )}
 
       <div>
         {!winnerToken && (
           <TagWrapper outline variant="warning" mr="8px">
-            No Token Yet
+            Winner Token Team
           </TagWrapper>
         )}
       </div>

@@ -12,6 +12,9 @@ import { Matchday } from 'state/types'
 import { RowProps } from './components/MatchdayTable/Row'
 import Table from './components/MatchdayTable/MatchdayTable'
 import { DesktopColumnSchema } from './components/MatchdayTable/types'
+import Divider from './components/Divider'
+import Hero from './components/Hero'
+import HowItWorks from './components/HowItWorks'
 
 const StyledPage = styled(Page)`
   min-height: 1000px;
@@ -145,15 +148,10 @@ const Matchdays: React.FC = () => {
 
   return (
     <>
-      <PageHeader>
-        <Heading as="h1" scale="xl" color="secondary" mb="24px">
-          Sport Parties
-        </Heading>
-        <Heading scale="lg" color="text">
-          Championsleague
-        </Heading>
-      </PageHeader>
+      <Hero />
       <StyledPage>
+        <HowItWorks />
+        <Divider />
         <ControlContainer>
           <FilterContainer>
             <LabelWrapper style={{ marginLeft: 16 }}>

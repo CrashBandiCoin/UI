@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useMatchBreakpoints } from '@pancakeswap-libs/uikit'
 
 import Team, { TeamProps } from './Team'
-import VotedToken, { VotedTokenProps } from './VotedTokenProps'
+import VotedToken, { VotedTokenProps } from './VotedToken'
 import Score, { ScoreProps } from './Score'
 import CellLayout from '../CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from './types'

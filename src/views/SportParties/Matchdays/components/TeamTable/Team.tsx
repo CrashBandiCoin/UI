@@ -9,20 +9,19 @@ export interface TeamProps {
 }
 
 const Container = styled.div`
-  padding-left: 16px;
   display: flex;
+  width: 100%;
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-left: 32px;
+    padding-left: 16px;
   }
 `
 const TokenWrapper = styled.div`
-  padding-right: 8px;
-  width: 24px;
+  width: 36px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 40px;
+    width: 36px;
   }
 `
 
@@ -31,7 +30,7 @@ const Team: React.FunctionComponent<TeamProps> = ({ label, icon }) => {
     <Container>
       {icon && (
         <TokenWrapper>
-          <Image src={`/images/football/${icon.toLowerCase()}.png`} alt="" width={48} height={48} />
+          <Image src={`/images/football/${icon.toLowerCase()}.png`} alt="" width={36} height={30} />
         </TokenWrapper>
       )}
 
