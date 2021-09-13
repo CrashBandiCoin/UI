@@ -13,7 +13,8 @@ const Container = styled.div`
 
 const ScoreWrapper = styled.div`
   min-width: 60px;
-  text-align: left;
+  text-align: right;
+  font-size: 24px;
 `
 
 const Score: React.FC<ScoreProps> = ({ score }) => {

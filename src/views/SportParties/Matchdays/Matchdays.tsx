@@ -33,7 +33,7 @@ const ControlContainer = styled.div`
 
 const LabelWrapper = styled.div`
   > ${Text} {
-    font-size: 12px;
+    font-size: 14px;
   }
 `
 
@@ -57,10 +57,9 @@ const Matchdays: React.FC = () => {
 
   const userDataReady = true
 
-  const [activeOnly, setActiveOnly] = useState(true)
+  const [upcomingOnly, setUpcomingOnly] = useState(true)
 
-  const activeMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
-  const inactiveMatchdays = matchdaysFromState.filter((matchday) => !matchday.isActive)
+  const upcomingMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
 
   const matchdaysList = useCallback(
     (matchdaysToDisplay: Matchday[]): Matchday[] => {
@@ -89,10 +88,10 @@ const Matchdays: React.FC = () => {
       }
     }
 
-    if (activeOnly) return sortMatchdays(matchdaysList(activeMatchdays))
+    if (upcomingOnly) return sortMatchdays(matchdaysList(upcomingMatchdays))
 
-    return sortMatchdays(matchdaysList(inactiveMatchdays))
-  }, [activeMatchdays, activeOnly, inactiveMatchdays, matchdaysList, sortOption])
+    return sortMatchdays(matchdaysList(matchdaysFromState))
+  }, [upcomingMatchdays, upcomingOnly, matchdaysFromState, matchdaysList, sortOption])
 
   const rowData = matchdaysMemoized.map((matchday) => {
     const row: RowProps = {
@@ -153,8 +152,8 @@ const Matchdays: React.FC = () => {
         <ControlContainer>
           <FilterContainer>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">Show inactive</Text>
-              <Toggle checked={activeOnly} onChange={() => setActiveOnly(!activeOnly)} scale="md" />
+              <Text textTransform="uppercase">show upcoming days only</Text>
+              <Toggle checked={upcomingOnly} onChange={() => setUpcomingOnly(!upcomingOnly)} scale="md" />
             </LabelWrapper>
           </FilterContainer>
 

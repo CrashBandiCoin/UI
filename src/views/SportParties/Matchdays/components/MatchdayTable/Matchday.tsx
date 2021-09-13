@@ -37,7 +37,7 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
       )}
 
       <div>
-        <Text bold color="primary" fontSize="12px">
+        <Text bold color="primary" fontSize="32px">
           {label}
         </Text>
 

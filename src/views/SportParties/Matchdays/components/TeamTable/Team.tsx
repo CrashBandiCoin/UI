@@ -36,7 +36,7 @@ const Team: React.FunctionComponent<TeamProps> = ({ label, icon }) => {
       )}
 
       <div>
-        <Text bold color="primary" fontSize="12px">
+        <Text bold color="primary" fontSize="16px">
           {label}
         </Text>
       </div>

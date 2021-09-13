@@ -17,26 +17,26 @@ export const MobileColumnSchema: ColumnsDefTypes[] = [
     id: 1,
     name: 'match',
     sortable: true,
-    label: 'DGDFGDSFDFDFGDF',
+    label: '',
   },
 
   {
     id: 2,
     name: 'theDate',
     sortable: true,
-    label: 'FSDFSDSF',
+    label: '',
   },
   {
     id: 3,
     name: 'theWinnerTeam',
     sortable: true,
-    label: 'GFHGHGFHFG',
+    label: '',
   },
   {
     id: 4,
     name: 'details',
     sortable: true,
-    label: 'GFHGHGFHFG',
+    label: '',
   },
 ]
 
@@ -45,25 +45,25 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     id: 1,
     name: 'match',
     sortable: true,
-    label: 'DGDFGDSFDFDFGDF',
+    label: '',
   },
 
   {
     id: 2,
     name: 'theDate',
     sortable: true,
-    label: 'FSDFSDSF',
+    label: '',
   },
   {
     id: 3,
     name: 'theWinnerTeam',
     sortable: true,
-    label: 'GFHGHGFHFG',
+    label: '',
   },
   {
     id: 4,
     name: 'details',
     sortable: true,
-    label: 'GFHGHGFHFG',
+    label: '',
   },
 ]

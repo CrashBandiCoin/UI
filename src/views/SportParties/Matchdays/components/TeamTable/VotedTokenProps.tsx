@@ -32,7 +32,7 @@ const VotedToken: React.FC<VotedTokenProps> = ({ votedToken }) => {
 
       {!votedToken && (
         <Tag outline variant="warning" mr="8px">
-          Not yet voted for SUGAR or TEASPORT token
+          Vote for your favorite token
         </Tag>
       )}
     </Container>

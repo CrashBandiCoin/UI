@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, Image } from '@pancakeswap-libs/uikit'
+import { Tag, Text, Image } from '@pancakeswap-libs/uikit'
 import { ChampionsLeagueToken } from 'config/constants/types'
 
 export interface MatchProps {
@@ -29,6 +29,11 @@ const TokenWrapper = styled.div`
 const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
   return (
     <Container>
+      <div>
+        <Text bold color="primary" fontSize="32px">
+          MATCH :
+        </Text>
+      </div>
       {winnerToken && (
         <TokenWrapper>
           <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={40} height={40} />
@@ -44,7 +49,7 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
 
         {!winnerToken && (
           <Tag outline variant="warning" mr="8px">
-            Day not yet finished
+            Match not yet finished
           </Tag>
         )}
       </div>
