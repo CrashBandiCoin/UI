@@ -56,19 +56,17 @@ const TeamTable: React.FC<ITableProps> = (props) => {
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'farm' })
 
   return (
-    <Container>
-      <TableContainer>
-        <TableWrapper ref={tableWrapperEl}>
-          <StyledTable>
-            <TableBody>
-              {rows.map((row) => {
-                return <Row {...row.original} userDataReady={userDataReady} key={`table-row-${row.id}`} />
-              })}
-            </TableBody>
-          </StyledTable>
-        </TableWrapper>
-      </TableContainer>
-    </Container>
+    <TableContainer>
+      <TableWrapper ref={tableWrapperEl}>
+        <StyledTable>
+          <TableBody>
+            {rows.map((row) => {
+              return <Row {...row.original} userDataReady={userDataReady} key={`table-row-${row.id}`} />
+            })}
+          </TableBody>
+        </StyledTable>
+      </TableWrapper>
+    </TableContainer>
   )
 }
 

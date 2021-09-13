@@ -53,7 +53,7 @@ const Teams: React.FC<TeamsProps> = ({ teams }) => {
     return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
   }
 
-  return <Page>{renderContent()}</Page>
+  return <>{renderContent()}</>
 }
 
 export default Teams

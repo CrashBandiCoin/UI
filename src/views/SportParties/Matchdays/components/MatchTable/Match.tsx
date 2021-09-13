@@ -18,7 +18,9 @@ const Container = styled.div`
   }
 `
 const TokenWrapper = styled.div`
-  padding-right: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
+
   width: 24px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -30,8 +32,8 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
   return (
     <Container>
       <div>
-        <Text bold color="primary" fontSize="32px">
-          MATCH :
+        <Text bold color="primary" fontSize="24px">
+          Match :
         </Text>
       </div>
       {winnerToken && (

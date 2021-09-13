@@ -19,8 +19,8 @@ const Container = styled.div`
   }
 `
 const TokenWrapper = styled.div`
-  padding-right: 8px;
-  width: 24px;
+  margin-right: 8px;
+  margin-left: 8px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 40px;
@@ -32,7 +32,7 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
     <Container>
       {winnerToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={40} height={40} />
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={48} height={48} />
         </TokenWrapper>
       )}
 
