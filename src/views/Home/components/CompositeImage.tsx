@@ -17,7 +17,7 @@ const floatingAnim = (x: string, y: string) => keyframes`
 const Wrapper = styled(Box)<{ maxHeight: string }>`
   position: relative;
   max-height: ${({ maxHeight }) => maxHeight};
-
+  
   & :nth-child(2) {
     animation: ${floatingAnim('3px', '15px')} 3s ease-in-out infinite;
     animation-delay: 1s;
@@ -49,10 +49,14 @@ const ImageWrapper = styled(Box)`
   position: absolute;
   top: 0;
   left: 0;
-
+  
   img {
     max-height: 100%;
     width: auto;
+
+    @media (max-width: 850px) {
+      display:none;
+    }
   }
 `
 
@@ -93,7 +97,7 @@ const CompositeImage: React.FC<ComponentProps> = ({ path, attributes, maxHeight 
         srcSet={getSrcSet(path, attributes[0].src)}
       />
       {attributes.map((image) => (
-        <ImageWrapper key={image.src}>
+        <ImageWrapper key={image.src} >
           <img src={getImageUrl(path, image.src)} srcSet={getSrcSet(path, image.src)} alt={image.alt} />
         </ImageWrapper>
       ))}
