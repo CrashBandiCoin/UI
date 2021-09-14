@@ -1,19 +1,11 @@
 import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
-import BigNumber from 'bignumber.js/bignumber'
 import styled, { keyframes } from 'styled-components'
-import { Timeline } from 'react-twitter-widgets'
-import { getBalanceNumber } from 'utils/formatBalance'
-import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
-import Carousel from 'react-elastic-carousel'
 import useI18n from 'hooks/useI18n'
-import { getCakeAddress } from 'utils/addressHelpers'
-import TelegramEmbed from 'react-telegram-embed'
-import CardValue from './CardValue'
-import { useFarms } from '../../../state/hooks'
-import Vault from '../img/vault.svg'
+import { Link } from "react-router-dom";
 import ChampionsLeague from '../img/foot/championsLeague.jpg'
-import Soccer from '../img/foot/soccer.png'
+
+
 
 
 const StyledTwitterCard = styled(Card)`
@@ -37,7 +29,6 @@ const StyledSportPartie = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  cursor: pointer;
   background: linear-gradient(45deg,
   rgba(255, 0, 0, 1) 0%,
   rgba(255, 154, 0, 1) 10%,
@@ -77,13 +68,17 @@ const NextFeature = () => {
           <br/>
           <Row>New Feature Launched</Row>
         </Heading>
-          <Row><img
+          <Row>
+            <Link to="/SportParties/Championsleague">
+            <img
             src={ChampionsLeague}
             loading='lazy'
             alt=''
-          /></Row>
+          />
+            </Link>
+            </Row>
         <br/>
-        <Row>Sport Partie 3 : 09/14/21</Row>
+        <Row>SportParty 3 : 09/14/21</Row>
       </StyledSportPartie>
   )
 }

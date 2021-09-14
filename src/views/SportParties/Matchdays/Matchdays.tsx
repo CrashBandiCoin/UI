@@ -65,7 +65,7 @@ const Matchdays: React.FC = () => {
 
   const userDataReady = true
 
-  const [upcomingOnly, setUpcomingOnly] = useState(true)
+  const [upcomingOnly, setUpcomingOnly] = useState(false)
 
   const upcomingMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
 

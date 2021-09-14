@@ -28,13 +28,17 @@ const config: MenuEntry[] = [
     },
     {
         label: 'SportParties',
-        icon: 'FarmIcon',
+        icon: 'BallonIcon',
         items: [
             {
                 label: 'Champions League',
                 href: '/SportParties/Championsleague',
             },
         ],
+        status: {
+            text: 'New',
+            color: 'binance'
+        },
     },
 
     {
@@ -71,11 +75,6 @@ const config: MenuEntry[] = [
         label: 'IFO',
         icon: 'IfoIcon',
         href: '/ifo',
-        status: {
-        text: 'New',
-        color: 'contrast'
-    },
-
     },
     {
         label: 'Raffles',

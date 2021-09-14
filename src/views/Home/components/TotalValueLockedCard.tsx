@@ -28,7 +28,7 @@ const TotalValueLockedCard = () => {
   return (
     <CardBody>
         <Heading size="h1" mb="24px">
-          <Row><Text color="textSubtle">Total Deposit Value at TeaSwap</Text></Row>
+          <Row>Total Deposit Value at TeaSwap</Row>
           <br/><br/>
           <Row><img
             src={vaultIcon}

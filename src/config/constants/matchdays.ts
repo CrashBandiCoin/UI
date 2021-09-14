@@ -19,8 +19,6 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'RB Salzburg',
 						icon: 'salzburg',
-						score: 2
-						
 					},
 				],
 			},
