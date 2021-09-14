@@ -53,10 +53,6 @@ const ImageWrapper = styled(Box)`
   img {
     max-height: 100%;
     width: auto;
-
-    @media (max-width: 850px) {
-      display:none;
-    }
   }
 `
 

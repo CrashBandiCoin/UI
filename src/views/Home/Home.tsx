@@ -30,15 +30,19 @@ import TokenShow from './components/TokenShow'
 
 const Hero = styled.div`
   align-items: center;
-  background-repeat: no-repeat;
   background-position: top center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 32px;
-  padding-top: 116px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   text-align: center;
+  font-size: 30px;
+ 
+  color: #045e5a;
+
+  font-weight: bold;
   
 `
 
@@ -162,6 +166,10 @@ const Home: React.FC = () => {
         <TotalValueLockedCard/>
           <NextFeature/>
       </Cards>
+      <Hero>
+        TeaSwap is the only DeFi project funding associations through DeFi education and Gamification
+      </Hero>
+
       <div>
         <SalesSection {...sugarSectionData} />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
