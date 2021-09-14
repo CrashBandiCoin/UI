@@ -91,13 +91,14 @@ const Hero = () => {
           <Title> {TranslateString(999, 'TeaSwap SportParty 3')}</Title>
           <SubTitle> {TranslateString(999, 'UEFA Champions League 2021')}</SubTitle>
           <Blurb>{TranslateString(999, 'Welcome to every TeaSwapers!')}</Blurb>
-          <Blurb>{TranslateString(999, 'Buy as many MINT as the vote power to sign the vote only - NO MINT CHARGED : ')}
+          <Blurb>{TranslateString(999, 'Buy as many MINT as the vote power you want : ')}
             <LinkWrapper>
               <a href="https://pancakeswap.finance/swap?outputCurrency=0x2deb28ec61e7b6b4bba5f8398398330227cd293f" target="_blank" rel="noreferrer">
                 {TranslateString(999, 'BUY MINT')}
               </a>
             </LinkWrapper>
           </Blurb>
+          <Blurb>{TranslateString(999, 'Sign the vote only - NO MINT CHARGED!')}</Blurb>
           <Blurb>
             {TranslateString(999, 'Vote here : ')}
             <LinkWrapper>

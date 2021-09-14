@@ -161,15 +161,15 @@ const Home: React.FC = () => {
 
   return (
     <Page>
-
+      <Hero>
+        TeaSwap is the only DeFi project funding associations through DeFi education and Gamification
+      </Hero>
+      <br/>
+      <br/>
       <Cards>
         <TotalValueLockedCard/>
           <NextFeature/>
       </Cards>
-      <Hero>
-        TeaSwap is the only DeFi project funding associations through DeFi education and Gamification
-      </Hero>
-
       <div>
         <SalesSection {...sugarSectionData} />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
