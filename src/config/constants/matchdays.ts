@@ -1,10 +1,11 @@
 import { Matchday } from 'state/types'
-import { ChampionsLeagueToken } from './types'
+import {  ChampionsLeagueToken } from './types'
 
 const matchdays: Matchday[] = [
 	{
 	    id: 1,
 	    label: 'Matchday 1 of 6',
+	    theDate: 'September 14 & 15, 2021',
 		matches:[
 			{
 				id:1,
@@ -14,11 +15,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Séville',
 						icon: 'seville',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 					{
 						id:1,
 						label:'RB Salzburg',
 						icon: 'salzburg',
+						votedToken : ChampionsLeagueToken.SUGAR,					
 					},
 				],
 			},
@@ -30,12 +33,14 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Young Boys',
 						icon: 'youngboys',
+						votedToken : ChampionsLeagueToken.SUGAR,
 						
 					},
 					{
 						id:1,
 						label:'Manchester United',
-						icon: 'manchester',			
+						icon: 'manchester',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,			
 					},
 				],
 			},
@@ -47,12 +52,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Lille',
 						icon: 'lille',
-						
+						votedToken : ChampionsLeagueToken.SUGAR,	
 					},
 					{
 						id:1,
 						label:'Wolfsbourg',
 						icon: 'wolfsburg',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 				],
 			},
@@ -64,12 +70,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Villarreal',
 						icon: 'villarreal',
-						
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 					{
 						id:1,
 						label:'Atalanta',
-						icon: 'atalanta',						
+						icon: 'atalanta',
+						votedToken : ChampionsLeagueToken.SUGAR,						
 					},
 				],
 			},
@@ -81,11 +88,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Chelsea',
 						icon: 'chelsea',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 					{
 						id:1,
 						label:'Zenit',
 						icon: 'zenit',
+						votedToken : ChampionsLeagueToken.SUGAR,
 					},
 				],
 			},
@@ -97,11 +106,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Malmö',
 						icon: 'malmö',
+						votedToken : ChampionsLeagueToken.SUGAR,
 					},
 					{
 						id:1,
 						label:'Juventus',
 						icon: 'juventus',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 				],
 			},
@@ -113,11 +124,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Barcelona',
 						icon: 'barcelona',
+						votedToken : ChampionsLeagueToken.SUGAR,
 					},
 					{
 						id:1,
 						label:'Bayern',
 						icon: 'bayern',
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 				],
 			},
@@ -129,14 +142,13 @@ const matchdays: Matchday[] = [
 						id:1,
 						label:'Dynamo Kyiv',
 						icon: 'dynamo',
-						
-												
+						votedToken : ChampionsLeagueToken.SUGAR,											
 					},
 					{
 						id:1,
 						label:'Benfica',
 						icon: 'benfica',
-						
+                                                votedToken: ChampionsLeagueToken.TEASPORT,
 					},
 				],
 			},
@@ -273,6 +285,7 @@ const matchdays: Matchday[] = [
 	{
 	    id: 2,
 	    label: 'Matchday 2 of 6',
+            theDate: 'September 28 & 29, 2021',
 		matches:[
 			{
 				id:1,
@@ -536,6 +549,7 @@ const matchdays: Matchday[] = [
 	{
 	    id: 3,
 	    label: 'Matchday 3 of 6',
+            theDate: 'October 19 & 20, 2021',
 		matches:[
 			{
 				id:1,
@@ -799,6 +813,7 @@ const matchdays: Matchday[] = [
 	{
 	    id: 4,
 	    label: 'Matchday 4 of 6',
+            theDate: 'November 2 & 3, 2021',
 		matches:[
 			{
 				id:1,
@@ -1063,6 +1078,7 @@ const matchdays: Matchday[] = [
 	{
 	    id: 5,
 	    label: 'Matchday 5 of 6',
+            theDate: 'November 23 & 24, 2021',
 		matches:[
 			{
 				id:1,
@@ -1326,6 +1342,7 @@ const matchdays: Matchday[] = [
 	{
 	    id: 6,
 	    label: 'Matchday 6 of 6',
+            theDate: 'December 7 & 8, 2021',
 		matches:[
 			{
 				id:1,
