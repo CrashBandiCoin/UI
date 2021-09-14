@@ -162,7 +162,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        TeaSwap is the only DeFi project funding associations through DeFi education and Gamification
+        TeaSwap is the only Crypto project funding associations through DeFi education and Gamification
       </Hero>
       <br/>
       <br/>
