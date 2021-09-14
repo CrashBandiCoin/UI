@@ -38,7 +38,7 @@ const Hero = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
  
   color: #045e5a;
 
