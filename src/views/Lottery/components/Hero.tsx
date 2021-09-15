@@ -14,8 +14,8 @@ const Row = styled.div`
   margin-bottom: 8px;
   color:white;
   font-size: 30px;
-  
-  
+
+
 `
 
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
@@ -30,7 +30,7 @@ const Blurb = styled(Text)`
 `
 
 const StyledHero = styled.div`
-  background-image: linear-gradient(180deg, #FEA6B9 0%, #FEA6B9 100%);
+  background-image: linear-gradient(180deg, #A7D1A9 0%, #6F9E8C 100%);
   padding-bottom: 40px;
   padding-top: 40px;
 `
