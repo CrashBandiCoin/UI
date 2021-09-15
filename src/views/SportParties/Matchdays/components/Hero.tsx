@@ -14,7 +14,7 @@ const Row = styled.div`
 `
 
 const LinkWrapper = styled.a`
-  color: blue;
+  color: #36466B;
 `
 
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
@@ -34,7 +34,7 @@ const Blurb = styled(Text)`
 `
 
 const StyledHero = styled.div`
-  background-image: linear-gradient(180deg, #fea6b9 0%, #fea6b9 100%);
+  background-image: linear-gradient(180deg, #A7D1A9 0%, #6F9E8C 100%);
   padding-bottom: 40px;
   padding-top: 40px;
 `
