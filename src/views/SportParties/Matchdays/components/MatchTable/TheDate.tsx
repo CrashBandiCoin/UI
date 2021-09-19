@@ -30,12 +30,15 @@ const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
   const year = matchDate.getUTCFullYear()
   const monthName = months[matchDate.getUTCMonth()]
 
-  const formatted = `${dayName}, ${date} ${monthName} ${year}`
+  const hours = matchDate.getUTCHours() < 10 ? `0${matchDate.getUTCHours()}` : matchDate.getUTCHours()
+  const mins = matchDate.getUTCMinutes() < 10 ? `0${matchDate.getUTCMinutes()}` : matchDate.getUTCMinutes()
+
+  const formatted = `${dayName}, ${date} ${monthName} ${year} ${hours}:${mins} GMT`
 
   if (matchDate.getTime() < currentMillis) {
     return (
       <Container>
-        <TheDateWrapper>started at : {formatted}</TheDateWrapper>
+        <TheDateWrapper>{formatted}</TheDateWrapper>
       </Container>
     )
   }
@@ -57,7 +60,7 @@ const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
   // else
   return (
     <Container>
-      <TheDateWrapper>Start at : {formatted}</TheDateWrapper>
+      <TheDateWrapper>{formatted}</TheDateWrapper>
     </Container>
   )
 }
