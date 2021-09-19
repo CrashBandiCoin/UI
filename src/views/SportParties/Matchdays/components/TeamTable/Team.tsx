@@ -9,8 +9,9 @@ export interface TeamProps {
 }
 
 const Container = styled.div`
-  display: flex;
   width: 100%;
+  display: flex;
+  min-width: 250px;
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {

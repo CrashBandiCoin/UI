@@ -32,13 +32,13 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
     <Container>
       {winnerToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={54} height={48} />
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={58} height={48} />
         </TokenWrapper>
       )}
 
       {!winnerToken && (
         <TokenWrapper>
-          <Image src="/images/farms/blank.png" alt="" width={54} height={48} />
+          <Image src="/images/farms/blank.png" alt="" width={58} height={48} />
         </TokenWrapper>
       )}
 

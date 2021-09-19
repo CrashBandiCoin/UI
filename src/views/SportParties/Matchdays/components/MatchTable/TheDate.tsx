@@ -1,8 +1,9 @@
+import useCurrentTimeEachMin from 'hooks/useTimer'
 import React from 'react'
 import styled from 'styled-components'
 
 export interface TheDateProps {
-  theDate: number
+  theDate: string
 }
 
 const Container = styled.div`
@@ -15,29 +16,39 @@ const TheDateWrapper = styled.div`
   min-width: 60px;
   text-align: left;
 `
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
-  const currentTime = new Date()
-  const currentTimeMinus24 = new Date(currentTime.getTime() - 1000 * 60 * 60 * 24)
-  const matchDate = new Date(theDate)
+  const currentMillis = useCurrentTimeEachMin()
+  const currentMillislusOneDay = currentMillis + 24 * 60 * 60 * 1000 // +1 day
 
-  if (matchDate < currentTime) {
+  const matchDate = new Date(theDate)
+  const dayName = days[matchDate.getUTCDay()]
+  const date = matchDate.getUTCDate()
+
+  const year = matchDate.getUTCFullYear()
+  const monthName = months[matchDate.getUTCMonth()]
+
+  const formatted = `${dayName}, ${date} ${monthName} ${year}`
+
+  if (matchDate.getTime() < currentMillis) {
     return (
       <Container>
-        <TheDateWrapper>
-          Started at : {matchDate.toLocaleDateString()} {matchDate.toLocaleTimeString()}
-        </TheDateWrapper>
+        <TheDateWrapper>started at : {formatted}</TheDateWrapper>
       </Container>
     )
   }
-  // in the past
 
-  if (matchDate < currentTimeMinus24) {
-    // more than 24 hours
+  // in the past
+  if (matchDate.getTime() < currentMillislusOneDay) {
+    const diffMillis = new Date(matchDate.getTime() - currentMillis)
+
+    // less than 24 hours
     return (
       <Container>
         <TheDateWrapper>
-          Start at : {matchDate.toLocaleDateString()} {matchDate.toLocaleTimeString()}
+          Start in {diffMillis.getUTCHours()}h, {diffMillis.getUTCMinutes()}m
         </TheDateWrapper>
       </Container>
     )
@@ -46,7 +57,7 @@ const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
   // else
   return (
     <Container>
-      <TheDateWrapper>Match in : 1 hour 20 mn...</TheDateWrapper>
+      <TheDateWrapper>Start at : {formatted}</TheDateWrapper>
     </Container>
   )
 }

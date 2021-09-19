@@ -18,10 +18,10 @@ const Container = styled.div`
   }
 `
 const TokenWrapper = styled.div`
-  width: 48px;
+  width: 50px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 48px;
+    width: 50px;
   }
 `
 
@@ -34,7 +34,7 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
     <Container>
       {!winnerToken && (
         <TokenWrapper>
-          <Image src="/images/farms/blank.png" alt="" width={48} height={40} />
+          <Image src="/images/farms/blank.png" alt="" width={50} height={40} />
         </TokenWrapper>
       )}
       {winnerToken && winnerToken === ChampionsLeagueToken.DRAW && (
@@ -45,7 +45,7 @@ const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
 
       {winnerToken && winnerToken !== ChampionsLeagueToken.DRAW && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={48} height={40} />
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={50} height={40} />
         </TokenWrapper>
       )}
     </Container>

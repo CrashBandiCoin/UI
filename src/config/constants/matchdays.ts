@@ -11,7 +11,7 @@ const matchdays: MatchdayConfig[] = [
 				id:1,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('September 14, 2021 16:45:00').getTime(),
+				beginTime: 'September 14, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -33,7 +33,7 @@ const matchdays: MatchdayConfig[] = [
 				id:2,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 4:45 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -56,7 +56,7 @@ const matchdays: MatchdayConfig[] = [
 				id:3,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -78,7 +78,7 @@ const matchdays: MatchdayConfig[] = [
 				id:4,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -100,7 +100,7 @@ const matchdays: MatchdayConfig[] = [
 				id:5,
 				type: 2,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -122,7 +122,7 @@ const matchdays: MatchdayConfig[] = [
 				id:6,
 				type: 2,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -144,7 +144,7 @@ const matchdays: MatchdayConfig[] = [
 				id:7,
 				type: 3,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -166,7 +166,7 @@ const matchdays: MatchdayConfig[] = [
 				id:8,
 				type: 3,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
+				beginTime: 'September 14, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -188,7 +188,7 @@ const matchdays: MatchdayConfig[] = [
 				id:9,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 4:45 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -210,7 +210,7 @@ const matchdays: MatchdayConfig[] = [
 				id:10,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 4:45 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -232,7 +232,7 @@ const matchdays: MatchdayConfig[] = [
 				id:11,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -254,7 +254,7 @@ const matchdays: MatchdayConfig[] = [
 				id:12,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -276,7 +276,7 @@ const matchdays: MatchdayConfig[] = [
 				id:13,
 				type: 2,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -298,7 +298,7 @@ const matchdays: MatchdayConfig[] = [
 				id:14,
 				type: 2,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -320,7 +320,7 @@ const matchdays: MatchdayConfig[] = [
 				id:15,
 				type: 3,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -342,7 +342,7 @@ const matchdays: MatchdayConfig[] = [
 				id:16,
 				type: 3,
 				isDone: true,
-				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
+				beginTime: 'September 15, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -370,7 +370,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
-				beginTime: new Date('Tuesday, Sept 28, 4:45 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -388,7 +388,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
-				beginTime: new Date('Tuesday, Sept 28, 4:45 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -405,7 +405,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -422,7 +422,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -439,7 +439,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -456,7 +456,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -473,7 +473,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -490,7 +490,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
-				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
+				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -507,7 +507,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
-				beginTime: new Date('Wednesday, Sept 29, 4:45 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -524,7 +524,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
-				beginTime: new Date('Wednesday, Sept 29, 4:45 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -541,7 +541,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -558,7 +558,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -575,7 +575,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 1,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -592,7 +592,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -609,7 +609,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -626,7 +626,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
-				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
+				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -650,7 +650,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
-				beginTime: new Date('Tuesday, Oct 19, 4:45 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -668,7 +668,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
-				beginTime: new Date('Tuesday, Oct 19, 4:45 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -685,7 +685,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -702,7 +702,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -719,7 +719,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -736,7 +736,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -753,7 +753,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -770,7 +770,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
-				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
+				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -787,7 +787,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
-				beginTime: new Date('Wednesday, Oct 20, 4:45 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -804,7 +804,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
-				beginTime: new Date('Wednesday, Oct 20, 4:45 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -821,7 +821,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -838,7 +838,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -855,7 +855,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 2,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -872,7 +872,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -889,7 +889,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -906,7 +906,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
-				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
+				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -930,7 +930,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 2, 4:45 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -948,7 +948,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 2, 4:45 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -965,7 +965,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -982,7 +982,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -999,7 +999,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1016,7 +1016,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1033,7 +1033,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1050,7 +1050,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
-				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
+				beginTime: 'November 2, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1067,7 +1067,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 3, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1084,7 +1084,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 3, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1101,7 +1101,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1118,7 +1118,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1135,7 +1135,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 2,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1152,7 +1152,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1169,7 +1169,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1186,7 +1186,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
-				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 3, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1210,7 +1210,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 23, 4:45 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1228,7 +1228,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 23, 4:45 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1245,7 +1245,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1262,7 +1262,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1279,7 +1279,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1296,7 +1296,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1313,7 +1313,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1330,7 +1330,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
-				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
+				beginTime: 'November 23, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1347,7 +1347,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 24, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1364,7 +1364,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 24, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1381,7 +1381,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1398,7 +1398,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1415,7 +1415,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 2,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1432,7 +1432,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1449,7 +1449,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1466,7 +1466,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
-				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Nov 24, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1490,7 +1490,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
-				beginTime: new Date('Tuesday, Dec 7, 4:45 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1508,7 +1508,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
-				beginTime: new Date('Tuesday, Dec 7, 4:45 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1525,7 +1525,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1542,7 +1542,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1559,7 +1559,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1576,7 +1576,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1593,7 +1593,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1610,7 +1610,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
-				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
+				beginTime: 'Tuesday, Dec 7, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1627,7 +1627,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
-				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1644,7 +1644,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
-				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1661,7 +1661,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
-				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1678,7 +1678,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
-				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1695,7 +1695,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 2,
-				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1712,7 +1712,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
-				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1729,7 +1729,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
-				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,
@@ -1746,7 +1746,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
-				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
+				beginTime: 'Wednesday, Dec 8, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
 						id:1,

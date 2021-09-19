@@ -105,7 +105,7 @@ export interface MatchConfig {
   id: number
   type: number
   isDone?: boolean
-  beginTime: number
+  beginTime: string
   teams: TeamConfig[]
 }
 

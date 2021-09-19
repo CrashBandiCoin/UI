@@ -13,20 +13,24 @@ export interface MatchesProps {
 const Matches: React.FC<MatchesProps> = ({ filledMatches }) => {
   const userDataReady = true
 
-  const rowData = filledMatches.map((match) => {
-    const row: RowProps = {
-      match: {
-        id: match.id,
-        winnerToken: match.winnerToken,
-      },
-      theDate: {
-        theDate: match.beginTime,
-      },
-      details: match,
-    }
+  let rowData = []
 
-    return row
-  })
+  if (filledMatches) {
+    rowData = filledMatches.map((match) => {
+      const row: RowProps = {
+        match: {
+          id: match.id,
+          winnerToken: match.winnerToken,
+        },
+        theDate: {
+          theDate: match.beginTime,
+        },
+        details: match,
+      }
+
+      return row
+    })
+  }
 
   const renderContent = (): JSX.Element => {
     const columnSchema = DesktopColumnSchema
