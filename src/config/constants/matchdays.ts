@@ -6,13 +6,12 @@ const matchdays: MatchdayConfig[] = [
 	    label: 'Matchday 1 of 6',
 		isDone: true,
 	    theLabelDate: 'September 14 & 15, 2021',
-		endTime: new Date('Wednesday, Sept 15, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
 				type: 1,
 				isDone: true,
-				beginTime: new Date('Tuesday, Sept 14, 4:45 pm UTC').getTime(),
+				beginTime: new Date('September 14, 2021 16:45:00').getTime(),
 				teams: [
 					{
 						id:1,
@@ -367,7 +366,6 @@ const matchdays: MatchdayConfig[] = [
 	    id: 2,
 	    label: 'Matchday 2 of 6',
     	theLabelDate: 'September 28 & 29, 2021',
-		endTime: new Date('Wednesday, Sept 29, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
@@ -648,7 +646,6 @@ const matchdays: MatchdayConfig[] = [
 	    id: 3,
 	    label: 'Matchday 3 of 6',
         theLabelDate: 'October 19 & 20, 2021',
-		endTime: new Date('Wednesday, Oct 20, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
@@ -929,7 +926,6 @@ const matchdays: MatchdayConfig[] = [
 	    id: 4,
 	    label: 'Matchday 4 of 6',
         theLabelDate: 'November 2 & 3, 2021',
-		endTime: new Date('Wednesday, Nov 3, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
@@ -1210,7 +1206,6 @@ const matchdays: MatchdayConfig[] = [
 	    id: 5,
 	    label: 'Matchday 5 of 6',
         theLabelDate: 'November 23 & 24, 2021',
-		endTime: new Date('Wednesday, Nov 24, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
@@ -1491,7 +1486,6 @@ const matchdays: MatchdayConfig[] = [
 	    id: 6,
 	    label: 'Matchday 6 of 6',
         theLabelDate: 'December 7 & 8, 2021',
-		endTime: new Date('Wednesday, Dec 8, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,

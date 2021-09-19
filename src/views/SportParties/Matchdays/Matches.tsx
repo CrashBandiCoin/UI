@@ -20,7 +20,7 @@ const Matches: React.FC<MatchesProps> = ({ filledMatches }) => {
         winnerToken: match.winnerToken,
       },
       theDate: {
-        theDate: new Date(match.beginTime).toLocaleDateString(),
+        theDate: match.beginTime,
       },
       details: match,
     }

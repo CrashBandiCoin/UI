@@ -114,7 +114,6 @@ export interface MatchdayConfig {
   label: string
   isDone?: boolean
   theLabelDate: string
-  endTime: number
   matches: MatchConfig[]
 }
 

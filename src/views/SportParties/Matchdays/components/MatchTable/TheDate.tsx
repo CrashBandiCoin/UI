@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export interface TheDateProps {
-  theDate: string
+  theDate: number
 }
 
 const Container = styled.div`
@@ -17,9 +17,36 @@ const TheDateWrapper = styled.div`
 `
 
 const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
+  const currentTime = new Date()
+  const currentTimeMinus24 = new Date(currentTime.getTime() - 1000 * 60 * 60 * 24)
+  const matchDate = new Date(theDate)
+
+  if (matchDate < currentTime) {
+    return (
+      <Container>
+        <TheDateWrapper>
+          Started at : {matchDate.toLocaleDateString()} {matchDate.toLocaleTimeString()}
+        </TheDateWrapper>
+      </Container>
+    )
+  }
+  // in the past
+
+  if (matchDate < currentTimeMinus24) {
+    // more than 24 hours
+    return (
+      <Container>
+        <TheDateWrapper>
+          Start at : {matchDate.toLocaleDateString()} {matchDate.toLocaleTimeString()}
+        </TheDateWrapper>
+      </Container>
+    )
+  }
+
+  // else
   return (
     <Container>
-      <TheDateWrapper>Match at : {theDate}</TheDateWrapper>
+      <TheDateWrapper>Match in : 1 hour 20 mn...</TheDateWrapper>
     </Container>
   )
 }
