@@ -1,20 +1,17 @@
 import React, { useCallback, useState, useMemo, useRef } from 'react'
-import { Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
+import { RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { orderBy } from 'lodash'
 import { useMatchdays } from 'state/hooks'
 
 import Page from 'components/layout/Page'
-import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
 import { Matchday } from 'state/types'
 import { RowProps } from './components/MatchdayTable/Row'
 import Table from './components/MatchdayTable/MatchdayTable'
 import { DesktopColumnSchema } from './components/MatchdayTable/types'
-import Divider from './components/Divider'
 import Hero from './components/Hero'
-import HowItWorks from './components/HowItWorks'
 
 const StyledPage = styled(Page)`
   min-height: 1000px;

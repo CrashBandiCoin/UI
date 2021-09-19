@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { FarmConfig, PoolConfig, VaultConfig, MatchdayConfig, MatchConfig, TeamConfig, ChampionsLeagueToken } from 'config/constants/types'
+import { FarmConfig, PoolConfig, VaultConfig, MatchdayConfig, MatchConfig, ChampionsLeagueToken } from 'config/constants/types'
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber

@@ -1,19 +1,10 @@
 import React from 'react'
 import { RowType } from '@pancakeswap-libs/uikit'
 
-import styled from 'styled-components'
-import Page from 'components/layout/Page'
 import { Match } from 'state/types'
 import { RowProps } from './components/MatchTable/Row'
 import Table from './components/MatchTable/MatchTable'
 import { DesktopColumnSchema } from './components/MatchTable/types'
-
-const StyledPage = styled(Page)`
-  min-height: 0;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  width: 100%;
-`
 
 export interface MatchesProps {
   filledMatches?: Match[]
