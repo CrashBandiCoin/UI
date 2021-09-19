@@ -16,4 +16,24 @@ export const useCurrentTime = () => {
   return currentMillis
 }
 
+export const useCurrentTimeEachMin = () => {
+  const [currentMillis, setCurrentMillis] = useState(new Date().getTime())
+
+  useEffect(() => {
+    const tick = () => {
+      setCurrentMillis((prevMillis) => prevMillis + 60000)
+    }
+
+    const timerID = setInterval(() => tick(), 60000)
+
+    return () => clearInterval(timerID)
+  }, [])
+
+  return currentMillis
+}
+
+
+
+
+
 export default useCurrentTime

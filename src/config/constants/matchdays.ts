@@ -1,26 +1,28 @@
-import { Matchday } from 'state/types'
-import {  ChampionsLeagueToken } from './types'
+import {  MatchdayConfig, ChampionsLeagueToken } from './types'
 
-const matchdays: Matchday[] = [
+const matchdays: MatchdayConfig[] = [
 	{
 	    id: 1,
 	    label: 'Matchday 1 of 6',
-	    theDate: 'September 14 & 15, 2021',
-	    winnerToken: ChampionsLeagueToken.TEASPORT,
+		isDone: true,
+	    theLabelDate: 'September 14 & 15, 2021',
+		endTime: new Date('Wednesday, Sept 15, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Sept 14, 4:45 pm UTC (Type 1)',
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
 						label:'Séville',
 						icon: 'seville',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 1,
 					},
 					{
-						id:1,
+						id:2,
 						label:'RB Salzburg',
 						icon: 'salzburg',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -30,8 +32,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Sept 14, 4:45 pm UTC (Type 1)',
-				winnerToken: ChampionsLeagueToken.SUGAR,
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -42,17 +45,19 @@ const matchdays: Matchday[] = [
 						
 					},
 					{
-						id:1,
+						id:2,
 						label:'Manchester United',
 						icon: 'manchester',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,	
+                        votedToken: ChampionsLeagueToken.TEASPORT,	
 						score: 1,		
 					},
 				],
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 1)',
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -62,27 +67,29 @@ const matchdays: Matchday[] = [
 						score: 0,	
 					},
 					{
-						id:1,
+						id:2,
 						label:'Wolfsbourg',
 						icon: 'wolfsburg',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 0,
 					},
 				],
 			},
 			{
 				id:4,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 1)',
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
 						label:'Villarreal',
 						icon: 'villarreal',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 2,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Atalanta',
 						icon: 'atalanta',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -92,18 +99,19 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:5,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 2)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 2,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
 						label:'Chelsea',
 						icon: 'chelsea',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 1,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Zenit',
 						icon: 'zenit',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -113,8 +121,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:6,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 2)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 2,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -124,18 +133,19 @@ const matchdays: Matchday[] = [
 						score: 0,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Juventus',
 						icon: 'juventus',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 3,
 					},
 				],
 			},
 			{
 				id:7,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 3)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 3,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -145,17 +155,19 @@ const matchdays: Matchday[] = [
 						score: 0,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Bayern',
 						icon: 'bayern',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 3,
 					},
 				],
 			},
 			{
 				id:8,
-				theDate: 'Tuesday, Sept 14, 7:00 pm UTC (Type 3)',
+				type: 3,
+				isDone: true,
+				beginTime: new Date('Tuesday, Sept 14, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -165,18 +177,19 @@ const matchdays: Matchday[] = [
 						score: 0,											
 					},
 					{
-						id:1,
+						id:2,
 						label:'Benfica',
 						icon: 'benfica',
-                                                votedToken: ChampionsLeagueToken.TEASPORT,
+                        votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 0,
 					},
 				],
 			},
 			{
 				id:9,
-				theDate: 'Wednesday, Sept 15, 4:45 pm UTC (Type 1)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -186,7 +199,7 @@ const matchdays: Matchday[] = [
 						score: 1,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Dortmund',
 						icon: 'dortmund',
 						votedToken: ChampionsLeagueToken.TEASPORT,
@@ -196,9 +209,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:10,
-				theDate: 'Wednesday, Sept 15, 4:45 pm UTC (Type 1)',
-				winnerToken: ChampionsLeagueToken.SUGAR,
-
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -208,7 +221,7 @@ const matchdays: Matchday[] = [
 						score: 2,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Chakthar',
 						icon: 'chakhtar',
 						votedToken: ChampionsLeagueToken.TEASPORT,
@@ -218,8 +231,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:11,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 1)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -229,7 +243,7 @@ const matchdays: Matchday[] = [
 						score: 0,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Real',
 						icon: 'real',
 						votedToken: ChampionsLeagueToken.TEASPORT,
@@ -239,7 +253,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:12,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 1)',
+				type: 1,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -249,7 +265,7 @@ const matchdays: Matchday[] = [
 						score: 0,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Porto',
 						icon: 'porto',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -259,7 +275,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:13,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 2)',
+				type: 2,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -269,7 +287,7 @@ const matchdays: Matchday[] = [
 						score: 1,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Paris Saint-Germain',
 						icon: 'paris',
 						votedToken: ChampionsLeagueToken.TEASPORT,
@@ -279,8 +297,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:14,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 2)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 2,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -290,7 +309,7 @@ const matchdays: Matchday[] = [
 						score: 3,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Milan',
 						icon: 'milan',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -300,8 +319,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:15,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 3)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 3,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -311,7 +331,7 @@ const matchdays: Matchday[] = [
 						score: 6,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Leipzig',
 						icon: 'leipzig',
 						votedToken : ChampionsLeagueToken.SUGAR,
@@ -321,8 +341,9 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:16,
-				theDate: 'Wednesday, Sept 15, 7:00 pm UTC (Type 3)',
-				winnerToken: ChampionsLeagueToken.TEASPORT,
+				type: 3,
+				isDone: true,
+				beginTime: new Date('Wednesday, Sept 15, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -332,7 +353,7 @@ const matchdays: Matchday[] = [
 						score: 1,
 					},
 					{
-						id:1,
+						id:2,
 						label:'Ajax',
 						icon: 'ajax',
 						votedToken: ChampionsLeagueToken.TEASPORT,
@@ -345,11 +366,13 @@ const matchdays: Matchday[] = [
 	{
 	    id: 2,
 	    label: 'Matchday 2 of 6',
-            theDate: 'September 28 & 29, 2021',
+    	theLabelDate: 'September 28 & 29, 2021',
+		endTime: new Date('Wednesday, Sept 29, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Sept 28, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Sept 28, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -366,7 +389,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Sept 28, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Sept 28, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -382,7 +406,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -396,9 +421,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 4,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -412,9 +438,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 5,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -428,9 +455,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 6,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -444,9 +472,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 7,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -460,9 +489,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 8,
-				theDate: 'Tuesday, Sept 28, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Sept 28, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -476,9 +506,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 9,
-				theDate: 'Wednesday, Sept 29, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Sept 29, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -492,9 +523,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 10,
-				theDate: 'Wednesday, Sept 29, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Sept 29, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -508,9 +540,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 11,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -524,9 +557,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 12,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -540,9 +574,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 13,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 2)',
+				type: 1,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -556,9 +591,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 14,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -572,9 +608,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 15,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -588,9 +625,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 16,
-				theDate: 'Wednesday, Sept 29, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Sept 29, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -609,11 +647,13 @@ const matchdays: Matchday[] = [
 	{
 	    id: 3,
 	    label: 'Matchday 3 of 6',
-            theDate: 'October 19 & 20, 2021',
+        theLabelDate: 'October 19 & 20, 2021',
+		endTime: new Date('Wednesday, Oct 20, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Oct 19, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Oct 19, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -630,7 +670,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Oct 19, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Oct 19, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -646,7 +687,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -660,9 +702,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 4,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -676,9 +719,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 5,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -692,9 +736,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 6,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -708,9 +753,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 7,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -724,9 +770,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 8,
-				theDate: 'Tuesday, Oct 19, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Oct 19, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -740,9 +787,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 9,
-				theDate: 'Wednesday, Oct 20, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Oct 20, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -756,9 +804,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 10,
-				theDate: 'Wednesday, Oct 20, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Oct 20, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -772,9 +821,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 11,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -788,9 +838,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 12,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -804,9 +855,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 13,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -820,9 +872,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 14,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -836,9 +889,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 15,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -852,9 +906,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 16,
-				theDate: 'Wednesday, Oct 20, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Oct 20, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -873,11 +928,13 @@ const matchdays: Matchday[] = [
 	{
 	    id: 4,
 	    label: 'Matchday 4 of 6',
-            theDate: 'November 2 & 3, 2021',
+        theLabelDate: 'November 2 & 3, 2021',
+		endTime: new Date('Wednesday, Nov 3, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Nov 2, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 2, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -894,7 +951,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Nov 2, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 2, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -910,7 +968,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -924,9 +983,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 4,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -940,9 +1000,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 5,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -956,9 +1017,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 6,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -972,9 +1034,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 7,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -988,9 +1051,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 8,
-				theDate: 'Tuesday, Nov 2, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Nov 2, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1004,10 +1068,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-              
-                        {
+            {
 				id: 9,
-				theDate: 'Wednesday, Nov 3, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 3, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1021,9 +1085,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 10,
-				theDate: 'Wednesday, Nov 3, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 3, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1037,9 +1102,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 11,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1053,9 +1119,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 12,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1069,9 +1136,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 13,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1085,9 +1153,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 14,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1101,9 +1170,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 15,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1117,9 +1187,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 16,
-				theDate: 'Wednesday, Nov 3, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Nov 3, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1138,11 +1209,13 @@ const matchdays: Matchday[] = [
 	{
 	    id: 5,
 	    label: 'Matchday 5 of 6',
-            theDate: 'November 23 & 24, 2021',
+        theLabelDate: 'November 23 & 24, 2021',
+		endTime: new Date('Wednesday, Nov 24, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Nov 23, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 23, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1159,7 +1232,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Nov 23, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 23, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1175,7 +1249,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1189,9 +1264,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 4,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1205,9 +1281,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 5,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1221,9 +1298,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 6,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1237,9 +1315,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 7,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1253,9 +1332,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 8,
-				theDate: 'Tuesday, Nov 23, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Nov 23, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1269,9 +1349,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 9,
-				theDate: 'Wednesday, Nov 24, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 24, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1285,9 +1366,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 10,
-				theDate: 'Wednesday, Nov 24, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 24, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1301,9 +1383,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 11,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1317,9 +1400,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 12,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1333,9 +1417,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 13,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1349,9 +1434,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 14,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1365,9 +1451,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 15,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1381,9 +1468,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 16,
-				theDate: 'Wednesday, Nov 24, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Nov 24, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1402,11 +1490,13 @@ const matchdays: Matchday[] = [
 	{
 	    id: 6,
 	    label: 'Matchday 6 of 6',
-            theDate: 'December 7 & 8, 2021',
+        theLabelDate: 'December 7 & 8, 2021',
+		endTime: new Date('Wednesday, Dec 8, 10:00 pm UTC').getTime(),
 		matches:[
 			{
 				id:1,
-				theDate: 'Tuesday, Dec 7, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Dec 7, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1423,7 +1513,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:2,
-				theDate: 'Tuesday, Dec 7, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Dec 7, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1439,7 +1530,8 @@ const matchdays: Matchday[] = [
 			},
 			{
 				id:3,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1453,9 +1545,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 4,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1469,9 +1562,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 5,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1485,9 +1579,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 6,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1501,9 +1596,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 7,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1517,9 +1613,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 8,
-				theDate: 'Tuesday, Dec 7, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Tuesday, Dec 7, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1533,9 +1630,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 9,
-				theDate: 'Wednesday, Dec 8, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1549,9 +1647,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 10,
-				theDate: 'Wednesday, Dec 8, 4:45 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1565,9 +1664,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 11,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Dec 8, 4:45 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1581,9 +1681,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 12,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 1)',
+				type: 1,
+				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1597,9 +1698,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 13,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1613,9 +1715,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 14,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 2)',
+				type: 2,
+				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1629,9 +1732,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 15,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,
@@ -1645,9 +1749,10 @@ const matchdays: Matchday[] = [
 					},
 				],
 			},
-                        {
+            {
 				id: 16,
-				theDate: 'Wednesday, Dec 8, 7:00 pm UTC (Type 3)',
+				type: 3,
+				beginTime: new Date('Wednesday, Dec 8, 7:00 pm UTC').getTime(),
 				teams: [
 					{
 						id:1,

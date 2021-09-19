@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
-import { Team } from 'state/types'
+import { TeamConfig } from 'config/constants/types'
 
-export interface TeamWithMoreValue extends Team {
+export interface TeamWithMoreValue extends TeamConfig {
   apy?: BigNumber
   liquidity?: BigNumber
 }

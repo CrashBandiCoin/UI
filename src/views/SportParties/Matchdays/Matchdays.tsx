@@ -67,7 +67,7 @@ const Matchdays: React.FC = () => {
 
   const [upcomingOnly, setUpcomingOnly] = useState(false)
 
-  const upcomingMatchdays = matchdaysFromState.filter((matchday) => matchday.isActive)
+  const upcomingMatchdays = matchdaysFromState.filter((matchday) => !matchday.isDone)
 
   const matchdaysList = useCallback(
     (matchdaysToDisplay: Matchday[]): Matchday[] => {
@@ -104,7 +104,7 @@ const Matchdays: React.FC = () => {
   const rowData = matchdaysMemoized.map((matchday) => {
     const row: RowProps = {
       theDate: {
-        theDate: matchday.theDate,
+        theDate: matchday.theLabelDate,
       },
       matchday: {
         label: matchday.label,

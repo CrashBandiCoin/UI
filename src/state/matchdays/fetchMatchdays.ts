@@ -7,13 +7,13 @@ import {
 } from 'utils/addressHelpers'
 
 import matchdays from 'config/constants/matchdays'
-import {ChampionsLeagueToken} from 'config/constants/types'
-import { Matchday } from 'state/types'
+import {MatchdayConfig} from 'config/constants/types'
+
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 // const fetchMatchdays = async ():Matchday[] => {
-    const fetchMatchdays = ():Matchday[] => {
+    const fetchMatchdays = ():MatchdayConfig[] => {
 
     const data =  matchdays 
  

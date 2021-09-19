@@ -10,13 +10,10 @@ import ActionPanel from './Actions/ActionPanel'
 import CellLayout from '../CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from './types'
 import { MatchWithMoreValue } from '../MatchCard/MatchCard'
-import { TeamWithMoreValue } from '../TeamCard/TeamCard'
-import TheWinnerTeam from './TheWinnerTeam'
 
 export interface RowProps {
   match: MatchProps
   theDate: TheDateProps
-  theWinnerTeam: TeamWithMoreValue
   details: MatchWithMoreValue
 }
 
@@ -27,7 +24,6 @@ interface RowPropsWithLoading extends RowProps {
 const cells = {
   match: Match,
   theDate: TheDate,
-  theWinnerTeam: TheWinnerTeam,
 }
 
 const CellInner = styled.div`
@@ -48,10 +44,6 @@ const StyledTr = styled.tr`
 `
 
 const TheDateMobileCell = styled.td`
-  padding-top: 16px;
-  padding-bottom: 24px;
-`
-const TheWinnerTeamMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
 `
@@ -141,13 +133,6 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
               <TheDate {...props.theDate} />
             </CellLayout>
           </TheDateMobileCell>
-        </td>
-        <td>
-          <TheWinnerTeamMobileCell>
-            <CellLayout>
-              <TheWinnerTeam {...props.theWinnerTeam} />
-            </CellLayout>
-          </TheWinnerTeamMobileCell>
         </td>
       </StyledTr>
     )

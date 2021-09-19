@@ -32,19 +32,22 @@ const TagWrapper = styled(Tag)`
 const Match: React.FunctionComponent<MatchProps> = ({ winnerToken }) => {
   return (
     <Container>
-      {winnerToken && (
+      {!winnerToken && (
+        <TokenWrapper>
+          <Image src="/images/farms/blank.png" alt="" width={48} height={40} />
+        </TokenWrapper>
+      )}
+      {winnerToken && winnerToken === ChampionsLeagueToken.DRAW && (
+        <TagWrapper outline mr="8px">
+          DRAW
+        </TagWrapper>
+      )}
+
+      {winnerToken && winnerToken !== ChampionsLeagueToken.DRAW && (
         <TokenWrapper>
           <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={48} height={40} />
         </TokenWrapper>
       )}
-
-      <div>
-        {!winnerToken && (
-          <TagWrapper outline variant="warning" mr="8px">
-            Winner Token Team
-          </TagWrapper>
-        )}
-      </div>
     </Container>
   )
 }

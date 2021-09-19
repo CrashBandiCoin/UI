@@ -16,22 +16,21 @@ const StyledPage = styled(Page)`
 `
 
 export interface MatchesProps {
-  matches: Match[]
+  filledMatches?: Match[]
 }
 
-const Matches: React.FC<MatchesProps> = ({ matches }) => {
+const Matches: React.FC<MatchesProps> = ({ filledMatches }) => {
   const userDataReady = true
 
-  const rowData = matches.map((match) => {
+  const rowData = filledMatches.map((match) => {
     const row: RowProps = {
       match: {
         id: match.id,
         winnerToken: match.winnerToken,
       },
       theDate: {
-        theDate: match.theDate,
+        theDate: new Date(match.beginTime).toLocaleDateString(),
       },
-      theWinnerTeam: match.theWinnerTeam,
       details: match,
     }
 
