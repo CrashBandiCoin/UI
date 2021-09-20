@@ -23,33 +23,28 @@ const TokenWrapper = styled.div`
     width: 54px;
   }
 `
+const DifDiv = styled.div`
+  width: 54px;
+`
 
 const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }) => {
   return (
     <Container>
       {winnerToken && (
         <TokenWrapper>
-          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={54} height={48} />
+          <Image src={`/images/farms/${winnerToken.toLowerCase()}.png`} alt="" width={58} height={48} />
         </TokenWrapper>
       )}
 
-      <div>
-        <Text bold color="primary" fontSize="32px">
-          {label}
-        </Text>
+      {!winnerToken && (
+        <TokenWrapper>
+          <Image src="/images/farms/blank.png" alt="" width={58} height={48} />
+        </TokenWrapper>
+      )}
 
-        {winnerToken && (
-          <Tag outline variant="success" mr="8px">
-            {winnerToken} wins
-          </Tag>
-        )}
-
-        {!winnerToken && (
-          <Tag outline variant="warning" mr="8px">
-            Day not yet finished
-          </Tag>
-        )}
-      </div>
+      <Text bold color="primary" fontSize="32px">
+        {label}
+      </Text>
     </Container>
   )
 }

@@ -5,12 +5,10 @@ import { Match } from 'state/types'
 import Teams from 'views/SportParties/Matchdays/Teams'
 import { TheDateProps } from '../TheDate'
 import { MatchProps } from '../Match'
-import { TheWinnerTeamProps } from '../TheWinnerTeam'
 
 export interface ActionPanelProps {
   match: MatchProps
   theDate: TheDateProps
-  theWinnerTeam: TheWinnerTeamProps
   details: Match
   userDataReady: boolean
   expanded: boolean

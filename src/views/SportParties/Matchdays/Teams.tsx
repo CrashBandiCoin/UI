@@ -1,14 +1,14 @@
 import React from 'react'
 import { RowType } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
+import { TeamConfig } from 'config/constants/types'
 import Page from 'components/layout/Page'
-import { Team } from 'state/types'
 import { RowProps } from './components/TeamTable/Row'
 import Table from './components/TeamTable/TeamTable'
 import { DesktopColumnSchema } from './components/TeamTable/types'
 
 export interface TeamsProps {
-  teams: Team[]
+  teams: TeamConfig[]
 }
 
 const StyledPage = styled(Page)`

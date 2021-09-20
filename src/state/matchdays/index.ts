@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-import BigNumber from 'bignumber.js'
 import matchdays from 'config/constants/matchdays'
 import fetchMatchdays from './fetchMatchdays'
-import fillMatchdays from './fillMatchdays'
- 
+import fillInMatchdays from './fillInMatchdays'
 import { MatchdayState, Matchday } from '../types'
+
+
 
 const initialState: MatchdayState = { data: [...matchdays] }
 
@@ -28,8 +28,8 @@ export const { setMatchdaysPublicData, } = matchdaysSlice.actions
 
 // Thunks
 export const fetchMatchdaysPublicDataAsync = () => async (dispatch) => {
-  const thunkMatchdays = await fetchMatchdays()
-//  thunkMatchdays = fillMatchdays(thunkMatchdays)
+  let thunkMatchdays = await fetchMatchdays()
+  thunkMatchdays = fillInMatchdays(thunkMatchdays)
   dispatch(setMatchdaysPublicData(thunkMatchdays))
 }
 

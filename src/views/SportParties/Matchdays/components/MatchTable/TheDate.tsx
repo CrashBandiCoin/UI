@@ -1,3 +1,4 @@
+import useCurrentTimeEachMin from 'hooks/useTimer'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -15,11 +16,51 @@ const TheDateWrapper = styled.div`
   min-width: 60px;
   text-align: left;
 `
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const TheDate: React.FC<TheDateProps> = ({ theDate }) => {
+  const currentMillis = useCurrentTimeEachMin()
+  const currentMillislusOneDay = currentMillis + 24 * 60 * 60 * 1000 // +1 day
+
+  const matchDate = new Date(theDate)
+  const dayName = days[matchDate.getUTCDay()]
+  const date = matchDate.getUTCDate()
+
+  const year = matchDate.getUTCFullYear()
+  const monthName = months[matchDate.getUTCMonth()]
+
+  const hours = matchDate.getUTCHours() < 10 ? `0${matchDate.getUTCHours()}` : matchDate.getUTCHours()
+  const mins = matchDate.getUTCMinutes() < 10 ? `0${matchDate.getUTCMinutes()}` : matchDate.getUTCMinutes()
+
+  const formatted = `${dayName}, ${date} ${monthName} ${year} ${hours}:${mins} GMT`
+
+  if (matchDate.getTime() < currentMillis) {
+    return (
+      <Container>
+        <TheDateWrapper>{formatted}</TheDateWrapper>
+      </Container>
+    )
+  }
+
+  // in the past
+  if (matchDate.getTime() < currentMillislusOneDay) {
+    const diffMillis = new Date(matchDate.getTime() - currentMillis)
+
+    // less than 24 hours
+    return (
+      <Container>
+        <TheDateWrapper>
+          Start in {diffMillis.getUTCHours()}h, {diffMillis.getUTCMinutes()}m
+        </TheDateWrapper>
+      </Container>
+    )
+  }
+
+  // else
   return (
     <Container>
-      <TheDateWrapper>Match at : {theDate}</TheDateWrapper>
+      <TheDateWrapper>{formatted}</TheDateWrapper>
     </Container>
   )
 }
