@@ -22,6 +22,7 @@ export const swapSectionData: SalesSectionProps = {
       { src: 'CAKE', alt: 'CAKE token' },
     ],
   },
+  className: ''
 }
 
 export const earnSectionData: SalesSectionProps = {
@@ -46,6 +47,8 @@ export const earnSectionData: SalesSectionProps = {
       { src: 'folder', alt: 'Folder with cake token' },
     ],
   },
+  className: ''
+
 }
 
 export const sugarSectionData: SalesSectionProps = {
@@ -70,6 +73,8 @@ export const sugarSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Sugar token' },
     ],
   },
+  className: ''
+
 }
 
 export const mintSectionData: SalesSectionProps = {
@@ -94,6 +99,8 @@ export const mintSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Mint token' },
     ],
   },
+  className: ''
+
 }
 
 export const teasportSectionData: SalesSectionProps = {
@@ -117,4 +124,6 @@ export const teasportSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Teasport token' },
     ],
   },
+  className: ''
+
 }

@@ -39,11 +39,8 @@ const Hero = styled.div`
   padding-top: 10px;
   text-align: center;
   font-size: 18px;
- 
   color: #045e5a;
-
   font-weight: bold;
-  
 `
 
 
@@ -168,29 +165,27 @@ const Home: React.FC = () => {
       <br/>
       <Cards>
         <TotalValueLockedCard/>
-          <NextFeature/>
+        <NextFeature/>
       </Cards>
-      <div>
-        <SalesSection {...sugarSectionData} />
+      <div >
+        <SalesSection {...sugarSectionData} className="first" />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
                          address={addressSugar}
                          totalSupply={sugarTotalSupply} circSupply={sugarCircSupply} supply={sugarSupply}
-                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...mintSectionData} />
+                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} className="first" />
+
+        <SalesSection {...mintSectionData} className="second" />
         <FarmStakingCard cakeBalance={mintBalance} cakePrice={MINTPrice}
                          logo={logoMint} label='MINT' address={addressMint}
                          totalSupply={mintTotalSupply} circSupply={mintCircSupply}
                          supply={mintSupply}
                          marketCap={mintMarketCap} tokenPerBlock={0}
-                         burnBalance={mintBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...teasportSectionData} />
+                         burnBalance={mintBurnedBalance} className="second"/>
+        <SalesSection {...teasportSectionData} className="third" />
         <FarmStakingCard cakeBalance={teasportBalance} cakePrice={TEASPORTPrice} logo={logoTeasport} label='TEASPORT'
                          address={addressTeasport}
                          totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
-                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />
-        <br/><br/>
+                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} className="third" />
         <SocialCard />
       </div>
     </Page>

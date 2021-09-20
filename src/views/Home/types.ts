@@ -5,4 +5,5 @@ export interface OverviewData {
   scalingFactor?: number
   targetPrice?: number
   totalSupply?: string
+  className?: string
 }
