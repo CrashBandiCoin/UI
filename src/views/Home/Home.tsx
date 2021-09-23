@@ -65,26 +65,12 @@ const TextTVL = styled.div`
 `
 
 const Cards = styled(BaseLayout)`
-  align-items: stretch;
-  justify-content: stretch;
   margin-bottom: 48px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-  & > div {
-    grid-column: span 6;
-    width: 100%;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 8;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 6;
-    }
-  }
 `
 
 const tvlLogo = "/images/tvlLogo.svg";
@@ -165,6 +151,8 @@ const Home: React.FC = () => {
       <br/>
       <Cards>
         <TotalValueLockedCard/>
+      </Cards>
+      <Cards>
         <NextFeature/>
       </Cards>
       <div >
