@@ -18,6 +18,7 @@ const NextFeature = () => {
             <div className="card_image"><img src={ChampionsLeague} alt=""/></div>
             <div className="card_title title-white">
               <p>SportParty 3</p>
+              <p className="subtitle">09/14/21</p>
             </div>
           </div>
         </Link>

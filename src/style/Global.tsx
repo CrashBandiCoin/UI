@@ -107,6 +107,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 30px;
     margin-top: -50px;
     height: 40px;
+    & .subtitle {
+      font-size: 15px;
+    }
   }
 
   .card:hover {
