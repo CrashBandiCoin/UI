@@ -49,7 +49,7 @@ const Container = styled.div<{ expanded }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.card.background};
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
@@ -172,7 +172,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   let apyValue = null;
   apyValue = apy.value;
-  
+
   const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -184,7 +184,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   return (
     <Container expanded={expanded}>
-      
+
       <ValueContainer>
         <ValueWrapper>
           <Text>APY</Text>
@@ -195,7 +195,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Liquidity {...liquidity} />
         </ValueWrapper>
       </ValueContainer>
-      
+
       <ActionContainer>
         <StakedAction {...farm} userDataReady={userDataReady} />
       </ActionContainer>
@@ -219,9 +219,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Text small>Your {`${farm.lpSymbol}`} amount will grow over time as the farm rewards gets reinvested.</Text>
         </InfoWrapper>
       </InfoContainer>
-      
+
     </Container>
-    
+
   )
 }
 
