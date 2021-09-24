@@ -3,20 +3,27 @@ import styled from 'styled-components'
 import { Text, Heading, BaseLayout, Button, LinkExternal, Flex, Image } from '@pancakeswap-libs/uikit'
 import { ifosConfig } from 'config/constants'
 import useI18n from 'hooks/useI18n'
+import { Ifo } from 'config/constants/types'
+
 import IfoCard from './components/IfoCard'
 import Title from './components/Title'
 import IfoCards from './components/IfoCards'
 
+const activeIfo: Ifo[] = ifosConfig.filter((ifo) => ifo.isActive)
+
 const LaunchIfoCallout = styled(BaseLayout)`
-  border-top: 2px solid ${({ theme }) => theme.colors.textSubtle};
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 32px;
+  display: flex;
+  justify-content: space-around;
   margin: 0 auto;
   padding: 32px 0;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    grid-template-columns: 1fr 1fr;
+  @media screen and (max-width:950px) {
+    flex-direction:column;
+    & div {
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+    }
   }
 `
 
@@ -33,13 +40,13 @@ const List = styled.ul`
 /**
  * Note: currently there should be only 1 active IFO at a time
  */
-const activeIfo = ifosConfig.find((ifo) => ifo.isActive)
 
-const Ifo = () => {
+console.log(activeIfo)
+const IfoList = () => {
   const TranslateString = useI18n()
 
   return (
-    <div>
+    <>
       <LaunchIfoCallout>
         <div>
           <Title as="h2">{TranslateString(592, 'How to take part')}</Title>
@@ -85,8 +92,13 @@ const Ifo = () => {
           </div>
         </div>
       </LaunchIfoCallout>
-    </div>
+      <IfoCards>
+        {activeIfo.map((ifo) => (
+          <IfoCard key={ifo.id} ifo={ifo} />
+        ))}
+      </IfoCards>
+    </>
   )
 }
 
-export default Ifo
+export default IfoList

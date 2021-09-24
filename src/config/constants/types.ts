@@ -90,7 +90,7 @@ export interface VaultConfig {
     earnLabel: string
   }
 }
- 
+
 export interface PoolConfig {
   sousId: number
   image?: string

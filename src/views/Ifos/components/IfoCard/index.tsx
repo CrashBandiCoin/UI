@@ -32,6 +32,9 @@ const StyledIfoCard = styled(Card)<{ ifoId: string }>`
 `
 
 const getStatus = (currentBlock: number, startBlock: number, endBlock: number): IfoStatus | null => {
+  console.log(currentBlock)
+  console.log(startBlock)
+  console.log(endBlock)
   if (currentBlock < startBlock) {
     return 'coming_soon'
   }
@@ -49,11 +52,11 @@ const getStatus = (currentBlock: number, startBlock: number, endBlock: number): 
 
 const getRibbonComponent = (status: IfoStatus, TranslateString: (translationId: number, fallback: string) => any) => {
   if (status === 'coming_soon') {
-    return <CardRibbon variantColor="textDisabled" text={TranslateString(999, 'Coming Soon')} />
+    return <CardRibbon variantColor="warning" text={TranslateString(999, 'Coming Soon')} />
   }
 
   if (status === 'live') {
-    return <CardRibbon variantColor="primary" text={TranslateString(999, 'LIVE NOW!')} />
+    return <CardRibbon variantColor="primary" text={TranslateString(999, 'Live Now')} />
   }
 
   return null
@@ -106,13 +109,16 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
         contract.methods.totalAmount().call(),
       ])
 
-      const startBlockNum = parseInt(startBlock, 10)
-      const endBlockNum = parseInt(endBlock, 10)
+      let startBlockNum = parseInt('11186473', 10)
+      let endBlockNum = parseInt('22186473', 10)
+      if (ifo.id === 'jaggery') {
+        startBlockNum = parseInt('22186473', 10)
+        endBlockNum = parseInt('32186473', 10)
+      }
 
       const status = getStatus(currentBlock, startBlockNum, endBlockNum)
       const totalBlocks = endBlockNum - startBlockNum
       const blocksRemaining = endBlockNum - currentBlock
-
       // Calculate the total progress until finished or until start
       const progress =
         currentBlock > startBlockNum
@@ -134,7 +140,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     }
 
     fetchProgress()
-  }, [currentBlock, contract, releaseBlockNumber, setState])
+  }, [currentBlock, contract, releaseBlockNumber, setState, ifo])
 
   const isActive = state.status === 'live'
   const isFinished = state.status === 'finished'
