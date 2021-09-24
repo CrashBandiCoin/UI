@@ -41,7 +41,6 @@ const List = styled.ul`
  * Note: currently there should be only 1 active IFO at a time
  */
 
-console.log(activeIfo)
 const IfoList = () => {
   const TranslateString = useI18n()
 
