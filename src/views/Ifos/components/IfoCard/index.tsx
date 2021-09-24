@@ -32,9 +32,6 @@ const StyledIfoCard = styled(Card)<{ ifoId: string }>`
 `
 
 const getStatus = (currentBlock: number, startBlock: number, endBlock: number): IfoStatus | null => {
-  console.log(currentBlock)
-  console.log(startBlock)
-  console.log(endBlock)
   if (currentBlock < startBlock) {
     return 'coming_soon'
   }
@@ -109,12 +106,8 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
         contract.methods.totalAmount().call(),
       ])
 
-      let startBlockNum = parseInt('11186473', 10)
-      let endBlockNum = parseInt('22186473', 10)
-      if (ifo.id === 'jaggery') {
-        startBlockNum = parseInt('22186473', 10)
-        endBlockNum = parseInt('32186473', 10)
-      }
+      const startBlockNum = parseInt(startBlock, 10)
+      const endBlockNum = parseInt(endBlock, 10)
 
       const status = getStatus(currentBlock, startBlockNum, endBlockNum)
       const totalBlocks = endBlockNum - startBlockNum
