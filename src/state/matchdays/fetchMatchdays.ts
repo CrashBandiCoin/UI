@@ -16,8 +16,8 @@ const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
     const fetchMatchdays = ():MatchdayConfig[] => {
 
     const data =  matchdays 
+ // c'est ici qu'on interagit avec chainlink pour récuperer les infos de matchdays
  
-
     // const data = await Promise.all(
     //     matchdays.map(async (matchday) => {
     //         const lpAdress = matchday.isTokenOnly ? matchday.token.address[CHAIN_ID] : matchday.lpAddresses[CHAIN_ID]
