@@ -451,7 +451,7 @@ const matchdays: MatchdayConfig[] = [
 						label:'Atélico Madrid',
 						icon: 'atletico',
 						votedToken: ChampionsLeagueToken.TEASPORT,
-						score: 1,
+						score: 2,
 					},
 				],
 			},
