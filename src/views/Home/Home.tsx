@@ -39,11 +39,8 @@ const Hero = styled.div`
   padding-top: 10px;
   text-align: center;
   font-size: 18px;
- 
   color: #045e5a;
-
   font-weight: bold;
-  
 `
 
 
@@ -68,26 +65,12 @@ const TextTVL = styled.div`
 `
 
 const Cards = styled(BaseLayout)`
-  align-items: stretch;
-  justify-content: stretch;
   margin-bottom: 48px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-  & > div {
-    grid-column: span 6;
-    width: 100%;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 8;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 6;
-    }
-  }
 `
 
 const tvlLogo = "/images/tvlLogo.svg";
@@ -168,29 +151,29 @@ const Home: React.FC = () => {
       <br/>
       <Cards>
         <TotalValueLockedCard/>
-          <NextFeature/>
       </Cards>
-      <div>
-        <SalesSection {...sugarSectionData} />
+      <Cards>
+        <NextFeature/>
+      </Cards>
+      <div >
+        <SalesSection {...sugarSectionData} className="first" />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
                          address={addressSugar}
                          totalSupply={sugarTotalSupply} circSupply={sugarCircSupply} supply={sugarSupply}
-                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...mintSectionData} />
+                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} className="first" />
+
+        <SalesSection {...mintSectionData} className="second" />
         <FarmStakingCard cakeBalance={mintBalance} cakePrice={MINTPrice}
                          logo={logoMint} label='MINT' address={addressMint}
                          totalSupply={mintTotalSupply} circSupply={mintCircSupply}
                          supply={mintSupply}
                          marketCap={mintMarketCap} tokenPerBlock={0}
-                         burnBalance={mintBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...teasportSectionData} />
+                         burnBalance={mintBurnedBalance} className="second"/>
+        <SalesSection {...teasportSectionData} className="third" />
         <FarmStakingCard cakeBalance={teasportBalance} cakePrice={TEASPORTPrice} logo={logoTeasport} label='TEASPORT'
                          address={addressTeasport}
                          totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
-                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />
-        <br/><br/>
+                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} className="third" />
         <SocialCard />
       </div>
     </Page>

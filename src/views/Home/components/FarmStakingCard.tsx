@@ -56,9 +56,55 @@ const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean }>`
 
 const Grid = styled.div`
   display: grid;
+  position: relative;
   grid-gap: 16px 8px;
-  margin-top: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   grid-template-columns: repeat(2, auto);
+  &.first {
+    background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    &:after {
+      background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    }
+    &:before {
+      background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    }
+  }
+  &.second {
+    background-color: ${({ theme }) => theme.colors.background};
+    &:after {
+      background-color: ${({ theme }) => theme.colors.background};
+    }
+    &:before {
+      background-color: ${({ theme }) => theme.colors.background};
+    }
+  }
+  &.third {
+    background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    &:after {
+      background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    }
+    &:before {
+      background-color: ${({ theme }) => theme.colors.backgroundAlt};
+    }
+  }
+
+  &:after {
+    width: 100%;
+    display: block;
+    height: 100%;
+    right: -100%;
+    position: absolute;
+    content: "";
+  }
+  &:before {
+    width: 100%;
+    display: block;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    content: "";
+  }
 
   ${({ theme }) => theme.mediaQueries.sm} {
     grid-gap: 16px;
@@ -85,6 +131,7 @@ const FarmedStakingCard = ({
                              marketCap,
                              tokenPerBlock,
                              burnBalance,
+                             className
                            }) => {
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWallet()
@@ -144,7 +191,7 @@ const FarmedStakingCard = ({
   }, [])
 
   return (
-    <Grid>
+    <Grid className={className}>
       <StyledColumn>
         <Text fontSize='14px'>Your wallet</Text>
         <CakeWalletBalance cakeBalance={cakeBalance} />

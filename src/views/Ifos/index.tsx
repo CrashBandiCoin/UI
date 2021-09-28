@@ -13,7 +13,8 @@ const Ifos = () => {
     <>
       <Hero />
       <Container>
-        <IfoTabButtons />
+      <IfoTabButtons />
+
         <Route exact path={`${path}`}>
           <CurrentIfo />
         </Route>

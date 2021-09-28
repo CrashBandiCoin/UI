@@ -88,7 +88,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account, 
         </Text>
       </Flex>
       {!isTokenOnly && !isApproved && (
-        <Button mt="8px" width="100%" variant="secondary" style={{ background: "white" }} as={Link} to={zapUrl}>
+        <Button mt="8px" width="100%" variant="secondary" style={{ background: "transparent" }} as={Link} to={zapUrl}>
           Get LP
         </Button>
       )}
