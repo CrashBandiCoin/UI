@@ -47,7 +47,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Manchester United',
 						icon: 'manchester',
-                        votedToken: ChampionsLeagueToken.TEASPORT,	
+ 				                votedToken: ChampionsLeagueToken.TEASPORT,	
 						score: 1,		
 					},
 				],
@@ -69,7 +69,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Wolfsbourg',
 						icon: 'wolfsburg',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 0,
 					},
 				],
@@ -84,7 +84,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Villarreal',
 						icon: 'villarreal',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 2,
 					},
 					{
@@ -106,7 +106,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Chelsea',
 						icon: 'chelsea',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 1,
 					},
 					{
@@ -135,7 +135,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Juventus',
 						icon: 'juventus',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 3,
 					},
 				],
@@ -157,7 +157,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Bayern',
 						icon: 'bayern',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 3,
 					},
 				],
@@ -179,7 +179,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Benfica',
 						icon: 'benfica',
-                        votedToken: ChampionsLeagueToken.TEASPORT,
+						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 0,
 					},
 				],
@@ -370,6 +370,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:1,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 28, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -377,19 +378,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Chakthar',
 						icon: 'chakhtar',
 						votedToken : ChampionsLeagueToken.SUGAR,
-						
+						score: 0,
 					},
 					{
 						id:2,
 						label:'Inter',
 						icon: 'inter',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 0,
 					},
 				],
 			},
 			{
 				id:2,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 28, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -397,18 +400,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Ajax',
 						icon: 'ajax',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 2,
 					},
 					{
 						id:2,
 						label:'Beşiktaş',
 						icon: 'besiktas',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 				],
 			},
 			{
 				id:3,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -416,18 +422,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Real',
 						icon: 'real',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Sheriff',
 						icon: 'sheriff',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 2,
 					},
 				],
 			},
             {
 				id: 4,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -435,18 +444,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Milan',
 						icon: 'milan',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Atélico Madrid',
 						icon: 'atletico',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 				],
 			},
             {
 				id: 5,
 				type: 2,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -454,18 +466,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Dortmund',
 						icon: 'dortmund',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Sporting',
 						icon: 'sporting',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 6,
 				type: 2,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -473,18 +488,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Man City',
 						icon: 'mancity',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 					{
 						id:2,
 						label:'Paris Saint-Germain',
 						icon: 'paris',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 2,
 					},
 				],
 			},
             {
 				id: 7,
 				type: 3,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -492,18 +510,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Porto',
 						icon: 'porto',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Liverpool',
 						icon: 'liverpool',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 5,
 					},
 				],
 			},
             {
 				id: 8,
 				type: 3,
+				isDone: true,
 				beginTime: 'September 28, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -511,12 +532,14 @@ const matchdays: MatchdayConfig[] = [
 						label:'RB Leipzig',
 						icon: 'leipzig',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'FC Bruges',
 						icon: 'bruges',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 2,
 					},
 				],
 			},
