@@ -163,8 +163,6 @@ const Home: React.FC = () => {
       </Cards>
       <CardsHorizontale>
         <NextFeature/>
-        <NextFeature2/>
-        <NextFeature3/>
       </CardsHorizontale>
       <div >
         <SalesSection {...sugarSectionData} className="first" />
