@@ -39,7 +39,7 @@ const Hero = styled.div`
   padding-top: 10px;
   text-align: center;
   font-size: 30px;
-  text-color: #005a5c;
+  color: #005a5c;
   font-weight: bold;
 `
 
