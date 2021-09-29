@@ -38,8 +38,10 @@ const Hero = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
-  font-size: 18px;
-  color: #045e5a;
+  font-size: 30px;
+  background: -webkit-linear-gradient(1turn, #00a23d, #005a5c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bold;
 `
 
@@ -145,7 +147,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        TeaSwap is the only Crypto project funding associations through DeFi education and Gamification
+        The Gamefi DAO for real life events
       </Hero>
       <br/>
       <br/>

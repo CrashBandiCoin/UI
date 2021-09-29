@@ -83,7 +83,7 @@ const IfoList = () => {
               <Button
                 as="a"
                 variant="secondary"
-                href=""
+                href="https://teaswap.gitbook.io/teaswap/features/ifo-initial-farm-offering"
               >
                 {TranslateString(610, 'Read more')}
               </Button>
