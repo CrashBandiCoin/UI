@@ -41,7 +41,6 @@ const Hero = styled.div`
   font-size: 30px;
   background: -webkit-linear-gradient(1turn, #00a23d, #005a5c);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: bold;
 `
 
