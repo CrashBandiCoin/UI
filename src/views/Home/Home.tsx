@@ -24,6 +24,8 @@ import SalesSection from './components/SalesSection'
 import {mintSectionData, sugarSectionData, teasportSectionData } from './components/SalesSection/data'
 import CardValue from './components/CardValue'
 import NextFeature from './components/NextFeature'
+import NextFeature2 from './components/NextFeature2'
+import NextFeature3 from './components/NextFeature3'
 import ChampionsLeague from './img/foot/championsLeague.png'
 import TokenShow from './components/TokenShow'
 
@@ -71,6 +73,13 @@ const Cards = styled(BaseLayout)`
   justify-content: center;
   flex-direction: column;
 
+`
+
+const CardsHorizontale = styled(BaseLayout)`
+  margin-bottom: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 `
 
 const tvlLogo = "/images/tvlLogo.svg";
@@ -152,9 +161,11 @@ const Home: React.FC = () => {
       <Cards>
         <TotalValueLockedCard/>
       </Cards>
-      <Cards>
+      <CardsHorizontale>
         <NextFeature/>
-      </Cards>
+        <NextFeature2/>
+        <NextFeature3/>
+      </CardsHorizontale>
       <div >
         <SalesSection {...sugarSectionData} className="first" />
         <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
