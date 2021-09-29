@@ -147,7 +147,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        The Gamefi DAO for real life events
+        The GameFi DAO linked to real life events
       </Hero>
       <br/>
       <br/>
