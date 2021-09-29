@@ -39,8 +39,7 @@ const Hero = styled.div`
   padding-top: 10px;
   text-align: center;
   font-size: 30px;
-  background: -webkit-linear-gradient(1turn, #00a23d, #005a5c);
-  -webkit-background-clip: text;
+  background-color: #005a5c;
   font-weight: bold;
 `
 
