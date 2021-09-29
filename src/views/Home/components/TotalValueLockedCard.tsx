@@ -15,7 +15,7 @@ const CardBodyTvl = styled(CardBody)`
 `
 
 const ImgTea = styled.img`
-  width: 90px;
+  width: 100px;
   height: 100px;
   margin-right: 40px;
   margin-left: 40px;
