@@ -365,6 +365,7 @@ const matchdays: MatchdayConfig[] = [
 	{
 	    id: 2,
 	    label: 'Matchday 2 of 6',
+		isDone: true,
     	theLabelDate: 'September 28 & 29, 2021',
 		matches:[
 			{
@@ -546,6 +547,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 29, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -553,18 +555,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Atalanta',
 						icon: 'atalanta',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Young Boys',
 						icon: 'youngboys',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 10,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 29, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -572,18 +577,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Zenit',
 						icon: 'zenit',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 4,
 					},
 					{
 						id:2,
 						label:'Malmö',
 						icon: 'malmö',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 11,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -591,18 +599,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Wolfsbourg',
 						icon: 'wolfsburg',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Séville',
 						icon: 'seville',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 				],
 			},
             {
 				id: 12,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -610,18 +621,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Bayern',
 						icon: 'bayern',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 5,
 					},
 					{
 						id:2,
 						label:'Dynamo Kyiv',
 						icon: 'dynamo',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 13,
 				type: 1,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -629,18 +643,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'RB Salsburg',
 						icon: 'salzburg',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 2,
 					},
 					{
 						id:2,
 						label:'Lille',
 						icon: 'lille',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 				],
 			},
             {
 				id: 14,
 				type: 2,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -648,18 +665,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Juventus',
 						icon: 'juventus',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 1,
 					},
 					{
 						id:2,
 						label:'Chelsea',
 						icon: 'chelsea',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 15,
 				type: 3,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -667,18 +687,21 @@ const matchdays: MatchdayConfig[] = [
 						label:'Benfica',
 						icon: 'benfica',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 3,
 					},
 					{
 						id:2,
 						label:'Barcelona',
 						icon: 'barcelona',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 0,
 					},
 				],
 			},
             {
 				id: 16,
 				type: 3,
+				isDone: true,
 				beginTime: 'September 29, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -686,12 +709,14 @@ const matchdays: MatchdayConfig[] = [
 						label:'Manchester United',
 						icon: 'manchester',
 						votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 2,
 					},
 					{
 						id:2,
 						label:'Villarreal',
 						icon: 'villarreal',
 						votedToken : ChampionsLeagueToken.SUGAR,
+						score: 1,
 					},
 				],
 			},
