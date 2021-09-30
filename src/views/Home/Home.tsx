@@ -169,7 +169,7 @@ const Home: React.FC = () => {
       <CardsHorizontale>
         <NextFeature title="SportParty 3" ribbon="NEW FEATURE" img={ChampionsLeague} link="/SportParties/Championsleague"/>
         <NextFeature title="New IFO" ribbon="SOON" img={Ifo} link="/Ifo" />
-        <NextFeature title="RSK blockchain" ribbon="SOON" img={RSK} link="https://teaswap.gitbook.io/teaswap/features/tech-innovations/cross" />
+        <NextFeature title="RSK blockchain" ribbon="LIVE" img={RSK} link="https://app.rsk.tea-swap.finance/" />
       </CardsHorizontale>
       <div >
         <SalesSection {...sugarSectionData} className="first" />

@@ -60,20 +60,12 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           </Text>
         </Item>
         <Item>
-          <Display>{TranslateString(584, 'For Sale')}</Display>
-          <Text>{saleAmount}</Text>
+          <Display>Total contribution: </Display>
+          <Text>{(totalAmount.toNumber()*0.000000000000000001).toFixed(2)}</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(999, 'To raise (USD)')}</Display>
-          <Text>{raiseAmount}</Text>
-        </Item>
-        <Item>
-          <Display>{TranslateString(586, 'CAKE to burn (USD)')}</Display>
-          <Text>{cakeToBurn}</Text>
-        </Item>
-        <Item>
-          <Display>{TranslateString(999, 'Total raised (% of target)')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(2)}%`}</Text>
+          <Display>Total JAG to deliver: </Display>
+          <Text>5000 JAG</Text>
         </Item>
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
