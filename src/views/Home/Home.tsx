@@ -168,7 +168,7 @@ const Home: React.FC = () => {
       </Cards>
       <CardsHorizontale>
         <NextFeature title="SportParty 3" ribbon="NEW FEATURE" img={ChampionsLeague} link="/SportParties/Championsleague"/>
-        <NextFeature title="New IFO" ribbon="SOON" img={Ifo} link="/Ifo" />
+        <NextFeature title="New IFO" ribbon="LIVE" img={Ifo} link="/Ifo" />
         <NextFeature title="RSK blockchain" ribbon="LIVE" img={RSK} link="https://app.rsk.tea-swap.finance/" />
       </CardsHorizontale>
       <div >
