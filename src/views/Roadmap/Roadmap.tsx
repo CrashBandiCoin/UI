@@ -7,6 +7,9 @@ const Hero = styled.div`
   align-items: center;
   background-repeat: no-repeat;
   background-position: top center;
+  @media screen and (max-width:968px) {
+    overflow: auto;
+  }
 `
 
 const Roadmap: React.FC = () => {

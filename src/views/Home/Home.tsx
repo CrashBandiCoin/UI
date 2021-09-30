@@ -24,9 +24,9 @@ import SalesSection from './components/SalesSection'
 import {mintSectionData, sugarSectionData, teasportSectionData } from './components/SalesSection/data'
 import CardValue from './components/CardValue'
 import NextFeature from './components/NextFeature'
-import NextFeature2 from './components/NextFeature2'
-import NextFeature3 from './components/NextFeature3'
 import ChampionsLeague from './img/foot/championsLeague.png'
+import Ifo from './img/Homepage_Panel_IFO.png'
+import RSK from './img/Homepage_Panel_RSK.png'
 import TokenShow from './components/TokenShow'
 
 
@@ -80,7 +80,12 @@ const CardsHorizontale = styled(BaseLayout)`
   align-items: center;
   display: flex;
   justify-content: center;
+  @media screen and (max-width:968px) {
+    flex-direction: column;
+  }
 `
+
+
 
 const tvlLogo = "/images/tvlLogo.svg";
 
@@ -162,7 +167,9 @@ const Home: React.FC = () => {
         <TotalValueLockedCard/>
       </Cards>
       <CardsHorizontale>
-        <NextFeature/>
+        <NextFeature title="SportParty 3" ribbon="NEW FEATURE" img={ChampionsLeague} link="/SportParties/Championsleague"/>
+        <NextFeature title="New IFO" ribbon="SOON" img={Ifo} link="/Ifo" />
+        <NextFeature title="RSK blockchain" ribbon="SOON" img={RSK} link="https://teaswap.gitbook.io/teaswap/features/tech-innovations/cross" />
       </CardsHorizontale>
       <div >
         <SalesSection {...sugarSectionData} className="first" />

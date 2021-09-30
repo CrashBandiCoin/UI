@@ -1,47 +1,40 @@
 import React from 'react'
-import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
+import { Card, CardBody, Heading, Text, Link } from '@pancakeswap-libs/uikit'
 import styled, { keyframes } from 'styled-components'
 import useI18n from 'hooks/useI18n'
-import { Link } from "react-router-dom";
-import ChampionsLeague from '../img/foot/championsLeague.jpg'
+
+interface NextFeatureProps {
+  img: string
+  ribbon: string
+  title: string
+  link: string
+}
 
 
-const NextFeature = () => {
+const StyledLink = styled(Link)`
+  &:hover {
+    text-decoration: none;
+  }
+`;
+
+const NextFeature: React.FC<NextFeatureProps> = ({ img, ribbon, title, link}) => {
   const TranslateString = useI18n()
 
   return (
     <>
       <div className="cards-list">
-        <Link to="/SportParties/Championsleague">
+        <StyledLink href={link}>
           <div className="card 1">
-            <div className="ribbon ribbon-top-right"><span>NEW FEATURE</span></div>
-            <div className="card_image"><img src={ChampionsLeague} alt=""/></div>
+            <div className="ribbon ribbon-top-right"><span>{ribbon}</span></div>
+            <div className="card_image"><img src={img} alt=""/></div>
             <div className="card_title title-white">
-              <p>SportParty 3</p>
-              <p className="subtitle">09/14/21</p>
+              <p>{title}</p>
             </div>
           </div>
-        </Link>
+        </StyledLink>
 
       </div>
     </>
-      // <StyledSportPartie>
-      //   <Heading size="xl" mb="24px">
-      //     <br/>
-      //     <Row>New Feature Launched</Row>
-      //   </Heading>
-      //     <Row>
-      //       <Link to="/SportParties/Championsleague">
-      //       <img
-      //       src={ChampionsLeague}
-      //       loading='lazy'
-      //       alt=''
-      //     />
-      //       </Link>
-      //       </Row>
-      //   <br/>
-      //   <Row>SportParty 3 : 09/14/21</Row>
-      // </StyledSportPartie>
   )
 }
 
