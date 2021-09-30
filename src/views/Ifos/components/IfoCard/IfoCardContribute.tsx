@@ -70,7 +70,6 @@ const IfoCardContribute: React.FC<Props> = ({
     setPendingTx(false)
   }
   const isFinished = status === 'finished'
-  const percentOfUserContribution = new BigNumber(userInfo.amount).div(raisingAmount).times(100)
 
   if (allowance <= 0) {
     return (

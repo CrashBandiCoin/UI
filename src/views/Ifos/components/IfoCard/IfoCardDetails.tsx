@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
+import { getBalanceNumber } from '../../../../utils/formatBalance'
+import { IfoStatus } from '../../../../config/constants/types'
 
 export interface IfoCardDetailsProps {
   launchDate: string
@@ -13,6 +15,7 @@ export interface IfoCardDetailsProps {
   projectSiteUrl: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
+  status:IfoStatus,
 }
 
 const StyledIfoCardDetails = styled.div`
@@ -29,6 +32,7 @@ const Display = styled(Text)`
   flex: 1;
 `
 
+
 const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   launchDate,
   launchTime,
@@ -38,8 +42,13 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   projectSiteUrl,
   raisingAmount,
   totalAmount,
+  status,
 }) => {
   const TranslateString = useI18n()
+  const [userInfo, setUserInfo] = useState({ amount: 0, claimed: false })
+
+  const percent = ((getBalanceNumber(new BigNumber(userInfo.amount))/totalAmount.toNumber())*100000000000000000000)
+  const partIfo = (5000*percent)
 
   return (
     <>
@@ -61,7 +70,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
         <Item>
           <Display>Total contribution: </Display>
-          <Text>{(totalAmount.toNumber()*0.000000000000000001).toFixed(2)}</Text>
+          <Text>{(totalAmount.toNumber()*0.000000000000000001).toFixed(0)}</Text>
         </Item>
         <Item>
           <Display>Total JAG to deliver: </Display>
