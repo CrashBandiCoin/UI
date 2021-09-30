@@ -14,9 +14,10 @@ import Delta from '../img/delta.png'
 import CoinScope from '../img/Logo_CoinScope_OK.png'
 
 
-const StyledTwitterCard = styled(Card)`
-  margin-left: auto;
-  margin-right: auto;
+const StyledCardBody = styled(CardBody)`
+  @media screen and (max-width:968px) {
+    text-align: center
+  }
 `
 
 const Row = styled.div`
@@ -37,7 +38,7 @@ const SocialCard = () => {
   const TranslateString = useI18n()
 
   return (
-      <CardBody>
+      <StyledCardBody>
             <a href='https://dappradar.com/binance-smart-chain/defi/teaswap' rel="noreferrer" target="_blank">
               <img
                 src={DappRadar}
@@ -120,7 +121,7 @@ const SocialCard = () => {
               />
             </a>
 
-      </CardBody>
+      </StyledCardBody>
   )
 }
 
