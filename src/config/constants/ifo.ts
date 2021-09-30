@@ -6,7 +6,7 @@ const ifos: Ifo[] = [
     address: '0x915113813ffBCBEb7f26F881bD8a1c7781C52C0F',
     isActive: true,
     name: 'Jaggery',
-    subTitle: 'A blockchain based mutual to share the risk of DeFi on RSK',
+    subTitle: 'The first TeaSwap RSK token!',
     description:
       'Earn Jaggery the new token of RSK Blockchain !',
     launchDate: 'Sept. 30',

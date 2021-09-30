@@ -47,7 +47,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         <Item>
           <Display>{TranslateString(582, 'Launch Time')}</Display>
           <Text>
-            {launchDate},
+            {launchDate} - 2 Oct.
             <Link
               href="https://www.timeanddate.com/worldclock/singapore/singapore"
               target="blank"
