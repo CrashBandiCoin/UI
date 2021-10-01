@@ -52,7 +52,7 @@ export const earnSectionData: SalesSectionProps = {
 }
 
 export const sugarSectionData: SalesSectionProps = {
-  headingText: 'SUGAR Train. Farm. Earn.',
+  headingText: 'Train. Farm. Earn.',
   bodyText:
     'SUGAR is the first token dedicated to DeFi education. Learn all DeFi features through SUGAR raffle, IFO, farming, DeFi trainings, partners and more',
   reverse: false,
@@ -78,7 +78,7 @@ export const sugarSectionData: SalesSectionProps = {
 }
 
 export const mintSectionData: SalesSectionProps = {
-  headingText: 'MINT Vote. Fund Associations. Earn.',
+  headingText: 'Vote. Fund Associations. Earn.',
   bodyText:
     'MINT is the first token caring about funding Associations As the central TeaSwap token, use it to vote as a DAO for TeaSwap main decisions & as a key to access TeaSwap\'s TeaParties.',
   reverse: false,
@@ -104,7 +104,7 @@ export const mintSectionData: SalesSectionProps = {
 }
 
 export const teasportSectionData: SalesSectionProps = {
-  headingText: 'TEASPORT No loss Bet. Play. Earn',
+  headingText: 'No loss Bet. Play. Earn',
   bodyText: 'TeaSport is the first token devoted to sport/e-sport with interactions in real time with sports results during TeaSwap\'s SportParties.',
   reverse:false,
   primaryButton: {
