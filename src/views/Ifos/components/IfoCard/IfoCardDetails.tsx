@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
+import { Contract } from 'web3-eth-contract'
 import { getBalanceNumber } from '../../../../utils/formatBalance'
 import { IfoStatus } from '../../../../config/constants/types'
 
@@ -15,7 +17,8 @@ export interface IfoCardDetailsProps {
   projectSiteUrl: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
-  status:IfoStatus,
+  status:IfoStatus
+  contract:Contract
 }
 
 const StyledIfoCardDetails = styled.div`
@@ -43,12 +46,32 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   raisingAmount,
   totalAmount,
   status,
+  contract,
 }) => {
   const TranslateString = useI18n()
+  const [pendingTx, setPendingTx] = useState(false)
   const [userInfo, setUserInfo] = useState({ amount: 0, claimed: false })
+  const [offeringTokenBalance, setOfferingTokenBalance] = useState(new BigNumber(0))
+
+  const { account } = useWallet()
+
+  useEffect(() => {
+    const fetch = async () => {
+      const balance = new BigNumber(await contract.methods.getOfferingAmount(account).call())
+      const userinfo = await contract.methods.userInfo(account).call()
+
+      setUserInfo(userinfo)
+      setOfferingTokenBalance(balance)
+    }
+
+    if (account) {
+      fetch()
+    }
+}, [account, contract.methods, pendingTx])
+
 
   const percent = ((getBalanceNumber(new BigNumber(userInfo.amount))/totalAmount.toNumber())*100000000000000000000)
-  const partIfo = (5000*percent)
+  const partIfo = (5000 * percent) / 100;
 
   return (
     <>
@@ -75,6 +98,10 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         <Item>
           <Display>Total JAG to deliver: </Display>
           <Text>5000 JAG</Text>
+        </Item>
+        <Item>
+          <Display>Your part of JAG Tokens: </Display>
+          <Text>{partIfo} JAG</Text>
         </Item>
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
