@@ -79,7 +79,7 @@ export const sugarSectionData: SalesSectionProps = {
 
 export const mintSectionData: SalesSectionProps = {
   headingText: 'Vote. Fund Associations. Earn.',
-  bodyText: 'Govern and unlock all Teaswap’s Gamefi features',
+  bodyText: 'Govern and unlock all Teaswap’s Gamefi features.',
   reverse: false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0x2deb28ec61e7b6b4bba5f8398398330227cd293f',
