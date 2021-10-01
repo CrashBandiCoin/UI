@@ -87,7 +87,6 @@ const CardsHorizontale = styled(BaseLayout)`
 `
 
 const CardToken = styled.div`
-  margin-top: 100px;
   margin-bottom: 30px;
   background: ${(props) => props.theme.card.background};
   position: relative;
@@ -111,6 +110,46 @@ const CardToken = styled.div`
     position: absolute;
     content: "";
     background: ${(props) => props.theme.card.background};
+
+  }
+
+  @media screen and (max-width:300px) {
+    &:after {
+      display: none;
+    }
+  }
+`
+
+const CardHarvest = styled.div`
+  background: -webkit-linear-gradient(1turn,#00a23d,#005a5c);
+  position: relative;
+  margin-top: 100px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &:after {
+    width: 100%;
+    display: block;
+    height: 100%;
+    right: -100%;
+    position: absolute;
+    content: "";
+    background: #005a5c;
+    top: 0;
+
+  }
+  &:before {
+    width: 100%;
+    display: block;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    content: "";
+    background: #00a23d;
 
   }
 
@@ -207,6 +246,9 @@ const Home: React.FC = () => {
         <NextFeature title="New IFO" ribbon="LIVE" img={Ifo} link="/Ifo" />
         <NextFeature title="RSK blockchain" ribbon="LIVE" img={RSK} link="https://app.rsk.tea-swap.finance/" />
       </CardsHorizontale>
+      <CardHarvest>
+        <FarmStakingCard />
+      </CardHarvest>
       <CardToken>
         <FlexLayout>
           <CardTokenHome  {...sugarSectionData}
