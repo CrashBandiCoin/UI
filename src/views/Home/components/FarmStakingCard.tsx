@@ -120,7 +120,7 @@ const FarmedStakingCard = () => {
       <Heading mb="4px" style={{fontSize:'33px'}} color="backgroundAlt">SUGAR to Harvest</Heading>
     </Wrapper>
     <Wrapper mb="12px">
-      <Text color="backgroundAlt" fontSize='30px' >{earningsSumSugar} (~${(eggPrice * earningsSumSugar).toFixed(2)})</Text>
+      <Text color="backgroundAlt" fontSize='30px' >{earningsSumSugar.toFixed(2)} (~${(eggPrice * earningsSumSugar).toFixed(2)})</Text>
     </Wrapper>
     <Wrapper justifyContent='center' flexDirection="column" >
       {account ? (

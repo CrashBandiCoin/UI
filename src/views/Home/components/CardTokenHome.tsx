@@ -143,7 +143,7 @@ const CardTokenHome = ({
         <Flex justifyContent='space-between'>
           { account
             ?
-              <Text fontSize="25px" color="link">{cakeBalance} <span style={{fontSize:"17px"}}>(~${(cakePrice * cakeBalance).toFixed(2)})</span></Text>
+              <Text fontSize="25px" color="link">{cakeBalance.toFixed(2)} <span style={{fontSize:"17px"}}>(~${(cakePrice * cakeBalance).toFixed(2)})</span></Text>
             :
               <Button scale="sm" as="a" width="30%" variant="primary" onClick={onPresentConnectModal}>
                 Connect
