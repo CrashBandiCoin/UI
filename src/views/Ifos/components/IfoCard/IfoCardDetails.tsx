@@ -101,7 +101,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
         </Item>
         <Item>
           <Display>Your part of JAG Tokens: </Display>
-          <Text>{partIfo} JAG</Text>
+          <Text>{partIfo.toFixed(0)} JAG</Text>
         </Item>
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>

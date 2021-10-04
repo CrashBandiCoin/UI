@@ -54,7 +54,7 @@ export const earnSectionData: SalesSectionProps = {
 export const sugarSectionData: SalesSectionProps = {
   headingText: 'Train. Farm. Earn.',
   bodyText:
-    'SUGAR is the first token dedicated to DeFi education. Learn all DeFi features through SUGAR raffle, IFO, farming, DeFi trainings, partners and more',
+    ' Learn and master all the Defi tools. ',
   reverse: false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
@@ -79,8 +79,7 @@ export const sugarSectionData: SalesSectionProps = {
 
 export const mintSectionData: SalesSectionProps = {
   headingText: 'Vote. Fund Associations. Earn.',
-  bodyText:
-    'MINT is the first token caring about funding Associations As the central TeaSwap token, use it to vote as a DAO for TeaSwap main decisions & as a key to access TeaSwap\'s TeaParties.',
+  bodyText: 'Govern and unlock all Teaswap’s Gamefi features.',
   reverse: false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0x2deb28ec61e7b6b4bba5f8398398330227cd293f',
@@ -105,7 +104,7 @@ export const mintSectionData: SalesSectionProps = {
 
 export const teasportSectionData: SalesSectionProps = {
   headingText: 'No loss Bet. Play. Earn',
-  bodyText: 'TeaSport is the first token devoted to sport/e-sport with interactions in real time with sports results during TeaSwap\'s SportParties.',
+  bodyText: 'Play and interact with sports events.',
   reverse:false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
