@@ -38,14 +38,21 @@ const ControlContainer = styled.div`
 
 const LabelWrapper = styled.div`
   > ${Text} {
-    font-size: 14px;
+    text-align: center;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.textSubtle};
+    ${({ theme }) => theme.mediaQueries.xs} {
+      font-size: 10px;
+    }
+    ${({ theme }) => theme.mediaQueries.sm} {
+      font-size: 16px;
+    }
   }
 `
 
 const FilterContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 8px 0px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -156,7 +163,7 @@ const Matchdays: React.FC = () => {
 
         <ControlContainer>
           <FilterContainer>
-            <LabelWrapper style={{ marginLeft: 16 }}>
+            <LabelWrapper>
               <Text textTransform="uppercase">show upcoming days only</Text>
               <Toggle checked={upcomingOnly} onChange={() => setUpcomingOnly(!upcomingOnly)} scale="md" />
             </LabelWrapper>

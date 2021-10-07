@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Tag, Image } from '@pancakeswap-libs/uikit'
+import { Image } from '@pancakeswap-libs/uikit'
 import { ChampionsLeagueToken } from 'config/constants/types'
 
 export interface MatchdayProps {
@@ -19,8 +19,11 @@ const Container = styled.div`
   }
 `
 const TokenWrapper = styled.div`
+  ${({ theme }) => theme.mediaQueries.xs} {
+    width: 58px;
+  }
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 54px;
+    width: 58px;
   }
 `
 
@@ -29,7 +32,7 @@ const LabelWrapper = styled.div`
   color: ${({ theme }) => theme.colors.textSubtle};
   text-align: left;
   ${({ theme }) => theme.mediaQueries.xs} {
-    font-size: 16px;
+    font-size: 12px;
   }
   ${({ theme }) => theme.mediaQueries.sm} {
     font-size: 26px;

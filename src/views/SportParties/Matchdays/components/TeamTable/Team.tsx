@@ -17,6 +17,11 @@ const Container = styled.div`
     min-width: 250px;
     padding-left: 16px;
   }
+
+  ${({ theme }) => theme.mediaQueries.xs} {
+    min-width: 200px;
+    padding-left: 16px;
+  }
 `
 const TokenWrapper = styled.div`
   width: 36px;
