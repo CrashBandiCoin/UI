@@ -23,8 +23,17 @@ const TokenWrapper = styled.div`
     width: 54px;
   }
 `
-const DifDiv = styled.div`
-  width: 54px;
+
+const LabelWrapper = styled.div`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.textSubtle};
+  text-align: left;
+  ${({ theme }) => theme.mediaQueries.xs} {
+    font-size: 16px;
+  }
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 26px;
+  }
 `
 
 const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }) => {
@@ -42,9 +51,7 @@ const Matchday: React.FunctionComponent<MatchdayProps> = ({ label, winnerToken }
         </TokenWrapper>
       )}
 
-      <Text bold color="primary" fontSize="32px">
-        {label}
-      </Text>
+      <LabelWrapper>{label}</LabelWrapper>
     </Container>
   )
 }

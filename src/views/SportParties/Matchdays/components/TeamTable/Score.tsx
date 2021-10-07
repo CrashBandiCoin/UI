@@ -12,7 +12,6 @@ const Container = styled.div`
 `
 
 const ScoreWrapper = styled.div`
-  min-width: 60px;
   text-align: right;
   font-size: 24px;
 `

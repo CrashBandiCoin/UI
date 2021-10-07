@@ -11,19 +11,15 @@ export interface TeamProps {
 const Container = styled.div`
   width: 100%;
   display: flex;
-  min-width: 250px;
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {
+    min-width: 250px;
     padding-left: 16px;
   }
 `
 const TokenWrapper = styled.div`
   width: 36px;
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    width: 36px;
-  }
 `
 
 const Team: React.FunctionComponent<TeamProps> = ({ label, icon }) => {
