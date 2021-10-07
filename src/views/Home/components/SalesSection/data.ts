@@ -22,6 +22,7 @@ export const swapSectionData: SalesSectionProps = {
       { src: 'CAKE', alt: 'CAKE token' },
     ],
   },
+  className: ''
 }
 
 export const earnSectionData: SalesSectionProps = {
@@ -46,12 +47,14 @@ export const earnSectionData: SalesSectionProps = {
       { src: 'folder', alt: 'Folder with cake token' },
     ],
   },
+  className: ''
+
 }
 
 export const sugarSectionData: SalesSectionProps = {
-  headingText: 'SUGAR Train. Farm. Earn.',
+  headingText: 'Train. Farm. Earn.',
   bodyText:
-    'SUGAR is the first token dedicated to DeFi education. Learn all DeFi features through SUGAR raffle, IFO, farming, DeFi trainings, partners and more',
+    ' Learn and master all the Defi tools. ',
   reverse: false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0x41AA9F842AF935cC71252C0dE4BFF13F821546b8',
@@ -70,12 +73,13 @@ export const sugarSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Sugar token' },
     ],
   },
+  className: ''
+
 }
 
 export const mintSectionData: SalesSectionProps = {
-  headingText: 'MINT Vote. Fund Associations. Earn.',
-  bodyText:
-    'MINT is the first token caring about funding Associations As the central TeaSwap token, use it to vote as a DAO for TeaSwap main decisions & as a key to access TeaSwap\'s TeaParties.',
+  headingText: 'Vote. Fund Associations. Earn.',
+  bodyText: 'Govern and unlock all Teaswap’s Gamefi features.',
   reverse: false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0x2deb28ec61e7b6b4bba5f8398398330227cd293f',
@@ -94,11 +98,13 @@ export const mintSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Mint token' },
     ],
   },
+  className: ''
+
 }
 
 export const teasportSectionData: SalesSectionProps = {
-  headingText: 'TEASPORT No loss Bet. Play. Earn',
-  bodyText: 'TeaSport is the first token devoted to sport/e-sport with interactions in real time with sports results during TeaSwap\'s SportParties.',
+  headingText: 'No loss Bet. Play. Earn',
+  bodyText: 'Play and interact with sports events.',
   reverse:false,
   primaryButton: {
     to: 'https://pancakeswap.finance/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
@@ -117,4 +123,6 @@ export const teasportSectionData: SalesSectionProps = {
       { src: 'coin', alt: 'Teasport token' },
     ],
   },
+  className: ''
+
 }

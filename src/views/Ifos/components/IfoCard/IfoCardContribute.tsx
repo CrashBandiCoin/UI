@@ -18,7 +18,8 @@ export interface Props {
   contract: Contract
   status: IfoStatus
   raisingAmount: BigNumber
-  tokenDecimals: number
+  tokenDecimals: number,
+  totalAmount: BigNumber
 }
 
 const IfoCardContribute: React.FC<Props> = ({
@@ -29,6 +30,7 @@ const IfoCardContribute: React.FC<Props> = ({
   status,
   raisingAmount,
   tokenDecimals,
+  totalAmount,
 }) => {
   const [pendingTx, setPendingTx] = useState(false)
   const [offeringTokenBalance, setOfferingTokenBalance] = useState(new BigNumber(0))
@@ -41,6 +43,8 @@ const IfoCardContribute: React.FC<Props> = ({
   const [onPresentContributeModal] = useModal(
     <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
   )
+
+   const percent = ((getBalanceNumber(new BigNumber(userInfo.amount))/totalAmount.toNumber())*100000000000000000000)
 
   useEffect(() => {
     const fetch = async () => {
@@ -66,7 +70,6 @@ const IfoCardContribute: React.FC<Props> = ({
     setPendingTx(false)
   }
   const isFinished = status === 'finished'
-  const percentOfUserContribution = new BigNumber(userInfo.amount).div(raisingAmount).times(100)
 
   if (allowance <= 0) {
     return (
@@ -108,7 +111,7 @@ const IfoCardContribute: React.FC<Props> = ({
       <Text fontSize="14px" color="textSubtle">
         {isFinished
           ? `You'll be refunded any excess tokens when you claim`
-          : `${percentOfUserContribution.toFixed(5)}% of total`}
+          : `${percent.toFixed(2)}% of total`}
       </Text>
     </>
   )

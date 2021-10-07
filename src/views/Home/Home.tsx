@@ -4,6 +4,7 @@ import { Heading, Text, BaseLayout, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import BigNumber from 'bignumber.js/bignumber'
+import FlexLayout from 'components/layout/Flex'
 import FarmStakingCard from './components/FarmStakingCard'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
@@ -23,10 +24,12 @@ import { useAllEarningsByCategory } from '../../hooks/useAllEarnings'
 import SalesSection from './components/SalesSection'
 import {mintSectionData, sugarSectionData, teasportSectionData } from './components/SalesSection/data'
 import CardValue from './components/CardValue'
+import CardTokenHome from './components/CardTokenHome'
 import NextFeature from './components/NextFeature'
 import ChampionsLeague from './img/foot/championsLeague.png'
+import Ifo from './img/Homepage_Panel_IFO.png'
+import RSK from './img/Homepage_Panel_RSK.png'
 import TokenShow from './components/TokenShow'
-
 
 const Hero = styled.div`
   align-items: center;
@@ -38,12 +41,9 @@ const Hero = styled.div`
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
-  font-size: 18px;
- 
-  color: #045e5a;
-
+  font-size: 30px;
+  color: #005a5c;
   font-weight: bold;
-  
 `
 
 
@@ -68,27 +68,99 @@ const TextTVL = styled.div`
 `
 
 const Cards = styled(BaseLayout)`
-  align-items: stretch;
-  justify-content: stretch;
   margin-bottom: 48px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-  & > div {
-    grid-column: span 6;
+`
+
+const CardsHorizontale = styled(BaseLayout)`
+  margin-bottom: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width:968px) {
+    flex-direction: column;
+  }
+`
+
+const CardToken = styled.div`
+  margin-bottom: 30px;
+  background: ${(props) => props.theme.card.background};
+  position: relative;
+
+  &:after {
     width: 100%;
+    display: block;
+    height: 100%;
+    right: -100%;
+    position: absolute;
+    content: "";
+    background: ${(props) => props.theme.card.background};
+    top: 0;
+
+  }
+  &:before {
+    width: 100%;
+    display: block;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    content: "";
+    background: ${(props) => props.theme.card.background};
+
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 8;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 6;
+  @media screen and (max-width:300px) {
+    &:after {
+      display: none;
     }
   }
 `
+
+const CardHarvest = styled.div`
+  background: -webkit-linear-gradient(1turn,#00a23d,#005a5c);
+  position: relative;
+  margin-top: 100px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &:after {
+    width: 100%;
+    display: block;
+    height: 100%;
+    right: -100%;
+    position: absolute;
+    content: "";
+    background: #005a5c;
+    top: 0;
+
+  }
+  &:before {
+    width: 100%;
+    display: block;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    content: "";
+    background: #00a23d;
+
+  }
+
+  @media screen and (max-width:300px) {
+    &:after {
+      display: none;
+    }
+  }
+`
+
+
 
 const tvlLogo = "/images/tvlLogo.svg";
 
@@ -137,9 +209,9 @@ const Home: React.FC = () => {
   const addressSugar = getCakeAddress()
 
   // logo token
-  const logoMint = '/images/SUGAR/mint.png'
-  const logoTeasport = '/images/SUGAR/teasportV1.png'
-  const logoSugar = '/images/SUGAR/sugar.png'
+  const logoMint = '/images/egg/mint.png'
+  const logoTeasport = '/images/egg/TeaSportV1.png'
+  const logoSugar = '/images/egg/sugar.png'
 
   const farms = useFarms()
 
@@ -160,37 +232,71 @@ const Home: React.FC = () => {
   const tvlImage = "";
 
   return (
-    <Page>
+    <Page style={{ maxWidth: '80%'}}>
       <Hero>
-        TeaSwap is the only Crypto project funding associations through DeFi education and Gamification
+        The GameFi DAO linked to real life events
       </Hero>
       <br/>
       <br/>
       <Cards>
         <TotalValueLockedCard/>
-          <NextFeature/>
       </Cards>
-      <div>
-        <SalesSection {...sugarSectionData} />
-        <FarmStakingCard cakeBalance={sugarBalance} cakePrice={SUGARPrice} logo={logoSugar} label='SUGAR'
-                         address={addressSugar}
-                         totalSupply={sugarTotalSupply} circSupply={sugarCircSupply} supply={sugarSupply}
-                         marketCap={sugarMarketCap} tokenPerBlock={SUGARPerBlock} burnBalance={sugarBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...mintSectionData} />
-        <FarmStakingCard cakeBalance={mintBalance} cakePrice={MINTPrice}
-                         logo={logoMint} label='MINT' address={addressMint}
-                         totalSupply={mintTotalSupply} circSupply={mintCircSupply}
-                         supply={mintSupply}
-                         marketCap={mintMarketCap} tokenPerBlock={0}
-                         burnBalance={mintBurnedBalance} />
-        <br/><br/><br/><br/>
-        <SalesSection {...teasportSectionData} />
-        <FarmStakingCard cakeBalance={teasportBalance} cakePrice={TEASPORTPrice} logo={logoTeasport} label='TEASPORT'
-                         address={addressTeasport}
-                         totalSupply={teasportTotalSupply} circSupply={teasportCircSupply} supply={teasportSupply}
-                         marketCap={teasportMarketCap} tokenPerBlock={0} burnBalance={teasportBurnedBalance} />
-        <br/><br/>
+      <CardsHorizontale>
+        <NextFeature title="SportParty 3" ribbon="NEW FEATURE" img={ChampionsLeague} link="/SportParties/Championsleague"/>
+        <NextFeature title="New IFO" ribbon="LIVE" img={Ifo} link="/Ifo" />
+        <NextFeature title="RSK blockchain" ribbon="LIVE" img={RSK} link="https://app.rsk.tea-swap.finance/" />
+      </CardsHorizontale>
+      <CardHarvest>
+        <FarmStakingCard />
+      </CardHarvest>
+      <CardToken>
+        <FlexLayout>
+          <CardTokenHome  {...sugarSectionData}
+                          cakeBalance={sugarBalance}
+                          cakePrice={SUGARPrice} logo={logoSugar}
+                          label='SUGAR'
+                          colorHead="#cf0c54"
+                          address={addressSugar}
+                          totalSupply={sugarTotalSupply}
+                          circSupply={sugarCircSupply}
+                          supply={sugarSupply}
+                          marketCap={sugarMarketCap}
+                          tokenPerBlock={SUGARPerBlock}
+                          burnBalance={sugarBurnedBalance}
+          />
+
+          <CardTokenHome  {...mintSectionData}
+                          cakeBalance={mintBalance}
+                          cakePrice={MINTPrice}
+                          logo={logoMint}
+                          label='MINT'
+                          colorHead="#00755e"
+                          address={addressMint}
+                          totalSupply={mintTotalSupply}
+                          circSupply={mintCircSupply}
+                          supply={mintSupply}
+                          marketCap={mintMarketCap}
+                          tokenPerBlock={0}
+                          burnBalance={mintBurnedBalance}
+          />
+
+          <CardTokenHome  {...teasportSectionData}
+                          cakeBalance={teasportBalance}
+                          cakePrice={TEASPORTPrice}
+                          logo={logoTeasport}
+                          label='TEASPORT'
+                          colorHead="#de3c2d"
+                          address={addressTeasport}
+                          totalSupply={teasportTotalSupply}
+                          circSupply={teasportCircSupply}
+                          supply={teasportSupply}
+                          marketCap={teasportMarketCap}
+                          tokenPerBlock={0}
+                          burnBalance={teasportBurnedBalance}
+          />
+        </FlexLayout>
+      </CardToken>
+      <div style={{textAlign: 'center'}}>
         <SocialCard />
       </div>
     </Page>

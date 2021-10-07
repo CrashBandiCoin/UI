@@ -49,11 +49,11 @@ const getStatus = (currentBlock: number, startBlock: number, endBlock: number): 
 
 const getRibbonComponent = (status: IfoStatus, TranslateString: (translationId: number, fallback: string) => any) => {
   if (status === 'coming_soon') {
-    return <CardRibbon variantColor="textDisabled" text={TranslateString(999, 'Coming Soon')} />
+    return <CardRibbon variantColor="warning" text={TranslateString(999, 'Coming Soon')} />
   }
 
   if (status === 'live') {
-    return <CardRibbon variantColor="primary" text={TranslateString(999, 'LIVE NOW!')} />
+    return <CardRibbon variantColor="primary" text={TranslateString(999, 'Live Now')} />
   }
 
   return null
@@ -112,7 +112,6 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
       const status = getStatus(currentBlock, startBlockNum, endBlockNum)
       const totalBlocks = endBlockNum - startBlockNum
       const blocksRemaining = endBlockNum - currentBlock
-
       // Calculate the total progress until finished or until start
       const progress =
         currentBlock > startBlockNum
@@ -134,7 +133,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
     }
 
     fetchProgress()
-  }, [currentBlock, contract, releaseBlockNumber, setState])
+  }, [currentBlock, contract, releaseBlockNumber, setState, ifo])
 
   const isActive = state.status === 'live'
   const isFinished = state.status === 'finished'
@@ -161,6 +160,7 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
             status={state.status}
             raisingAmount={state.raisingAmount}
             tokenDecimals={tokenDecimals}
+            totalAmount={state.totalAmount}
           />
         )}
         <IfoCardDescription description={description} />
@@ -173,6 +173,8 @@ const IfoCard: React.FC<IfoCardProps> = ({ ifo }) => {
           projectSiteUrl={projectSiteUrl}
           raisingAmount={state.raisingAmount}
           totalAmount={state.totalAmount}
+          status={state.status}
+          contract={contract}
         />
       </CardBody>
     </StyledIfoCard>

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
+import { Contract } from 'web3-eth-contract'
+import { getBalanceNumber } from '../../../../utils/formatBalance'
+import { IfoStatus } from '../../../../config/constants/types'
 
 export interface IfoCardDetailsProps {
   launchDate: string
@@ -13,6 +17,8 @@ export interface IfoCardDetailsProps {
   projectSiteUrl: string
   raisingAmount: BigNumber
   totalAmount: BigNumber
+  status:IfoStatus
+  contract:Contract
 }
 
 const StyledIfoCardDetails = styled.div`
@@ -29,6 +35,7 @@ const Display = styled(Text)`
   flex: 1;
 `
 
+
 const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   launchDate,
   launchTime,
@@ -38,8 +45,33 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
   projectSiteUrl,
   raisingAmount,
   totalAmount,
+  status,
+  contract,
 }) => {
   const TranslateString = useI18n()
+  const [pendingTx, setPendingTx] = useState(false)
+  const [userInfo, setUserInfo] = useState({ amount: 0, claimed: false })
+  const [offeringTokenBalance, setOfferingTokenBalance] = useState(new BigNumber(0))
+
+  const { account } = useWallet()
+
+  useEffect(() => {
+    const fetch = async () => {
+      const balance = new BigNumber(await contract.methods.getOfferingAmount(account).call())
+      const userinfo = await contract.methods.userInfo(account).call()
+
+      setUserInfo(userinfo)
+      setOfferingTokenBalance(balance)
+    }
+
+    if (account) {
+      fetch()
+    }
+}, [account, contract.methods, pendingTx])
+
+
+  const percent = ((getBalanceNumber(new BigNumber(userInfo.amount))/totalAmount.toNumber())*100000000000000000000)
+  const partIfo = (5000 * percent) / 100;
 
   return (
     <>
@@ -60,20 +92,16 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           </Text>
         </Item>
         <Item>
-          <Display>{TranslateString(584, 'For Sale')}</Display>
-          <Text>{saleAmount}</Text>
+          <Display>Total contribution: </Display>
+          <Text>{(totalAmount.toNumber()*0.000000000000000001).toFixed(0)}</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(999, 'To raise (USD)')}</Display>
-          <Text>{raiseAmount}</Text>
+          <Display>Total JAG to deliver: </Display>
+          <Text>5000 JAG</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(586, 'CAKE to burn (USD)')}</Display>
-          <Text>{cakeToBurn}</Text>
-        </Item>
-        <Item>
-          <Display>{TranslateString(999, 'Total raised (% of target)')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(2)}%`}</Text>
+          <Display>Your part of JAG Tokens: </Display>
+          <Text>{partIfo.toFixed(0)} JAG</Text>
         </Item>
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>

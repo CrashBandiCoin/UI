@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, Text, Flex } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Button, Text, Flex, Image } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
+import UnlockButton from 'components/UnlockButton'
 import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 import { usePriceCakeBusd, usePriceMintBusd, usePriceTeaSportBusd } from '../../../state/hooks'
@@ -16,15 +17,15 @@ import { getBalanceNumber } from '../../../utils/formatBalance'
 import CardValue from './CardValue'
 
 const StyledFarmStakingCard = styled(Card)`
-`
-const Block = styled.div`
-  margin-bottom: 16px;
+  min-height: 376px;
 `
 
-const HorizontalBlock = styled.div`
-  display: inline-block;
+const HeadingCard = styled(Heading)`
   text-align: center;
-  margin-right: 5%;
+`
+
+const Block = styled.div`
+  margin-bottom: 16px;
 `
 
 const CardImage = styled.img`
@@ -36,60 +37,29 @@ const Label = styled.div`
   font-size: 14px;
 `
 
-
-const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean }>`
-  flex-direction: column;
-  ${({ noMobileBorder, theme }) =>
-          noMobileBorder
-                  ? `${theme.mediaQueries.md} {
-           padding: 0 16px;
-           border-left: 1px ${theme.colors.inputSecondary} solid;
-         }
-       `
-                  : `border-left: 1px ${theme.colors.inputSecondary} solid;
-         padding: 0 8px;
-         ${theme.mediaQueries.sm} {
-           padding: 0 16px;
-         }
-       `}
-`
-
-const Grid = styled.div`
-  display: grid;
-  grid-gap: 16px 8px;
+const Actions = styled.div`
   margin-top: 24px;
-  grid-template-columns: repeat(2, auto);
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    grid-gap: 16px;
-  }
-
-  ${({ theme }) => theme.mediaQueries.md} {
-    grid-gap: 32px;
-    grid-template-columns: repeat(4, auto);
-  }
 `
 
+const Wrapper = styled(Flex)`
+  svg {
+    margin-right: 0.25rem;
+  }
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`
 // icon token
 const burnIcon = '/images/icons/burnIcon.svg'
 
-const FarmedStakingCard = ({
-                             cakeBalance,
-                             cakePrice,
-                             logo,
-                             label,
-                             address,
-                             totalSupply,
-                             circSupply,
-                             supply,
-                             marketCap,
-                             tokenPerBlock,
-                             burnBalance,
-                           }) => {
+const FarmedStakingCard = () => {
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWallet()
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
+  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
+  const eggPrice = usePriceCakeBusd().toNumber()
   const allEarningsSugar = useAllEarningsByCategory('Sugar')
 
   const earningsSumSugar = allEarningsSugar.reduce((accum, earning) => {
@@ -144,42 +114,30 @@ const FarmedStakingCard = ({
   }, [])
 
   return (
-    <Grid>
-      <StyledColumn>
-        <Text fontSize='14px'>Your wallet</Text>
-        <CakeWalletBalance cakeBalance={cakeBalance} />
-        <Label>~${(cakePrice * cakeBalance).toFixed(2)}</Label>
-      </StyledColumn>
-      <StyledColumn>
-        <Text fontSize='14px'>{TranslateString(10005, 'Market Cap')}</Text>
-        <CardValue fontSize='14px' value={getBalanceNumber(marketCap)} decimals={0} prefix='$' />
-      </StyledColumn>
-      <StyledColumn>
-        <Text fontSize='14px'>{TranslateString(536, 'Total Minted')}</Text>
-        {totalSupply && <CardValue fontSize='14px' value={getBalanceNumber(totalSupply)} decimals={0} />}
-      </StyledColumn>
-      <StyledColumn>
-        <Text fontSize='14px'>{TranslateString(538, 'Total Burned')}</Text>
-        <CardValue fontSize='14px' value={getBalanceNumber(burnBalance)} decimals={0} />
-      </StyledColumn>
-      <StyledColumn>
-        <Text fontSize='14px'>{TranslateString(10004, 'Circulating Supply')}</Text>
-        {supply && <CardValue fontSize='14px' value={supply} decimals={0} />}
-      </StyledColumn>
-      {tokenPerBlock ?
-        <StyledColumn>
-          <Text fontSize='14px'>Emission rate :</Text>
-          <Text bold fontSize='14px'>
-            {tokenPerBlock}
-          </Text>
-        </StyledColumn>
-        : ''}
-      {!tokenPerBlock ?
-        <StyledColumn>
-          <Text fontSize='14px'>CAPPED (no more token)</Text>
-        </StyledColumn>
-        : ''}
-    </Grid>
+    <>
+    <Wrapper mb="12px">
+      <Image src="/images/egg/2.png" alt="sugar logo" width={80} height={64} />
+      <Heading mb="4px" style={{fontSize:'33px'}} color="backgroundAlt">SUGAR to Harvest</Heading>
+    </Wrapper>
+    <Wrapper mb="12px">
+      <Text color="backgroundAlt" fontSize='30px' >{earningsSumSugar.toFixed(2)} (~${(eggPrice * earningsSumSugar).toFixed(2)})</Text>
+    </Wrapper>
+    <Wrapper justifyContent='center' flexDirection="column" >
+      {account ? (
+        <Button
+          id="harvest-all"
+          disabled={balancesWithValue.length <= 0 || pendingTx}
+          onClick={harvestAllFarms}
+
+        >
+          {pendingTx ? 'Collecting SUGAR' : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
+        </Button>
+      ) : (
+        <UnlockButton />
+      )}
+    </Wrapper>
+
+    </>
   )
 }
 

@@ -11,32 +11,13 @@ const floatingAnim = (x: string, y: string) => keyframes`
   }
   to {
     transform: translate(0, 0px);
-  }  
+  }
 `
 
 const Wrapper = styled(Box)<{ maxHeight: string }>`
   position: relative;
   max-height: ${({ maxHeight }) => maxHeight};
   
-  & :nth-child(2) {
-    animation: ${floatingAnim('3px', '15px')} 3s ease-in-out infinite;
-    animation-delay: 1s;
-  }
-
-  & :nth-child(3) {
-    animation: ${floatingAnim('5px', '10px')} 3s ease-in-out infinite;
-    animation-delay: 0.66s;
-  }
-
-  & :nth-child(4) {
-    animation: ${floatingAnim('6px', '5px')} 3s ease-in-out infinite;
-    animation-delay: 0.33s;
-  }
-
-  & :nth-child(5) {
-    animation: ${floatingAnim('4px', '12px')} 3s ease-in-out infinite;
-    animation-delay: 0s;
-  }
 `
 
 const DummyImg = styled.img<{ maxHeight: string }>`
@@ -49,7 +30,7 @@ const ImageWrapper = styled(Box)`
   position: absolute;
   top: 0;
   left: 0;
-  
+
   img {
     max-height: 100%;
     width: auto;
@@ -79,8 +60,8 @@ export const getImageUrl = (base: string, imageSrc: string, resolution?: Resolut
   `${base}${imageSrc}${resolution ? `@${resolution}.png` : '.png'}`
 
 export const getSrcSet = (base: string, imageSrc: string) => {
-  return `${getImageUrl(base, imageSrc)} 512w, 
-  ${getImageUrl(base, imageSrc, Resolution.MD)} 768w, 
+  return `${getImageUrl(base, imageSrc)} 512w,
+  ${getImageUrl(base, imageSrc, Resolution.MD)} 768w,
   ${getImageUrl(base, imageSrc, Resolution.LG)} 1024w,`
 }
 

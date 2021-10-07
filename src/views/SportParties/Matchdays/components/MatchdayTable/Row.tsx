@@ -37,6 +37,7 @@ const CellInner = styled.div`
   ${({ theme }) => theme.mediaQueries.xl} {
     padding-right: 32px;
   }
+
 `
 
 const StyledTr = styled.tr`
