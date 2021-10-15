@@ -121,11 +121,6 @@ const config: MenuEntry[] = [
             },
         ],
     },
-    {
-        label: 'Audit by TechRate',
-        icon: 'AuditIcon',
-        href: '',
-    },
 ]
 
 export default config
