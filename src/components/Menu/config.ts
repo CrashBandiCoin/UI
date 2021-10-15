@@ -23,7 +23,7 @@ const config: MenuEntry[] = [
                 label: 'Vaults',
                 href: '/vaults',
             },
-            
+
         ],
     },
     {
@@ -58,18 +58,6 @@ const config: MenuEntry[] = [
                 href: 'https://pancakeswap.finance/swap?outputCurrency=0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
             },
         ],
-    },
-    
-    
-    {
-        label: 'Vote',
-        icon: 'ReferralIcon',
-        href: 'https://snapshot.org/#/tea-swap.eth',
-    },
-    {
-        label: 'Roadmap',
-        icon: 'RoadmapIcon',
-        href: '/roadmap',
     },
     {
         label: 'IFO',
@@ -116,20 +104,27 @@ const config: MenuEntry[] = [
         icon: 'MoreIcon',
         items: [
             {
+                label: 'Vote',
+                href: 'https://snapshot.org/#/tea-swap.eth',
+            },
+            {
+                label: 'Roadmap',
+                href: '/roadmap',
+            },
+            {
+                label: 'Docs',
+                href: 'https://docs.tea-swap.finance',
+            },
+            {
                 label: 'Website',
                 href: 'https://tea-swap.finance/',
             },
         ],
     },
     {
-        label: 'Docs',
-        icon: 'DocsIcon',
-        href: 'https://docs.tea-swap.finance',
-    },
-    {
         label: 'Audit by TechRate',
         icon: 'AuditIcon',
-        href: 'https://github.com/Tea-Swap/contract/blob/master/audits/techRate/Sugar_MasterTea.pdf',
+        href: '',
     },
 ]
 
