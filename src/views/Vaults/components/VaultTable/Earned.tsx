@@ -18,7 +18,7 @@ const Amount = styled.span<{ earned: number }>`
 `
 
 const Earned: React.FunctionComponent<EarnedPropsWithLoading> = ({ earnings, userDataReady }) => {
-  if (userDataReady) {
+  if (userDataReady && earnings) {
     return <Amount earned={earnings}>{earnings.toLocaleString()}</Amount>
   }
   return (

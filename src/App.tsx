@@ -5,6 +5,7 @@ import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
+import Audited from './components/Audited'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
@@ -46,6 +47,7 @@ const App: React.FC = () => {
     <Router>
       <ResetCSS />
       <GlobalStyle />
+      <Audited />
       <Menu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
