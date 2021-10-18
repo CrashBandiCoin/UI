@@ -113,6 +113,7 @@ const ActionContainer = styled.div`
 const InfoContainer = styled.div`
   display: block;
   margin-top: 5px;
+  justify-content: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: flex;
@@ -195,11 +196,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Liquidity {...liquidity} />
         </ValueWrapper>
       </ValueContainer>
-
-      <ActionContainer>
-        <StakedAction {...farm} userDataReady={userDataReady} />
-      </ActionContainer>
-
       <InfoContainer>
         <InfoWrapper style={{ marginLeft: 0 }}>
           <Text bold>APY : </Text>
@@ -219,6 +215,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           <Text small>Your {`${farm.lpSymbol}`} amount will grow over time as the farm rewards gets reinvested.</Text>
         </InfoWrapper>
       </InfoContainer>
+      <ActionContainer>
+        <StakedAction {...farm} userDataReady={userDataReady} />
+      </ActionContainer>
 
     </Container>
 

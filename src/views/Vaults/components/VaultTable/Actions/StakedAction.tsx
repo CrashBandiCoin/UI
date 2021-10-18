@@ -109,14 +109,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   if (!account) {
     return (
       <ActionContainer>
-        <ActionTitles>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            Start Farming
-          </Text>
-        </ActionTitles>
-        <ActionContent>
-          <UnlockButton width="100%" />
-        </ActionContent>
+        <UnlockButton width="100%" />
       </ActionContainer>
     )
   }
@@ -166,24 +159,14 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
 
     return (
       <ActionContainer>
-        <ActionTitles>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px" pr="4px">
-            {'Stake'.toUpperCase()}
-          </Text>
-          <Text bold textTransform="uppercase" color="secondary" fontSize="12px">
-            {lpSymbol}
-          </Text>
-        </ActionTitles>
-        <ActionContent>
-          <Button
-            width="100%"
-            onClick={onPresentDeposit}
-            variant="secondary"
-            disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
-          >
-            Stake
-          </Button>
-        </ActionContent>
+        <Button
+          width="100%"
+          onClick={onPresentDeposit}
+          variant="secondary"
+          disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
+        >
+          Stake {lpSymbol}
+        </Button>
       </ActionContainer>
     )
   }
@@ -191,30 +174,16 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   if (!userDataReady) {
     return (
       <ActionContainer>
-        <ActionTitles>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            Start Farming
-          </Text>
-        </ActionTitles>
-        <ActionContent>
-          <Skeleton width={180} marginBottom={28} marginTop={14} />
-        </ActionContent>
+        <Skeleton width={180} marginBottom={28} marginTop={14} />
       </ActionContainer>
     )
   }
 
   return (
     <ActionContainer>
-      <ActionTitles>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-          Approve Farm
-        </Text>
-      </ActionTitles>
-      <ActionContent>
-        <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
-          Approve
-        </Button>
-      </ActionContent>
+      <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
+        Approve
+      </Button>
     </ActionContainer>
   )
 }

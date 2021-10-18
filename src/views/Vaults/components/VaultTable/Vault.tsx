@@ -20,7 +20,9 @@ const Container = styled.div`
   padding-left: 16px;
   display: flex;
   align-items: center;
-
+  img {
+    max-width: 100%;
+  }
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 32px;
   }
@@ -57,7 +59,7 @@ const Vault: React.FunctionComponent<VaultProps> = ({ token, quoteToken, label, 
             <Image src={`/images/farms/${token.symbol.toLowerCase()}.png`} alt={label} width={64} height={64} />
           ): <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={40} height={40} />}
       </TokenWrapper>
-      
+
       <div>
         <Text bold color="primary" fontSize="12px">EARNS {label}</Text>
         <Text bold>{label}</Text>
