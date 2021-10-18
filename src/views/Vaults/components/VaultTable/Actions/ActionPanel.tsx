@@ -52,7 +52,7 @@ const Container = styled.div<{ expanded }>`
   background: ${({ theme }) => theme.card.background};
   display: flex;
   width: 100%;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 24px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
@@ -73,7 +73,7 @@ const StakeContainer = styled.div`
   justify-content: space-between;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 `
 
@@ -111,7 +111,8 @@ const ActionContainer = styled.div`
 `
 
 const InfoContainer = styled.div`
-  display: block;
+display: flex;
+flex-direction: column;
   margin-top: 5px;
   justify-content: center;
 
