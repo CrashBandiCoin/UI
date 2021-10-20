@@ -725,6 +725,7 @@ const matchdays: MatchdayConfig[] = [
 	{
 	    id: 3,
 	    label: 'Matchday 3 of 6',
+		isDone: true,
         theLabelDate: 'October 19 & 20, 2021',
 		matches:[
 			{
@@ -907,7 +908,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'RB Salzburg',
 						icon: 'salzburg',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 3,
 					},
 					{
@@ -949,7 +950,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Lille',
 						icon: 'lille',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 0,
 					},
 					{
@@ -970,7 +971,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Manchester United',
 						icon: 'manchester',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 3,
 					},
 					{
@@ -998,7 +999,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Juventus',
 						icon: 'juventus',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 1,
 					},
 				],
@@ -1019,7 +1020,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Bayern',
 						icon: 'bayern',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 4,
 					},
 				],
@@ -1040,7 +1041,7 @@ const matchdays: MatchdayConfig[] = [
 						id:2,
 						label:'Malmö',
 						icon: 'Malmö',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 0,
 					},
 				],
@@ -1054,7 +1055,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Young Boys',
 						icon: 'youngboys',
-						votedToken: ChampionsLeagueToken.RED,
+						votedToken: ChampionsLeagueToken.SUGAR,
 						score: 1,
 					},
 					{
