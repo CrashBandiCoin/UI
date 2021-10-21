@@ -725,7 +725,7 @@ const matchdays: MatchdayConfig[] = [
 	{
 	    id: 3,
 	    label: 'Matchday 3 of 6',
-		isDone: true,
+	isDone: true,
         theLabelDate: 'October 19 & 20, 2021',
 		matches:[
 			{
