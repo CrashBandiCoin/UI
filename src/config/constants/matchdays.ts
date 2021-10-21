@@ -25,7 +25,7 @@ const matchdays: MatchdayConfig[] = [
 						label:'RB Salzburg',
 						icon: 'salzburg',
 						votedToken : ChampionsLeagueToken.SUGAR,
-						score: 1,					
+						score: 1,
 					},
 				],
 			},
@@ -41,14 +41,14 @@ const matchdays: MatchdayConfig[] = [
 						icon: 'youngboys',
 						votedToken : ChampionsLeagueToken.SUGAR,
 						score: 2,
-						
+
 					},
 					{
 						id:2,
 						label:'Manchester United',
 						icon: 'manchester',
- 				                votedToken: ChampionsLeagueToken.TEASPORT,	
-						score: 1,		
+ 				                votedToken: ChampionsLeagueToken.TEASPORT,
+						score: 1,
 					},
 				],
 			},
@@ -63,7 +63,7 @@ const matchdays: MatchdayConfig[] = [
 						label:'Lille',
 						icon: 'lille',
 						votedToken : ChampionsLeagueToken.SUGAR,
-						score: 0,	
+						score: 0,
 					},
 					{
 						id:2,
@@ -92,7 +92,7 @@ const matchdays: MatchdayConfig[] = [
 						label:'Atalanta',
 						icon: 'atalanta',
 						votedToken : ChampionsLeagueToken.SUGAR,
-						score: 2,						
+						score: 2,
 					},
 				],
 			},
@@ -173,7 +173,7 @@ const matchdays: MatchdayConfig[] = [
 						label:'Dynamo Kyiv',
 						icon: 'dynamo',
 						votedToken : ChampionsLeagueToken.SUGAR,
-						score: 0,											
+						score: 0,
 					},
 					{
 						id:2,
@@ -725,11 +725,12 @@ const matchdays: MatchdayConfig[] = [
 	{
 	    id: 3,
 	    label: 'Matchday 3 of 6',
-	isDone: true,
-        theLabelDate: 'October 19 & 20, 2021',
-		matches:[
+			isDone: true,
+      theLabelDate: 'October 19 & 20, 2021',
+			matches:[
 			{
 				id:1,
+				isDone: true,
 				type: 1,
 				beginTime: 'October 19, 2021 18:45:00 GMT+2:00',
 				teams: [
@@ -740,7 +741,7 @@ const matchdays: MatchdayConfig[] = [
 						votedToken: ChampionsLeagueToken.TEASPORT,
 						score: 1,
 
-						
+
 					},
 					{
 						id:2,
@@ -754,6 +755,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:2,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 19, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -775,6 +777,7 @@ const matchdays: MatchdayConfig[] = [
 			{
 				id:3,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -796,6 +799,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 4,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -817,6 +821,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 5,
 				type: 2,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -839,6 +844,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 6,
 				type: 2,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -860,6 +866,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 7,
 				type: 3,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -881,6 +888,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 8,
 				type: 3,
+				isDone: true,
 				beginTime: 'October 19, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -902,6 +910,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 9,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 20, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -923,6 +932,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 10,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 20, 2021 18:45:00 GMT+2:00',
 				teams: [
 					{
@@ -944,6 +954,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 11,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -965,6 +976,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 12,
 				type: 1,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -986,6 +998,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 13,
 				type: 2,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -1007,6 +1020,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 14,
 				type: 2,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -1028,6 +1042,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 15,
 				type: 3,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -1049,6 +1064,7 @@ const matchdays: MatchdayConfig[] = [
             {
 				id: 16,
 				type: 3,
+				isDone: true,
 				beginTime: 'October 20, 2021 21:00:00 GMT+2:00',
 				teams: [
 					{
@@ -1083,7 +1099,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Malmö',
 						icon: 'malmö',
-						
+
 					},
 					{
 						id:2,
@@ -1363,7 +1379,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'Dynamo Kyiv',
 						icon: 'dynamo',
-						
+
 					},
 					{
 						id:2,
@@ -1643,7 +1659,7 @@ const matchdays: MatchdayConfig[] = [
 						id:1,
 						label:'RB Leipzig',
 						icon: 'leipzig',
-						
+
 					},
 					{
 						id:2,
