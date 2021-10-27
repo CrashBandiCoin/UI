@@ -68,12 +68,20 @@ export const useVaultFromSymbol = (lpSymbol: string): Vault => {
 
 export const useVaultUser = (pid, id) => {
   const vault = useVaultFromPid(pid, id)
-
+  let earnings = new BigNumber(0)
+  if (vault.sharesTotal && vault.wantLockedTotal && vault.userData && vault.userData.stakedBalance) {
+    const sharesTotal = new BigNumber(vault.sharesTotal)
+    const wantLockedTotal = new BigNumber(vault.wantLockedTotal)
+    const strategyValue = new BigNumber(sharesTotal.toNumber()).div(new BigNumber(wantLockedTotal.toNumber()))
+    earnings = new BigNumber(vault.userData.stakedBalance).times(strategyValue.toNumber())
+    console.log(earnings.toNumber())
+  }
+  
   return {
     allowance: vault.userData ? new BigNumber(vault.userData.allowance) : new BigNumber(0),
     tokenBalance: vault.userData ? new BigNumber(vault.userData.tokenBalance) : new BigNumber(0),
     stakedBalance: vault.userData ? new BigNumber(vault.userData.stakedBalance) : new BigNumber(0),
-    earnings: vault.userData ? new BigNumber(vault.userData.earnings) : new BigNumber(0),
+    earnings
   }
 }
 

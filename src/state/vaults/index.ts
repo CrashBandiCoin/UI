@@ -5,7 +5,6 @@ import farmsConfig from 'config/constants/vaults'
 import fetchVaults from './fetchVaults'
 import fetchVaultsPrices from './fetchVaultsPrices'
 import {
-  fetchVaultUserEarnings,
   fetchVaultUserAllowances,
   fetchVaultUserTokenBalances,
   fetchVaultUserStakedBalances,
@@ -48,15 +47,13 @@ export const fetchVaultUserDataAsync = (account) => async (dispatch) => {
   const userVaultAllowances = await fetchVaultUserAllowances(account)
   const userVaultTokenBalances = await fetchVaultUserTokenBalances(account)
   const userStakedBalances = await fetchVaultUserStakedBalances(account)
-  const userVaultEarnings = await fetchVaultUserEarnings(account)
-
+  
   const arrayOfUserDataObjects = userVaultAllowances.map((vaultAllowance, index) => {
     return {
       index,
       allowance: userVaultAllowances[index],
       tokenBalance: userVaultTokenBalances[index],
       stakedBalance: userStakedBalances[index],
-      earnings: userVaultEarnings[index],
     }
   })
 

@@ -22,6 +22,36 @@ const vaults: VaultConfig[] = [
 	    quoteToken: {
 	      symbol: QuoteToken.BUSD,
 	      address: contracts.busd
+	    },
+	    contract: contracts.masterChef,
+	    stratgy: {
+	    	97: '',
+	    	56: '0x1efCa706AA6594f3Ab097C1D2a2d4b5610b60155'
+	    }
+	},
+	{
+	    id: 4,
+	    pid: 2,
+	    type: ContractType.Sugar,
+	    lpSymbol: 'BNB-BUSD LP',
+	    lpAddresses: {
+	      97: '',
+	      56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+	    },
+	    token: {
+	      symbol: 'BNB',
+	      address: {
+	        97: '',
+	        56: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+	      },
+	    },
+	    quoteToken: {
+	      symbol: QuoteToken.BUSD,
+	      address: contracts.busd
+	    },
+	    stratgy: {
+	    	97: '',
+	    	56: '0x1efCa706AA6594f3Ab097C1D2a2d4b5610b60155'
 	    }
 	},
 ]

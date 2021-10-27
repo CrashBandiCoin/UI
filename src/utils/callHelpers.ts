@@ -35,21 +35,12 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
 }
 
 export const unstake = async (masterChefContract, pid, amount, type, account) => {
-  if (type === '2') {
-    return masterChefContract.methods
-      .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
-      .send({ from: account })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })  
-  } else {
-    return masterChefContract.methods
-      .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(), new BigNumber(type).toString())
-      .send({ from: account })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
+  return masterChefContract.methods
+    .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
 }
 
 export const sousUnstake = async (sousChefContract, amount, account) => {

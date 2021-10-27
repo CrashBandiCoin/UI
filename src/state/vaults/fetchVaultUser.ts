@@ -2,6 +2,7 @@
 import erc20ABI from 'config/abi/erc20.json'
 import vaultchefABI from 'config/abi/vaultChef.json'
 import vaultmintABI from 'config/abi/mastermint.json'
+import stratgyABI from 'config/abi/strategy.json'
 import vaultTeaSportABI from 'config/abi/masterteasport.json'
 import multicall from 'utils/multicall'
 import farmsConfig from 'config/constants/vaults'
@@ -92,10 +93,6 @@ export const fetchVaultUserTokenBalances = async (account: string) => {
   //   }
   // })
 
-  const rawTokenBalances1 = await multicall(erc20ABI, calls1)
-  const parsedTokenBalances1 = rawTokenBalances1.map((tokenBalance) => {
-    return new BigNumber(tokenBalance).toJSON()
-  })
   const rawTokenBalances2 = await multicall(erc20ABI, calls2)
   const parsedTokenBalances2 = rawTokenBalances2.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
@@ -105,7 +102,7 @@ export const fetchVaultUserTokenBalances = async (account: string) => {
   //   return new BigNumber(tokenBalance).toJSON()
   // })
   // const parsedTokenBalances = [...parsedTokenBalances1, ...parsedTokenBalances2, ...parsedTokenBalances3]
-  const parsedTokenBalances = [...parsedTokenBalances1, ...parsedTokenBalances2]
+  const parsedTokenBalances = [...parsedTokenBalances2]
   return parsedTokenBalances
 }
 
@@ -140,10 +137,6 @@ export const fetchVaultUserStakedBalances = async (account: string) => {
     }
   })
 
-  const rawStakedBalances1 = await multicall(vaultmintABI, calls1)
-  const parsedStakedBalances1 = rawStakedBalances1.map((stakedBalance) => {
-    return new BigNumber(stakedBalance[0]._hex).toJSON()
-  })
   const rawStakedBalances2 = await multicall(vaultchefABI, calls2)
   const parsedStakedBalances2 = rawStakedBalances2.map((stakedBalance) => {
     return new BigNumber(stakedBalance[0]._hex).toJSON()
@@ -153,66 +146,6 @@ export const fetchVaultUserStakedBalances = async (account: string) => {
   //   return new BigNumber(stakedBalance[0]._hex).toJSON()
   // })
   // const parsedStakedBalances = [...parsedStakedBalances1, ...parsedStakedBalances2, ...parsedStakedBalances3]
-  const parsedStakedBalances = [...parsedStakedBalances1, ...parsedStakedBalances2]
+  const parsedStakedBalances = [...parsedStakedBalances2]
   return parsedStakedBalances
-}
-
-export const fetchVaultUserEarnings = async (account: string) => {
-  const vaultChefAdress = getVaultChefAddress()
-  const vaultMintAddress = getVaultMintAddress()
-  const vaultTeaSportAddress = getVaultTeaSportAddress()
-
-  const farms1 = farmsConfig.filter((farm) => farm.type === 'Mint')
-  const farms2 = farmsConfig.filter((farm) => farm.type === 'Sugar')
-  const farms3 = farmsConfig.filter((farm) => farm.type === 'TeaSport')
-
-  const calls1 = farms1.map((farm) => {
-    return {
-      address:vaultMintAddress,
-      name: 'pendingMint',
-      params: [farm.pid, account]
-    }
-  })
-  const calls2 = farms2.map((farm) => {
-    return {
-      address:vaultChefAdress,
-      name: 'pendingWantToken',
-      params: [farm.pid, account]
-    }
-  })
-  const calls3 = farms3.map((farm) => {
-    return {
-      address:vaultTeaSportAddress,
-      name: 'pendingTeaSport',
-      params: [farm.pid, account]
-    }
-  })
-
-  const rawEarnings1 = await multicall(vaultmintABI, calls1)
-  const parsedEarnings1 = rawEarnings1.map((earnings) => {
-    return new BigNumber(earnings).toJSON()
-  })
-
-  let rawEarnings2; 
-  try {
-    rawEarnings2 = await multicall(vaultchefABI, calls2)
-  } catch(err) {
-    rawEarnings2 = [
-      new BigNumber('0'),
-      new BigNumber('0'),
-      new BigNumber('0')
-    ]
-  }
-  
-  const parsedEarnings2 = rawEarnings2.map((earnings) => {
-    return new BigNumber(earnings).toJSON()
-  })
-  // const rawEarnings3 = await multicall(vaultTeaSportABI, calls3)
-  // const parsedEarnings3 = rawEarnings3.map((earnings) => {
-  //   return new BigNumber(earnings).toJSON()
-  // })
-
-  // const parsedEarnings = [...parsedEarnings1, ...parsedEarnings2, ...parsedEarnings3]
-  const parsedEarnings = [...parsedEarnings1, ...parsedEarnings2]
-  return parsedEarnings
 }
