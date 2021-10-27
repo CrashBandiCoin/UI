@@ -188,7 +188,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           apy = sugarPrice.times(cakeRewardPerYear);
         }
 
-        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
+        let totalValue = new BigNumber(farm.wantLockedTotal || 0);
 
         if (farm.quoteToken.symbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice);
@@ -202,7 +202,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           apy = apy.div(totalValue);
         }
 
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(sugarPrice)
+        const totalLiquidity = new BigNumber(farm.wantLockedTotal).times(sugarPrice)
         
         return { ...farm, apy, liquidity: totalLiquidity }
       })
