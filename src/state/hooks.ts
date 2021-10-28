@@ -15,7 +15,7 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
-    dispatch(fetchVaultsPublicDataAsync())
+    // dispatch(fetchVaultsPublicDataAsync())
     // dispatch(fetchPoolsPublicDataAsync())
     dispatch(fetchMatchdaysPublicDataAsync())
   }, [dispatch, slowRefresh])
@@ -72,11 +72,8 @@ export const useVaultUser = (pid, id) => {
   if (vault.sharesTotal && vault.wantLockedTotal && vault.userData && vault.userData.stakedBalance) {
     const sharesTotal = new BigNumber(vault.sharesTotal)
     const wantLockedTotal = new BigNumber(vault.wantLockedTotal)
-    console.log(sharesTotal)
-    console.log(wantLockedTotal)
-    const strategyValue = new BigNumber(sharesTotal.toNumber()).div(new BigNumber(wantLockedTotal.toNumber()))
+    const strategyValue = new BigNumber(wantLockedTotal.toNumber()).div(new BigNumber(sharesTotal.toNumber()))
     earnings = new BigNumber(vault.userData.stakedBalance).times(strategyValue.toNumber())
-    console.log(earnings.toNumber())
   }
   
   return {

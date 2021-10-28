@@ -281,7 +281,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
     let earning = new BigNumber(0)
     if (farm.userData && farm.userData.stakedBalance) {
-      const strategyValue = new BigNumber(farm.sharesTotal).div(new BigNumber(farm.wantLockedTotal))
+      const strategyValue = new BigNumber(farm.wantLockedTotal).div(new BigNumber(farm.sharesTotal))
       earning = new BigNumber(farm.userData.stakedBalance).times(strategyValue)
     }
     const row: RowProps = {

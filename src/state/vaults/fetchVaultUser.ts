@@ -147,5 +147,7 @@ export const fetchVaultUserStakedBalances = async (account: string) => {
   // })
   // const parsedStakedBalances = [...parsedStakedBalances1, ...parsedStakedBalances2, ...parsedStakedBalances3]
   const parsedStakedBalances = [...parsedStakedBalances2]
+  console.log(vaultChefAdress)
+  console.log(new BigNumber(parsedStakedBalances[0]).toNumber())
   return parsedStakedBalances
 }

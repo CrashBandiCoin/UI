@@ -39,9 +39,9 @@ export const { setVaultsPublicData, setVaultUserData } = vaultsSlice.actions
 
 // Thunks
 export const fetchVaultsPublicDataAsync = () => async (dispatch) => {
-  let farms = await fetchVaults()
-  farms = await fetchVaultsPrices(farms)
-  dispatch(setVaultsPublicData(farms))
+  // let farms = await fetchVaults()
+  // farms = await fetchVaultsPrices(farms)
+  // dispatch(setVaultsPublicData(farms))
 }
 export const fetchVaultUserDataAsync = (account) => async (dispatch) => {
   const userVaultAllowances = await fetchVaultUserAllowances(account)
