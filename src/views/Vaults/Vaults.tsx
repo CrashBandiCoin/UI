@@ -202,8 +202,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           apy = apy.div(totalValue);
         }
 
-        const totalLiquidity = new BigNumber(farm.wantLockedTotal || 0).div(10).pow(18).times(sugarPrice)
-        
+        const totalLiquidity = new BigNumber(farm.wantLockedTotal || 0).div(new BigNumber(10).pow(18)).times(sugarPrice)
+        if (farm.wantLockedTotal) 
+          console.log(new BigNumber(farm.wantLockedTotal || 0).div(new BigNumber(10).pow(18)).toNumber())
         return { ...farm, apy, liquidity: totalLiquidity }
       })
       
