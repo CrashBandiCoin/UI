@@ -4,7 +4,7 @@ import { VaultConfig, QuoteToken, ContractType } from './types'
 const vaults: VaultConfig[] = [
 	{
 	    id: 0,
-	    pid: 1,
+	    pid: 0,
 	    type: ContractType.Sugar,
 	    isTokenOnly: true,
 	    lpSymbol: 'SUGAR',
@@ -26,7 +26,7 @@ const vaults: VaultConfig[] = [
 	    contract: contracts.masterChef,
 	    stratgy: {
 	    	97: '',
-	    	56: '0x1efCa706AA6594f3Ab097C1D2a2d4b5610b60155'
+	    	56: '0xc97d70c20832c61744C5DC3220fe35E87870B11c'
 	    }
 	}
 ]
