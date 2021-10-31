@@ -26,7 +26,7 @@ const vaults: VaultConfig[] = [
 	    contract: contracts.masterChef,
 	    stratgy: {
 	    	97: '',
-	    	56: '0xc97d70c20832c61744C5DC3220fe35E87870B11c'
+	    	56: '0xd00ee354Ab51933eA48119A926226A5521CD5e3b'
 	    },
 	    masterPId: 3
 	}
