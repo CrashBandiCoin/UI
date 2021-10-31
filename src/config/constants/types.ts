@@ -90,6 +90,9 @@ export interface VaultConfig {
   dual?: {
     earnLabel: string
   }
+  contract?: Address
+  stratgy?: Address
+  masterPId?: number
 }
 
 

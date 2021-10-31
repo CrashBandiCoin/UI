@@ -44,12 +44,16 @@ export interface Vault extends VaultConfig {
     stakedBalance: BigNumber
     earnings: BigNumber
   }
+  poolWeight?: number
+  rewardPerBlock?: number
   depositFeeBP?: number
   tokenPriceVsQuote?: BigNumber
   lpTotalSupply?: BigNumber
   lpTotalInQuoteToken?: BigNumber
   quoteTokenAmountTotal?: BigNumber
   tokenAmountTotal?: BigNumber
+  wantLockedTotal?: number
+  sharesTotal?: number
 }
 
 export interface Match extends MatchConfig {

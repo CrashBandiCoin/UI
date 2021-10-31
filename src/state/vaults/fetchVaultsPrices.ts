@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber'
 import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers'
 import { Farm } from 'state/types'
+import { useFarmFromPid } from 'state/hooks'
 
 const getVaultFromTokenSymbol = (farms: Farm[], tokenSymbol: string, preferredQuoteTokens?: string[]): Farm => {
   const farmsWithTokenSymbol = farms.filter((farm) => farm.token.symbol === tokenSymbol)
@@ -72,12 +73,12 @@ const getVaultQuoteTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd:
   return BIG_ZERO
 }
 
-const fetchVaultsPrices = async (farms) => {
+const fetchVaultsPrices = async (vaults, farms) => {
   const bnbBusdFarm = farms.find((farm: Farm) => farm.pid === 2 && farm.id === 4)
   const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
 
-  const farmsWithPrices = farms.map((farm) => {
-    const quoteTokenFarm = getVaultFromTokenSymbol(farms, farm.quoteToken.symbol)
+  const farmsWithPrices = vaults.map((farm) => {
+    const quoteTokenFarm = getVaultFromTokenSymbol(vaults, farm.quoteToken.symbol)
     const baseTokenPrice = getVaultBaseTokenPrice(farm, quoteTokenFarm, bnbPriceBusd)
     const quoteTokenPrice = getVaultQuoteTokenPrice(farm, quoteTokenFarm, bnbPriceBusd)
     const token = { ...farm.token, busdPrice: baseTokenPrice.toJSON() }

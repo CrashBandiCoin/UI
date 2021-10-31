@@ -9,7 +9,7 @@ import UnlockButton from 'components/UnlockButton'
 import Balance from 'components/Balance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { getContract } from 'utils/erc20'
-import { useVaultUser, useLpTokenPrice } from 'state/hooks'
+import { useVaultUser, useLpTokenPrice, usePriceCakeBusd } from 'state/hooks'
 import { fetchVaultUserDataAsync } from 'state/vaults'
 import { FarmWithStakedValue } from 'views/Vaults/components/VaultCard/FarmCard'
 import { useERC20 } from 'hooks/useContract'
@@ -41,17 +41,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   token,
   userDataReady,
   depositFeeBP,
-  isTokenOnly
+  isTokenOnly,
+  sharesTotal,
+  wantLockedTotal
 }) => {
-
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { allowance, tokenBalance, stakedBalance, earnings } = useVaultUser(pid, id)
   const { onStake } = useStakeFarms(pid)
   const { onUnstake } = useUnstakeFarms(pid)
   const location = useLocation()
-  const lpPrice = useLpTokenPrice(lpSymbol)
-
+  // const lpPrice = useLpTokenPrice(lpSymbol)
+  const lpPrice = usePriceCakeBusd()
   const isApproved = account && allowance && allowance.isGreaterThan(0)
 
   const lpAddress = lpAddresses[process.env.REACT_APP_CHAIN_ID]
@@ -73,18 +74,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   const displayBalance = useCallback(() => {
-    const stakedBalanceBigNumber = getBalanceAmount(stakedBalance.plus(earnings))
+    const stakedBalanceBigNumber = getBalanceAmount(earnings)
     if (stakedBalanceBigNumber.gt(0) && stakedBalanceBigNumber.lt(0.0001)) {
-      return getFullDisplayBalance(stakedBalance.plus(earnings)).toLocaleString()
+      return getFullDisplayBalance(earnings).toLocaleString()
     }
     return stakedBalanceBigNumber.toFixed(10, BigNumber.ROUND_DOWN)
-  }, [stakedBalance, earnings])
+  }, [earnings])
 
   const [onPresentDeposit] = useModal(
     <DepositModal max={tokenBalance} onConfirm={handleStake} tokenName={lpSymbol} depositFeeBP={depositFeeBP} />
   )
   const [onPresentWithdraw] = useModal(
-    <WithdrawModal max={stakedBalance.plus(earnings)} onConfirm={handleUnstake} tokenName={lpSymbol} />,
+    <WithdrawModal max={earnings} onConfirm={handleUnstake} tokenName={lpSymbol} />,
   )
   const lpContract = useMemo(() => {
     if(isTokenOnly){
@@ -115,7 +116,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }
 
   if (isApproved) {
-    if (stakedBalance.plus(earnings).gt(0)) {
+    if (earnings.gt(0)) {
       return (
         <ActionContainer>
           <ActionTitles>
@@ -129,12 +130,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           <ActionContent>
             <div>
               <Earned>{displayBalance()}</Earned>
-              {stakedBalance.plus(earnings).gt(0) && lpPrice.gt(0) && (
+              {earnings.gt(0) && lpPrice.gt(0) && (
                 <Balance
                   fontSize="12px"
                   color="textSubtle"
                   decimals={10}
-                  value={getBalanceNumber(lpPrice.times(stakedBalance.plus(earnings)))}
+                  value={getBalanceNumber(lpPrice.times(earnings))}
                   unit=" USD"
                   prefix="~"
                 />
