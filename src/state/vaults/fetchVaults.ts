@@ -7,7 +7,7 @@ import stratgyABI from 'config/abi/strategy.json'
 import multicall from 'utils/multicall'
 import {getMasterChefAddress, getMasterMintAddress, getMasterTeaSportAddress} from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/vaults'
-import {QuoteToken} from '../../config/constants/types'
+import { QuoteToken } from 'config/constants/types'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
@@ -140,7 +140,7 @@ const fetchVaults = async () => {
                     {
                         address,
                         name: 'poolInfo',
-                        params: [farmConfig.pid],
+                        params: [farmConfig.masterPId],
                     },
                     {
                         address,

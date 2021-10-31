@@ -27,7 +27,8 @@ const vaults: VaultConfig[] = [
 	    stratgy: {
 	    	97: '',
 	    	56: '0xc97d70c20832c61744C5DC3220fe35E87870B11c'
-	    }
+	    },
+	    masterPId: 3
 	}
 ]
 

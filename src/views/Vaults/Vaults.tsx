@@ -178,7 +178,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
         cakeRewardPerBlock = new BigNumber(farm.rewardPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-
+        console.log(cakeRewardPerBlock.toNumber())
+        console.log(BLOCKS_PER_YEAR.toNumber())
+        console.log(cakeRewardPerYear.toNumber())
         let apy = null
         if (farm.type === 'Mint') {
           apy = mintPrice.times(cakeRewardPerYear);
@@ -197,7 +199,6 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         if (farm.quoteToken.symbol === QuoteToken.CAKE) {
           totalValue = totalValue.times(sugarPrice);
         }
-        
         if(totalValue.comparedTo(0) > 0){
           apy = apy.div(totalValue);
         }

@@ -92,6 +92,7 @@ export interface VaultConfig {
   }
   contract?: Address
   stratgy?: Address
+  masterPId?: number
 }
 
 
