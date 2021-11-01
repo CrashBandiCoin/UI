@@ -173,13 +173,13 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const info = `https://pancakeswap.info/pool/${lpAddress}`
 
   let apyValue = null;
-  apyValue = apy.value;
-
+  apyValue = new BigNumber(1).plus(new BigNumber(apy.value).times(0.96).div(365)).pow(365).minus(1);
+  const dailyApyValue = new BigNumber(1).plus(new BigNumber(apy.value).times(0.96).div(365)).minus(1);
   const farmApy = apyValue && apyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-  const farmApyDaily = apyValue && apyValue.times(new BigNumber(100)).div(new BigNumber(365)).toNumber().toLocaleString(undefined, {
+  const farmApyDaily = dailyApyValue && dailyApyValue.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })

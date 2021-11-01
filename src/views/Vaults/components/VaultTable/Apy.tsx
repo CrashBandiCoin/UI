@@ -54,7 +54,7 @@ const Apy: React.FC<ApyProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses: quoteTokenAddress, quoteTokenSymbol, tokenAddresses: tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   let apy = null;
-  apy = new BigNumber(value);
+  apy = new BigNumber(1).plus(new BigNumber(value).times(0.96).div(365)).pow(365).minus(1)
 
   const farmAPY = apy && apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
