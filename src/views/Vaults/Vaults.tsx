@@ -181,13 +181,13 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         console.log(cakeRewardPerBlock.toNumber())
         console.log(BLOCKS_PER_YEAR.toNumber())
         console.log(cakeRewardPerYear.toNumber())
-        let apy = null
+        let apr = null
         if (farm.type === 'Mint') {
-          apy = mintPrice.times(cakeRewardPerYear);
+          apr = mintPrice.times(cakeRewardPerYear);
         } else if (farm.type === 'TeaSport') {
-          apy = teasportPrice.times(cakeRewardPerYear);
+          apr = teasportPrice.times(cakeRewardPerYear);
         } else {
-          apy = sugarPrice.times(cakeRewardPerYear);
+          apr = sugarPrice.times(cakeRewardPerYear);
         }
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
@@ -200,9 +200,9 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
           totalValue = totalValue.times(sugarPrice);
         }
         if(totalValue.comparedTo(0) > 0){
-          apy = apy.div(totalValue).div(new BigNumber(10).pow(18));
+          apr = apr.div(totalValue).div(new BigNumber(10).pow(18));
         }
-
+        const apy = new BigNumber(1).plus(new BigNumber(apr).times(0.96).div(365)).pow(365).minus(1)
         const totalLiquidity = new BigNumber(farm.wantLockedTotal).div(new BigNumber(10).pow(18)).times(sugarPrice)
         
         return { ...farm, apy, liquidity: totalLiquidity }
