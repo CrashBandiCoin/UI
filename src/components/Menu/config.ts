@@ -19,11 +19,6 @@ const config: MenuEntry[] = [
                 label: 'Pools',
                 href: '/pools/sugar',
             },
-            {
-                label: 'Vaults',
-                href: '/vaults',
-            },
-
         ],
     },
     {
