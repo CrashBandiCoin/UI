@@ -74,9 +74,6 @@ const Apy: React.FC<ApyProps> = ({
     <Container>
       <>
         <ApyWrapper>{farmAPY}%</ApyWrapper>
-        {!hideButton && (
-          <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} cakePrice={cakePrice} apy={value} />
-        )}
       </>
     </Container>
   ) : (
