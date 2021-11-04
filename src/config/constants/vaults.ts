@@ -30,6 +30,7 @@ const vaults: VaultConfig[] = [
 	    },
 	    masterPId: 3
 	}
+
 ]
 
 const vaults1 = vaults.filter((vault) => vault.type === 'Mint')
