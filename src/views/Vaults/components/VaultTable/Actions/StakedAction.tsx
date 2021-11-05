@@ -9,7 +9,7 @@ import UnlockButton from 'components/UnlockButton'
 import Balance from 'components/Balance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { getContract } from 'utils/erc20'
-import { useVaultUser, useLpTokenPrice, usePriceCakeBusd } from 'state/hooks'
+import { useVaultUser, useLpTokenPrice, usePriceCakeBusd, usePricePanCakeBusd } from 'state/hooks'
 import { fetchVaultUserDataAsync } from 'state/vaults'
 import { FarmWithStakedValue } from 'views/Vaults/components/VaultCard/FarmCard'
 import { useERC20 } from 'hooks/useContract'
@@ -52,7 +52,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   const { onUnstake } = useUnstakeFarms(pid)
   const location = useLocation()
   // const lpPrice = useLpTokenPrice(lpSymbol)
-  const lpPrice = usePriceCakeBusd()
+  let lpPrice = new BigNumber(1);
+  const sugarPrice = usePriceCakeBusd()
+  const cakePrice = usePricePanCakeBusd()
+
+  if (lpSymbol === 'SUGAR') {
+    lpPrice = sugarPrice;
+  } else if (lpSymbol === 'CAKE') {
+    lpPrice = cakePrice;
+  } else if (lpSymbol === 'BANANA') {
+    lpPrice = new BigNumber(1.84)
+  }
+
   const isApproved = account && allowance && allowance.isGreaterThan(0)
 
   const lpAddress = lpAddresses[process.env.REACT_APP_CHAIN_ID]

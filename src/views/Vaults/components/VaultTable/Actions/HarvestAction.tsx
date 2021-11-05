@@ -8,7 +8,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { usePriceCakeBusd, useVaultUser } from 'state/hooks'
+import { usePriceCakeBusd, useVaultUser, usePricePanCakeBusd } from 'state/hooks'
 import useHarvestFarm from '../../../hooks/useHarvestFarm'
 
 import { ActionContainer, ActionTitles, ActionContent, Earned } from './styles'
@@ -20,7 +20,19 @@ interface HarvestActionProps extends FarmWithStakedValue {
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, userDataReady, lpSymbol }) => {
   const userData = useVaultUser(pid, id)
   const earningsBigNumber = new BigNumber(userData && userData.earnings ? userData.earnings : 0)
-  const cakePrice = usePriceCakeBusd()
+  
+  let lpPrice = new BigNumber(1);
+  const sugarPrice = usePriceCakeBusd()
+  const cakePrice = usePricePanCakeBusd()
+
+  if (lpSymbol === 'SUGAR') {
+    lpPrice = sugarPrice;
+  } else if (lpSymbol === 'CAKE') {
+    lpPrice = cakePrice;
+  } else if (lpSymbol === 'BANANA') {
+    lpPrice = new BigNumber(1.84)
+  }
+  
   let earnings = BIG_ZERO
   let earningsBusd = 0
   let displayBalance = userDataReady ? earnings.toLocaleString() : <Skeleton width={60} />
@@ -28,7 +40,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, id, u
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
     earnings = getBalanceAmount(earningsBigNumber)
-    earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
+    earningsBusd = earnings.multipliedBy(lpPrice).toNumber()
     displayBalance = earnings.toFixed(10, BigNumber.ROUND_DOWN)
   }
 
