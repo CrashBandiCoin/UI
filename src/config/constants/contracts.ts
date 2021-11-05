@@ -15,6 +15,10 @@ const contracts = {
     56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F',
     97: '',
   },
+  masterChefCake: {
+    56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+    97: '',
+  },
   masterMint: {
     56: '0xC74ff270b0d9f495e03078e1bF5b3A7aaa35D18A',
     97: '',
