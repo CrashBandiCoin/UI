@@ -1,6 +1,7 @@
 import BigNumber from 'bignumber.js'
 import erc20 from 'config/abi/erc20.json'
-import vaultchefABI from 'config/abi/masterchef.json'
+import masterSugarABI from 'config/abi/masterchef.json'
+import masterCakeABI from 'config/abi/masterchefCake.json'
 import vaultmintABI from 'config/abi/mastermint.json'
 import vaultTeaSportABI from 'config/abi/masterteasport.json'
 import stratgyABI from 'config/abi/strategy.json'
@@ -15,7 +16,6 @@ const fetchVaults = async () => {
         farmsConfig.map(async (farmConfig) => {
             const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
             const paramAddress = farmConfig.contract[CHAIN_ID]
-
             const calls = [
                 // Balance of token in the LP contract
                 {
@@ -65,22 +65,18 @@ const fetchVaults = async () => {
             let lpTotalInQuoteToken;
 
             let abi = null
-            if (farmConfig.type === 'Sugar')
-                abi = vaultchefABI
-            else if (farmConfig.type === 'Mint')
-                abi = vaultmintABI
-            else if (farmConfig.type === 'TeaSport')
-                abi = vaultTeaSportABI
+            if (farmConfig.lpSymbol === 'SUGAR')
+                abi = masterSugarABI
+            else if (farmConfig.lpSymbol === 'CAKE' || farmConfig.lpSymbol === 'BANANA')
+                abi = masterCakeABI
 
             const address = farmConfig.contract[CHAIN_ID]
 
             let name = ''
-            if (farmConfig.type === 'Sugar')
+            if (farmConfig.lpSymbol === 'SUGAR')
                 name = 'sugarPerBlock'
-            else if (farmConfig.type === 'Mint')
-                name = 'MintPerBlock'
-            else if (farmConfig.type === 'TeaSport')
-                name = 'teasportPerBlock'
+            else if (farmConfig.lpSymbol === 'CAKE' || farmConfig.lpSymbol === 'BANANA')
+                name = 'cakePerBlock'
 
             let tokenPriceVsQuote;
             if (farmConfig.isTokenOnly) {
@@ -115,12 +111,10 @@ const fetchVaults = async () => {
                 }
             }
 
-            if (farmConfig.type === 'Sugar')
-                abi = vaultchefABI
-            else if (farmConfig.type === 'Mint')
-                abi = vaultmintABI
-            else if (farmConfig.type === 'TeaSport')
-                abi = vaultTeaSportABI
+            if (farmConfig.lpSymbol === 'SUGAR')
+                abi = masterSugarABI
+            else if (farmConfig.lpSymbol === 'CAKE' || farmConfig.lpSymbol === 'BANANA')
+                abi = masterCakeABI
 
             const [info, totalAllocPoint, perblock] = await multicall(
                 abi,
