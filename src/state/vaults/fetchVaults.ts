@@ -5,7 +5,6 @@ import vaultmintABI from 'config/abi/mastermint.json'
 import vaultTeaSportABI from 'config/abi/masterteasport.json'
 import stratgyABI from 'config/abi/strategy.json'
 import multicall from 'utils/multicall'
-import {getMasterChefAddress, getMasterMintAddress, getMasterTeaSportAddress} from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/vaults'
 import { QuoteToken } from 'config/constants/types'
 
@@ -15,13 +14,8 @@ const fetchVaults = async () => {
     const data = await Promise.all(
         farmsConfig.map(async (farmConfig) => {
             const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
-            let paramAddress = ''
-            if (farmConfig.type === 'Sugar')
-                paramAddress = getMasterChefAddress()
-            else if (farmConfig.type === 'Mint')
-                paramAddress = getMasterMintAddress()
-            else if (farmConfig.type === 'TeaSport')
-                paramAddress = getMasterTeaSportAddress()
+            const paramAddress = farmConfig.contract[CHAIN_ID]
+
             const calls = [
                 // Balance of token in the LP contract
                 {
@@ -78,13 +72,7 @@ const fetchVaults = async () => {
             else if (farmConfig.type === 'TeaSport')
                 abi = vaultTeaSportABI
 
-            let address = ''
-            if (farmConfig.type === 'Sugar')
-                address = getMasterChefAddress()
-            else if (farmConfig.type === 'Mint')
-                address = getMasterMintAddress()
-            else if (farmConfig.type === 'TeaSport')
-                address = getMasterTeaSportAddress()
+            const address = farmConfig.contract[CHAIN_ID]
 
             let name = ''
             if (farmConfig.type === 'Sugar')

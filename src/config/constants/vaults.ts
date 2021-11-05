@@ -31,8 +31,8 @@ const vaults: VaultConfig[] = [
 	    masterPId: 3
 	},
 	{
-		id: 0,
-		pid: 2,
+		id: 1,
+		pid: 4,
 		type: ContractType.Sugar,
 		isTokenOnly: true,
 		lpSymbol: 'CAKE',
@@ -54,13 +54,13 @@ const vaults: VaultConfig[] = [
 		contract: contracts.masterChefCake,
 		stratgy: {
 			97: '',
-			56: '0x3F06a6e0283E7f19CA7201dd68d4D35fA0633774'
+			56: '0xAD541F9247cdF40Fe6139B3958812fA51119Aaf3'
 		},
 		masterPId: 0
 	},
 	{
-		id: 0,
-		pid: 3,
+		id: 2,
+		pid: 5,
 		type: ContractType.Sugar,
 		isTokenOnly: true,
 		lpSymbol: 'BANANA',
@@ -79,10 +79,10 @@ const vaults: VaultConfig[] = [
 			symbol: QuoteToken.BUSD,
 			address: contracts.busd
 		},
-		contract: contracts.masterChef,
+		contract: contracts.masterChefBanana,
 		stratgy: {
 			97: '',
-			56: '0xd00ee354Ab51933eA48119A926226A5521CD5e3b'
+			56: '0x61F4590d4ac4BB4EBC3Ca728d7b6920f11ce415B'
 		},
 		masterPId: 0
 	},
