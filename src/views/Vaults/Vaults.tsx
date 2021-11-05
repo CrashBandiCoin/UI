@@ -178,17 +178,18 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
         cakeRewardPerBlock = new BigNumber(farm.rewardPerBlock || 1).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-        console.log(cakeRewardPerBlock.toNumber())
-        console.log(BLOCKS_PER_YEAR.toNumber())
-        console.log(cakeRewardPerYear.toNumber())
-        let apy = null
-        if (farm.type === 'Mint') {
-          apy = mintPrice.times(cakeRewardPerYear);
-        } else if (farm.type === 'TeaSport') {
-          apy = teasportPrice.times(cakeRewardPerYear);
-        } else {
-          apy = sugarPrice.times(cakeRewardPerYear);
+        
+        let price = new BigNumber(1);
+
+        if (farm.lpSymbol === 'SUGAR') {
+          price = sugarPrice;
+        } else if (farm.lpSymbol === 'CAKE') {
+          price = cakePrice;
+        } else if (farm.lpSymbol === 'BANANA') {
+          price = new BigNumber(1.84)
         }
+
+        let apy = new BigNumber(cakeRewardPerYear).times(price)
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
         totalValue = new BigNumber(totalValue).div(new BigNumber(10).pow(18))
@@ -197,13 +198,13 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
         }
 
         if (farm.quoteToken.symbol === QuoteToken.CAKE) {
-          totalValue = totalValue.times(sugarPrice);
+          totalValue = totalValue.times(cakePrice);
         }
         if(totalValue.comparedTo(0) > 0){
           apy = apy.div(totalValue).div(new BigNumber(10).pow(18));
         }
 
-        const totalLiquidity = new BigNumber(farm.wantLockedTotal).div(new BigNumber(10).pow(18)).times(sugarPrice)
+        const totalLiquidity = new BigNumber(farm.wantLockedTotal).div(new BigNumber(10).pow(18)).times(price)
         
         return { ...farm, apy, liquidity: totalLiquidity }
       })
@@ -217,7 +218,7 @@ const Vaults: React.FC<FarmsProps> = (vaultsProps) => {
 
       return farmsToDisplayWithAPY
     },
-    [query, sugarPrice, bnbPrice, mintPrice, teasportPrice],
+    [query, sugarPrice, bnbPrice, cakePrice],
   )
 
   const loadMoreRef = useRef<HTMLDivElement>(null)
