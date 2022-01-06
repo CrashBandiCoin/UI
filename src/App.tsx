@@ -24,6 +24,7 @@ const Zap = lazy(() => import('./views/Zap'))
 // const Pools = lazy(() => import('./views/Pools'))
 const Ifos = lazy(() => import('./views/Ifos'))
 const Chart = lazy(() => import('./views/Chart'))
+const Migration = lazy(() => import('./views/Migration'))
 const NotFound = lazy(() => import('./views/NotFound'))
 // const Nft = lazy(() => import('./views/Nft'))
 
@@ -78,6 +79,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/vaults">
               <Vaults />
+            </Route>
+            <Route path="/migration">
+              <Migration />
             </Route>
             <Route path="/zap">
               <Zap />

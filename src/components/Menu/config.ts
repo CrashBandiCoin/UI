@@ -8,6 +8,11 @@ const config: MenuEntry[] = [
 
     },
     {
+        label: 'Migration',
+        icon: 'TradeIcon',
+        href: '/migration',
+    },
+    {
         label: 'Yield Farming',
         icon: 'FarmIcon',
         items: [

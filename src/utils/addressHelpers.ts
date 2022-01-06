@@ -16,6 +16,9 @@ export const getMintAddress = () => {
 export const getTeaSportAddress = () => {
   return addresses.teaSport[chainId]
 }
+export const getJaggeryAddress = () => {
+  return addresses.jaggery[chainId]
+}
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]
 }

@@ -28,7 +28,7 @@ import CardTokenHome from './components/CardTokenHome'
 import NextFeature from './components/NextFeature'
 import ChampionsLeague from './img/foot/championsLeague.png'
 import Ifo from './img/Homepage_Panel_IFO.png'
-import RSK from './img/Homepage_Panel_RSK.png'
+import TeaDAO from './img/teadao.png'
 import TokenShow from './components/TokenShow'
 
 const Hero = styled.div`
@@ -242,9 +242,7 @@ const Home: React.FC = () => {
         <TotalValueLockedCard/>
       </Cards>
       <CardsHorizontale>
-        <NextFeature title="SportParty 3" ribbon="NEW FEATURE" img={ChampionsLeague} link="/SportParties/Championsleague"/>
-        <NextFeature title="New IFO" ribbon="LIVE" img={Ifo} link="/Ifo" />
-        <NextFeature title="RSK blockchain" ribbon="LIVE" img={RSK} link="https://app.rsk.tea-swap.finance/" />
+        <NextFeature title="Migration" ribbon="LIVE" img={TeaDAO} link="/migration" />
       </CardsHorizontale>
       <CardHarvest>
         <FarmStakingCard />

@@ -11,6 +11,10 @@ const contracts = {
     56: '0xFc5e7Bed6abA672c6d435715bA931fB75EebFd2A',
     97: '',
   },
+  jaggery: {
+    56: '0xEe98193409721eb3fFCf0B14E08fc32Afb4928EE',
+    97: '',
+  },
   masterChef: {
     56: '0x414d03e5Ecb2dab33D7c9Ccb70c3abC69127e41F',
     97: '',

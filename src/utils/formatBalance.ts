@@ -17,3 +17,7 @@ export const getDecimalAmount = (amount: BigNumber, decimals = 18) => {
 export const getBalanceAmount = (amount: BigNumber, decimals = 18) => {
   return new BigNumber(amount).dividedBy(BIG_TEN.pow(decimals))
 }
+
+export const formatAmount = (amount: number) => {
+  return new BigNumber(amount).times(new BigNumber(10).pow(18))
+}
