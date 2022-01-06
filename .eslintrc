@@ -33,7 +33,6 @@
     "react/require-default-props": "off",
     "react/no-unused-prop-types": "off",
     "react/default-props-match-prop-types": "off",
-    "import/no-cycle": 0,
     "react/destructuring-assignment": "off"
     // End temporary rules
   }

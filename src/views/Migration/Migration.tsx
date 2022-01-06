@@ -57,19 +57,21 @@ const Migration: React.FC = () => {
   const [amountTmint, setAmountTmint] = React.useState(0);
 
   const handleChange = async(event: React.ChangeEvent<HTMLSelectElement>) => {
-    await setToken(event.currentTarget.value);
+    const t = event.currentTarget.value
 
-    if (event.currentTarget.value === 'Sugar') {
-      const res = await swapToken(tokenAmout, event.target.value);
+    await setToken(t);
+
+    if (t === 'Sugar') {
+      const res = await swapToken(tokenAmout, t);
       setAmountTmint(res);
-    } else if (event.currentTarget.value === 'Mint') {
-      const res = await swapToken(tokenAmout, event.target.value);
+    } else if (t === 'Mint') {
+      const res = await swapToken(tokenAmout, t);
       setAmountTmint(res);
-    } else if (event.currentTarget.value === 'Teasport') {
-      const res = await swapToken(tokenAmout, event.target.value);
+    } else if (t === 'Teasport') {
+      const res = await swapToken(tokenAmout, t);
       setAmountTmint(res);
-    } else if (event.currentTarget.value === 'Jaggery') {
-      const res = await swapToken(tokenAmout, event.target.value);
+    } else if (t === 'Jaggery') {
+      const res = await swapToken(tokenAmout, t);
       setAmountTmint(res);
     }
   };
