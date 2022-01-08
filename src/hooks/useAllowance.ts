@@ -73,22 +73,3 @@ export const useIfoAllowance = (tokenContract: Contract, spenderAddress: string,
 }
 
 
-export const useMigrationAllowance = (tokenContract: Contract, spenderAddress: string) => {
-  const { account }: { account: string } = useWallet()
-  const [allowance, setAllowance] = useState(null)
-
-  useEffect(() => {
-    const fetch = async () => {
-      try {
-        const res = await tokenContract.methods.allowance(account, spenderAddress).call()
-        setAllowance(new BigNumber(res))
-      } catch (e) {
-        setAllowance(null)
-      }
-    }
-    fetch()
-  }, [account, spenderAddress, tokenContract])
-
-  return allowance
-}
-

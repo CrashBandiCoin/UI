@@ -105,7 +105,7 @@ export const soushHarvestBnb = async (sousChefContract, account) => {
     })
 }
 
-export const migrateToSugar = async (migrationContract, amount, account) => {
+export const migrationSugar = async (migrationContract, amount, account) => {
     return migrationContract.methods
         .migrateToSugar(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
         .send({ from: account })

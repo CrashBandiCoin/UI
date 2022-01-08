@@ -17,9 +17,8 @@ import {provider} from "web3-core";
 import useTokenBalance from '../../hooks/useTokenBalance'
 import {getBalanceNumber, getFullDisplayBalance} from '../../utils/formatBalance'
 import {useERC20} from "../../hooks/useContract";
-import {useMigrationAllowance} from "../../hooks/useAllowance";
 import {useMigrationApprove} from "../../hooks/useApprove";
-import useMigrationToken from "../../hooks/useMigrationToken";
+import {useMigrationAllowance, useMigrationSugar} from "../../hooks/useMigrationToken";
 
 
 const Migration: React.FC = () => {
@@ -74,8 +73,7 @@ const Migration: React.FC = () => {
     const allowance = useMigrationAllowance(contractRaisingToken, getMigrationAddress())
     const onApprove = useMigrationApprove(contractRaisingToken, getMigrationAddress())
     const isApproved = account && allowance && allowance.isGreaterThan(0)
-    const strMethod = `migrateTo${token}`
-    const onMigration = useMigrationToken(getMigrationAddress(), userBalance)
+    const onMigration = useMigrationSugar(getMigrationAddress(), userBalance)
 
     const handleChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
         const t = event.currentTarget.value
