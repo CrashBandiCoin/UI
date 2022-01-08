@@ -6,10 +6,9 @@ export const useMigrationToken = (tokenContract: Contract, method: string, token
   const { account } = useWallet()
   return useCallback(async () => {
     try {
-      const tx = await tokenContract.methods
+      return await tokenContract.methods
           .method(tokenBalance)
           .send({from: account})
-      return tx
     } catch {
       return false
     }

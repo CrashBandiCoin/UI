@@ -20,8 +20,6 @@ import {useERC20} from "../../hooks/useContract";
 import {useMigrationAllowance} from "../../hooks/useAllowance";
 import {useMigrationApprove} from "../../hooks/useApprove";
 import useMigrationToken from "../../hooks/useMigrationToken";
-import {migrate, stake} from "../../utils/callHelpers";
-import {fetchFarmUserDataAsync} from "../../state/farms";
 
 
 const Migration: React.FC = () => {
@@ -143,10 +141,8 @@ const Migration: React.FC = () => {
 
     const handleMigrate = useCallback(async () => {
         try {
-            console.log("Migration")
             setPendingTx(true)
             await onMigration()
-            console.log("Done")
             setPendingTx(false)
         } catch (e) {
             console.error(e)
@@ -228,7 +224,6 @@ const Migration: React.FC = () => {
                             Convert
                         </Button>
                     }
-
                 </CardFooter>
 
             </Card>
