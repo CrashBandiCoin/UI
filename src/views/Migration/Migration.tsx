@@ -75,7 +75,7 @@ const Migration: React.FC = () => {
     const onApprove = useMigrationApprove(contractRaisingToken, getMigrationAddress())
     const isApproved = account && allowance && allowance.isGreaterThan(0)
     const strMethod = `migrateTo${token}`
-    const onMigration = useMigrationToken(getMigrationAddress(), strMethod, userBalance)
+    const onMigration = useMigrationToken(getMigrationAddress(), userBalance)
 
     const handleChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
         const t = event.currentTarget.value

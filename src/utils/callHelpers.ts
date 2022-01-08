@@ -104,3 +104,12 @@ export const soushHarvestBnb = async (sousChefContract, account) => {
       return tx.transactionHash
     })
 }
+
+export const migrateToSugar = async (migrationContract, amount, account) => {
+    return migrationContract.methods
+        .migrateToSugar(amount)
+        .send({ from: account })
+        .on('transactionHash', (tx) => {
+            return tx.transactionHash
+        })
+}

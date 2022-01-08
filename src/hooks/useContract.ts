@@ -67,6 +67,7 @@ export const useTeasport = () => {
   return useERC20(getTeaSportAddress())
 }
 
+
 export const useRabbitMintingFarm = (address: string) => {
   const rabbitMintingFarmAbi = (rabbitmintingfarm as unknown) as AbiItem
   return useContract(rabbitMintingFarmAbi, address)
