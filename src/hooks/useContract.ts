@@ -11,7 +11,11 @@ import {
   getCakeAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
-  getMasterTeaSportAddress, getLotteryAddressTeasport, getLotteryTicketAddressTeasport, getTeaSportAddress
+  getMasterTeaSportAddress,
+  getLotteryAddressTeasport,
+  getLotteryTicketAddressTeasport,
+  getTeaSportAddress,
+  getMigrationAddress
 } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
@@ -27,6 +31,7 @@ import masterTeaSport from 'config/abi/masterteasport.json'
 import vaultChef from 'config/abi/vaultChef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
+import migration from 'config/abi/rTea.json'
 
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
@@ -127,6 +132,11 @@ export const useSousChef = (id) => {
   const rawAbi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
   const abi = (rawAbi as unknown) as AbiItem
   return useContract(abi, config.contractAddress[process.env.REACT_APP_CHAIN_ID])
+}
+
+export const useMigrationContract = () => {
+  const abi = (migration as unknown) as AbiItem
+  return useContract(abi, getMigrationAddress())
 }
 
 export default useContract

@@ -11,6 +11,10 @@ const config: MenuEntry[] = [
         label: 'Migration',
         icon: 'TradeIcon',
         href: '/migration',
+        status: {
+            text: 'New',
+            color: 'binance'
+        },
     },
     {
         label: 'Yield Farming',
@@ -39,10 +43,6 @@ const config: MenuEntry[] = [
                 href: '/SportParties/Championsleague',
             },
         ],
-        status: {
-            text: 'New',
-            color: 'binance'
-        },
     },
 
     {

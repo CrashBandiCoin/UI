@@ -182,7 +182,7 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
    * For example when a transaction has been completed
    */
   const reInitialize = () => {
-    // Only attempt to re-initialize if the component is still mounted
+    // Only attempt to re-initialize if the components is still mounted
     // Transactions can take awhile so it is likely some users will navigate to another page
     // before the transaction is finished
     if (isMounted.current) {

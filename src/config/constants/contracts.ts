@@ -78,6 +78,10 @@ const contracts = {
   busd: {
     56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
     97: '',
+  },
+  migration: {
+    56: '0x34703Ad4f4bcaaD76553D878e9C166D5Ae42E7B0',
+    97: '',
   }
 }
 

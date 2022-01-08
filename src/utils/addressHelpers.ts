@@ -59,3 +59,6 @@ export const getLotteryAddressTeasport = () => {
 export const getLotteryTicketAddressTeasport = () => {
   return addresses.lotteryNFTTeasport[chainId]
 }
+export const getMigrationAddress = () => {
+  return addresses.migration[chainId]
+}
