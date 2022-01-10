@@ -4,20 +4,46 @@ import {useCallback, useEffect, useState} from "react";
 import {ethers} from "ethers";
 import BigNumber from "bignumber.js";
 
-// Migration sugar
-export const useMigrationSugar = (tokenContract: Contract, amount: number) => {
+// Migration token
+export const useMigrationToken= (migration: Contract, tokenName : string, amount: string) => {
     const { account } = useWallet()
+    console.log(amount)
     return useCallback(async () => {
         try {
-            const tx = await tokenContract.methods
-                .migrateToSugar(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
-                .send({from: account})
-            return tx
+            let tx;
+            switch(tokenName)
+            {
+                case 'Sugar' :
+                    tx = await migration.methods
+                    .migrateToSugar(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+                    .send({from: account})
+                return tx;
+
+                case 'Mint' :
+                    tx = await migration.methods
+                        .migrateToMint(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+                        .send({from: account})
+                    return tx;
+
+                case 'Teasport' :
+                    tx = await migration.methods
+                        .migrateToTeasport(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+                        .send({from: account})
+                    return tx;
+                case 'Jaggery' :
+                    tx = await migration.methods
+                        .migrateToJaggery(new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
+                        .send({from: account})
+                    return tx;
+                default:
+                    return 0;
+            }
+
         } catch (e) {
             console.log(e)
             return false
         }
-    }, [account, tokenContract, amount])
+    }, [account, migration, tokenName, amount])
 }
 
 

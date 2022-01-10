@@ -31,7 +31,8 @@ import masterTeaSport from 'config/abi/masterteasport.json'
 import vaultChef from 'config/abi/vaultChef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
-import migration from 'config/abi/rTea.json'
+import rTea from 'config/abi/rTea.json'
+
 
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
@@ -140,7 +141,7 @@ export const useSousChef = (id) => {
 }
 
 export const useMigrationContract = () => {
-  const abi = (migration as unknown) as AbiItem
+  const abi = (rTea as unknown) as AbiItem
   return useContract(abi, getMigrationAddress())
 }
 

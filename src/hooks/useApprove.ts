@@ -115,20 +115,3 @@ export const useIfoApprove = (tokenContract: Contract, spenderAddress: string) =
 
   return onApprove
 }
-
-// Approve Migration
-export const useMigrationApprove = (tokenContract: Contract, spenderAddress: string) => {
-  const { account } = useWallet()
-  const onApprove = useCallback(async () => {
-    try {
-      const tx = await tokenContract.methods
-          .approve(spenderAddress, ethers.constants.MaxUint256)
-          .send({ from: account })
-      return tx
-    } catch {
-      return false
-    }
-  }, [account, spenderAddress, tokenContract])
-
-  return onApprove
-}

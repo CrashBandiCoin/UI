@@ -16,9 +16,11 @@ import {useWallet} from "@binance-chain/bsc-use-wallet";
 import {provider} from "web3-core";
 import useTokenBalance from '../../hooks/useTokenBalance'
 import {getBalanceNumber, getFullDisplayBalance} from '../../utils/formatBalance'
-import {useERC20} from "../../hooks/useContract";
-import {useMigrationApprove} from "../../hooks/useApprove";
-import {useMigrationAllowance, useMigrationSugar} from "../../hooks/useMigrationToken";
+import {useERC20, useMigrationContract} from "../../hooks/useContract";
+import {
+    useMigrationAllowance,
+    useMigrationApprove, useMigrationToken
+} from "../../hooks/useMigrationToken";
 
 
 const Migration: React.FC = () => {
@@ -29,6 +31,7 @@ const Migration: React.FC = () => {
     const disabled = true;
 
     let address = '';
+    const rTeaAddress = getMigrationAddress();
 
     if (token === 'Sugar') {
         address = getCakeAddress();
@@ -41,19 +44,28 @@ const Migration: React.FC = () => {
     }
 
     const userBalance = getBalanceNumber(useTokenBalance(address));
-    const userBalanceFormated = getBalanceNumber(useTokenBalance(address)) * 1e18;
+    const userBalanceFormated = (getBalanceNumber(useTokenBalance(address)) * 1e18).toFixed(4);
+    const userBalanceFormatedrTea = (getBalanceNumber(useTokenBalance(rTeaAddress))).toFixed(4);
 
 
     const fullBalance = useMemo(() => {
         return getFullDisplayBalance(new BigNumber(userBalanceFormated))
     }, [userBalanceFormated])
 
+    // partie migration
+    const {account, ethereum}: { account: string; ethereum: provider } = useWallet()
+    const contractRaisingToken = useERC20(address)
+    const contractRaisingMigration = useMigrationContract()
+    const allowance = useMigrationAllowance(contractRaisingToken, getMigrationAddress())
+    const onApprove = useMigrationApprove(contractRaisingToken, getMigrationAddress())
+    const isApproved = account && allowance && allowance.isGreaterThan(0)
+
+
     let ratio = '0:0';
     if (token === 'Sugar') {
         ratio = '76:1'
     }
-    if (token === 'M' +
-        'int') {
+    if (token === 'Mint') {
         ratio = '1.025:1'
     }
     if (token === 'Teasport') {
@@ -66,14 +78,8 @@ const Migration: React.FC = () => {
     const [tokenAmout, setTokenAmout] = React.useState(userBalanceFormated.toString());
     const [amountRTEA, setAmountRTEA] = React.useState(0);
 
+    const onMigration = useMigrationToken(contractRaisingMigration, token, tokenAmout)
 
-    // partie migration
-    const {account, ethereum}: { account: string; ethereum: provider } = useWallet()
-    const contractRaisingToken = useERC20(address)
-    const allowance = useMigrationAllowance(contractRaisingToken, getMigrationAddress())
-    const onApprove = useMigrationApprove(contractRaisingToken, getMigrationAddress())
-    const isApproved = account && allowance && allowance.isGreaterThan(0)
-    const onMigration = useMigrationSugar(getMigrationAddress(), userBalance)
 
     const handleChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
         const t = event.currentTarget.value
@@ -101,10 +107,10 @@ const Migration: React.FC = () => {
         }
 
         if (type === 'Sugar') {
-            return amount / 64;
+            return amount / 76;
         }
         if (type === 'Mint') {
-            return amount;
+            return amount*1.025;
         }
         if (type === 'Teasport') {
             return amount / 37;
@@ -123,9 +129,11 @@ const Migration: React.FC = () => {
         setAmountRTEA(res);
     };
 
-    const handleSelectMax = useCallback(() => {
+    const handleSelectMax = useCallback(async () => {
         setTokenAmout(fullBalance)
-    }, [fullBalance, setTokenAmout])
+        const res = await swapToken(fullBalance, token);
+        setAmountRTEA(res);
+    }, [fullBalance, token])
 
     const handleApprove = useCallback(async () => {
         try {
@@ -201,7 +209,7 @@ const Migration: React.FC = () => {
                         <Heading as="h2" scale="md">Conversion ratio for {token}: {ratio}</Heading>
                     </div>
                     <DivRtea>
-                        <Label htmlFor="rTea">rTea to receive</Label>
+                        <Label htmlFor="rTea">rTea Balance : {userBalanceFormatedrTea}</Label>
                         <Input
                             id="rTea"
                             name="number"
