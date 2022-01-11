@@ -29,6 +29,9 @@ import NextFeature from './components/NextFeature'
 import ChampionsLeague from './img/foot/championsLeague.png'
 import Ifo from './img/Homepage_Panel_IFO.png'
 import TeaDAO from './img/teadao.png'
+import Discord from './img/discord.svg'
+import Twitter from './img/twitter.svg'
+import Medium from './img/medium.svg'
 import TokenShow from './components/TokenShow'
 
 const Hero = styled.div`
@@ -244,6 +247,14 @@ const Home: React.FC = () => {
       <CardsHorizontale>
         <NextFeature title="Migration" ribbon="LIVE" img={TeaDAO} link="/migration" />
       </CardsHorizontale>
+       <CardsHorizontale>
+           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+           <a href="https://twitter.com/TeaDaoFinance" target="_blank" rel="noreferrer"><img src={Twitter} alt='' width='100'/></a>
+           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+           <a href="https://discord.gg/rz3Vs4x3SU" target="_blank" rel="noreferrer"><img src={Discord} alt='' width='100'/></a>
+           {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+           <a href="https://teadao.medium.com/" target="_blank" rel="noreferrer"><img src={Medium} alt='' width='100'/></a>
+       </CardsHorizontale>
       <CardHarvest>
         <FarmStakingCard />
       </CardHarvest>

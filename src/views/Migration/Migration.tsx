@@ -14,6 +14,7 @@ import {
 } from 'utils/addressHelpers'
 import {useWallet} from "@binance-chain/bsc-use-wallet";
 import {provider} from "web3-core";
+import rTea from "./img/rTea.png";
 import useTokenBalance from '../../hooks/useTokenBalance'
 import {getBalanceNumber, getFullDisplayBalance} from '../../utils/formatBalance'
 import {useERC20, useMigrationContract} from "../../hooks/useContract";
@@ -110,7 +111,7 @@ const Migration: React.FC = () => {
             return amount / 76;
         }
         if (type === 'Mint') {
-            return amount*1.025;
+            return amount * 1.025;
         }
         if (type === 'Teasport') {
             return amount / 37;
@@ -178,6 +179,44 @@ const Migration: React.FC = () => {
         }
     };
 
+    const TokenImageWrapper = styled.div`
+      float: right;
+      align-items: center;
+      margin-bottom: 16px;
+    `
+    const CardImage = styled.img`
+      margin-right: 8px;
+    `
+
+    const addWatchRTEAToken = useCallback(async () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const provider2 = window.ethereum
+        if (provider2) {
+            try {
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = await provider2.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address: getMigrationAddress(),
+                            symbol: 'rTea',
+                            decimals: '18',
+                            image: rTea,
+                        },
+                    },
+                })
+
+                if (wasAdded) {
+                    console.log('Token was added')
+                }
+            } catch (error) {
+                // TODO: find a way to handle when the user rejects transaction or it fails
+            }
+        }
+    }, [])
+
     return (
         <Page>
             <Card>
@@ -194,6 +233,17 @@ const Migration: React.FC = () => {
                         <option value="Teasport">Teasport</option>
                         <option value="Jaggery">Jaggery</option>
                     </DivSelect>
+                    <TokenImageWrapper>
+                        <Button onClick={addWatchRTEAToken} scale="sm">
+                            +{' '}
+                            <img
+                                style={{marginLeft: 8}}
+                                width={30}
+                                src={rTea}
+                                alt="metamask logo"
+                            />
+                        </Button>
+                    </TokenImageWrapper>
                 </CardHeader>
                 <CardBody>
                     <div>
