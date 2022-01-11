@@ -80,7 +80,7 @@ const contracts = {
     97: '',
   },
   migration: {
-    56: '0x2Ab794A7664884f6ACaa35336604F9D00477a8c8',
+    56: '0xbCC153520093C4f1eA98f338a926AA54Bd31e773',
     97: '',
   }
 }
