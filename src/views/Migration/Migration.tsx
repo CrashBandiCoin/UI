@@ -45,8 +45,8 @@ const Migration: React.FC = () => {
     }
 
     const userBalance = getBalanceNumber(useTokenBalance(address));
-    const userBalanceFormated = (getBalanceNumber(useTokenBalance(address)) * 1e18).toFixed(4);
-    const userBalanceFormatedrTea = (getBalanceNumber(useTokenBalance(rTeaAddress))).toFixed(4);
+    const userBalanceFormated = (getBalanceNumber(useTokenBalance(address)) * 1e18).toFixed(3);
+    const userBalanceFormatedrTea = (getBalanceNumber(useTokenBalance(rTeaAddress))).toFixed(3);
 
 
     const fullBalance = useMemo(() => {
@@ -184,9 +184,6 @@ const Migration: React.FC = () => {
       align-items: center;
       margin-bottom: 16px;
     `
-    const CardImage = styled.img`
-      margin-right: 8px;
-    `
 
     const addWatchRTEAToken = useCallback(async () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -240,7 +237,7 @@ const Migration: React.FC = () => {
                                 style={{marginLeft: 8}}
                                 width={30}
                                 src={rTea}
-                                alt="metamask logo"
+                                alt="rTea logo"
                             />
                         </Button>
                     </TokenImageWrapper>
@@ -264,7 +261,7 @@ const Migration: React.FC = () => {
                             id="rTea"
                             name="number"
                             type="number"
-                            value={amountRTEA}
+                            value={amountRTEA.toFixed(3)}
                             disabled={disabled}
                         />
                     </DivRtea>
