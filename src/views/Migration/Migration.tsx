@@ -215,7 +215,7 @@ const Migration: React.FC = () => {
                 <CardHeader>
                     <div style={{textAlign: "center"}}>
                         <Heading as="h1" scale="xl">Convert your TeaSwap Tokens</Heading>
-                        <Countdown date={Date.now() + 100000000} renderer={renderer}/>
+                        <Countdown date={1642536000000} renderer={renderer}/>
                     </div>
                     <HeadMenu>
                         <DivSelect value={token} onChange={handleChange}>
@@ -225,11 +225,11 @@ const Migration: React.FC = () => {
                             <option value="Jaggery">Jaggery</option>
                         </DivSelect>
                         <TokenImageWrapper>
-                            <Button onClick={addWatchRTEAToken} scale="sm">
+                            <Button onClick={addWatchRTEAToken} scale="sm" style={{background: '#546a2a', borderColor: '#546a2a'}}>
                                 +{' '}
                                 <img
                                     style={{marginLeft: 8}}
-                                    width={30}
+                                    width={25}
                                     src={rTea}
                                     alt="rTea logo"
                                 />
