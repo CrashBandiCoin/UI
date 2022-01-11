@@ -179,11 +179,6 @@ const Migration: React.FC = () => {
         }
     };
 
-    const TokenImageWrapper = styled.div`
-      float: right;
-      align-items: center;
-      margin-bottom: 16px;
-    `
 
     const addWatchRTEAToken = useCallback(async () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -221,26 +216,26 @@ const Migration: React.FC = () => {
                     <div style={{textAlign: "center"}}>
                         <Heading as="h1" scale="xl">Convert your TeaSwap Tokens</Heading>
                         <Countdown date={Date.now() + 100000000} renderer={renderer}/>
-
                     </div>
-
-                    <DivSelect value={token} onChange={handleChange}>
-                        <option value="Sugar">Sugar</option>
-                        <option value="Mint">Mint</option>
-                        <option value="Teasport">Teasport</option>
-                        <option value="Jaggery">Jaggery</option>
-                    </DivSelect>
-                    <TokenImageWrapper>
-                        <Button onClick={addWatchRTEAToken} scale="sm">
-                            +{' '}
-                            <img
-                                style={{marginLeft: 8}}
-                                width={30}
-                                src={rTea}
-                                alt="rTea logo"
-                            />
-                        </Button>
-                    </TokenImageWrapper>
+                    <HeadMenu>
+                        <DivSelect value={token} onChange={handleChange}>
+                            <option value="Sugar">Sugar</option>
+                            <option value="Mint">Mint</option>
+                            <option value="Teasport">Teasport</option>
+                            <option value="Jaggery">Jaggery</option>
+                        </DivSelect>
+                        <TokenImageWrapper>
+                            <Button onClick={addWatchRTEAToken} scale="sm">
+                                +{' '}
+                                <img
+                                    style={{marginLeft: 8}}
+                                    width={30}
+                                    src={rTea}
+                                    alt="rTea logo"
+                                />
+                            </Button>
+                        </TokenImageWrapper>
+                    </HeadMenu>
                 </CardHeader>
                 <CardBody>
                     <div>
@@ -308,7 +303,6 @@ const DivRtea = styled.div`
     background-color: #eeeaf4 !important;
     color: #546a2a !important;
   }
-
 `
 
 const Label = styled.label`
@@ -319,5 +313,16 @@ const Label = styled.label`
   text-align: right;
   font-weight: bold;
 `
+
+const TokenImageWrapper = styled.div`
+      float:right;
+  margin-top: 30px;
+  margin-left: 20px;
+  border: 1px solid var(--select-border);
+    `
+const HeadMenu = styled.div`
+      display: inline-block;
+  justify-content: space-between;
+    `
 
 export default Migration

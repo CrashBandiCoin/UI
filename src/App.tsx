@@ -48,7 +48,6 @@ const App: React.FC = () => {
     <Router>
       <ResetCSS />
       <GlobalStyle />
-      <Audited />
       <Menu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>

@@ -237,7 +237,7 @@ const Home: React.FC = () => {
   return (
     <Page style={{ maxWidth: '80%'}}>
       <Hero>
-        The GameFi DAO linked to real life events
+        TeaSwap become TeaDAO !
       </Hero>
       <br/>
       <br/>
