@@ -158,6 +158,13 @@ const Migration: React.FC = () => {
 
 
     const renderer = ({days, hours, minutes, seconds, completed}: CountdownRenderProps) => {
+        if (completed) {
+          return (
+            <Heading as="h5">
+                Migration Ended
+            </Heading>
+          )
+        }
         if (days) {
             return (
                 <Heading as="h5">
@@ -263,14 +270,24 @@ const Migration: React.FC = () => {
                 </CardBody>
 
                 <CardFooter style={{textAlign: "center"}}>
-                    {!isApproved ?
+                    {!isApproved && Date.now() < 1642536000000 ?
                         <Button variant="primary" disabled={requestedApproval} onClick={handleApprove}>
                             Approve {token}
                         </Button>
-                        : <Button variant="primary" onClick={handleMigrate}
-                        >
-                            Convert
-                        </Button>
+                        : null
+                    }
+                    { isApproved && Date.now() < 1642536000000 ?
+                      <Button variant="primary" onClick={handleMigrate}
+                      >
+                          Convert
+                      </Button>
+                      : null
+                    }
+                    {Date.now() >= 1642536000000 ?
+                      <Button variant="primary" disabled>
+                          Convert
+                      </Button>
+                      : null
                     }
                 </CardFooter>
 
